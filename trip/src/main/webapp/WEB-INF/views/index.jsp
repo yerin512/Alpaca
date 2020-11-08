@@ -11,7 +11,7 @@
     
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/${contextPath}/resources/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="${contextPath}/resources/css/animate.css">
     
@@ -29,25 +29,25 @@
 <body>
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
    <div class="container">
-     <a class="navbar-brand" href="index.html"><span>TRAVEL </span>MAKER</a>
+     <a class="navbar-brand" href="index.jsp"><span>TRAVEL </span>MAKER</a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
        <span class="oi oi-menu"></span> Menu
    </button>
 
    <div class="collapse navbar-collapse" id="ftco-nav">
        <ul class="navbar-nav ml-auto">
-         <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-         <li class="nav-item"><a href="about.html" class="nav-link">일정짜기</a></li>
-         <li class="nav-item"><a href="course.html" class="nav-link">동행찾기</a></li>
-         <li class="nav-item"><a href="instructor.html" class="nav-link">맞춤테마</a></li>
-           <li class="nav-item"><a href="blog.html" class="nav-link">마이페이지</a></li>
+         <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
+         <li class="nav-item"><a href="about.jsp" class="nav-link">일정짜기</a></li>
+         <li class="nav-item"><a href="course.jsp" class="nav-link">동행찾기</a></li>
+         <li class="nav-item"><a href="instructor.jsp" class="nav-link">맞춤테마</a></li>
+           <li class="nav-item"><a href="blog.jsp" class="nav-link">마이페이지</a></li>
      </ul>
    </div>
 </div>
 </nav>
 <!-- END nav -->
 
-<div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
+<div class="hero-wrap js-fullheight" style="background-image: url('${contextPath}/resources/images/bg_1.jpg');">
   <div class="overlay"></div>
   <div class="container">
     <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
@@ -132,6 +132,3 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="resources/js/google-map.js"></script>
 <script src="resources/js/main.js"></script>
-
-</body>
-</html>
