@@ -17,5 +17,12 @@
 		 values(#{name}, #{email}, #{pwd})
 		]]>
 	</insert>
+	
+	  <select id="loginById"  resultType="memberVO"   parameterType="memberVO" >
+	<![CDATA[
+		select * from trip_member	
+		where email=#{email} and pwd=#{pwd}		
+	]]>
+  </select>
 
 </mapper>

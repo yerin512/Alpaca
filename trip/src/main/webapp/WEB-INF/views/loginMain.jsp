@@ -37,6 +37,18 @@
 
 <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
+
+
+<c:choose>
+	<c:when test="${result=='loginFailed' }">
+	  <script>
+	    window.onload=function(){
+	      alert("아이디나 비밀번호가 틀립니다.다시 로그인 하세요!");
+	    }
+	  </script>
+	</c:when>
+</c:choose>  
+
 </head>
 <body>
 	<nav
@@ -80,14 +92,13 @@
 					<p class="caps">Far far away, behind the word mountains, far
 						from the countries Vokalia and Consonantia</p>
 					<p class="mb-0">
-						<a href="#" class="btn btn-primary">일정짜기</a> <a href="#"
+						<a href="about.do" class="btn btn-primary">일정짜기</a> <a href="course.do"
 							class="btn btn-white">동행찾기</a>
 					</p>
 				</div>
 			</div>
 		</div>
 	</div>
-
 
 	<section class="ftco-section ftco-no-pb ftco-no-pt">
 		<div class="container">
@@ -96,22 +107,16 @@
 				<div class="col-md-5 order-md-last">
 					<div class="login-wrap p-4 p-md-5">
 						<h3 class="mb-4">Register Now</h3>
-						<form action="${contextPath}/member/addMember.do"
+						<form action="${contextPath}/member/login.do"
 							class="signup-form" method="post">
 							<div class="form-group">
-								<label class="label" for="name">Full Name</label> <input
-									type="text" class="form-control" name="name"
-									placeholder="John Doe">
-							</div>
-							<div class="form-group">
 								<label class="label" for="email">Email Address</label> <input
-									type="text" class="form-control" name="email"
-									placeholder="johndoe@gmail.com">
+									type="text" class="form-control" name="email">
 							</div>
 							<div class="form-group">
 								<label class="label" for="pwd">Password</label> <input
 									id="password-field" type="password" class="form-control"
-									name="pwd" placeholder="Password">
+									name="pwd" >
 							</div>
 
 							<div class="form-group d-flex justify-content-end mt-4">
@@ -121,7 +126,7 @@
 							</div>
 						</form>
 						<p class="text-center">
-							Already have an account? <a href="loginMain.do">Sign In</a>
+							Already have an account? <a href="#signin">Sign In</a>
 						</p>
 					</div>
 				</div>

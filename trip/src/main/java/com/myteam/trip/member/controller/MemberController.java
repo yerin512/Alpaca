@@ -16,4 +16,9 @@ import com.myteam.trip.member.vo.MemberVO;
 public interface MemberController {
 	public ModelAndView addMember(@ModelAttribute("member") MemberVO member,
             HttpServletRequest request, HttpServletResponse response) throws Exception;
+	
+	public ModelAndView login(@ModelAttribute("member") MemberVO member,
+            RedirectAttributes rAttr,
+             HttpServletRequest request, HttpServletResponse response) throws Exception;
+	
 }
