@@ -44,11 +44,11 @@ public class MemberControllerImpl   implements MemberController {
 		response.setContentType("html/text;charset=utf-8");
 		int result = 0;
 		result = memberService.addMember(member);
-		ModelAndView mav = new ModelAndView("redirect:/loginMain.do");
+		ModelAndView mav = new ModelAndView("redirect:/signup.do");
 		return mav;
 	}
 	
-	@RequestMapping(value="loginMain.do" ,method = RequestMethod.GET)
+	@RequestMapping(value="signup.do" ,method = RequestMethod.GET)
 	private ModelAndView loginMain(HttpServletRequest request, HttpServletResponse response) {
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
@@ -79,7 +79,7 @@ public class MemberControllerImpl   implements MemberController {
 
 	}else {
 	   rAttr.addAttribute("result","loginFailed");
-	   mav.setViewName("redirect:/loginMain.do");
+	   mav.setViewName("redirect:/signup.do");
 	}
 	return mav;
 	}
