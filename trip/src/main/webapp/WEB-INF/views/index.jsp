@@ -68,29 +68,21 @@
          <div class="col-md-7"></div>
          <div class="col-md-5 order-md-last">
           <div class="login-wrap p-4 p-md-5">
-              <h3 class="mb-4">Register Now</h3>
+              <h3 class="mb-4">Sign in to Travel Maker</h3>
               <form action="#" class="signup-form">
                  <div class="form-group">
-                    <label class="label" for="name">Full Name</label>
+                    <label class="label" for="name">ID</label>
                     <input type="text" class="form-control" placeholder="John Doe">
-                </div>
-                <div class="form-group">
-                    <label class="label" for="email">Email Address</label>
-                    <input type="text" class="form-control" placeholder="johndoe@gmail.com">
                 </div>
                 <div class="form-group">
                  <label class="label" for="password">Password</label>
                  <input id="password-field" type="password" class="form-control" placeholder="Password">
              </div>
-             <div class="form-group">
-                 <label class="label" for="password">Confirm Password</label>
-                 <input id="password-field" type="password" class="form-control" placeholder="Confirm Password">
-             </div>
              <div class="form-group d-flex justify-content-end mt-4">
-                 <button type="submit" class="btn btn-primary submit"><span class="fa fa-paper-plane"></span></button>
+                 <button type="submit" class="btn btn-primary submit btn-primary_submit">Sign in<span class="fa fa-paper-plane"></span></button>
              </div>
          </form>
-         <p class="text-center">Already have an account? <a href="#signin">Sign In</a></p>
+         <p class="text-center">Sign up for Travel Maker? <a href="#signin">Sign Up</a></p>
      </div>
  </div>
 </div>

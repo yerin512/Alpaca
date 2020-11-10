@@ -58,252 +58,285 @@
 		</div>
 	</section>
 
-	<section class="ftco-section bg-light">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 col-lg-3 ftco-animate d-flex align-items-stretch">
-					<div class="staff">
-						<div class="img-wrap d-flex align-items-stretch">
-							<div class="img align-self-stretch" style="background-image: url(${contextPath}/resources/images/teacher-1.jpg);"></div>
-						</div>
-						<div class="text pt-3">
-							<h3><a href="instructor-details.do">Bianca Wilson</a></h3>
-							<span class="position mb-2">Business</span>
-							<div class="faded">
-								<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-								<ul class="ftco-social text-center">
-									<li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-google"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate d-flex align-items-stretch">
-					<div class="staff">
-						<div class="img-wrap d-flex align-items-stretch">
-							<div class="img align-self-stretch" style="background-image: url(${contextPath}/resources/images/teacher-2.jpg);"></div>
-						</div>
-						<div class="text pt-3">
-							<h3><a href="instructor-details.do">Mitch Parker</a></h3>
-							<span class="position mb-2">Programmer</span>
-							<div class="faded">
-								<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-								<ul class="ftco-social text-center">
-									<li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-google"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate d-flex align-items-stretch">
-					<div class="staff">
-						<div class="img-wrap d-flex align-items-stretch">
-							<div class="img align-self-stretch" style="background-image: url(${contextPath}/resources/images/teacher-3.jpg);"></div>
-						</div>
-						<div class="text pt-3">
-							<h3><a href="instructor-details.do">Stella Smith</a></h3>
-							<span class="position mb-2">Developer</span>
-							<div class="faded">
-								<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-								<ul class="ftco-social text-center">
-									<li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-google"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate d-flex align-items-stretch">
-					<div class="staff">
-						<div class="img-wrap d-flex align-items-stretch">
-							<div class="img align-self-stretch" style="background-image: url(${contextPath}/resources/images/teacher-4.jpg);"></div>
-						</div>
-						<div class="text pt-3">
-							<h3><a href="instructor-details.do">Monshe Henderson</a></h3>
-							<span class="position mb-2">Graphic</span>
-							<div class="faded">
-								<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-								<ul class="ftco-social text-center">
-									<li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-google"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
 
-				<div class="col-md-6 col-lg-3 ftco-animate d-flex align-items-stretch">
-					<div class="staff">
-						<div class="img-wrap d-flex align-items-stretch">
-							<div class="img align-self-stretch" style="background-image: url(${contextPath}/resources/images/teacher-5.jpg);"></div>
-						</div>
-						<div class="text pt-3">
-							<h3><a href="instructor-details.do">Bianca Wilson</a></h3>
-							<span class="position mb-2">Business</span>
-							<div class="faded">
-								<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-								<ul class="ftco-social text-center">
-									<li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-google"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate d-flex align-items-stretch">
-					<div class="staff">
-						<div class="img-wrap d-flex align-items-stretch">
-							<div class="img align-self-stretch" style="background-image: url(${contextPath}/resources/images/teacher-6.jpg);"></div>
-						</div>
-						<div class="text pt-3">
-							<h3><a href="instructor-details.do">Mitch Parker</a></h3>
-							<span class="position mb-2">Programmer</span>
-							<div class="faded">
-								<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-								<ul class="ftco-social text-center">
-									<li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-google"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate d-flex align-items-stretch">
-					<div class="staff">
-						<div class="img-wrap d-flex align-items-stretch">
-							<div class="img align-self-stretch" style="background-image: url(${contextPath}/resources/images/teacher-7.jpg);"></div>
-						</div>
-						<div class="text pt-3">
-							<h3><a href="instructor-details.do">Stella Smith</a></h3>
-							<span class="position mb-2">Developer</span>
-							<div class="faded">
-								<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-								<ul class="ftco-social text-center">
-									<li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-google"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate d-flex align-items-stretch">
-					<div class="staff">
-						<div class="img-wrap d-flex align-items-stretch">
-							<div class="img align-self-stretch" style="background-image: url(${contextPath}/resources/images/teacher-8.jpg);"></div>
-						</div>
-						<div class="text pt-3">
-							<h3><a href="instructor-details.do">Monshe Henderson</a></h3>
-							<span class="position mb-2">Graphic</span>
-							<div class="faded">
-								<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-								<ul class="ftco-social text-center">
-									<li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-google"></span></a></li>
-									<li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row mt-5">
-				<div class="col text-center">
-					<div class="block-27">
-						<ul>
-							<li><a href="#">&lt;</a></li>
-							<li class="active"><span>1</span></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-							<li><a href="#">&gt;</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+<section class="ftco-section testimony-section bg-light">
+ <div class="overlay" style="background-image: url(${contextPath}/resources/images/bg_2.jpg);"></div>
+ <div class="container">
+  <div class="row pb-4">
+    <div class="col-md-7 heading-section ftco-animate">
+     <span class="subheading">Testimonial</span>
+     <h2 class="mb-4">What Are Students Says</h2>
+   </div>
+ </div>
+</div>
+<div class="container container-2">
+  <div class="row ftco-animate">
+    <div class="col-md-12">
+      <div class="carousel-testimony owl-carousel">
+        <div class="item">
+          <div class="testimony-wrap py-4">
+            <div class="text">
+             <p class="star">
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </p>
+            <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            <div class="d-flex align-items-center">
+             <div class="user-img" style="background-image: url(${contextPath}/resources/images/person_1.jpg)"></div>
+             <div class="pl-3">
+              <p class="name">Roger Scott</p>
+              <span class="position">Marketing Manager</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="testimony-wrap py-4">
+        <div class="text">
+         <p class="star">
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+        </p>
+        <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+        <div class="d-flex align-items-center">
+         <div class="user-img" style="background-image: url(${contextPath}/resources/images/person_2.jpg)"></div>
+         <div class="pl-3">
+          <p class="name">Roger Scott</p>
+          <span class="position">Marketing Manager</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="item">
+  <div class="testimony-wrap py-4">
+    <div class="text">
+     <p class="star">
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+    </p>
+    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+    <div class="d-flex align-items-center">
+     <div class="user-img" style="background-image: url(${contextPath}/resources/images/person_3.jpg)"></div>
+     <div class="pl-3">
+      <p class="name">Roger Scott</p>
+      <span class="position">Marketing Manager</span>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="item">
+  <div class="testimony-wrap py-4">
+    <div class="text">
+     <p class="star">
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+    </p>
+    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+    <div class="d-flex align-items-center">
+     <div class="user-img" style="background-image: url(${contextPath}/resources/images/person_1.jpg)"></div>
+     <div class="pl-3">
+      <p class="name">Roger Scott</p>
+      <span class="position">Marketing Manager</span>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="item">
+  <div class="testimony-wrap py-4">
+    <div class="text">
+     <p class="star">
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+    </p>
+    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+    <div class="d-flex align-items-center">
+     <div class="user-img" style="background-image: url(${contextPath}/resources/images/person_2.jpg)"></div>
+     <div class="pl-3">
+      <p class="name">Roger Scott</p>
+      <span class="position">Marketing Manager</span>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+ <div class="container">
+  <div class="row pb-4">
+    <div class="col-md-7 heading-section ftco-animate">
+     <span class="subheading">Testimonial</span>
+     <h2 class="mb-4">추천 투어테마</h2>
+   </div>
+ </div>
+</div>
+<section class="ftco-section bg-light">
+  <div class="container">
+    <div class="row d-flex">
+      <div class="col-lg-4 ftco-animate">
+        <div class="blog-entry">
+          <a href="blog-single.do" class="block-20" style="background-image: url('${contextPath}/resources/images/image_1.jpg');">
+          </a>
+          <div class="text d-block">
+           <div class="meta">
+            <p>
+             <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 17, 2020</a>
+             <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>
+             <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>
+           </p>
+         </div>
+         <h3 class="heading"><a href="#">I'm not creative, Should I take this course?</a></h3>
+         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia...</p>
+         <p><a href="blog.do" class="btn btn-secondary py-2 px-3">Read more</a></p>
+       </div>
+     </div>
+   </div>
+
+   <div class="col-lg-4 ftco-animate">
+    <div class="blog-entry">
+      <a href="blog-single.do" class="block-20" style="background-image: url('${contextPath}/resources/images/image_2.jpg');">
+      </a>
+      <div class="text d-block">
+       <div class="meta">
+        <p>
+         <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 17, 2020</a>
+         <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>
+         <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>
+       </p>
+     </div>
+     <h3 class="heading"><a href="#">I'm not creative, Should I take this course?</a></h3>
+     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia...</p>
+     <p><a href="blog.do" class="btn btn-secondary py-2 px-3">Read more</a></p>
+   </div>
+ </div>
+</div>
+<div class="col-lg-4 ftco-animate">
+  <div class="blog-entry">
+    <a href="blog-single.do" class="block-20" style="background-image: url('${contextPath}/resources/images/image_3.jpg');">
+    </a>
+    <div class="text d-block">
+     <div class="meta">
+      <p>
+       <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 17, 2020</a>
+       <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>
+       <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>
+     </p>
+   </div>
+   <h3 class="heading"><a href="#">I'm not creative, Should I take this course?</a></h3>
+   <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia...</p>
+   <p><a href="blog.do" class="btn btn-secondary py-2 px-3">Read more</a></p>
+ </div>
+</div>
+</div>
+<div class="col-lg-4 ftco-animate">
+  <div class="blog-entry">
+    <a href="blog-single.do" class="block-20" style="background-image: url('${contextPath}/resources/images/image_4.jpg');">
+    </a>
+    <div class="text d-block">
+     <div class="meta">
+      <p>
+       <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 17, 2020</a>
+       <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>
+       <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>
+     </p>
+   </div>
+   <h3 class="heading"><a href="#">I'm not creative, Should I take this course?</a></h3>
+   <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia...</p>
+   <p><a href="blog.do" class="btn btn-secondary py-2 px-3">Read more</a></p>
+ </div>
+</div>
+</div>
+
+<div class="col-lg-4 ftco-animate">
+  <div class="blog-entry">
+    <a href="blog-single.do" class="block-20" style="background-image: url('${contextPath}/resources/images/image_5.jpg');">
+    </a>
+    <div class="text d-block">
+     <div class="meta">
+      <p>
+       <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 17, 2020</a>
+       <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>
+       <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>
+     </p>
+   </div>
+   <h3 class="heading"><a href="#">I'm not creative, Should I take this course?</a></h3>
+   <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia...</p>
+   <p><a href="blog.do" class="btn btn-secondary py-2 px-3">Read more</a></p>
+ </div>
+</div>
+</div>
+<div class="col-lg-4 ftco-animate">
+  <div class="blog-entry">
+    <a href="blog-single.do" class="block-20" style="background-image: url('${contextPath}/resources/images/image_6.jpg');">
+    </a>
+    <div class="text d-block">
+     <div class="meta">
+      <p>
+       <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 17, 2020</a>
+       <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>
+       <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>
+     </p>
+   </div>
+   <h3 class="heading"><a href="#">I'm not creative, Should I take this course?</a></h3>
+   <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia...</p>
+   <p><a href="blog.do" class="btn btn-secondary py-2 px-3">Read more</a></p>
+ </div>
+</div>
+</div>
+</div>
+<div class="row mt-5">
+  <div class="col text-center">
+    <div class="block-27">
+      <ul>
+        <li><a href="#">&lt;</a></li>
+        <li class="active"><span>1</span></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">&gt;</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
 
 	<footer class="ftco-footer ftco-no-pt">
-		<div class="container">
-			<div class="row mb-5">
-				<div class="col-md pt-5">
-					<div class="ftco-footer-widget pt-md-5 mb-4">
-						<h2 class="ftco-heading-2">About</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						<ul class="ftco-footer-social list-unstyled float-md-left float-lft">
-							<li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-							<li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
-							<li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md pt-5">
-					<div class="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
-						<h2 class="ftco-heading-2">Help Desk</h2>
-						<ul class="list-unstyled">
-							<li><a href="#" class="py-2 d-block">Customer Care</a></li>
-							<li><a href="#" class="py-2 d-block">Legal Help</a></li>
-							<li><a href="#" class="py-2 d-block">Services</a></li>
-							<li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-							<li><a href="#" class="py-2 d-block">Refund Policy</a></li>
-							<li><a href="#" class="py-2 d-block">Call Us</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md pt-5">
-					<div class="ftco-footer-widget pt-md-5 mb-4">
-						<h2 class="ftco-heading-2">Recent Courses</h2>
-						<ul class="list-unstyled">
-							<li><a href="#" class="py-2 d-block">Computer Engineering</a></li>
-							<li><a href="#" class="py-2 d-block">Web Design</a></li>
-							<li><a href="#" class="py-2 d-block">Business Studies</a></li>
-							<li><a href="#" class="py-2 d-block">Civil Engineering</a></li>
-							<li><a href="#" class="py-2 d-block">Computer Technician</a></li>
-							<li><a href="#" class="py-2 d-block">Web Developer</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md pt-5">
-					<div class="ftco-footer-widget pt-md-5 mb-4">
-						<h2 class="ftco-heading-2">Have a Questions?</h2>
-						<div class="block-23 mb-3">
-							<ul>
-								<li><span class="icon fa fa-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-								<li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-								<li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@yourdomain.com</span></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 text-center">
+  <div class="container">
+ 
+<div class="row">
+  <div class="col-md-12 text-center">
 
-					<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-					</div>
-				</div>
-			</div>
-		</footer>
+    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+      Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+  </div>
+</div>
+</div>
+</footer>
 		
 		
 
