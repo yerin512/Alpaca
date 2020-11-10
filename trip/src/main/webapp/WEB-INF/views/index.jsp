@@ -29,23 +29,24 @@
 <body>
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
    <div class="container">
-     <a class="navbar-brand" href="index.jsp"><span>TRAVEL </span>MAKER</a>
+     <a class="navbar-brand" href="index.do"><span>TRAVEL </span>MAKER</a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
        <span class="oi oi-menu"></span> Menu
    </button>
 
    <div class="collapse navbar-collapse" id="ftco-nav">
        <ul class="navbar-nav ml-auto">
-         <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
-         <li class="nav-item"><a href="about.jsp" class="nav-link">일정짜기</a></li>
-         <li class="nav-item"><a href="course.jsp" class="nav-link">동행찾기</a></li>
-         <li class="nav-item"><a href="instructor.jsp" class="nav-link">맞춤테마</a></li>
-           <li class="nav-item"><a href="blog.jsp" class="nav-link">마이페이지</a></li>
+         <li class="nav-item active"><a href="index.do" class="nav-link">Home</a></li>
+         <li class="nav-item"><a href="about.do" class="nav-link">일정짜기</a></li>
+         <li class="nav-item"><a href="course.do" class="nav-link">동행찾기</a></li>
+         <li class="nav-item"><a href="instructor.do" class="nav-link">맞춤테마</a></li>
+           <li class="nav-item"><a href="blog.do" class="nav-link">마이페이지</a></li>
      </ul>
    </div>
 </div>
 </nav>
 <!-- END nav -->
+
 
 <div class="hero-wrap js-fullheight" style="background-image: url('${contextPath}/resources/images/bg_1.jpg');">
   <div class="overlay"></div>

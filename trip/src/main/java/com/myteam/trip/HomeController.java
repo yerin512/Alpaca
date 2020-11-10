@@ -22,18 +22,44 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	@RequestMapping(value = { "/","/index.do"}, method = RequestMethod.GET)
+	public String index(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
+	
+	
 		return "index";
 	}
 	
+	
+	@RequestMapping(value = "/instructor.do", method = RequestMethod.GET)
+	public String instructor(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+	
+		return "instructor";
+	}
+	
+	@RequestMapping(value = "/about.do", method = RequestMethod.GET)
+	public String about(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+	
+		return "about";
+	}
+	
+	@RequestMapping(value = "/blog.do", method = RequestMethod.GET)
+	public String blog(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+	
+		return "blog";
+	}
+	
+	@RequestMapping(value = "/course.do", method = RequestMethod.GET)
+	public String course(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+	
+		return "course";
+	}
 }

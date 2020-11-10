@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8" isELIgnored="false"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,46 +13,46 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="${contextPath}/resources/css/animate.css">
   
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="${contextPath}/resources/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="${contextPath}/resources/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="${contextPath}/resources/css/magnific-popup.css">
 
-  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-  <link rel="stylesheet" href="css/jquery.timepicker.css">
+  <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="${contextPath}/resources/css/jquery.timepicker.css">
 
   
-  <link rel="stylesheet" href="css/flaticon.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
+  <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
 </head>
 <body>
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
    <div class="container">
-     <a class="navbar-brand" href="index.html"><span>TRAVEL </span>MAKER</a>
+     <a class="navbar-brand" href="index.do"><span>TRAVEL </span>MAKER</a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
        <span class="oi oi-menu"></span> Menu
    </button>
 
    <div class="collapse navbar-collapse" id="ftco-nav">
        <ul class="navbar-nav ml-auto">
-         <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-         <li class="nav-item"><a href="about.html" class="nav-link">일정짜기</a></li>
-         <li class="nav-item"><a href="course.html" class="nav-link">동행찾기</a></li>
-         <li class="nav-item"><a href="instructor.html" class="nav-link">맞춤테마</a></li>
-           <li class="nav-item"><a href="blog.html" class="nav-link">마이페이지</a></li>
+         <li class="nav-item active"><a href="index.do" class="nav-link">Home</a></li>
+         <li class="nav-item"><a href="about.do" class="nav-link">일정짜기</a></li>
+         <li class="nav-item"><a href="course.do" class="nav-link">동행찾기</a></li>
+         <li class="nav-item"><a href="instructor.do" class="nav-link">맞춤테마</a></li>
+           <li class="nav-item"><a href="blog.do" class="nav-link">마이페이지</a></li>
      </ul>
    </div>
 </div>
 </nav>
  <!-- END nav -->
  
- <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');">
+ <section class="hero-wrap hero-wrap-2" style="background-image: url('${contextPath}/resources/images/bg_2.jpg');">
   <div class="overlay"></div>
   <div class="container">
     <div class="row no-gutters slider-text align-items-end justify-content-center">
       <div class="col-md-9 ftco-animate pb-5 text-center">
-       <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>일정짜기 <i class="fa fa-chevron-right"></i></span></p>
+       <p class="breadcrumbs"><span class="mr-2"><a href="index.do">Home <i class="fa fa-chevron-right"></i></a></span> <span>일정짜기 <i class="fa fa-chevron-right"></i></span></p>
        <h1 class="mb-0 bread">일정짜기</h1>
      </div>
    </div>
@@ -66,9 +68,9 @@
     <div class="row">
      <div class="col-md-6 d-flex">
       <div class="d-flex about-wrap">
-       <div class="img d-flex align-items-center justify-content-center" style="background-image:url(images/about-1.jpg);">
+       <div class="img d-flex align-items-center justify-content-center" style="background-image:url(${contextPath}/resources/images/about-1.jpg);">
        </div>
-       <div class="img-2 d-flex align-items-center justify-content-center" style="background-image:url(images/about.jpg);">
+       <div class="img-2 d-flex align-items-center justify-content-center" style="background-image:url(${contextPath}/resources/images/about.jpg);">
        </div>
      </div>
    </div>
@@ -88,7 +90,7 @@
 </div>
 </section>
 
-<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_4.jpg);">
+<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(${contextPath}/resources/images/bg_4.jpg);">
  <div class="overlay"></div>
  <div class="container">
   <div class="row">
@@ -134,7 +136,7 @@
 
 
 <section class="ftco-section testimony-section bg-light">
- <div class="overlay" style="background-image: url(images/bg_2.jpg);"></div>
+ <div class="overlay" style="background-image: url(${contextPath}/resources/images/bg_2.jpg);"></div>
  <div class="container">
   <div class="row pb-4">
     <div class="col-md-7 heading-section ftco-animate">
@@ -159,7 +161,7 @@
             </p>
             <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
             <div class="d-flex align-items-center">
-             <div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+             <div class="user-img" style="background-image: url(${contextPath}/resources/images/person_1.jpg)"></div>
              <div class="pl-3">
               <p class="name">Roger Scott</p>
               <span class="position">Marketing Manager</span>
@@ -180,7 +182,7 @@
         </p>
         <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
         <div class="d-flex align-items-center">
-         <div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+         <div class="user-img" style="background-image: url(${contextPath}/resources/images/person_2.jpg)"></div>
          <div class="pl-3">
           <p class="name">Roger Scott</p>
           <span class="position">Marketing Manager</span>
@@ -201,7 +203,7 @@
     </p>
     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
     <div class="d-flex align-items-center">
-     <div class="user-img" style="background-image: url(images/person_3.jpg)"></div>
+     <div class="user-img" style="background-image: url(${contextPath}/resources/images/person_3.jpg)"></div>
      <div class="pl-3">
       <p class="name">Roger Scott</p>
       <span class="position">Marketing Manager</span>
@@ -222,7 +224,7 @@
     </p>
     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
     <div class="d-flex align-items-center">
-     <div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+     <div class="user-img" style="background-image: url(${contextPath}/resources/images/person_1.jpg)"></div>
      <div class="pl-3">
       <p class="name">Roger Scott</p>
       <span class="position">Marketing Manager</span>
@@ -243,7 +245,7 @@
     </p>
     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
     <div class="d-flex align-items-center">
-     <div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+     <div class="user-img" style="background-image: url(${contextPath}/resources/images/person_2.jpg)"></div>
      <div class="pl-3">
       <p class="name">Roger Scott</p>
       <span class="position">Marketing Manager</span>
@@ -262,7 +264,7 @@
  <div class="container">
   <div class="row justify-content-center">
    <div class="col-md-12 text-center">
-    <div class="img"  style="background-image: url(images/bg_4.jpg);">
+    <div class="img"  style="background-image: url(${contextPath}/resources/images/bg_4.jpg);">
      <div class="overlay"></div>
      <h2>We Are StudyLab An Online Learning Center</h2>
      <p>We can manage your dream building A small river named Duden flows by their place</p>
@@ -283,7 +285,7 @@
         <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
         <div class="d-flex video-image align-items-center mt-md-4">
-          <a href="#" class="video img d-flex align-items-center justify-content-center" style="background-image: url(images/about.jpg);">
+          <a href="#" class="video img d-flex align-items-center justify-content-center" style="background-image: url(${contextPath}/resources/images/about.jpg);">
            <span class="fa fa-play-circle"></span>
          </a>
          <h4 class="ml-4">Learn anything from StudyLab, Watch video</h4>
@@ -354,21 +356,21 @@
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery-migrate-3.0.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/jquery.waypoints.min.js"></script>
-<script src="js/jquery.stellar.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/jquery.animateNumber.min.js"></script>
-<script src="js/bootstrap-datepicker.js"></script>
-<script src="js/scrollax.min.js"></script>
+<script src="resources/js/jquery.min.js"></script>
+<script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="resources/js/popper.min.js"></script>
+<script src="resources/js/bootstrap.min.js"></script>
+<script src="resources/js/jquery.easing.1.3.js"></script>
+<script src="resources/js/jquery.waypoints.min.js"></script>
+<script src="resources/js/jquery.stellar.min.js"></script>
+<script src="resources/js/owl.carousel.min.js"></script>
+<script src="resources/js/jquery.magnific-popup.min.js"></script>
+<script src="resources/js/jquery.animateNumber.min.js"></script>
+<script src="resources/js/bootstrap-datepicker.js"></script>
+<script src="resources/js/scrollax.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="js/google-map.js"></script>
-<script src="js/main.js"></script>
+<script src="resources/js/google-map.js"></script>
+<script src="resources/js/main.js"></script>
 
 </body>
 </html>
