@@ -65,14 +65,17 @@
          <div class="col-md-12 order-md-last">
           <div class="p-4 p-md-5" id="sign_up_wrap">
               <h3 class="mb-4">Create your account</h3>
-              <form action="#" class="signup-form">
+
+              <form action="member/addMember.do" class="signup-form" method="post">
               	<div class="form-group">
                     <label class="label" for="id">ID</label>
-                    <input type="text" class="form-control" placeholder="ID">
+                    <input type="text" name="id" class="form-control" placeholder="ID">
+
+              
                 </div>
                  <div class="form-group">
                  <label class="label" for="password">Password</label>
-                 <input id="password-field" type="password" class="form-control" placeholder="Password">
+                 <input id="password-field" name="pwd" type="password" class="form-control" placeholder="Password">
              </div>
              <div class="form-group">
                  <label class="label" for="password">Confirm Password</label>
@@ -80,20 +83,24 @@
              </div>
                  <div class="form-group">
                     <label class="label" for="name">Full Name</label>
-                    <input type="text" class="form-control" placeholder="홍길동">
+
+                    <input type="text" name="name" class="form-control" placeholder="홍길동">
                 </div>
                 <div class="form-group">
                     <label class="label" for="email">Email Address</label>
-                    <input type="text" class="form-control" placeholder="hong@gmail.com">
+                    <input type="text" name="email" class="form-control" placeholder="hong@gmail.com">
+
                   <!--   <button>인증번호 보내기</button>
                     <input type="text" class="form-control" placeholder="인증번호 입력">	--> 
                 </div>
                
-             <div class="form-group d-flex justify-content-end mt-4">
+
+            	 <div class="form-group d-flex justify-content-end mt-4">
+
                  <button type="submit" class="btn btn-primary submit"><span class="fa fa-paper-plane"></span></button>
              </div>
          </form>
-         <p class="text-center">Already have an account? <a href="#signin">Sign In</a></p>
+       <!--   <p class="text-center">Already have an account? <a href="#signin">Sign In</a></p> -->
      </div>
 </div>
 </div>

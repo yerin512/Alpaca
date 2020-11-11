@@ -8,20 +8,21 @@
 		<result property="name" column="name" />
 		<result property="email" column="email" />
 		<result property="pwd" column="pwd" />
+		<result property="id" column="id" />
 	</resultMap>
 
 
 	<insert id="insertMember" parameterType="memberVO">
 		<![CDATA[
-		 insert into trip_member(name, email, pwd)
-		 values(#{name}, #{email}, #{pwd})
+		 insert into trip_member(id, name, email, pwd)
+		 values(#{id}, #{name}, #{email}, #{pwd})
 		]]>
 	</insert>
 	
 	  <select id="loginById"  resultType="memberVO"   parameterType="memberVO" >
 	<![CDATA[
 		select * from trip_member	
-		where email=#{email} and pwd=#{pwd}		
+		where id=#{id} and pwd=#{pwd}		
 	]]>
   </select>
 
