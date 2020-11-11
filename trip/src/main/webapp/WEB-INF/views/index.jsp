@@ -35,12 +35,12 @@
    </button>
 
    <div class="collapse navbar-collapse" id="ftco-nav">
-       <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto">
          <li class="nav-item active"><a href="index.do" class="nav-link">Home</a></li>
-         <li class="nav-item"><a href="about.do" class="nav-link">일정짜기</a></li>
-         <li class="nav-item"><a href="course.do" class="nav-link">동행찾기</a></li>
-         <li class="nav-item"><a href="instructor.do" class="nav-link">맞춤테마</a></li>
-           <li class="nav-item"><a href="blog.do" class="nav-link">마이페이지</a></li>
+         <li class="nav-item"><a href="plan.do" class="nav-link">일정짜기</a></li>
+         <li class="nav-item"><a href="with.do" class="nav-link">동행찾기</a></li>
+         <li class="nav-item"><a href="themaTour.do" class="nav-link">맞춤테마</a></li>
+           <li class="nav-item"><a href="myPage.do" class="nav-link">마이페이지</a></li>
      </ul>
    </div>
 </div>
@@ -56,7 +56,7 @@
         <span class="subheading">which do you prefer?</span>
         <h1 class="mb-4">Travel alone <br>or With others?</h1>
         <p class="caps">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-        <p class="mb-0"><a href="about.do" class="btn btn-primary">일정짜기</a> <a href="course.do" class="btn btn-white">동행찾기</a></p>
+        <p class="mb-0"><a href="plan.do" class="btn btn-primary">일정짜기</a> <a href="with.do" class="btn btn-white">동행찾기</a></p>
     </div>
 </div>
 </div>
@@ -72,8 +72,8 @@
           <form action="${contextPath}/member/login.do"
 							class="signup-form" method="post">
                				<div class="form-group">
-								<label class="label" for="email">Email Address</label> <input
-									type="text" class="form-control" name="email">
+								<label class="label" for="id">ID</label> <input
+									type="text" class="form-control" name="id">
 							</div>
 							<div class="form-group">
 								<label class="label" for="pwd">Password</label> <input

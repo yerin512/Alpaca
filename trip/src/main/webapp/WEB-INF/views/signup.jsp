@@ -17,7 +17,7 @@
   
   <link rel="stylesheet" href="${contextPath}/resources/css/owl.carousel.min.css">
   <link rel="stylesheet" href="${contextPath}/resources/css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="${contextPath}/resources/css/magnific-popup.css">
+  <link rel="stylesheet" href="${contextPath}/resources/css/magnif.testimony-section .container-2ic-popup.css">
 
   <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-datepicker.css">
   <link rel="stylesheet" href="${contextPath}/resources/css/jquery.timepicker.css">
@@ -37,10 +37,10 @@
    <div class="collapse navbar-collapse" id="ftco-nav">
        <ul class="navbar-nav ml-auto">
          <li class="nav-item active"><a href="index.do" class="nav-link">Home</a></li>
-         <li class="nav-item"><a href="about.do" class="nav-link">일정짜기</a></li>
-         <li class="nav-item"><a href="course.do" class="nav-link">동행찾기</a></li>
-         <li class="nav-item"><a href="instructor.do" class="nav-link">맞춤테마</a></li>
-           <li class="nav-item"><a href="blog.do" class="nav-link">마이페이지</a></li>
+         <li class="nav-item"><a href="plan.do" class="nav-link">일정짜기</a></li>
+         <li class="nav-item"><a href="with.do" class="nav-link">동행찾기</a></li>
+         <li class="nav-item"><a href="themaTour.do" class="nav-link">맞춤테마</a></li>
+           <li class="nav-item"><a href="myPage.do" class="nav-link">마이페이지</a></li>
      </ul>
    </div>
 </div>
@@ -64,17 +64,13 @@
       <div class="row">
          <div class="col-md-12 order-md-last">
           <div class="p-4 p-md-5" id="sign_up_wrap">
-              <h3 class="mb-4">Register Now</h3>
+              <h3 class="mb-4">Create your account</h3>
               <form action="#" class="signup-form">
+              	<div class="form-group">
+                    <label class="label" for="id">ID</label>
+                    <input type="text" class="form-control" placeholder="ID">
+                </div>
                  <div class="form-group">
-                    <label class="label" for="name">Full Name</label>
-                    <input type="text" class="form-control" placeholder="John Doe">
-                </div>
-                <div class="form-group">
-                    <label class="label" for="email">Email Address</label>
-                    <input type="text" class="form-control" placeholder="johndoe@gmail.com">
-                </div>
-                <div class="form-group">
                  <label class="label" for="password">Password</label>
                  <input id="password-field" type="password" class="form-control" placeholder="Password">
              </div>
@@ -82,6 +78,17 @@
                  <label class="label" for="password">Confirm Password</label>
                  <input id="password-field" type="password" class="form-control" placeholder="Confirm Password">
              </div>
+                 <div class="form-group">
+                    <label class="label" for="name">Full Name</label>
+                    <input type="text" class="form-control" placeholder="홍길동">
+                </div>
+                <div class="form-group">
+                    <label class="label" for="email">Email Address</label>
+                    <input type="text" class="form-control" placeholder="hong@gmail.com">
+                  <!--   <button>인증번호 보내기</button>
+                    <input type="text" class="form-control" placeholder="인증번호 입력">	--> 
+                </div>
+               
              <div class="form-group d-flex justify-content-end mt-4">
                  <button type="submit" class="btn btn-primary submit"><span class="fa fa-paper-plane"></span></button>
              </div>

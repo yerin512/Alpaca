@@ -2254,7 +2254,7 @@ fieldset:disabled a.btn {
       box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); }
       
       
- #sign_up_wrap{border:5px solid red !important;}     
+    
 
 .btn-secondary {
   color: #fff;
@@ -8705,7 +8705,11 @@ h1, h2, h3, h4, h5,
     color: #4986fc;
     font-size: 24px; }
     
-
+ #sign_up_wrap{width:60%;margin:0 auto} 
+#sign_up_wrap .mb-4{text-align:center}
+#sign_up_wrap .form-control{border:1px solid rgba(0, 0, 0, 0.3)} 
+#sign_up_wrap label{color:#444}
+#sign_up_wrap .form-control{height:43px}
 
 .login-wrap {
   position: relative;
@@ -9466,9 +9470,9 @@ textarea.form-control {
 
 .testimony-section {
   position: relative; }
-  .testimony-section .container-2 {
+   {
     margin: 0 0 0 auto !important;
-    max-width: 1290px; }
+    max-width: 1350px; }
   .testimony-section .overlay {
   	display:none;
     background-size: cover;
