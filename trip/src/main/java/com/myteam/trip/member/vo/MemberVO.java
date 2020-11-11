@@ -10,16 +10,18 @@ public class MemberVO {
 	private String name;
 	private String email;
 	private String pwd;
-
+	private String id;
+	
 	public MemberVO() {
 		
 	}
 
-	public MemberVO(String name, String email, String pwd) {
+	public MemberVO(String name, String email, String pwd, String id) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.pwd = pwd;
+		this.id = id;
 	}
 
 	public String getName() {
@@ -46,5 +48,14 @@ public class MemberVO {
 		this.pwd = pwd;
 	}
 
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	
 	
 }

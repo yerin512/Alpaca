@@ -31,35 +31,35 @@ public class HomeController {
 //	}
 	
 	
-	@RequestMapping(value = "/instructor.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/themaTour.do", method = RequestMethod.GET)
 	public String instructor(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 	
-		return "instructor";
+		return "themaTour";
 	}
 	
-	@RequestMapping(value = "/about.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/plan.do", method = RequestMethod.GET)
 	public String about(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 	
-		return "about";
+		return "plan";
 	}
 	
-	@RequestMapping(value = "/blog.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/myPage.do", method = RequestMethod.GET)
 	public String blog(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 	
-		return "blog";
+		return "myPage";
 	}
 	
-	@RequestMapping(value = "/course.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/with.do", method = RequestMethod.GET)
 	public String course(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 	
-		return "course";
+		return "with";
 	}
 }

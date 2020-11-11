@@ -5,26 +5,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>StudyLab - Free Bootstrap 4 Template by Colorlib</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+  <title>StudyLab - Free Bootstrap 4 Template by Colorlib</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="${contextPath}/resources/css/animate.css">
-    
-    <link rel="stylesheet" href="${contextPath}/resources/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/magnific-popup.css">
+  <link rel="stylesheet" href="${contextPath}/resources/css/animate.css">
+  
+  <link rel="stylesheet" href="${contextPath}/resources/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="${contextPath}/resources/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="${contextPath}/resources/css/magnific-popup.css">
 
-    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/jquery.timepicker.css">
+  <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="${contextPath}/resources/css/jquery.timepicker.css">
 
-
-    <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
+  
+  <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
+  <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
 </head>
 <body>
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -45,52 +45,21 @@
    </div>
 </div>
 </nav>
-<!-- END nav -->
-
-
-<div class="hero-wrap js-fullheight" style="background-image: url('${contextPath}/resources/images/bg_1.jpg');">
+ <!-- END nav -->
+ 
+ <section class="hero-wrap hero-wrap-2" style="background-image: url('${contextPath}/resources/images/bg_2.jpg');">
   <div class="overlay"></div>
   <div class="container">
-    <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
-      <div class="col-md-7 ftco-animate">
-        <span class="subheading">which do you prefer?</span>
-        <h1 class="mb-4">Travel alone <br>or With others?</h1>
-        <p class="caps">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-        <p class="mb-0"><a href="plan.do" class="btn btn-primary">일정짜기</a> <a href="with.do" class="btn btn-white">동행찾기</a></p>
-    </div>
-</div>
-</div>
-</div>
-
-<section class="ftco-section ftco-no-pb ftco-no-pt">
-   <div class="container">
-      <div class="row">
-         <div class="col-md-7"></div>
-         <div class="col-md-5 order-md-last">
-          <div class="login-wrap p-4 p-md-5">
-              <h3 class="mb-4">Sign in to Travel Maker</h3>
-          <form action="${contextPath}/member/login.do"
-							class="signup-form" method="post">
-               				<div class="form-group">
-								<label class="label" for="id">ID</label> <input
-									type="text" class="form-control" name="id">
-							</div>
-							<div class="form-group">
-								<label class="label" for="pwd">Password</label> <input
-									id="password-field" type="password" class="form-control"
-									name="pwd" >
-							</div>
-             <div class="form-group d-flex justify-content-end mt-4">
-                 <button type="submit" class="btn btn-primary submit btn-primary_submit">Sign in<span class="fa fa-paper-plane"></span></button>
-             </div>
-         </form>
-         <p class="text-center">Sign up for Travel Maker? <a href="signup.do">Sign Up</a></p>
+    <div class="row no-gutters slider-text align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+       <p class="breadcrumbs"><span class="mr-2"><a href="index.do">Home <i class="fa fa-chevron-right"></i></a></span> <span>일정짜기 <i class="fa fa-chevron-right"></i></span></p>
+       <h1 class="mb-0 bread">일정짜기</h1>
      </div>
+   </div>
  </div>
-</div>
-</div>
 </section>
-<!---->
+
+
 
 <footer class="ftco-footer ftco-no-pt">
   <div class="container">
@@ -127,3 +96,6 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="resources/js/google-map.js"></script>
 <script src="resources/js/main.js"></script>
+
+</body>
+</html>
