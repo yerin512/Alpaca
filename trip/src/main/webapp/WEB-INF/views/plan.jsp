@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>StudyLab - Free Bootstrap 4 Template by Colorlib</title>
+   <title>Travel Maker - 개인 맞춤형 여행 사이트</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>StudyLab - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Travel Maker - 개인 맞춤형 여행 사이트</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
@@ -21,11 +21,20 @@
 
 	<link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-datepicker.css">
 	<link rel="stylesheet" href="${contextPath}/resources/css/jquery.timepicker.css">
-
 	
 	<link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
 	<link rel="stylesheet" href="${contextPath}/resources/css/style.css">
 </head>
+<script type="text/javascript">
+$(document).ready(function() {   
+    $(".checkBox_btn").mouseover(function(){
+        $(".checkBox").show();
+    });
+    $(".checkBox_btn").mouseout(function(){
+        $(".checkBox").hide();
+    });
+});
+</script>
 <body>
 	 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
    <div class="container">
@@ -58,7 +67,61 @@
 			</div>
 		</div>
 	</section>
-
+	
+	<!-- 본문 -->
+	<section class="content_wrap">
+		<form class="with_search">
+			<div class="search_title">
+				<p>맞춤투어</p>
+				<span>세상에서 단 하나뿐인 나만의 여행을 경험해보세요!</span>
+			</div>
+			<div class="search_box">
+				<input type="text" placeholder="국가/도시">
+				<select name ="select_order" class="select_order">
+					<option value="view_latest">최신순</option>
+					<option value="view_count">조회순</option>
+				</select>
+				<div class="checkBox_btn"><a>동행 스타일</a></div>
+				<div class="checkBox">
+					<label for="style01">
+			        <input type="checkbox" id="style01" />힐링</label>
+			        <label for="style01">
+			        <input type="checkbox" id="style02" />가성비</label>
+			        <label for="style01">
+			        <input type="checkbox" id="style03" />플렉스</label>
+			        <label for="style01">
+			        <input type="checkbox" id="style04" />힐링</label>
+			        <label for="style01">
+			        <input type="checkbox" id="style05" />가성비</label>
+			        <br>
+			        <label for="style01">
+			        <input type="checkbox" id="style06" />플렉스</label>
+			        <label for="style01">
+			        <input type="checkbox" id="style07" />힐링</label>
+			        <label for="style01">
+			        <input type="checkbox" id="style08" />가성비</label>
+			        <label for="style01">
+			        <input type="checkbox" id="style09" />플렉스</label>
+			        <label for="style01">
+			        <input type="checkbox" id="style10" />플렉스</label>
+			        <br>
+			        <label for="style01">
+			        <input type="checkbox" id="style01" />힐링</label>
+			        <label for="style01">
+			        <input type="checkbox" id="style02" />가성비</label>
+			        <label for="style01">
+			        <input type="checkbox" id="style03" />플렉스</label>
+			        <label for="style01">
+			        <input type="checkbox" id="style04" />힐링</label>
+			        <label for="style01">
+			        <input type="checkbox" id="style05" />가성비</label>
+				</div>
+			</div>
+		</form>
+	</section>
+ 	<!-- 게시판 -->
+ 	
+ 	
 <footer class="ftco-footer ftco-no-pt">
   <div class="container">
  
@@ -75,7 +138,7 @@
 			<!-- loader -->
 			<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-
+			
 			<script src="resources/js/jquery.min.js"></script>
 			<script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
 			<script src="resources/js/popper.min.js"></script>
