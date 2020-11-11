@@ -2252,6 +2252,9 @@ fieldset:disabled a.btn {
     .show > .btn-primary.dropdown-toggle:focus {
       -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
       box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); }
+      
+      
+ #sign_up_wrap{border:5px solid red !important;}     
 
 .btn-secondary {
   color: #fff;
@@ -8701,6 +8704,8 @@ h1, h2, h3, h4, h5,
   .icon-video span {
     color: #4986fc;
     font-size: 24px; }
+    
+
 
 .login-wrap {
   position: relative;
@@ -9319,6 +9324,9 @@ textarea.form-control {
       background: #4986fc; }
 
 .ftco-footer {
+ position:fixed;
+ bottom:0;
+ width:100%;
   font-size: 16px;
   padding:  0;
   z-index: 0;
