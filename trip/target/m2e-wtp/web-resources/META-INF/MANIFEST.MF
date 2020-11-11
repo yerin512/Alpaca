@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: bitcamp
+=======
+Built-By: dks05
+>>>>>>> origin/ahnyerin
 Build-Jdk: 10.0.2
 Created-By: Maven Integration for Eclipse
 
