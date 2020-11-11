@@ -65,17 +65,13 @@
          <div class="col-md-12 order-md-last">
           <div class="p-4 p-md-5" id="sign_up_wrap">
               <h3 class="mb-4">Create your account</h3>
-<<<<<<< HEAD
+
               <form action="member/addMember.do" class="signup-form" method="post">
               	<div class="form-group">
                     <label class="label" for="id">ID</label>
                     <input type="text" name="id" class="form-control" placeholder="ID">
-=======
-              <form action="#" class="signup-form">
-              	<div class="form-group">
-                    <label class="label" for="id">ID</label>
-                    <input type="text" class="form-control" placeholder="ID">
->>>>>>> origin/ahnyerin
+
+              
                 </div>
                  <div class="form-group">
                  <label class="label" for="password">Password</label>
@@ -87,28 +83,20 @@
              </div>
                  <div class="form-group">
                     <label class="label" for="name">Full Name</label>
-<<<<<<< HEAD
+
                     <input type="text" name="name" class="form-control" placeholder="홍길동">
                 </div>
                 <div class="form-group">
                     <label class="label" for="email">Email Address</label>
                     <input type="text" name="email" class="form-control" placeholder="hong@gmail.com">
-=======
-                    <input type="text" class="form-control" placeholder="홍길동">
-                </div>
-                <div class="form-group">
-                    <label class="label" for="email">Email Address</label>
-                    <input type="text" class="form-control" placeholder="hong@gmail.com">
->>>>>>> origin/ahnyerin
+
                   <!--   <button>인증번호 보내기</button>
                     <input type="text" class="form-control" placeholder="인증번호 입력">	--> 
                 </div>
                
-<<<<<<< HEAD
+
             	 <div class="form-group d-flex justify-content-end mt-4">
-=======
-             <div class="form-group d-flex justify-content-end mt-4">
->>>>>>> origin/ahnyerin
+
                  <button type="submit" class="btn btn-primary submit"><span class="fa fa-paper-plane"></span></button>
              </div>
          </form>
