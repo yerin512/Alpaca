@@ -1,0 +1,2 @@
+create table trip_member(id varchar2(20), name varchar2(20), email varchar2(40), pwd varchar2(20));
+commit;
