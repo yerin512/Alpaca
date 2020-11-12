@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Travel Maker - 개인 맞춤형 여행 사이트</title>
 	<meta charset="utf-8">
