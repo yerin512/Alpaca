@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Travel Maker - 개인 맞춤형 여행 사이트</title>
+    <title>StudyLab - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -31,7 +31,7 @@
    <div class="container">
      <a class="navbar-brand" href="index.do"><span>TRAVEL </span>MAKER</a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-       <span class="oi oi-menu"></span> Menu
+     <span class="oi oi-menu"></span> Menu
    </button>
 
    <div class="collapse navbar-collapse" id="ftco-nav">
@@ -80,10 +80,15 @@
 									id="password-field" type="password" class="form-control"
 									name="pwd" >
 							</div>
+			 <c:if test="${result == 'loginFailed' }">
+			 		<div class="alert alert-danger" id="alert-danger"> 아이디 또는 비밀번호를 확인해주세요</div> 		
+             </c:if>
+							
              <div class="form-group d-flex justify-content-end mt-4">
-                 <button type="submit" class="btn btn-primary submit btn-primary_submit">Sign in<span class="fa fa-paper-plane"></span></button>
+                 <button type="submit" class="btn btn-primary submit btn-primary_submit">로그인<span class="fa fa-paper-plane"></span></button>
              </div>
          </form>
+<<<<<<< HEAD
  
     <c:if test="${userId eq null}">
          <a href="https://kauth.kakao.com/oauth/authorize?client_id=4d6c516eb262829dabdcac45cae9703c&redirect_uri=http://localhost:8090/trip/login&response_type=code">
@@ -95,6 +100,9 @@
         <input type="button" value="로그아웃" onclick="location.href='/logout'">
     </c:if>
     
+=======
+         <p class="text-center">아직 회원이 아니신가요? <a href="signup.do">회원가입</a></p>
+>>>>>>> origin/jieun
      </div>
  </div>
 </div>
@@ -115,25 +123,24 @@
 </div>
 </div>
 </footer>
+		<!-- loader -->
+		<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-
-<!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-<script src="resources/js/jquery.min.js"></script>
-<script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="resources/js/popper.min.js"></script>
-<script src="resources/js/bootstrap.min.js"></script>
-<script src="resources/js/jquery.easing.1.3.js"></script>
-<script src="resources/js/jquery.waypoints.min.js"></script>
-<script src="resources/js/jquery.stellar.min.js"></script>
-<script src="resources/js/owl.carousel.min.js"></script>
-<script src="resources/js/jquery.magnific-popup.min.js"></script>
-<script src="resources/js/jquery.animateNumber.min.js"></script>
-<script src="resources/js/bootstrap-datepicker.js"></script>
-<script src="resources/js/scrollax.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="resources/js/google-map.js"></script>
-<script src="resources/js/main.js"></script>
+		<script src="resources/js/jquery.min.js"></script>
+		<script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
+		<script src="resources/js/popper.min.js"></script>
+		<script src="resources/js/bootstrap.min.js"></script>
+		<script src="resources/js/jquery.easing.1.3.js"></script>
+		<script src="resources/js/jquery.waypoints.min.js"></script>
+		<script src="resources/js/jquery.stellar.min.js"></script>
+		<script src="resources/js/owl.carousel.min.js"></script>
+		<script src="resources/js/jquery.magnific-popup.min.js"></script>
+		<script src="resources/js/jquery.animateNumber.min.js"></script>
+		<script src="resources/js/bootstrap-datepicker.js"></script>
+		<script src="resources/js/scrollax.min.js"></script>
+		<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=c8f1e98d3b42f208e812d6c641c3952e"></script>
+		<script src="resources/js/kakao-map.js"></script>
+		<script src="resources/js/main.js"></script>
+</body>
+</html>

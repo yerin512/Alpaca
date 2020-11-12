@@ -8,10 +8,7 @@
 <head>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/jieun
 </head>
 <body>
 <div class="container">

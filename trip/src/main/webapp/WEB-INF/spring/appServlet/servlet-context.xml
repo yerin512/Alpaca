@@ -24,8 +24,11 @@
 	
 	<context:component-scan base-package="com.myteam.trip" />
 	
-
 	
+	<mvc:resources location="/resources/" mapping="/resources/**" />
+
+
+
 	
 	
 </beans:beans>
