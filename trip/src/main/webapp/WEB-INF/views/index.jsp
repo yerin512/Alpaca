@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Travel Maker - 개인 맞춤형 여행 사이트</title>
+    <title>StudyLab - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -80,11 +80,15 @@
 									id="password-field" type="password" class="form-control"
 									name="pwd" >
 							</div>
+			 <c:if test="${result == 'loginFailed' }">
+			 		<div class="alert alert-danger" id="alert-danger"> 아이디 또는 비밀번호를 확인해주세요</div> 		
+             </c:if>
+							
              <div class="form-group d-flex justify-content-end mt-4">
-                 <button type="submit" class="btn btn-primary submit btn-primary_submit">Sign in<span class="fa fa-paper-plane"></span></button>
+                 <button type="submit" class="btn btn-primary submit btn-primary_submit">로그인<span class="fa fa-paper-plane"></span></button>
              </div>
          </form>
-         <p class="text-center">Sign up for Travel Maker? <a href="signup.do">Sign Up</a></p>
+         <p class="text-center">아직 회원이 아니신가요? <a href="signup.do">회원가입</a></p>
      </div>
  </div>
 </div>
