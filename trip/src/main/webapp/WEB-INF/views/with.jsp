@@ -224,7 +224,7 @@ $(document).ready(function() {
          <li class="nav-item"><a href="plan.do" class="nav-link">일정짜기</a></li>
          <li class="nav-item"><a href="with.do" class="nav-link">동행찾기</a></li>
          <li class="nav-item"><a href="themaTour.do" class="nav-link">맞춤테마</a></li>
-           <li class="nav-item"><a href="myPage.do" class="nav-link">마이페이지</a></li>
+         <li class="nav-item"><a href="myPage.do" class="nav-link">마이페이지</a></li>
      </ul>
    </div>
 </div>
@@ -278,7 +278,7 @@ $(document).ready(function() {
                                         <li style="margin-top: 5px;">
                                             <div class="search_box3 icon_select">
                                                 <ul class="tr_type_search txtG">
-                                                    <li class="txtG list_on"><i class=""></i>트래블 테마 전체</li>
+                                                    <li class="txtG list_on"><i class=""><a href="#"></i>동행 스타일</li></a>
                                                 </ul>
                                                 <ul class="tr_type_list" style="display: none;">
                                                     <li class="txtG"><i class=""></i>트래블 테마 전체</li>
@@ -415,7 +415,7 @@ $(document).ready(function() {
             <div class="row">
                   <div class="col-lg-12">
                       <button type="button" class="btn btn-outline btn-primary pull-right">
-                      <a href="Board_write.do" class="btn"><i class="fa fa-edit fa-fw"></i>글  작성</a>
+                      <a href="boardWrite.do" class="btn"><i class="fa fa-edit fa-fw"></i>글  작성</a>
                       </button>
                   </div>
               </div>

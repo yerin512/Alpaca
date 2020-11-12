@@ -84,7 +84,7 @@
                  <button type="submit" class="btn btn-primary submit btn-primary_submit">Sign in<span class="fa fa-paper-plane"></span></button>
              </div>
          </form>
-         <p class="text-center">Sign up for Travel Maker? <a href="signup.do">Sign Up</a></p>
+         <p class="text-center">Sign up for Travel Maker? <a href="signUp.do">Sign Up</a></p>
      </div>
  </div>
 </div>
