@@ -10091,19 +10091,6 @@ textarea.form-control {
   animation: loader-dash 1.5s ease-in-out infinite;
   stroke-linecap: round; }
 
-/*동행찾기 게시판*/
-.content_wrap{width:1280px;margin:0 auto}
-.with_search{background:#eee;overflow:hidden}
-.with_search>div{}
-.with_search > .search_title{}
-.with_search > .search_box{}
-.search_title>p{color:#444;font-size:20px;font-weight:bold}
-.search_title>span{font-size:16px;color:#666}
-.select_order{}
-.checkBox_btn{}
-.checkBox{display:hidden;width:345px}
-
-
 @-webkit-keyframes loader-rotate {
   100% {
     -webkit-transform: rotate(360deg);
