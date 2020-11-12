@@ -2,10 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>StudyLab - Free Bootstrap 4 Template by Colorlib</title>
+   <title>Travel Maker - 개인 맞춤형 여행 사이트</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
@@ -25,8 +26,18 @@
   
   <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
   <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
+  
+
 </head>
+<style>
+#board_write_se .w_table{margin:30px auto!important;}
+	#board_write_se .w_table td{margin-botton:10px!important;border-spacing:43spx}
+	.sw_btn{margin-bottom:25px}
+#board_write_se .btn{background: #4986fc !important;padding:5px 13px !important; border: 1px solid #4986fc !important;color: #fff !important; }
+
+</style>
 <body>
+
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
    <div class="container">
      <a class="navbar-brand" href="index.do"><span>TRAVEL </span>MAKER</a>
@@ -59,6 +70,77 @@
  </div>
 </section>
 
+<section id="board_write_se">
+	<table>
+		<form name="BoardWriteForm" method="post" action="Board_Write_action.jsp" 
+														onsubmit="return boardWriteCheck();" >
+   		<colgroup>
+   			<col width="20%">
+   			<col width="80%">
+   		</colgroup>
+		<table class="w_table" >
+    		<tr>
+     			<td>제 목</td>
+     			<td><input type=text name=title></td>
+    		</tr>
+    		<tr>
+     			<td>본 문</td>
+     			 <td><textarea id="popContent" name="popContent" cols="108" rows="15"></textarea></td>
+
+    		</tr>
+    		<tr>
+     			<td>태그 선택</td> 
+     			<td>
+     			 	<div class="checkBox">
+					<label for="style01">
+			        <input type="checkbox" id="style01" />힐링</label>
+			        <label for="style02">
+			        <input type="checkbox" id="style02" />가성비</label>
+			        <label for="style03">
+			        <input type="checkbox" id="style03" />플렉스</label>
+			        <label for="style04">
+			        <input type="checkbox" id="style04" />힐링</label>
+			        <label for="style05">
+			        <input type="checkbox" id="style05" />가성비</label>
+			        <br>
+			        <label for="style06">
+			        <input type="checkbox" id="style06" />플렉스</label>
+			        <label for="style07">
+			        <input type="checkbox" id="style07" />힐링</label>
+			        <label for="style08">
+			        <input type="checkbox" id="style08" />가성비</label>
+			        <label for="style09">
+			        <input type="checkbox" id="style09" />플렉스</label>
+			        <label for="style10">
+			        <input type="checkbox" id="style10" />플렉스</label>
+			        <br>
+			        <label for="style11">
+			        <input type="checkbox" id="style01" />힐링</label>
+			        <label for="style12">
+			        <input type="checkbox" id="style02" />가성비</label>
+			        <label for="style13">
+			        <input type="checkbox" id="style03" />플렉스</label>
+			        <label for="style14">
+			        <input type="checkbox" id="style04" />힐링</label>
+			        <label for="style15">
+			        <input type="checkbox" id="style05" />가성비</label>
+				</div>
+     			</td>
+    		</tr>
+    		<tr>
+     			<td colspan=2><hr size=1></td>
+    		</tr>
+    		<tr>
+     			<td colspan="2"><div class="sw_btn" align="center">
+     			<input class="btn" type="submit" value="등록" >&nbsp;&nbsp;
+         		<input class="btn" type="button" value="뒤로" onclick="location.href='with.do'"></div>
+     			</td>
+    		</tr> 
+		</table>
+	</form> 
+</table>
+
+</section>
 
 
 <footer class="ftco-footer ftco-no-pt">
@@ -96,6 +178,11 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="resources/js/google-map.js"></script>
 <script src="resources/js/main.js"></script>
+<script type="text/javascript" src="se2/js/HuskyEZCreator.js" charset="utf-8"></script> <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
 
 </body>
 </html>
+
+<!-- SmartEditor2 --> <script type="text/javascript" src = "resources/js/notice-write.js"></script>
+
