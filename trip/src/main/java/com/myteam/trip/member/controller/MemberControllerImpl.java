@@ -78,8 +78,8 @@ public class MemberControllerImpl   implements MemberController {
 	    }
 
 	}else {
-	   rAttr.addAttribute("result","loginFailed");
-	   mav.setViewName("redirect:/signUp.do");
+	   rAttr.addFlashAttribute("result","loginFailed");
+	   mav.setViewName("redirect:/index.do");
 	}
 	return mav;
 	}

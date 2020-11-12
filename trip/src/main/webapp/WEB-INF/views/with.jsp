@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Travel Maker - 개인 맞춤형 여행 사이트</title>
+	<title>StudyLab - Free Bootstrap 4 Template by Colorlib</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
@@ -26,6 +26,7 @@
 
 	<link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-datepicker.css">
 	<link rel="stylesheet" href="${contextPath}/resources/css/jquery.timepicker.css">
+
 	
 	<link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
 	<link rel="stylesheet" href="${contextPath}/resources/css/style.css">
@@ -440,7 +441,7 @@ $(document).ready(function() {
 			<!-- loader -->
 			<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-			
+
 			<script src="resources/js/jquery.min.js"></script>
 			<script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
 			<script src="resources/js/popper.min.js"></script>

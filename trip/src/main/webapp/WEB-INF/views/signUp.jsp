@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <title>Travel Maker - 개인 맞춤형 여행 사이트</title>
+  <title>StudyLab - Free Bootstrap 4 Template by Colorlib</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
@@ -25,8 +25,37 @@
   
   <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
   <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
+  
+  <script src="/resources/js/jquery-3.2.1.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	
+	<script type="text/javascript"> 
+		$(function(){ 
+			$("#alert-success").hide(); 
+			$("#alert-danger").hide();
+			$("input").keyup(function(){ 
+				var pwd1=$("#pwd1").val(); 
+				var pwd2=$("#pwd2").val(); 
+				if(pwd1 != "" || pwd2 != ""){ 
+					if(pwd1 == pwd2){ 
+						$("#alert-success").show(); 
+						$("#alert-danger").hide(); 
+						$("#submit").removeAttr("disabled"); 
+						}else{ 
+							$("#alert-success").hide();
+							$("#alert-danger").show(); 
+							$("#submit").attr("disabled", "disabled"); 
+							} 
+					} 
+				}); 
+			}); 
+	</script>
+
 </head>
 <body>
+
+
+
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
    <div class="container">
      <a class="navbar-brand" href="index.do"><span>TRAVEL </span>MAKER</a>
@@ -75,12 +104,15 @@
                 </div>
                  <div class="form-group">
                  <label class="label" for="password">Password</label>
-                 <input id="password-field" name="pwd" type="password" class="form-control" placeholder="Password">
+                 <input id="pwd1" name="pwd" type="password" class="form-control" placeholder="Password" required>
              </div>
              <div class="form-group">
                  <label class="label" for="password">Confirm Password</label>
-                 <input id="password-field" type="password" class="form-control" placeholder="Confirm Password">
+                 <input id="pwd2" type="password" class="form-control" placeholder="Confirm Password" required>
              </div>
+				<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div> 
+				<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
+                 
                  <div class="form-group">
                     <label class="label" for="name">Full Name</label>
 
@@ -94,10 +126,9 @@
                     <input type="text" class="form-control" placeholder="인증번호 입력">	--> 
                 </div>
                
+				 <div class="form-group d-flex justify-content-end mt-4">
 
-            	 <div class="form-group d-flex justify-content-end mt-4">
-
-                 <button type="submit" class="btn btn-primary submit"><span class="fa fa-paper-plane"></span></button>
+                 <button type="submit" id="submit" class="btn btn-primary submit"><span class="fa fa-paper-plane"></span></button>
              </div>
          </form>
        <!--   <p class="text-center">Already have an account? <a href="#signin">Sign In</a></p> -->
@@ -125,6 +156,9 @@
 
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+
 
 
 <script src="resources/js/jquery.min.js"></script>
