@@ -9328,7 +9328,7 @@ textarea.form-control {
       background: #4986fc; }
 
 .ftco-footer {
- position:fixed;
+
  bottom:0;
  width:100%;
   font-size: 16px;
@@ -10092,17 +10092,22 @@ textarea.form-control {
   stroke-linecap: round; }
 
 /*동행찾기 게시판*/
-.content_wrap{width:1280px;margin:0 auto}
-.with_search{background:#eee;overflow:hidden}
+.content_wrap{margin:0 auto}
+.with_search{overflow:hidden}
 .with_search>div{}
 .with_search > .search_title{}
 .with_search > .search_box{}
-.search_title>p{color:#444;font-size:20px;font-weight:bold}
+.search_title>p{margin-bottom:0px;color:#444;font-size:20px;font-weight:bold}
 .search_title>span{font-size:16px;color:#666}
 .select_order{}
 .checkBox_btn{}
 .checkBox{display:hidden;width:345px}
 
+/*동행찾기 게시판 글목록*/
+
+
+
+/*동행찾기 글쓰기*/
 
 @-webkit-keyframes loader-rotate {
   100% {
