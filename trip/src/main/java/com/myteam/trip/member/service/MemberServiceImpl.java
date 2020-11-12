@@ -31,4 +31,10 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.loginById(memberVO);
 	}
 
+	//아이디 중복 체크
+	@Override
+	public String overlapped(String id) throws Exception {
+		return memberDAO.selectOverlappedID(id);
+	}
+
 }

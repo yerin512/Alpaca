@@ -12,5 +12,9 @@ public interface MemberService {
 	
 	public int addMember(MemberVO member) throws DataAccessException;
 	
-	 public MemberVO login(MemberVO memberVO) throws Exception;
+	public MemberVO login(MemberVO memberVO) throws Exception;
+	 
+	 //아이디 중복 체크
+	public String overlapped(String id) throws Exception;
+	 
 }

@@ -29,4 +29,11 @@ public class MemberDAOImpl implements MemberDAO {
 		return vo;
 	}
 
+	//아이디 중복 체크
+	@Override
+	public String selectOverlappedID(String id) throws DataAccessException {
+		String result =  sqlSession.selectOne("mapper.member.selectOverlappedID",id);
+		return result;
+	}
+
 }

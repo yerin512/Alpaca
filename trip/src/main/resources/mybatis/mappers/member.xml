@@ -24,6 +24,14 @@
 		select * from trip_member	
 		where id=#{id} and pwd=#{pwd}		
 	]]>
+	
   </select>
+  
+  	<!-- 아이디 중복 체크  -->
+  	<select id="selectOverlappedID" parameterType="String" resultType="String">
+	   select decode(count(*),1, 'true', 0, 'false')
+	   from t_shopping_member
+	   where member_id = #{id}
+	</select>
 
 </mapper>
