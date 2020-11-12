@@ -84,7 +84,17 @@
                  <button type="submit" class="btn btn-primary submit btn-primary_submit">Sign in<span class="fa fa-paper-plane"></span></button>
              </div>
          </form>
-         <p class="text-center">Sign up for Travel Maker? <a href="signup.do">Sign Up</a></p>
+ 
+    <c:if test="${userId eq null}">
+         <a href="https://kauth.kakao.com/oauth/authorize?client_id=4d6c516eb262829dabdcac45cae9703c&redirect_uri=http://localhost:8090/trip/login&response_type=code">
+         <img src="resources/images/loc.png">
+        </a>
+    </c:if>
+    <c:if test="${userId ne null}">
+        <h1>로그인 성공입니다</h1>
+        <input type="button" value="로그아웃" onclick="location.href='/logout'">
+    </c:if>
+    
      </div>
  </div>
 </div>

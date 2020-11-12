@@ -28,7 +28,7 @@ public class MemberControllerImpl   implements MemberController {
 	@Autowired
 	private MemberVO memberVO ;
 	
-	@RequestMapping(value = { "/","index.do"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"index.do"}, method = RequestMethod.GET)
 	private ModelAndView main(HttpServletRequest request, HttpServletResponse response) {
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
