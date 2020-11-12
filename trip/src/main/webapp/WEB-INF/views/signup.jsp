@@ -70,7 +70,7 @@
               	<div class="form-group">
                     <label class="label" for="id">ID</label>
                     <input type="text" name="id" class="form-control" placeholder="ID">
-					
+
               
                 </div>
                  <div class="form-group">
