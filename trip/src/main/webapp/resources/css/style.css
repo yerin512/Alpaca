@@ -9328,7 +9328,7 @@ textarea.form-control {
       background: #4986fc; }
 
 .ftco-footer {
- position:fixed;
+
  bottom:0;
  width:100%;
   font-size: 16px;
@@ -10091,18 +10091,23 @@ textarea.form-control {
   animation: loader-dash 1.5s ease-in-out infinite;
   stroke-linecap: round; }
 
-/*µ¿ÇàÃ£±â °Ô½ÃÆÇ*/
-.content_wrap{width:1280px;margin:0 auto}
-.with_search{background:#eee;overflow:hidden}
+/*ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ ï¿½Ô½ï¿½ï¿½ï¿½*/
+.content_wrap{margin:0 auto}
+.with_search{overflow:hidden}
 .with_search>div{}
 .with_search > .search_title{}
 .with_search > .search_box{}
-.search_title>p{color:#444;font-size:20px;font-weight:bold}
+.search_title>p{margin-bottom:0px;color:#444;font-size:20px;font-weight:bold}
 .search_title>span{font-size:16px;color:#666}
 .select_order{}
 .checkBox_btn{}
 .checkBox{display:hidden;width:345px}
 
+/*ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Û¸ï¿½ï¿½*/
+
+
+
+/*ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½*/
 
 @-webkit-keyframes loader-rotate {
   100% {
