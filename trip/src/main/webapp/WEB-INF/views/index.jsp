@@ -101,7 +101,7 @@
     </c:if>
     
 
-         <p class="text-center">아직 회원이 아니신가요? <a href="signup.do">회원가입</a></p>
+         <p class="text-center">아직 회원이 아니신가요? <a href="signUp.do">회원가입</a></p>
 
      </div>
  </div>
