@@ -55,8 +55,20 @@ public class HomeController {
 	        }
 	        
 	        
+	        return "kakaoLogin";
+	    }
+	    
+	    
+	    @RequestMapping(value="/logout")
+	    public String logout(HttpSession session) {
+	        kakao.kakaoLogout((String)session.getAttribute("access_Token"));
+	        session.removeAttribute("access_Token");
+	        session.removeAttribute("userId");
+	        
+	        session.invalidate();
 	        return "index";
 	    }
+
 
 
 
