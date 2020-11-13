@@ -5,32 +5,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta charset="utf-8"/>
-        <title>Travel Maker - 개인 맞춤형 여행 사이트</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       <meta charset="utf-8"/>
+       <title>Travel Maker - 개인 맞춤형 여행 사이트</title>
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="${contextPath}/resources/css/animate.css">
     
-	    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-	
-	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	    <link rel="stylesheet" href="${contextPath}/resources/css/animate.css">
-	    
-	    <link rel="stylesheet" href="${contextPath}/resources/css/owl.carousel.min.css">
-	    <link rel="stylesheet" href="${contextPath}/resources/css/owl.theme.default.min.css">
-	    <link rel="stylesheet" href="${contextPath}/resources/css/magnific-popup.css">
-	
-	    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-datepicker.css">
-	    <link rel="stylesheet" href="${contextPath}/resources/css/jquery.timepicker.css">
-	
-	
-	    <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
-	    <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
-	    
-	    <!-- 지도 api 적용(네이버/카카오) -->
-	    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=e6h3qbzmz4"></script>
-	    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c8f1e98d3b42f208e812d6c641c3952e&libraries=LIBRARY"></script>
+    <link rel="stylesheet" href="${contextPath}/resources/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
+    
+    <!-- 지도 api 적용(네이버/카카오) -->
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=e6h3qbzmz4"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c8f1e98d3b42f208e812d6c641c3952e&libraries=LIBRARY"></script>
+
+	<style>
+	#legend {
+		font-family: Arial, sans-serif;
+		background: #fff;
+		padding: 10px;
+		margin: 10px;
+		border: 3px solid #000;
+	}
+	#legend h3 {
+		margin-top: 0;
+	}
+	#legend img {
+		vertical-align: middle;
+	}
+	div.row div {
+	padding-left: 0px  !important;
+	padding-right: 0px !important;
+	}
+	#map {
+	padding-right: 0px !important;
+	}
+	</style>
 </head>
+
+
 <body>
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
    <div class="container">
@@ -63,18 +88,49 @@
 		</div>
 		</div>
 	</section>
-
-	<!-- 본문 -->
-	<div id="search">
-		<input id="search_input" placeholder="목적지를 입력해주세요" />
-		<button id="search_button">검색</button>
+	
+	<!-- 좌측 메뉴 -->
+	<div id="cityCategory" class="cityblock" style="position: relative; top: 0px; left: 0px; float: left">
+		<div class="item" data-no="0" data-ci_name="서울" data-lat="37.56653500" data-lng="126.97796920" data-is_state="0">
+			<div class="info_box fl" style="width: 140px;">
+				<div class="info_title">서울</div>
+				<div class="info_sub_title">Seoul</div>
+			</div><hr>
+		</div>
+		<div class="item" data-no="1" data-ci_name="부산" data-lat="35.1795552" data-lng="129.0741443" data-is_state="0">
+			<div class="info_box fl" style="width: 140px;">
+				<div class="info_title">부산</div>
+				<div class="info_sub_title">Busan</div>
+			</div><hr>
+		</div>
+		<div class="item" data-no="2" data-ci_name="대전" data-lat="36.3504567" data-lng="127.38263" data-is_state="0">
+			<div class="info_box fl" style="width: 140px;">
+				<div class="info_title">대전</div>
+				<div class="info_sub_title">Daejeon</div>
+			</div><hr>
+		</div>
+		<div class="item" data-no="3" data-ci_name="제주" data-lat="33.4827062" data-lng="126.3906632" data-is_state="0">
+			<div class="info_box fl" style="width: 140px;">
+				<div class="info_title">제주도</div>
+				<div class="info_sub_title">Jeju</div>
+			</div><hr>
+		</div>
+		<div class="item" data-no="4" data-ci_name="여수" data-lat="34.7599627" data-lng="127.6592976" data-is_state="0">
+			<div class="info_box fl" style="width: 140px;">
+				<div class="info_title">여수</div>
+				<div class="info_sub_title">Yeosu</div>
+			</div><hr>
+		</div>
 	</div>
-	<div id="map" style="width:100%; height:100vh;"></div>
+	<!-- 좌측메뉴 end -->
+
+	<!-- 지도 -->
+	<div id="map" style="width:80%; height:100vh; float:right"></div>
 	<script>
     var mapContainer = document.getElementById('map'),  // 지도 생성
     mapOption = { 
         center: new kakao.maps.LatLng(36.38, 127.51), 
-        level: 12
+        level: 12,
     };
 
 	var map = new kakao.maps.Map(mapContainer, mapOption);
@@ -87,29 +143,31 @@
 	
 	var positions = [{  // 여러개 마크 표시
 		content: '<div>서울</div>', 
-        latlng: new kakao.maps.LatLng(37.5662952, 126.9757564)
+		latlng: new kakao.maps.LatLng(37.5662952, 126.9757564)
     }, {
     	content: '<div>부산</div>', 
-        latlng: new kakao.maps.LatLng(35.1795552, 129.0741443)
+    	latlng: new kakao.maps.LatLng(35.1795552, 129.0741443)
     }, {
     	content: '<div>대전</div>', 
-        latlng: new kakao.maps.LatLng(36.3504567, 127.38263)
+    	latlng: new kakao.maps.LatLng(36.3504567, 127.38263)
     }, {
-    	content: '<div>속초</div>', 
-        latlng: new kakao.maps.LatLng(38.2070173, 128.5896737)
+    	content: '<div>제주</div>', 
+    	latlng: new kakao.maps.LatLng(33.4827062, 126.3906632)
     }, {
     	content: '<div>여수</div>',
-        latlng: new kakao.maps.LatLng(34.7599627, 127.6592976)	    
+    	latlng: new kakao.maps.LatLng(34.7599627, 127.6592976)	    
 	}];
 	
 	for (var i = 0; i < positions.length; i ++) {
 	    var marker = new kakao.maps.Marker({
 	        map: map, 
-	        position: positions[i].latlng,
+	        position: positions[i].latlng
 	    });
+	    
 	    var infowindow = new kakao.maps.InfoWindow({
-	        content: positions[i].content
+	    	 content: positions[i].content
 	    });
+	    
 	    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
 	    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
 	}
@@ -119,13 +177,13 @@
 	        infowindow.open(map, marker);
 	    };
 	}
-	
+
 	function makeOutListener(infowindow) {
 	    return function() {
 	        infowindow.close();
 	    };
 	}
 	</script>
-
+	<!-- 지도 end -->
 </body>
 </html>
