@@ -48,35 +48,16 @@ public class HomeController {
 	        HashMap<String, Object> userInfo = kakao.getUserInfo(access_Token);
 	        System.out.println("login Controller : " + userInfo);
 	        
-	        //    Ŭ���̾�Ʈ�� �̸����� ������ �� ���ǿ� �ش� �̸��ϰ� ��ū ���
+	        //    클占쏙옙占싱억옙트占쏙옙 占싱몌옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙 占쏙옙占실울옙 占쌔댐옙 占싱몌옙占싹곤옙 占쏙옙큰 占쏙옙占�
 	        if (userInfo.get("account_email") != null) {
 	            session.setAttribute("userId", userInfo.get("email"));
 	            session.setAttribute("access_Token", access_Token);
 	        }
 	        
 	        
-	        return "kakaoLogin";
-	    }
-	    
-	    
-	    @RequestMapping(value="/logout")
-	    public String logout(HttpSession session) {
-	        kakao.kakaoLogout((String)session.getAttribute("access_Token"));
-	        session.removeAttribute("access_Token");
-	        session.removeAttribute("userId");
-	        
-	        session.invalidate();
 	        return "index";
 	    }
 
-
-
-
-
-	
-	
-	
-	
 	@RequestMapping(value = "/themaTour.do", method = RequestMethod.GET)
 	public String instructor(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -107,6 +88,14 @@ public class HomeController {
 		
 	
 		return "with";
+	}
+	
+	@RequestMapping(value = "/insertBoard.do", method = RequestMethod.GET)
+	public String insertBoard(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+	
+		return "insertBoard";
 	}
 	
 	@RequestMapping(value = "/signupsuccess.do", method = RequestMethod.GET)
