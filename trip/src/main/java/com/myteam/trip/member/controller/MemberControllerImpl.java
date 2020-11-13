@@ -28,7 +28,7 @@ public class MemberControllerImpl   implements MemberController {
 	@Autowired
 	private MemberVO memberVO ;
 	
-	@RequestMapping(value = { "/","index.do"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"index.do"}, method = RequestMethod.GET)
 	private ModelAndView main(HttpServletRequest request, HttpServletResponse response) {
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
@@ -44,11 +44,11 @@ public class MemberControllerImpl   implements MemberController {
 		response.setContentType("html/text;charset=utf-8");
 		int result = 0;
 		result = memberService.addMember(member);
-		ModelAndView mav = new ModelAndView("redirect:/signup.do");
+		ModelAndView mav = new ModelAndView("redirect:/signUp.do");
 		return mav;
 	}
 	
-	@RequestMapping(value="signup.do" ,method = RequestMethod.GET)
+	@RequestMapping(value="signUp.do" ,method = RequestMethod.GET)
 	private ModelAndView loginMain(HttpServletRequest request, HttpServletResponse response) {
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
