@@ -88,6 +88,7 @@
                  <button type="submit" class="btn btn-primary submit btn-primary_submit">로그인<span class="fa fa-paper-plane"></span></button>
              </div>
          </form>
+<<<<<<< HEAD
 
  
     <c:if test="${userId eq null}">
@@ -103,6 +104,9 @@
 
          <p class="text-center">아직 회원이 아니신가요? <a href="signup.do">회원가입</a></p>
 
+=======
+         <p class="text-center">아직 회원이 아니신가요? <a href="signUp.do">회원가입</a></p>
+>>>>>>> refs/remotes/origin/ahnyerin
      </div>
  </div>
 </div>

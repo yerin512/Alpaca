@@ -95,5 +95,17 @@ public class HomeController {
 		
 	
 		return "with";
+		
+		
+	}
+	
+	@RequestMapping(value = "/boardWrite.do", method = RequestMethod.GET)
+	public String boardWrite(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+	
+		return "boardWrite";
+		
+		
 	}
 }
