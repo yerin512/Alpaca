@@ -11,7 +11,8 @@
 <body>
 
         <h1>로그인 성공입니다</h1>
-        <input type="button" value="로그아웃" onclick="location.href='${contextPath}/logout'">
-
+        
+ 
+<a href="https://kauth.kakao.com/oauth/logout?client_id=4d6c516eb262829dabdcac45cae9703c&logout_redirect_uri=http://localhost:8090/trip/login"><input type="button" value="로그아웃" onclick="location.href='${contextPath}/logout'"></a>
 </body>
 </html>

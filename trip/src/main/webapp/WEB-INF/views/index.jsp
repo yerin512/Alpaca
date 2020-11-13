@@ -94,7 +94,14 @@
          <img src="resources/images/kakao_login.png">
         </a>
     </c:if>
+   
+    
+    
          <p class="text-center">아직 회원이 아니신가요? <a href="signUp.do">회원가입</a></p>
+ 
+          <c:if test="${userId ne null}">
+    	<a href="https://kauth.kakao.com/oauth/logout?client_id=4d6c516eb262829dabdcac45cae9703c&logout_redirect_uri=http://localhost:8090/trip/logout"><input type="button" value="로그아웃" onclick="location.href='${contextPath}/logout'"></a>
+    </c:if>
      </div>
  </div>
 </div>
