@@ -30,16 +30,25 @@
 	
 	<link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
 	<link rel="stylesheet" href="${contextPath}/resources/css/style.css">
+	<script src="${contextPath}/resources/js/jquery-3.2.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
 </head>
 <script type="text/javascript">
-$(document).ready(function() {   
-    $(".checkBox_btn").mouseover(function(){
-        $(".checkBox").show();
-    });
-    $(".checkBox_btn").mouseout(function(){
-        $(".checkBox").hide();
-    });
-});
+$(document).ready(function()
+		 {
+		  $(".txtG").toggle(
+		  function()
+		  {
+		   $("#content").css("display",'none');
+		  },
+		  function()
+		  {
+		   $("#content").css("display","block");
+
+		  });
+		 });
 </script>
 <style>
 
@@ -52,6 +61,7 @@ $(document).ready(function() {
 .mainT .best_list span{display: block; text-align:right;}
 .bestTM_area .best_list .info{padding-top: 12px;text-align: center;}
 .bestTM_area .best_list .info span+span{padding-top: 10px;}
+.checkBox{display:none}
 /*with board_list*/
 .Board_list{margin:130px auto}
 .Board_list .board{margin:0 auto;}
@@ -97,7 +107,12 @@ $(document).ready(function() {
 }
 
 .new_search_area .main_tit_area p {
-    font-size: 16px;
+    font-size: 20px;
+}
+
+.new_search_area .main_tit_area span {
+    font-size: 14px;
+    color:#777
 }
 
 .new_search_area {
@@ -281,22 +296,40 @@ $(document).ready(function() {
                                                 <ul class="tr_type_search txtG">
                                                     <li class="txtG list_on"><i class=""><a href="#"></i>동행 스타일</li></a>
                                                 </ul>
-                                                <ul class="tr_type_list" style="display: none;">
-                                                    <li class="txtG"><i class=""></i>트래블 테마 전체</li>
-                                                    <li class="txtG"><i class="icon_sty00" data-value="00"></i>한국인 관광객이 1도없는 로컬 트래블</li>
-                                                    <li class="txtG"><i class="icon_sty01" data-value="01"></i>TM만 알고 있는 시크릿 스팟 트래블</li>
-                                                    <li class="txtG"><i class="icon_sty02" data-value="02"></i>온몸으로 느끼는 자연</li>
-                                                    <li class="txtG"><i class="icon_sty03" data-value="03"></i>직접 체험하는 액티비티</li>
-                                                    <li class="txtG"><i class="icon_sty04" data-value="04"></i>현지에서만 즐길 수 있는 페스티벌/테마파크</li>
-                                                    <li class="txtG"><i class="icon_sty05" data-value="05"></i>현지 감성의 예술/디자인 및 패션</li>
-                                                    <li class="txtG"><i class="icon_sty06" data-value="06"></i>이 곳에서만 맛 볼 수 있는 로컬 맛집/카페</li>
-                                                    <li class="txtG"><i class="icon_sty07" data-value="07"></i>현지의 트렌디한 BAR/PUB/CLUB</li>
-                                                    <li class="txtG"><i class="icon_sty08" data-value="08"></i>현지 전문가에게 배우는 클래스</li>
-                                                    <li class="txtG"><i class="icon_sty09" data-value="09"></i>인생샷을 건지는 스냅</li>
-                                                    <li class="txtG"><i class="icon_sty10" data-value="10"></i>지금껏 경험해보지 못한 오지 탐험</li>
-                                                    <li class="txtG"><i class="icon_sty11" data-value="11"></i>쇼핑에 즐거움을 더해줄 퍼스널 쇼퍼</li>
-                                                    <li class="txtG"><i class="icon_sty12" data-value="12"></i>럭셔리한 프리미엄 트래블</li>
-                                                </ul>
+                                                <div id="hideBox" class="checkBox tr_type_list">
+													<label for="style01">
+											        <input type="checkbox" id="style01">힐링</input></label>
+											        <label for="style01">
+											        <input type="checkbox" id="style02" />가성비</label>
+											        <label for="style01">
+											        <input type="checkbox" id="style03" />플렉스</label>
+											        <label for="style01">
+											        <input type="checkbox" id="style04" />힐링</label>
+											        <label for="style01">
+											        <input type="checkbox" id="style05" />가성비</label>
+											        <br>
+											        <label for="style01">
+											        <input type="checkbox" id="style06" />플렉스</label>
+											        <label for="style01">
+											        <input type="checkbox" id="style07" />힐링</label>
+											        <label for="style01">
+											        <input type="checkbox" id="style08" />가성비</label>
+											        <label for="style01">
+											        <input type="checkbox" id="style09" />플렉스</label>
+											        <label for="style01">
+											        <input type="checkbox" id="style10" />플렉스</label>
+											        <br>
+											        <label for="style01">
+											        <input type="checkbox" id="style01" />힐링</label>
+											        <label for="style01">
+											        <input type="checkbox" id="style02" />가성비</label>
+											        <label for="style01">
+											        <input type="checkbox" id="style03" />플렉스</label>
+											        <label for="style01">
+											        <input type="checkbox" id="style04" />힐링</label>
+											        <label for="style01">
+											        <input type="checkbox" id="style05" />가성비</label>
+												</div>
                                             </div>
                                         </li>
                                     </ul>
@@ -304,68 +337,6 @@ $(document).ready(function() {
                                 <!--//new search_box"-->
                             </div>
                         </div>
-	
-	
-	
-	<!-- 본문 -->
-	
-		<div class="col-lg-8">
-		<form class="with_search">
-			<div class="search_title">
-				<p>동행찾기</p>
-				<span>편리한 검색으로 내가 원하는 동행자를 찾아보세요!</span>
-			</div>
-			<div class="search_box">
-				<div class="sidebar-box bg-white ftco-animate fadeInUp ftco-animated">
-						<form action="#" class="search-form">
-							<div class="form-group">
-								<span class="icon fa fa-search"></span>
-								<input type="text" class="form-control" placeholder="Search...">
-							</div>
-						</form>
-					</div>
-				<select name ="select_order" class="select_order">
-					<option value="view_latest">최신순</option>
-					<option value="view_count">조회순</option>
-				</select>
-				<div class="checkBox_btn"><a>동행 스타일</a></div>
-				<div class="checkBox">
-					<label for="style01">
-			        <input type="checkbox" id="style01">힐링</input></label>
-			        <label for="style01">
-			        <input type="checkbox" id="style02" />가성비</label>
-			        <label for="style01">
-			        <input type="checkbox" id="style03" />플렉스</label>
-			        <label for="style01">
-			        <input type="checkbox" id="style04" />힐링</label>
-			        <label for="style01">
-			        <input type="checkbox" id="style05" />가성비</label>
-			        <br>
-			        <label for="style01">
-			        <input type="checkbox" id="style06" />플렉스</label>
-			        <label for="style01">
-			        <input type="checkbox" id="style07" />힐링</label>
-			        <label for="style01">
-			        <input type="checkbox" id="style08" />가성비</label>
-			        <label for="style01">
-			        <input type="checkbox" id="style09" />플렉스</label>
-			        <label for="style01">
-			        <input type="checkbox" id="style10" />플렉스</label>
-			        <br>
-			        <label for="style01">
-			        <input type="checkbox" id="style01" />힐링</label>
-			        <label for="style01">
-			        <input type="checkbox" id="style02" />가성비</label>
-			        <label for="style01">
-			        <input type="checkbox" id="style03" />플렉스</label>
-			        <label for="style01">
-			        <input type="checkbox" id="style04" />힐링</label>
-			        <label for="style01">
-			        <input type="checkbox" id="style05" />가성비</label>
-				</div>
-			</div>
-		</form>
-		</div>
 	</section>
  	<!-- 게시판 -->
  	<hr>
@@ -440,7 +411,6 @@ $(document).ready(function() {
 </footer>
 			<!-- loader -->
 			<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
 
 			<script src="resources/js/jquery.min.js"></script>
 			<script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
