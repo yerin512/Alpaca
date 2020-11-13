@@ -42,6 +42,17 @@ $(document).ready(function() {
 });
 </script>
 <style>
+/*����ã�� �Խ���*/
+.content_wrap{margin:95px auto}
+.with_search{overflow:hidden}
+.with_search>div{}
+.with_search > .search_title{}
+.with_search > .search_box{}
+.search_title>p{margin-bottom:0px;color:#444;font-size:20px;font-weight:bold}
+.search_title>span{font-size:16px;color:#666}
+.select_order{}
+.checkBox_btn{}
+.checkBox{display:hidden;width:345px}
 
 .bestTM_area .best_list li{width: 150px;text-align: center;}
 .bestTM_area .best_list_4 li{width: 150px;text-align: center;}
@@ -54,7 +65,7 @@ $(document).ready(function() {
 .bestTM_area .best_list .info span+span{padding-top: 10px;}
 .checkBox{display:none}
 /*with board_list*/
-.Board_list{margin:130px auto}
+.Board_list{padding:margin auto;padding:130px 0;background:#FAFAFA}
 .Board_list .board{margin:0 auto;}
 .content_wrap .col-lg-8{margin:50px auto 60px}
 .Board_list .btn{background: #4986fc !important;padding:4px !important; border: 1px solid #4986fc !important;color: #fff !important; }
@@ -250,113 +261,87 @@ $(document).ready(function() {
 		</div>
 	</section>
 	<section class="content_wrap">
-	<div class="clearfix2 new_search_area col-md-8">
-                            <div class="main_tit_area search_title">
-                                <p>동행찾기</p>
-								<span>편리한 검색으로 내가 원하는 동행자를 찾아보세요!</span>
-                            </div>
-                            <div class="wantWrap new_wrap_wrap">
-                                <!--new search_box"-->
-                                <div class="new_search_box">
-                                    <ul class="clearfix">
-                                        <li>
-                                            <label for="">
-                                                <input type="text" placeholder="국가 > 도시" name="search_area" style="width: 522px;" autocomplete="off">
-                                                <i class="search_ico"></i>
-                                                <ul class="auto_select" style="display:none;position:absolute;width:100%;z-index:100;overflow:auto;height:200px;font-size: 12px;"></ul>
-                                            </label>
-                                        </li>
-                                        <div class="clearfix"></div>
-
-                                        <li style="margin-top: 5px;">
-                                            <select name="search_class" class="">
-                                                <option value="">인기순/후기순/최신순</option>
-                                                <option value="인기순">인기순</option>
-                                                <option value="후기순">후기순</option>
-                                                <option value="최신순">최신순</option>
-                                            </select>
-                                        </li>
-                                        <li style="display: none;">
-                                            <div class="canlender">
-                                                <i class="calender_ico"></i>
-                                                <input type="text" id="datepicker2" name="search_date" placeholder="YYYY-MM-DD" class="hasDatepicker">
-                                            </div>
-                                        </li>
-                                        <li style="maarch_box3 icon_select">
-                                                <ul class="tr_type_search txtG">
-                                                    <li class="txtG list_on"><i class=""><a href="#"></i>동행 스타일</li></a>
-                                                </ul>
-                                                <div id="hideBox" class="checkBox tr_type_list">
-													<label for="style01">
-											        <input type="checkbox" id="style01">힐링</input></label>
-											        <label for="style01">
-											        <input type="checkbox" id="style02" />가성비</label>
-											        <label for="style01">
-											        <input type="checkbox" id="style03" />플렉스</label>
-											        <label for="style01">
-											        <input type="checkbox" id="style04" />힐링</label>
-											        <label for="style01">
-											        <input type="checkbox" id="style05" />가성비</label>
-											        <br>
-											        <label for="style01">
-											        <input type="checkbox" id="style06" />플렉스</label>
-											        <label for="style01">
-											        <input type="checkbox" id="style07" />힐링</label>
-											        <label for="style01">
-											        <input type="checkbox" id="style08" />가성비</label>
-											        <label for="style01">
-											        <input type="checkbox" id="style09" />플렉스</label>
-											        <label for="style01">
-											        <input type="checkbox" id="style10" />플렉스</label>
-											        <br>
-											        <label for="style01">
-											        <input type="checkbox" id="style01" />힐링</label>
-											        <label for="style01">
-											        <input type="checkbox" id="style02" />가성비</label>
-											        <label for="style01">
-											        <input type="checkbox" id="style03" />플렉스</label>
-											        <label for="style01">
-											        <input type="checkbox" id="style04" />힐링</label>
-											        <label for="style01">
-											        <input type="checkbox" id="style05" />가성비</label>
-												</div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-			</div>
-		</form>
+		<div class="clearfix2 new_search_area col-md-8">
+	         <div class="main_tit_area search_title">
+	               <p>동행찾기</p>
+				   <span>편리한 검색으로 내가 원하는 동행자를 찾아보세요!</span>
+	         </div>
+	         <div class="wantWrap new_wrap_wrap">
+	              <!--new search_box"-->
+	              <div class="new_search_box">
+	                   <ul class="clearfix">
+	                        <li>
+	                            <label for="">
+	                                 <input type="text" placeholder="국가 > 도시" name="search_area" style="width: 522px;" autocomplete="off">
+	                                 <i class="search_ico"></i>
+	                      		     <ul class="auto_select" style="display:none;position:absolute;width:100%;z-index:100;overflow:auto;height:200px;font-size: 12px;"></ul>
+	                             </label>
+	                       </li>
+	                       <div class="clearfix"></div>
+	                       <li style="margin-top: 5px;">
+	                                    <select name="search_class" class="">
+	                                                <option value="">인기순/최신순</option>
+	                                                <option value="인기순">인기순</option>
+	                                                <option value="최신순">최신순</option>
+	                                    </select>
+	                                 </li>
+	                                        <li style="display: none;">
+	                                            <div class="canlender">
+	                                                <i class="calender_ico"></i>
+	                                                <input type="text" id="datepicker2" name="search_date" placeholder="YYYY-MM-DD" class="hasDatepicker">
+	                                            </div>
+	                                        </li>
+	                                        <li style="maarch_box3 icon_select">
+	                                                <ul class="tr_type_search txtG">
+	                                                    <li class="txtG list_on"><i class=""><a href="#"></i>동행 스타일</li></a>
+	                                                </ul>
+	                                                <div id="hideBox" class="checkBox tr_type_list">
+														<label for="style01">
+												        <input type="checkbox" id="style01">힐링</input></label>
+												        <label for="style01">
+												        <input type="checkbox" id="style02" />가성비</label>
+												        <label for="style01">
+												        <input type="checkbox" id="style03" />플렉스</label>
+												        <label for="style01">
+												        <input type="checkbox" id="style04" />힐링</label>
+												        <label for="style01">
+												        <input type="checkbox" id="style05" />가성비</label>
+												        <br>
+												        <label for="style01">
+												        <input type="checkbox" id="style06" />플렉스</label>
+												        <label for="style01">
+												        <input type="checkbox" id="style07" />힐링</label>
+												        <label for="style01">
+												        <input type="checkbox" id="style08" />가성비</label>
+												        <label for="style01">
+												        <input type="checkbox" id="style09" />플렉스</label>
+												        <label for="style01">
+												        <input type="checkbox" id="style10" />플렉스</label>
+												        <br>
+												        <label for="style01">
+												        <input type="checkbox" id="style01" />힐링</label>
+												        <label for="style01">
+												        <input type="checkbox" id="style02" />가성비</label>
+												        <label for="style01">
+												        <input type="checkbox" id="style03" />플렉스</label>
+												        <label for="style01">
+												        <input type="checkbox" id="style04" />힐링</label>
+												        <label for="style01">
+												        <input type="checkbox" id="style05" />가성비</label>
+													</div>
+	                                            </div>
+	                                        </li>
+	                              </ul>
+	                          </div>
+	                     </div>
+	                 </div>
+				</div>
+			</form>
 		</div>
 	</section>
  	<!-- 게시판 -->
  	<hr>
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
  	<section class="Board_list">
- 		
 <div class="page-wrapper">
     <div class="container-fluid">
         <div class="col-lg-8 board"><!--게시판 넓이 -->

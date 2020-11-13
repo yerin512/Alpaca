@@ -10091,17 +10091,7 @@ textarea.form-control {
   animation: loader-dash 1.5s ease-in-out infinite;
   stroke-linecap: round; }
 
-/*����ã�� �Խ���*/
-.content_wrap{margin:0 auto}
-.with_search{overflow:hidden}
-.with_search>div{}
-.with_search > .search_title{}
-.with_search > .search_box{}
-.search_title>p{margin-bottom:0px;color:#444;font-size:20px;font-weight:bold}
-.search_title>span{font-size:16px;color:#666}
-.select_order{}
-.checkBox_btn{}
-.checkBox{display:hidden;width:345px}
+
 
 /*����ã�� �Խ��� �۸��*/
 
