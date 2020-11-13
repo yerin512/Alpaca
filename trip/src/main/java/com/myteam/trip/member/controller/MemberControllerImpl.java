@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -44,7 +45,7 @@ public class MemberControllerImpl   implements MemberController {
 		response.setContentType("html/text;charset=utf-8");
 		int result = 0;
 		result = memberService.addMember(member);
-		ModelAndView mav = new ModelAndView("redirect:/signUp.do");
+		ModelAndView mav = new ModelAndView("redirect:/signupsuccess.do");
 		return mav;
 	}
 	
@@ -84,7 +85,13 @@ public class MemberControllerImpl   implements MemberController {
 	return mav;
 	}
 
-	
+	//아이디 중복 체크
+		@ResponseBody
+		@RequestMapping(value="/idChk.do" ,method = RequestMethod.POST)
+		public String idChk(MemberVO vo) throws Exception {
+			String result = memberService.idChk(vo);
+			return result;
+		}
 
 	
 
