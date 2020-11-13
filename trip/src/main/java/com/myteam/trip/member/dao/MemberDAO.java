@@ -14,4 +14,8 @@ public interface MemberDAO {
 	
 	 public MemberVO loginById(MemberVO memberVO) throws DataAccessException;
 
+	//아이디 중복 체크
+		String idChk(MemberVO vo) throws Exception;
+
+	 
 }

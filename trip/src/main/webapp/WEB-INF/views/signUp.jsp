@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>StudyLab - Free Bootstrap 4 Template by Colorlib</title>
+   <title>Travel Maker - 개인 맞춤형 여행 사이트</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
@@ -26,9 +26,11 @@
   <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
   <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
   
-  <script src="/resources/js/jquery-3.2.1.min.js"></script>
+  
+ <script src="/resources/js/jquery-3.2.1.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	
+	<%-- 비밀번호 체크 스크립트 --%>
 	<script type="text/javascript"> 
 		$(function(){ 
 			$("#alert-success").hide(); 
@@ -50,12 +52,41 @@
 				}); 
 			}); 
 	</script>
-
+  	
+  	<%-- 아이디 중복 체크 스크립트 --%>
+  	<script type="text/javascript"> 
+		$(function(){ 
+			$("#signimp").hide(); 
+			$("#signp").hide();
+			$("input").keyup(function(){ 
+			var id=$("#id").val(); 
+			$.ajax({
+			type : 'POST',
+            data : {id : id},
+            dataType : 'text',
+            url : "idChk.do",
+            success : function(data){
+            		 if (data != 0){ 
+	                	$("#signimp").show(); 
+						$("#signp").hide(); 
+						$("#submit").attr("disabled", "disabled");  
+	                 } else { 
+	                	 $("#signimp").hide();
+						$("#signp").show(); 
+						$("#submit").removeAttr("disabled");
+	                 } 
+                 },
+            error: function (data) {
+            	alert(data+"실패");
+            	console.dir();
+				}
+				}); 
+			}); 
+		});
+	</script>
+ 
 </head>
 <body>
-
-
-
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
    <div class="container">
      <a class="navbar-brand" href="index.do"><span>TRAVEL </span>MAKER</a>
@@ -96,23 +127,25 @@
               <h3 class="mb-4">Create your account</h3>
 
               <form action="member/addMember.do" class="signup-form" method="post">
-              	<div class="form-group">
-                    <label class="label" for="id">ID</label>
-                    <input type="text" name="id" class="form-control" placeholder="ID">
-
               
-                </div>
+	              <div class="form-group">
+	                   <label class="label" for="id">ID</label>
+	                   <input type="text" name="id" id="id" class="form-control" placeholder="ID">
+	                   <div class="alert alert-success" id="signp">사용 가능한 ID 입니다</div> 
+					   <div class="alert alert-danger" id="signimp">중복된 ID 입니다</div>
+				</div>
+				
+				
                  <div class="form-group">
                  <label class="label" for="password">Password</label>
-                 <input id="pwd1" name="pwd" type="password" class="form-control" placeholder="Password" required>
+                 <input id="pwd1" name="pwd" type="password" class="form-control" placeholder="Password">
              </div>
              <div class="form-group">
                  <label class="label" for="password">Confirm Password</label>
-                 <input id="pwd2" type="password" class="form-control" placeholder="Confirm Password" required>
-             </div>
-				<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div> 
+                 <input id="pwd2" type="password" class="form-control" placeholder="Confirm Password">
+             	 <div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div> 
 				<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
-                 
+             </div>
                  <div class="form-group">
                     <label class="label" for="name">Full Name</label>
 
@@ -126,9 +159,10 @@
                     <input type="text" class="form-control" placeholder="인증번호 입력">	--> 
                 </div>
                
-				 <div class="form-group d-flex justify-content-end mt-4">
 
-                 <button type="submit" id="submit" class="btn btn-primary submit"><span class="fa fa-paper-plane"></span></button>
+            	 <div class="form-group d-flex justify-content-end mt-4">
+
+                 <button type="submit" id="submit" class="btn btn-primary submit" disabled><span class="fa fa-paper-plane">　가입하기</span></button>
              </div>
          </form>
        <!--   <p class="text-center">Already have an account? <a href="#signin">Sign In</a></p> -->
@@ -156,9 +190,6 @@
 
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-
 
 
 <script src="resources/js/jquery.min.js"></script>

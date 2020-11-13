@@ -108,4 +108,12 @@ public class HomeController {
 		
 		
 	}
+	
+	@RequestMapping(value = "/signupsuccess.do", method = RequestMethod.GET)
+	public String sucseccsignup(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+	
+		return "signupsuccess";
+	}
 }
