@@ -27,8 +27,9 @@
 	    <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
 	    
 	    <!-- 지도 api 적용(네이버/카카오) -->
+	    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=e6h3qbzmz4"></script>
 	    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c8f1e98d3b42f208e812d6c641c3952e"></script>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c8f1e98d3b42f208e812d6c641c3952e&libraries=LIBRARY"></script>
 </head>
 <body>
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -63,21 +64,68 @@
 		</div>
 	</section>
 
-	<!-- 지도 -->
+	<!-- 본문 -->
 	<div id="search">
 		<input id="search_input" placeholder="목적지를 입력해주세요" />
 		<button id="search_button">검색</button>
 	</div>
 	<div id="map" style="width:100%; height:100vh;"></div>
 	<script>
-		var container = document.getElementById('map');
-		var options = {
-		        center: new kakao.maps.LatLng(37.5662952, 126.9757564),
-		        level: 4
-		};
-		
-		var map = new kakao.maps.Map(container, options);
-      </script>
+    var mapContainer = document.getElementById('map'),  // 지도 생성
+    mapOption = { 
+        center: new kakao.maps.LatLng(36.38, 127.51), 
+        level: 12
+    };
+
+	var map = new kakao.maps.Map(mapContainer, mapOption);
+	
+	var mapTypeControl = new kakao.maps.MapTypeControl();  // 지도에 컨트롤 올리기
+	map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+	var zoomControl = new kakao.maps.ZoomControl();
+	map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+	
+	var positions = [{  // 여러개 마크 표시
+		content: '<div>서울</div>', 
+        latlng: new kakao.maps.LatLng(37.5662952, 126.9757564)
+    }, {
+    	content: '<div>부산</div>', 
+        latlng: new kakao.maps.LatLng(35.1795552, 129.0741443)
+    }, {
+    	content: '<div>대전</div>', 
+        latlng: new kakao.maps.LatLng(36.3504567, 127.38263)
+    }, {
+    	content: '<div>속초</div>', 
+        latlng: new kakao.maps.LatLng(38.2070173, 128.5896737)
+    }, {
+    	content: '<div>여수</div>',
+        latlng: new kakao.maps.LatLng(34.7599627, 127.6592976)	    
+	}];
+	
+	for (var i = 0; i < positions.length; i ++) {
+	    var marker = new kakao.maps.Marker({
+	        map: map, 
+	        position: positions[i].latlng,
+	    });
+	    var infowindow = new kakao.maps.InfoWindow({
+	        content: positions[i].content
+	    });
+	    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+	    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+	}
+	
+	function makeOverListener(map, marker, infowindow) {
+	    return function() {
+	        infowindow.open(map, marker);
+	    };
+	}
+	
+	function makeOutListener(infowindow) {
+	    return function() {
+	        infowindow.close();
+	    };
+	}
+	</script>
 
 </body>
 </html>
