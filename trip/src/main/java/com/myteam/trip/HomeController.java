@@ -55,8 +55,20 @@ public class HomeController {
 	        }
 	        
 	        
+	        return "kakaoLogin";
+	    }
+	    
+	    
+	    @RequestMapping(value="/logout")
+	    public String logout(HttpSession session) {
+	        kakao.kakaoLogout((String)session.getAttribute("access_Token"));
+	        session.removeAttribute("access_Token");
+	        session.removeAttribute("userId");
+	        
+	        session.invalidate();
 	        return "index";
 	    }
+
 
 
 
@@ -95,18 +107,6 @@ public class HomeController {
 		
 	
 		return "with";
-		
-		
-	}
-	
-	@RequestMapping(value = "/boardWrite.do", method = RequestMethod.GET)
-	public String boardWrite(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-	
-		return "boardWrite";
-		
-		
 	}
 	
 	@RequestMapping(value = "/signupsuccess.do", method = RequestMethod.GET)

@@ -88,25 +88,13 @@
                  <button type="submit" class="btn btn-primary submit btn-primary_submit">로그인<span class="fa fa-paper-plane"></span></button>
              </div>
          </form>
-<<<<<<< HEAD
 
- 
     <c:if test="${userId eq null}">
          <a href="https://kauth.kakao.com/oauth/authorize?client_id=4d6c516eb262829dabdcac45cae9703c&redirect_uri=http://localhost:8090/trip/login&response_type=code">
-         <img src="resources/images/loc.png">
+         <img src="resources/images/kakao_login.png">
         </a>
     </c:if>
-    <c:if test="${userId ne null}">
-        <h1>로그인 성공입니다</h1>
-        <input type="button" value="로그아웃" onclick="location.href='/logout'">
-    </c:if>
-    
-
-         <p class="text-center">아직 회원이 아니신가요? <a href="signup.do">회원가입</a></p>
-
-=======
          <p class="text-center">아직 회원이 아니신가요? <a href="signUp.do">회원가입</a></p>
->>>>>>> refs/remotes/origin/ahnyerin
      </div>
  </div>
 </div>
@@ -130,7 +118,7 @@
 		<!-- loader -->
 		<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-
+		<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 		<script src="resources/js/jquery.min.js"></script>
 		<script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
 		<script src="resources/js/popper.min.js"></script>
