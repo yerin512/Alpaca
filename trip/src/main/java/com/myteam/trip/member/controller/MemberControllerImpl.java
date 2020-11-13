@@ -20,6 +20,8 @@ import com.myteam.trip.member.vo.MemberVO;
 
 
 
+
+
 @Controller("memberController")
 //@EnableAspectJAutoProxy
 public class MemberControllerImpl   implements MemberController {
