@@ -89,7 +89,6 @@
              </div>
          </form>
 
- 
     <c:if test="${userId eq null}">
          <a href="https://kauth.kakao.com/oauth/authorize?client_id=4d6c516eb262829dabdcac45cae9703c&redirect_uri=http://localhost:8090/trip/login&response_type=code">
          <img src="resources/images/loc.png">
@@ -99,10 +98,7 @@
         <h1>로그인 성공입니다</h1>
         <input type="button" value="로그아웃" onclick="location.href='/logout'">
     </c:if>
-    
-
          <p class="text-center">아직 회원이 아니신가요? <a href="signUp.do">회원가입</a></p>
-
      </div>
  </div>
 </div>
