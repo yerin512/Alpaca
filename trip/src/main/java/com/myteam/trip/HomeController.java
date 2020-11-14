@@ -33,38 +33,7 @@ public class HomeController {
 //		return "index";
 //	}
 	
-	 @Autowired
-	    private KakaoAPI kakao;
-	    
-	    @RequestMapping(value="/")
-	    public String index() {
-	        
-	        return "index";
-	    }
-	    
-	    @RequestMapping(value="/login")
-	    public String login(@RequestParam("code") String code, HttpSession session) {
-	        String access_Token = kakao.getAccessToken(code);
-	        HashMap<String, Object> userInfo = kakao.getUserInfo(access_Token);
-	        System.out.println("login Controller : " + userInfo);
-	        
-	      
-	        if (userInfo.get("nickname") != null) {
-	            session.setAttribute("userId", userInfo.get("nickname"));
-	            session.setAttribute("access_Token", access_Token);
-	        }
-	        
-	        
-	        return "index";
-	    }
-	    
-	    @RequestMapping(value="/logout")
-	    public String logout(HttpSession session) {
-//	        kakao.kakaoLogout((String)session.getAttribute("access_Token")); 필요가 없네.... 걍 로그아웃 된다..
-	        session.removeAttribute("access_Token");
-	        session.removeAttribute("userId");
-	        return "index";
-	    }
+
 
 	    
 	    
