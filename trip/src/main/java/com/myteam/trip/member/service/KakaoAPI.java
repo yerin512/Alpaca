@@ -16,6 +16,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.myteam.trip.member.dao.MemberDAO;
+import com.myteam.trip.member.vo.MemberVO;
  
 @Service
 public class KakaoAPI {
@@ -122,14 +123,32 @@ public class KakaoAPI {
             String kakaoID = result.substring(begin, end);
             System.out.println("꺠꺠오 아이디: "+kakaoID);
             
-            //카카오 아이디 DB 확인
+            //프사 추출
+            begin = result.indexOf("http");
+            end = result.indexOf("\",\"thumbnail");
+            String profile = result.substring(begin,end);
             
+            System.out.println(profile);
+            //카카오 아이디 DB 확인 후 없으면 때려넣기
+            String memberChk = memberDAO.kIdChk(kakaoID);
+            MemberVO memberVO = new MemberVO();
+            memberVO.setId(kakaoID);
+            memberVO.setEmail("test@test.com");
+            memberVO.setName("kakao");
+            memberVO.setPwd("1234");
+            
+            if(memberChk == null || memberChk.equals("")) {
+            	memberDAO.insertMember(memberVO);
+            }else {
+            	//아이디 값으로 로그인 상태 유지
+            }
             
             
             userInfo.put("nickname", nickname);
             userInfo.put("email", email);
             
         } catch (IOException e) {
+        	
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
