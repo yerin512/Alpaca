@@ -26,6 +26,7 @@
 	]]>
   </select>
   
+    <!-- 카카오 아이디 중복 체크  -->
   	  <select id="kIdChk" resultType="String"   parameterType="String" >
 	<![CDATA[
 		select * from trip_member	

@@ -18,7 +18,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.myteam.trip.member.service.KakaoAPI;
 import com.myteam.trip.member.service.MemberService;
+import com.myteam.trip.member.service.ProfileService;
 import com.myteam.trip.member.vo.MemberVO;
+import com.myteam.trip.member.vo.ProfileVO;
 
 
 @Controller("memberController")
@@ -28,6 +30,10 @@ public class MemberControllerImpl   implements MemberController {
 	private MemberService memberService;
 	@Autowired
 	private MemberVO memberVO ;
+	@Autowired
+	private ProfileVO profileVO;
+	@Autowired ProfileService profileService;
+	 
 	 @Autowired
 	    private KakaoAPI kakao;
 	    
@@ -36,6 +42,16 @@ public class MemberControllerImpl   implements MemberController {
 	        
 	        return "index";
 	    }
+	    
+		@RequestMapping(value = {"index.do"}, method = RequestMethod.GET)
+		private ModelAndView main(HttpServletRequest request, HttpServletResponse response) {
+			String viewName = (String)request.getAttribute("viewName");
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName(viewName);
+			return mav;
+		}
+	    
+	    
 	    //카카오 로그인
 	    @RequestMapping(value="/login")
 	    public String login(@RequestParam("code") String code, HttpSession session) {
@@ -46,6 +62,7 @@ public class MemberControllerImpl   implements MemberController {
 	      
 	        if (userInfo.get("nickname") != null) {
 	            session.setAttribute("userId", userInfo.get("nickname"));
+	            session.setAttribute("profileImage", userInfo.get("profileImage"));
 	            session.setAttribute("access_Token", access_Token);
 	        }
 	        
@@ -61,15 +78,19 @@ public class MemberControllerImpl   implements MemberController {
 	        return "index";
 	    }
 	
+		@RequestMapping(value="/kakao/viewProfile.do" ,method = RequestMethod.GET)
+		public ModelAndView viewArticle(@RequestParam("id") int id,
+	                                    HttpServletRequest request, HttpServletResponse response) throws Exception{
+			String viewName = (String)request.getAttribute("viewName");
+	//		id=profileService.view(id);
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName(viewName);
+			mav.addObject("profile", profileVO);
+			return mav;
+		}	
 	
 	
-	@RequestMapping(value = {"index.do"}, method = RequestMethod.GET)
-	private ModelAndView main(HttpServletRequest request, HttpServletResponse response) {
-		String viewName = (String)request.getAttribute("viewName");
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName(viewName);
-		return mav;
-	}
+
 	
 	@Override
 	@RequestMapping(value="/member/addMember.do" ,method = RequestMethod.POST)

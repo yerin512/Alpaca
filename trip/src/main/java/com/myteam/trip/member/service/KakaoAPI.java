@@ -18,7 +18,7 @@ import com.google.gson.JsonParser;
 import com.myteam.trip.member.dao.MemberDAO;
 import com.myteam.trip.member.vo.MemberVO;
  
-@Service
+@Service("kakao")
 public class KakaoAPI {
 	@Autowired
 	private MemberDAO memberDAO;
@@ -115,20 +115,25 @@ public class KakaoAPI {
             
           
             String nickname = properties.getAsJsonObject().get("nickname").getAsString();
-            String email = kakao_account.getAsJsonObject().get("email").getAsString();
+          
+            String email = "";
+//  이메일 동의 안한 사람을 위한 주석
+//            if(kakao_account.getAsJsonObject().get("email").getAsString() != null) {
+//            	email =kakao_account.getAsJsonObject().get("email").getAsString();
+//            }
             
             //아이디값 추출
             int begin = 6;
             int end = result.indexOf(",");
             String kakaoID = result.substring(begin, end);
-            System.out.println("꺠꺠오 아이디: "+kakaoID);
+            System.out.println("카카오 아이디: "+kakaoID);
             
             //프사 추출
             begin = result.indexOf("http");
             end = result.indexOf("\",\"thumbnail");
-            String profile = result.substring(begin,end);
+            String profileImage = result.substring(begin,end);
             
-            System.out.println(profile);
+            System.out.println("카카오 프사 : "+profileImage);
             //카카오 아이디 DB 확인 후 없으면 때려넣기
             String memberChk = memberDAO.kIdChk(kakaoID);
             MemberVO memberVO = new MemberVO();
@@ -140,12 +145,13 @@ public class KakaoAPI {
             if(memberChk == null || memberChk.equals("")) {
             	memberDAO.insertMember(memberVO);
             }else {
-            	//아이디 값으로 로그인 상태 유지
+            	//아이디 값으로 로그인 상태 유지는 필요없을 듯 카카오 토큰 유지되는 한 로그인 상태유지니까 
             }
             
             
             userInfo.put("nickname", nickname);
             userInfo.put("email", email);
+            userInfo.put("profileImage", profileImage);
             
         } catch (IOException e) {
         	
