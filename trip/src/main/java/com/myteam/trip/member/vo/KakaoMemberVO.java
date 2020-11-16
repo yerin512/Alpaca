@@ -9,17 +9,17 @@ import org.springframework.stereotype.Component;
 public class KakaoMemberVO {
 	private String id;
 	private String nickname;
-    private String profileImageURL;
+    private String profileImage;
 	
 	public KakaoMemberVO() {
 		
 	}
 
-	public KakaoMemberVO(String id, String nickname, String profileImageURL) {
+	public KakaoMemberVO(String id, String nickname, String profileImage) {
 		super();
 		this.id = id;
 		this.nickname = nickname;
-		this.profileImageURL = profileImageURL;
+		this.profileImage = profileImage;
 	}
 
 	public String getId() {
@@ -38,12 +38,12 @@ public class KakaoMemberVO {
 		this.nickname = nickname;
 	}
 
-	public String getProfileImageURL() {
-		return profileImageURL;
+	public String getProfileImage() {
+		return profileImage;
 	}
 
-	public void setProfileImageURL(String profileImageURL) {
-		this.profileImageURL = profileImageURL;
+	public void setProfileImageURL(String profileImage) {
+		this.profileImage = profileImage;
 	}
 
 }

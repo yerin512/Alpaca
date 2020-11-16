@@ -4,19 +4,18 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mapper.profile">
-	<resultMap id="memResult" type="profileVO">
-		<result property="name" column="name" />
-		<result property="email" column="email" />
-		<result property="pwd" column="pwd" />
-		<result property="id" column="id" />
+	<resultMap id="profileResult" type="profileVO">
+		<result property="id" column="name" />
+		<result property="profileImage" column="profileImage" />
+		<result property="jagisogae" column="jagisogae" />
 	</resultMap>
 
 
-	<insert id="insertMember" parameterType="profileVO">
+  <insert id="insertNewProfile"  parameterType="java.util.Map">
 		<![CDATA[
-		 insert into trip_member(id, name, email, pwd)
-		 values(#{id}, #{name}, #{email}, #{pwd})
-		]]>
+			INSERT into kakao_profile(id, profileImage, jagisogae)
+			VALUES(#{id}, #{profileImage}, #{jagisogae})
+		]]>      
 	</insert>
 	
 
