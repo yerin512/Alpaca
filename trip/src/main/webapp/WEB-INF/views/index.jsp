@@ -25,6 +25,8 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
+    
+
 </head>
 <body>
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -61,7 +63,35 @@
 </div>
 </div>
 </div>
+<c:choose>
+<c:when test="${kakaoID ne null}"> <!-- 로그인 됐을 때 창 -->
+<section class="ftco-section ftco-no-pb ftco-no-pt">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-7"></div>
+         <div class="col-md-5 order-md-last">
+          <div class="login-wrap p-4 p-md-5">
+              <h3 class="mb-4">환영합니다!!</h3>
+          <form class="signup-form">
+          <img src="${profileImage}" width="100px" height="100px">
+               				<div class="form-group">
+								${nickname}님@
+							</div>
+							<div class="form-group">
+								<a href="myPage.do">마이페이지</a>
+							</div>
+							
+         </form>
 
+
+    	<a href="https://kauth.kakao.com/oauth/logout?client_id=4d6c516eb262829dabdcac45cae9703c&logout_redirect_uri=http://localhost:8090/trip/logout"><input type="button" value="로그아웃" ></a>
+     </div>
+ </div>
+</div>
+</div>
+</section>
+</c:when>
+<c:otherwise>
 <section class="ftco-section ftco-no-pb ftco-no-pt">
    <div class="container">
       <div class="row">
@@ -89,7 +119,7 @@
              </div>
          </form>
 
-    <c:if test="${userId eq null}">
+    <c:if test="${kakaoID eq null}">
          <a href="https://kauth.kakao.com/oauth/authorize?client_id=4d6c516eb262829dabdcac45cae9703c&redirect_uri=http://localhost:8090/trip/login&response_type=code">
          <img src="resources/images/kakao_login.png">
         </a>
@@ -99,7 +129,7 @@
     
          <p class="text-center">아직 회원이 아니신가요? <a href="signUp.do">회원가입</a></p>
  
-          <c:if test="${userId ne null}">
+          <c:if test="${kakaoID ne null}">
     	<a href="https://kauth.kakao.com/oauth/logout?client_id=4d6c516eb262829dabdcac45cae9703c&logout_redirect_uri=http://localhost:8090/trip/logout"><input type="button" value="로그아웃" onclick="location.href='${contextPath}/logout'"></a>
     </c:if>
      </div>
@@ -107,6 +137,9 @@
 </div>
 </div>
 </section>
+</c:otherwise>
+</c:choose>
+
 <!---->
 
 <footer class="ftco-footer ftco-no-pt">

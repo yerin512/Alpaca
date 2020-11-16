@@ -18,7 +18,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.myteam.trip.member.service.KakaoAPI;
 import com.myteam.trip.member.service.MemberService;
+import com.myteam.trip.member.service.ProfileService;
 import com.myteam.trip.member.vo.MemberVO;
+import com.myteam.trip.member.vo.ProfileVO;
 
 
 @Controller("memberController")
@@ -28,6 +30,10 @@ public class MemberControllerImpl   implements MemberController {
 	private MemberService memberService;
 	@Autowired
 	private MemberVO memberVO ;
+	@Autowired
+	private ProfileVO profileVO;
+	@Autowired ProfileService profileService;
+	 
 	 @Autowired
 	    private KakaoAPI kakao;
 	    
@@ -36,6 +42,16 @@ public class MemberControllerImpl   implements MemberController {
 	        
 	        return "index";
 	    }
+	    
+		@RequestMapping(value = {"index.do"}, method = RequestMethod.GET)
+		private ModelAndView main(HttpServletRequest request, HttpServletResponse response) {
+			String viewName = (String)request.getAttribute("viewName");
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName(viewName);
+			return mav;
+		}
+	    
+	    
 	    //카카오 로그인
 	    @RequestMapping(value="/login")
 	    public String login(@RequestParam("code") String code, HttpSession session) {
@@ -44,8 +60,11 @@ public class MemberControllerImpl   implements MemberController {
 	        System.out.println("login Controller : " + userInfo);
 	        
 	      
-	        if (userInfo.get("nickname") != null) {
-	            session.setAttribute("userId", userInfo.get("nickname"));
+	        if (userInfo.get("kakaoID") != null) {
+	        	session.setAttribute("kakaoID", userInfo.get("kakaoID"));
+	            session.setAttribute("nickname", userInfo.get("nickname"));
+	            session.setAttribute("profileImage", userInfo.get("profileImage"));
+	            
 	            session.setAttribute("access_Token", access_Token);
 	        }
 	        
@@ -57,19 +76,23 @@ public class MemberControllerImpl   implements MemberController {
 	    public String logout(HttpSession session) {
 //	        kakao.kakaoLogout((String)session.getAttribute("access_Token")); 필요가 없네.... 걍 로그아웃 된다..
 	        session.removeAttribute("access_Token");
-	        session.removeAttribute("userId");
+	        session.removeAttribute("kakaoID");
 	        return "index";
 	    }
 	
+		@RequestMapping(value="/kakao/viewProfile.do" ,method = RequestMethod.GET)
+		public ModelAndView viewArticle(@RequestParam("userId") int id,
+	                                    HttpServletRequest request, HttpServletResponse response) throws Exception{
+			String viewName = (String)request.getAttribute("viewName");
+	//		id=profileService.view(id);
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName(viewName);
+			mav.addObject("profile", profileVO);
+			return mav;
+		}	
 	
 	
-	@RequestMapping(value = {"index.do"}, method = RequestMethod.GET)
-	private ModelAndView main(HttpServletRequest request, HttpServletResponse response) {
-		String viewName = (String)request.getAttribute("viewName");
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName(viewName);
-		return mav;
-	}
+
 	
 	@Override
 	@RequestMapping(value="/member/addMember.do" ,method = RequestMethod.POST)
