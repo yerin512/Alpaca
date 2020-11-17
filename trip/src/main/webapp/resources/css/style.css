@@ -9328,7 +9328,7 @@ textarea.form-control {
       background: #4986fc; }
 
 .ftco-footer {
- position:fixed;
+
  bottom:0;
  width:100%;
   font-size: 16px;
@@ -10090,6 +10090,14 @@ textarea.form-control {
   -webkit-animation: loader-dash 1.5s ease-in-out infinite;
   animation: loader-dash 1.5s ease-in-out infinite;
   stroke-linecap: round; }
+
+
+
+/*����ã�� �Խ��� �۸��*/
+
+
+
+/*����ã�� �۾���*/
 
 @-webkit-keyframes loader-rotate {
   100% {

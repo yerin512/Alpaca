@@ -1,0 +1,6 @@
+create table trip_member(id varchar2(20), name varchar2(20), email varchar2(40), pwd varchar2(20));
+commit;
+
+
+create table kakao_profile (id varchar2(20), profileImage varchar2(100), jagisogae varchar2(200));
+select * from kakao_profile;

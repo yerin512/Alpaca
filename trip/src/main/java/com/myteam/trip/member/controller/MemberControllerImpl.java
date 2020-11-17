@@ -1,5 +1,7 @@
 package com.myteam.trip.member.controller;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -9,15 +11,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.myteam.trip.member.service.KakaoAPI;
 import com.myteam.trip.member.service.MemberService;
+import com.myteam.trip.member.service.ProfileService;
 import com.myteam.trip.member.vo.MemberVO;
-
-
-
-
+import com.myteam.trip.member.vo.ProfileVO;
 
 
 @Controller("memberController")
@@ -27,14 +30,69 @@ public class MemberControllerImpl   implements MemberController {
 	private MemberService memberService;
 	@Autowired
 	private MemberVO memberVO ;
+	@Autowired
+	private ProfileVO profileVO;
+	@Autowired ProfileService profileService;
+	 
+	 @Autowired
+	    private KakaoAPI kakao;
+	    
+	    @RequestMapping(value="/")
+	    public String index() {
+	        
+	        return "index";
+	    }
+	    
+		@RequestMapping(value = {"index.do"}, method = RequestMethod.GET)
+		private ModelAndView main(HttpServletRequest request, HttpServletResponse response) {
+			String viewName = (String)request.getAttribute("viewName");
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName(viewName);
+			return mav;
+		}
+	    
+	    
+	    //카카오 로그인
+	    @RequestMapping(value="/login")
+	    public String login(@RequestParam("code") String code, HttpSession session) {
+	        String access_Token = kakao.getAccessToken(code);
+	        HashMap<String, Object> userInfo = kakao.getUserInfo(access_Token);
+	        System.out.println("login Controller : " + userInfo);
+	        
+	      
+	        if (userInfo.get("kakaoID") != null) {
+	        	session.setAttribute("kakaoID", userInfo.get("kakaoID"));
+	            session.setAttribute("nickname", userInfo.get("nickname"));
+	            session.setAttribute("profileImage", userInfo.get("profileImage"));
+	            
+	            session.setAttribute("access_Token", access_Token);
+	        }
+	        
+	        
+	        return "index";
+	    }
+	    //카카오 로그아웃
+	    @RequestMapping(value="/logout")
+	    public String logout(HttpSession session) {
+//	        kakao.kakaoLogout((String)session.getAttribute("access_Token")); 필요가 없네.... 걍 로그아웃 된다..
+	        session.removeAttribute("access_Token");
+	        session.removeAttribute("kakaoID");
+	        return "index";
+	    }
 	
-	@RequestMapping(value = { "/","index.do"}, method = RequestMethod.GET)
-	private ModelAndView main(HttpServletRequest request, HttpServletResponse response) {
-		String viewName = (String)request.getAttribute("viewName");
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName(viewName);
-		return mav;
-	}
+		@RequestMapping(value="/kakao/viewProfile.do" ,method = RequestMethod.GET)
+		public ModelAndView viewArticle(@RequestParam("userId") int id,
+	                                    HttpServletRequest request, HttpServletResponse response) throws Exception{
+			String viewName = (String)request.getAttribute("viewName");
+	//		id=profileService.view(id);
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName(viewName);
+			mav.addObject("profile", profileVO);
+			return mav;
+		}	
+	
+	
+
 	
 	@Override
 	@RequestMapping(value="/member/addMember.do" ,method = RequestMethod.POST)
@@ -44,11 +102,11 @@ public class MemberControllerImpl   implements MemberController {
 		response.setContentType("html/text;charset=utf-8");
 		int result = 0;
 		result = memberService.addMember(member);
-		ModelAndView mav = new ModelAndView("redirect:/signup.do");
+		ModelAndView mav = new ModelAndView("redirect:/signupsuccess.do");
 		return mav;
 	}
 	
-	@RequestMapping(value="signup.do" ,method = RequestMethod.GET)
+	@RequestMapping(value="signUp.do" ,method = RequestMethod.GET)
 	private ModelAndView loginMain(HttpServletRequest request, HttpServletResponse response) {
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
@@ -78,13 +136,19 @@ public class MemberControllerImpl   implements MemberController {
 	    }
 
 	}else {
-	   rAttr.addAttribute("result","loginFailed");
-	   mav.setViewName("redirect:/signup.do");
+	   rAttr.addFlashAttribute("result","loginFailed");
+	   mav.setViewName("redirect:/index.do");
 	}
 	return mav;
 	}
 
-	
+	//아이디 중복 체크
+		@ResponseBody
+		@RequestMapping(value="/idChk.do" ,method = RequestMethod.POST)
+		public String idChk(MemberVO vo) throws Exception {
+			String result = memberService.idChk(vo);
+			return result;
+		}
 
 	
 

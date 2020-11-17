@@ -1,15 +1,18 @@
 package com.myteam.trip;
 
-import java.text.DateFormat;
-import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Handles requests for the application home page.
@@ -30,18 +33,23 @@ public class HomeController {
 //		return "index";
 //	}
 	
-	
-	@RequestMapping(value = "/themaTour.do", method = RequestMethod.GET)
+
+
+	    
+	    
+	    
+
+	@RequestMapping(value = "/instructor.do", method = RequestMethod.GET)
 	public String instructor(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		
 		
 	
-		return "themaTour";
+		return "instructor";
 	}
 	
 	@RequestMapping(value = "/plan.do", method = RequestMethod.GET)
 	public String about(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		
 		
 	
 		return "plan";
@@ -49,7 +57,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/myPage.do", method = RequestMethod.GET)
 	public String blog(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		
 		
 	
 		return "myPage";
@@ -57,9 +65,25 @@ public class HomeController {
 	
 	@RequestMapping(value = "/with.do", method = RequestMethod.GET)
 	public String course(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		
 		
 	
 		return "with";
+	}
+	
+	@RequestMapping(value = "/insertBoard.do", method = RequestMethod.GET)
+	public String insertBoard(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+	
+		return "insertBoard";
+	}
+	
+	@RequestMapping(value = "/signupsuccess.do", method = RequestMethod.GET)
+	public String sucseccsignup(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+	
+		return "signupsuccess";
 	}
 }

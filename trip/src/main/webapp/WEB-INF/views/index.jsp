@@ -25,13 +25,15 @@
 
     <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
+    
+
 </head>
 <body>
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
    <div class="container">
      <a class="navbar-brand" href="index.do"><span>TRAVEL </span>MAKER</a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-       <span class="oi oi-menu"></span> Menu
+     <span class="oi oi-menu"></span> Menu
    </button>
 
    <div class="collapse navbar-collapse" id="ftco-nav">
@@ -39,7 +41,7 @@
          <li class="nav-item active"><a href="index.do" class="nav-link">Home</a></li>
          <li class="nav-item"><a href="plan.do" class="nav-link">일정짜기</a></li>
          <li class="nav-item"><a href="with.do" class="nav-link">동행찾기</a></li>
-         <li class="nav-item"><a href="themaTour.do" class="nav-link">맞춤테마</a></li>
+         <li class="nav-item"><a href="instructor.do" class="nav-link">맞춤테마</a></li>
            <li class="nav-item"><a href="myPage.do" class="nav-link">마이페이지</a></li>
      </ul>
    </div>
@@ -48,7 +50,7 @@
 <!-- END nav -->
 
 
-<div class="hero-wrap js-fullheight" style="background-image: url('${contextPath}/resources/images/bg_1.jpg');">
+<div class="hero-wrap js-fullheight" style="background-image: url('${contextPath}/resources/images/bg_1.png');">
   <div class="overlay"></div>
   <div class="container">
     <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
@@ -61,7 +63,35 @@
 </div>
 </div>
 </div>
+<c:choose>
+<c:when test="${kakaoID ne null}"> <!-- 로그인 됐을 때 창 -->
+<section class="ftco-section ftco-no-pb ftco-no-pt">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-7"></div>
+         <div class="col-md-5 order-md-last">
+          <div class="login-wrap p-4 p-md-5">
+              <h3 class="mb-4">환영합니다!!</h3>
+          <form class="signup-form">
+          <img src="${profileImage}" width="100px" height="100px">
+               				<div class="form-group">
+								${nickname}님@
+							</div>
+							<div class="form-group">
+								<a href="myPage.do">마이페이지</a>
+							</div>
+							
+         </form>
 
+
+    	<a href="https://kauth.kakao.com/oauth/logout?client_id=4d6c516eb262829dabdcac45cae9703c&logout_redirect_uri=http://localhost:8090/trip/logout"><input type="button" value="로그아웃" ></a>
+     </div>
+ </div>
+</div>
+</div>
+</section>
+</c:when>
+<c:otherwise>
 <section class="ftco-section ftco-no-pb ftco-no-pt">
    <div class="container">
       <div class="row">
@@ -80,16 +110,36 @@
 									id="password-field" type="password" class="form-control"
 									name="pwd" >
 							</div>
+			 <c:if test="${result == 'loginFailed' }">
+			 		<div class="alert alert-danger" id="alert-danger"> 아이디 또는 비밀번호를 확인해주세요</div> 		
+             </c:if>
+							
              <div class="form-group d-flex justify-content-end mt-4">
-                 <button type="submit" class="btn btn-primary submit btn-primary_submit">Sign in<span class="fa fa-paper-plane"></span></button>
+                 <button type="submit" class="btn btn-primary submit btn-primary_submit">로그인<span class="fa fa-paper-plane"></span></button>
              </div>
          </form>
-         <p class="text-center">Sign up for Travel Maker? <a href="signup.do">Sign Up</a></p>
+
+    <c:if test="${kakaoID eq null}">
+         <a href="https://kauth.kakao.com/oauth/authorize?client_id=4d6c516eb262829dabdcac45cae9703c&redirect_uri=http://localhost:8090/trip/login&response_type=code">
+         <img src="resources/images/kakao_login.png">
+        </a>
+    </c:if>
+   
+    
+    
+         <p class="text-center">아직 회원이 아니신가요? <a href="signUp.do">회원가입</a></p>
+ 
+          <c:if test="${kakaoID ne null}">
+    	<a href="https://kauth.kakao.com/oauth/logout?client_id=4d6c516eb262829dabdcac45cae9703c&logout_redirect_uri=http://localhost:8090/trip/logout"><input type="button" value="로그아웃" onclick="location.href='${contextPath}/logout'"></a>
+    </c:if>
      </div>
  </div>
 </div>
 </div>
 </section>
+</c:otherwise>
+</c:choose>
+
 <!---->
 
 <footer class="ftco-footer ftco-no-pt">
@@ -105,25 +155,24 @@
 </div>
 </div>
 </footer>
+		<!-- loader -->
+		<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-
-
-<!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-<script src="resources/js/jquery.min.js"></script>
-<script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="resources/js/popper.min.js"></script>
-<script src="resources/js/bootstrap.min.js"></script>
-<script src="resources/js/jquery.easing.1.3.js"></script>
-<script src="resources/js/jquery.waypoints.min.js"></script>
-<script src="resources/js/jquery.stellar.min.js"></script>
-<script src="resources/js/owl.carousel.min.js"></script>
-<script src="resources/js/jquery.magnific-popup.min.js"></script>
-<script src="resources/js/jquery.animateNumber.min.js"></script>
-<script src="resources/js/bootstrap-datepicker.js"></script>
-<script src="resources/js/scrollax.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="resources/js/google-map.js"></script>
-<script src="resources/js/main.js"></script>
+		<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+		<script src="resources/js/jquery.min.js"></script>
+		<script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
+		<script src="resources/js/popper.min.js"></script>
+		<script src="resources/js/bootstrap.min.js"></script>
+		<script src="resources/js/jquery.easing.1.3.js"></script>
+		<script src="resources/js/jquery.waypoints.min.js"></script>
+		<script src="resources/js/jquery.stellar.min.js"></script>
+		<script src="resources/js/owl.carousel.min.js"></script>
+		<script src="resources/js/jquery.magnific-popup.min.js"></script>
+		<script src="resources/js/jquery.animateNumber.min.js"></script>
+		<script src="resources/js/bootstrap-datepicker.js"></script>
+		<script src="resources/js/scrollax.min.js"></script>
+		<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=c8f1e98d3b42f208e812d6c641c3952e"></script>
+		<script src="resources/js/kakao-map.js"></script>
+		<script src="resources/js/main.js"></script>
+</body>
+</html>
