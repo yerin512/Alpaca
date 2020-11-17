@@ -1,17 +1,25 @@
 package com.myteam.trip.board.controller;
 
-import java.util.Locale;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.myteam.trip.HomeController;
 
-public class BoardController {
-
+public interface BoardController {
 	
-}
+	public ModelAndView listArticles(HttpServletRequest request, HttpServletResponse response) throws Exception;
+	
+	public ResponseEntity addNewArticle(MultipartHttpServletRequest multipartRequest,HttpServletResponse response) throws Exception;
+	
+	public ModelAndView viewArticle(@RequestParam("articleNO") int articleNO,
+			                        HttpServletRequest request, HttpServletResponse response) throws Exception;
+	//public ResponseEntity modArticle(MultipartHttpServletRequest multipartRequest,  HttpServletResponse response) throws Exception;
+	public ResponseEntity  removeArticle(@RequestParam("articleNO") int articleNO,
+                              HttpServletRequest request, HttpServletResponse response) throws Exception;
 
+}

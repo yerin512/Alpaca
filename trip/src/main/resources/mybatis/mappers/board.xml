@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.board">
+	<resultMap id="articlesResult" type="articleVO">
+		<result property="id" column="id" />
+		<result property="a_no" column="a_no" />
+		<result property="a_title" column="a_title" />
+		<result property="a_content" column="a_content" />
+		<result property="a_price" column="a_price" />
+		<result property="img_1" column="img_1" />
+		<result property="img_2" column="img_2" />
+		<result property="img_3" column="img_3" />
+		<result property="a_date" column="a_date" />
+		<result property="location" column="location" />
+		<result property="loc_x" column="loc_X" />
+		<result property="loc_y" column="loc_y" />
+		<result property="genre" column="genre" />
+		<result property="way" column="way" />
+		<result property="condition" column="condition" />
+				
+	</resultMap>
+	
+
+
+<select id="selectAllArticlesList" resultMap="articlesResult"   >
+    <![CDATA[
+      SELECT id, a_no, a_title, a_content, a_date, img_1,img_2,img_3, genre, way, condition
+      from article
+    ]]>
+  </select>
+  	
+  	<!--단일이미지 추가  -->
+  	<insert id="insertNewArticle"  parameterType="java.util.Map">
+			INSERT into t_board( id, a_no, a_title, a_content, img_1,img_2,img_3, genre, way, condition)
+			VALUES(#{id}, #{a_no}, #{title}, #{content}, #{img_1},#{img_2},#{img_3}, #{genre}, #{way}, #{condition})
+	</insert>
+	
+  	<select id="selectNewArticleNO" resultType="int"  >
+		<![CDATA[
+			SELECT  nvl(max(a_no), 0) + 1 from article		
+		]]>
+	</select>
+	
+ 	 <select id="selectArticle" resultType="articleVO"   parameterType="int">
+    <![CDATA[
+      SELECT * from article
+      where a_no = #{a_no}		
+    ]]>
+ 	 </select>
+  
+  	<update id="updateArticle"  parameterType="java.util.Map">
+			update article
+			set a_title=#{a_title},	 
+			a_content=#{a_content}
+			 <if test="img_1 !='' and img_1!=null">
+			  , img_1=#{img_1}
+			</if>
+			 <if test="img_2 !='' and img_2!=null">
+			  , img_2=#{img_2}
+			</if>
+			 <if test="img_1 !='' and img_1!=null">
+			  , img_3=#{img_3}
+			</if>
+			where a_no=#{a_no}
+	</update>
+	
+	<delete id="deleteArticle"  parameterType="int">
+      delete from article
+      where a_no in (
+         SELECT a_no FROM  article
+          )
+  	</delete>
+
+
+</mapper>

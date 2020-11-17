@@ -41,7 +41,7 @@
          <li class="nav-item active"><a href="index.do" class="nav-link">Home</a></li>
          <li class="nav-item"><a href="plan.do" class="nav-link">일정짜기</a></li>
          <li class="nav-item"><a href="with.do" class="nav-link">동행찾기</a></li>
-         <li class="nav-item"><a href="themaTour.do" class="nav-link">맞춤테마</a></li>
+         <li class="nav-item"><a href="instructor.do" class="nav-link">맞춤테마</a></li>
            <li class="nav-item"><a href="myPage.do" class="nav-link">마이페이지</a></li>
      </ul>
    </div>
@@ -50,7 +50,7 @@
 <!-- END nav -->
 
 
-<div class="hero-wrap js-fullheight" style="background-image: url('${contextPath}/resources/images/bg_1.jpg');">
+<div class="hero-wrap js-fullheight" style="background-image: url('${contextPath}/resources/images/bg_1.png');">
   <div class="overlay"></div>
   <div class="container">
     <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">

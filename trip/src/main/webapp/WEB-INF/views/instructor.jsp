@@ -57,137 +57,11 @@
 			</div>
 		</div>
 	</section>
-
-
-<section class="ftco-section testimony-section bg-light">
- <div class="overlay" style="background-image: url(${contextPath}/resources/images/bg_2.jpg);"></div>
  <div class="container">
   <div class="row pb-4">
     <div class="col-md-7 heading-section ftco-animate">
-     <span class="subheading">Testimonial</span>
-     <h2 class="mb-4">What Are Students Says</h2>
-   </div>
- </div>
-</div>
-<div class="container container-2">
-  <div class="row ftco-animate">
-    <div class="col-md-12">
-      <div class="carousel-testimony owl-carousel">
-        <div class="item">
-          <div class="testimony-wrap py-4">
-            <div class="text">
-             <p class="star">
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-            </p>
-            <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            <div class="d-flex align-items-center">
-             <div class="user-img" style="background-image: url(${contextPath}/resources/images/person_1.jpg)"></div>
-             <div class="pl-3">
-              <p class="name">Roger Scott</p>
-              <span class="position">Marketing Manager</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <div class="testimony-wrap py-4">
-        <div class="text">
-         <p class="star">
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
-        </p>
-        <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-        <div class="d-flex align-items-center">
-         <div class="user-img" style="background-image: url(${contextPath}/resources/images/person_2.jpg)"></div>
-         <div class="pl-3">
-          <p class="name">Roger Scott</p>
-          <span class="position">Marketing Manager</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="item">
-  <div class="testimony-wrap py-4">
-    <div class="text">
-     <p class="star">
-      <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span>
-    </p>
-    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-    <div class="d-flex align-items-center">
-     <div class="user-img" style="background-image: url(${contextPath}/resources/images/person_3.jpg)"></div>
-     <div class="pl-3">
-      <p class="name">Roger Scott</p>
-      <span class="position">Marketing Manager</span>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-<div class="item">
-  <div class="testimony-wrap py-4">
-    <div class="text">
-     <p class="star">
-      <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span>
-    </p>
-    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-    <div class="d-flex align-items-center">
-     <div class="user-img" style="background-image: url(${contextPath}/resources/images/person_1.jpg)"></div>
-     <div class="pl-3">
-      <p class="name">Roger Scott</p>
-      <span class="position">Marketing Manager</span>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-<div class="item">
-  <div class="testimony-wrap py-4">
-    <div class="text">
-     <p class="star">
-      <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span>
-    </p>
-    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-    <div class="d-flex align-items-center">
-     <div class="user-img" style="background-image: url(${contextPath}/resources/images/person_2.jpg)"></div>
-     <div class="pl-3">
-      <p class="name">Roger Scott</p>
-      <span class="position">Marketing Manager</span>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
- <div class="container">
-  <div class="row pb-4">
-    <div class="col-md-7 heading-section ftco-animate">
-     <span class="subheading">Testimonial</span>
-     <h2 class="mb-4">추천 투어테마</h2>
+     <span class="subheading">여기다가 지역 옵션값 넣을까?</span>
+     <h2 class="mb-4">중고장터 열렸네~</h2>
    </div>
  </div>
 </div>
@@ -201,14 +75,13 @@
           <div class="text d-block">
            <div class="meta">
             <p>
-             <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 17, 2020</a>
-             <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>
-             <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>
+             <a href="#"><span class="fa fa-calendar mr-2"></span>작성날짜 받아오기</a>
+             <a href="#"><span class="fa fa-user mr-2"></span>작성자인데 아랫줄로 할까? </a>
+             <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 좋아요 숫자같은거</a>
            </p>
          </div>
-         <h3 class="heading"><a href="#">I'm not creative, Should I take this course?</a></h3>
-         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia...</p>
-         <p><a href="blog.do" class="btn btn-secondary py-2 px-3">Read more</a></p>
+         <h3 class="heading"><a href="#"><제목>여기저기 다 링크값인데 아티클 넘버대로 상세페이지 이동으로 구현</a></h3>
+         <p>설명따윈 필요없다 지운다? 이미지는 이미지파일 크기에 맞춰 오려서 넣으면 딱이려나 </p>
        </div>
      </div>
    </div>

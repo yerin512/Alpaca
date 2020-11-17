@@ -39,17 +39,17 @@ public class HomeController {
 	    
 	    
 
-	@RequestMapping(value = "/themaTour.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/instructor.do", method = RequestMethod.GET)
 	public String instructor(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		
 		
 	
-		return "themaTour";
+		return "instructor";
 	}
 	
 	@RequestMapping(value = "/plan.do", method = RequestMethod.GET)
 	public String about(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		
 		
 	
 		return "plan";
@@ -57,7 +57,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/myPage.do", method = RequestMethod.GET)
 	public String blog(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		
 		
 	
 		return "myPage";
@@ -65,7 +65,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/with.do", method = RequestMethod.GET)
 	public String course(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		
 		
 	
 		return "with";
