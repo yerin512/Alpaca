@@ -38,11 +38,11 @@
 
    <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
-         <li class="nav-item active"><a href="index.do" class="nav-link">Home</a></li>
-         <li class="nav-item"><a href="board/listArticles.do" class="nav-link">책거래</a></li>
-         <li class="nav-item"><a href="with.do" class="nav-link">주변거래</a></li>
-         <li class="nav-item"><a href="themaTour.do" class="nav-link">채팅</a></li>
-         <li class="nav-item"><a href="myPage.do" class="nav-link">커뮤니티</a></li>
+         <li class="nav-item active"><a href="${contextPath}/index.do" class="nav-link">Home</a></li>
+         <li class="nav-item"><a href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
+         <li class="nav-item"><a href="${contextPath}/with.do" class="nav-link">주변거래</a></li>
+         <li class="nav-item"><a href="${contextPath}/themaTour.do" class="nav-link">채팅</a></li>
+         <li class="nav-item"><a href="${contextPath}/myPage.do" class="nav-link">커뮤니티</a></li>
      </ul>
    </div>
 </div>
