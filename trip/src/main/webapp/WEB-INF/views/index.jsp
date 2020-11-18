@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>StudyLab - Free Bootstrap 4 Template by Colorlib</title>
+    <title>알파카 - 믿을 수 있는 중고 책 거래사이트</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -31,18 +31,18 @@
 <body>
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
    <div class="container">
-     <a class="navbar-brand" href="index.do"><span>TRAVEL </span>MAKER</a>
+     <a class="navbar-brand" href="index.do">알파카 <span class="navbar-brandsp">중고책 거래소</span></a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
      <span class="oi oi-menu"></span> Menu
    </button>
 
    <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
-         <li class="nav-item active"><a href="index.do" class="nav-link">Home</a></li>
-         <li class="nav-item"><a href="plan.do" class="nav-link">일정짜기</a></li>
-         <li class="nav-item"><a href="with.do" class="nav-link">동행찾기</a></li>
-         <li class="nav-item"><a href="instructor.do" class="nav-link">맞춤테마</a></li>
-           <li class="nav-item"><a href="myPage.do" class="nav-link">마이페이지</a></li>
+         <li class="nav-item active"><a href="${contextPath}/index.do" class="nav-link">Home</a></li>
+         <li class="nav-item"><a href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
+         <li class="nav-item"><a href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
+         <li class="nav-item"><a href="${contextPath}/themaTour.do" class="nav-link">채팅</a></li>
+         <li class="nav-item"><a href="${contextPath}/myPage.do" class="nav-link">커뮤니티</a></li>
      </ul>
    </div>
 </div>
@@ -55,10 +55,9 @@
   <div class="container">
     <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
       <div class="col-md-7 ftco-animate">
-        <span class="subheading">which do you prefer?</span>
-        <h1 class="mb-4">Travel alone <br>or With others?</h1>
-        <p class="caps">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-        <p class="mb-0"><a href="plan.do" class="btn btn-primary">일정짜기</a> <a href="with.do" class="btn btn-white">동행찾기</a></p>
+        <p class="caps">먼지 쌓인 책들을 그냥 버린다고?<br>헌 책 주면 새 돈으로 받는 믿을 수 있는 중고 책 거래 사이트</p>
+        <h1 class="mb-4"><span class="maintitle">책도 알고 팔자 <br>알파카</span></h1>
+        <p class="mb-0"><a href="board/listArticles.do" class="btn btn-primary">책 구매</a> <a href="board/articleForm.do" class="btn btn-white">책 판매</a></p>
     </div>
 </div>
 </div>
@@ -75,7 +74,7 @@
           <form class="signup-form">
           <img src="${profileImage}" width="100px" height="100px">
                				<div class="form-group">
-								${nickname}님@
+								${nickname}님
 							</div>
 							<div class="form-group">
 								<a href="myPage.do">마이페이지</a>

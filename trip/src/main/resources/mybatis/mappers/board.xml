@@ -19,8 +19,7 @@
 		<result property="loc_y" column="loc_y" />
 		<result property="genre" column="genre" />
 		<result property="way" column="way" />
-		<result property="condition" column="condition" />
-				
+		<result property="condition" column="condition" />				
 	</resultMap>
 	
 
@@ -34,8 +33,8 @@
   	
   	<!--단일이미지 추가  -->
   	<insert id="insertNewArticle"  parameterType="java.util.Map">
-			INSERT into t_board( id, a_no, a_title, a_content, img_1,img_2,img_3, genre, way, condition)
-			VALUES(#{id}, #{a_no}, #{title}, #{content}, #{img_1},#{img_2},#{img_3}, #{genre}, #{way}, #{condition})
+			INSERT into article( id, a_no, a_title, a_content, img_1,img_2,img_3)       <!--  , genre, way, condition -->
+			VALUES(#{id}, #{a_no}, #{a_title}, #{a_content}, #{img_1},#{img_2},#{img_3})  <!-- , #{genre}, #{way}, #{condition} -->
 	</insert>
 	
   	<select id="selectNewArticleNO" resultType="int"  >

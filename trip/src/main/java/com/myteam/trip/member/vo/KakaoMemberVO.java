@@ -1,7 +1,6 @@
 package com.myteam.trip.member.vo;
 
 
-import java.sql.Date;
 
 import org.springframework.stereotype.Component;
 

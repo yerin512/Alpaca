@@ -66,6 +66,10 @@ public class MemberControllerImpl   implements MemberController {
 	            session.setAttribute("profileImage", userInfo.get("profileImage"));
 	            
 	            session.setAttribute("access_Token", access_Token);
+	            session.setAttribute("isLogOn", true);
+
+	            memberVO.setId((String)userInfo.get("kakaoID"));
+	            session.setAttribute("member", memberVO);   //카카오 로긴값 세션에 묶어보기 시도
 	        }
 	        
 	        
@@ -77,6 +81,7 @@ public class MemberControllerImpl   implements MemberController {
 //	        kakao.kakaoLogout((String)session.getAttribute("access_Token")); 필요가 없네.... 걍 로그아웃 된다..
 	        session.removeAttribute("access_Token");
 	        session.removeAttribute("kakaoID");
+	        session.removeAttribute("isLogOn");
 	        return "index";
 	    }
 	
