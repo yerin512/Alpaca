@@ -49,7 +49,6 @@
 </nav>
 <!-- END nav -->
 
-
 <div class="hero-wrap js-fullheight" style="background-image: url('${contextPath}/resources/images/bg_1.png');">
   <div class="overlay"></div>
   <div class="container">
@@ -79,10 +78,7 @@
 							<div class="form-group">
 								<a href="myPage.do">마이페이지</a>
 							</div>
-							
          </form>
-
-
     	<a href="https://kauth.kakao.com/oauth/logout?client_id=4d6c516eb262829dabdcac45cae9703c&logout_redirect_uri=http://localhost:8090/trip/logout"><input type="button" value="로그아웃" ></a>
      </div>
  </div>

@@ -10,6 +10,9 @@
 			alias="kakaoMemberVO" />
 		<typeAlias type="com.myteam.trip.member.vo.ProfileVO"
 			alias="profileVO" />
-<typeAlias type="com.myteam.trip.board.vo.ArticleVO"  alias="articleVO" />
+		<typeAlias type="com.myteam.trip.board.vo.ArticleVO"  
+			alias="articleVO" />
+		<typeAlias type="com.myteam.trip.community.vo.CommunityVO"  
+			alias="communityVO" />	
 	</typeAliases>
 </configuration>
