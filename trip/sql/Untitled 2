@@ -4,3 +4,23 @@ commit;
 
 create table kakao_profile (id varchar2(20), profileImage varchar2(100), jagisogae varchar2(200));
 select * from kakao_profile;
+
+
+
+ create table article(
+       id varchar(50) not null primary key,
+       a_no number,
+       a_title varchar2(100),
+       a_content varchar2(2000),
+       a_price number,
+       img_1 varchar2(1000), 
+       img_2 varchar2(1000),
+       img_3 varchar2(1000),
+       a_date date DEFAULT sysdate,
+       location varchar2(1000),
+       loc_x number,
+       loc_y number,
+       genre varchar2(100),
+       way varchar2(100),
+       condition varchar2(1000)
+       );

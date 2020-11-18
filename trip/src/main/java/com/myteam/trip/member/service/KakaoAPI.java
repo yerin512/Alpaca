@@ -145,9 +145,7 @@ public class KakaoAPI {
 			if (memberChk == null || memberChk.equals("")) {
 				memberDAO.insertMember(memberVO);
 				profileDAO.insertNewProfile(profileVO);
-			} else {
-				// 아이디 값으로 로그인 상태 유지는 필요없을 듯 카카오 토큰 유지되는 한 로그인 상태유지니까
-			}
+			} 
 
 			userInfo.put("kakaoID", kakaoID);
 			userInfo.put("nickname", nickname);
