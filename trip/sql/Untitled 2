@@ -1,8 +1,8 @@
-create table trip_member(id varchar2(20), name varchar2(20), email varchar2(40), pwd varchar2(20));
+create table trip_member(id varchar2(20) not null primary key, name varchar2(20), email varchar2(40), pwd varchar2(20));
 commit;
 
 
-create table kakao_profile (id varchar2(20), profileImage varchar2(100), jagisogae varchar2(200));
+create table kakao_profile (id varchar2(20) , profileImage varchar2(100), jagisogae varchar2(200));
 select * from kakao_profile;
 
 
@@ -25,4 +25,16 @@ select * from kakao_profile;
        condition varchar2(1000)
        );
        
-       
+create table c_board(
+		c_no number(10) primary key,
+		c_title varchar2(500),
+		c_content varchar2(4000),
+		c_imageFileName varchar2(100),
+		c_date date default sysdate not null,
+		id varchar2(20),
+		CONSTRAINT FK_ID FOREIGN KEY(id)
+		REFERENCES trip_member(id)
+);
+
+insert into c_board(c_no, c_title, c_content,c_imageFileName, c_date, id)
+values(1, '테스트글입니다.', '테스트글입니다.', null, sysdate, 'hong'); 

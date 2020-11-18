@@ -42,13 +42,13 @@
          <li class="nav-item"><a href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
          <li class="nav-item"><a href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
          <li class="nav-item"><a href="${contextPath}/themaTour.do" class="nav-link">채팅</a></li>
-         <li class="nav-item"><a href="${contextPath}/myPage.do" class="nav-link">커뮤니티</a></li>
+         <li class="nav-item"><a href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
+
      </ul>
    </div>
 </div>
 </nav>
 <!-- END nav -->
-
 
 <div class="hero-wrap js-fullheight" style="background-image: url('${contextPath}/resources/images/bg_1.png');">
   <div class="overlay"></div>
@@ -79,10 +79,7 @@
 							<div class="form-group">
 								<a href="myPage.do">마이페이지</a>
 							</div>
-							
          </form>
-
-
     	<a href="https://kauth.kakao.com/oauth/logout?client_id=4d6c516eb262829dabdcac45cae9703c&logout_redirect_uri=http://localhost:8090/trip/logout"><input type="button" value="로그아웃" ></a>
      </div>
  </div>

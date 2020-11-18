@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.community">
+	<resultMap id="communityResult" type="communityVO">
+		<result property="c_no" column="c_no" />
+		<result property="c_title" column="c_title" />
+		<result property="c_content" column="c_content" />
+		<result property="c_imageFileName" column="c_imageFileName" />
+		<result property="c_date" column="c_date" />
+		<result property="id" column="id" />	
+	</resultMap>
+	
+
+<select id="selectAllCommunityList" resultMap="communityResult"   >
+    <![CDATA[
+   
+    ]]>
+  </select>
+  	
+  	<!--단일이미지 추가  -->
+  	<insert id="insertNewCommunity"  parameterType="java.util.Map">
+			
+	</insert>
+	
+  	<select id="selectNewCommunityNO" resultType="int"  >
+		<![CDATA[
+				
+		]]>
+	</select>
+	
+ 	 <select id="selectCommunity" resultType="communityVO"   parameterType="int">
+    <![CDATA[
+    	
+    ]]>
+ 	 </select>
+  
+  	<update id="updateCommunity"  parameterType="java.util.Map">
+			
+	</update>
+	
+	<delete id="deleteCommunity"  parameterType="int">
+   
+  	</delete>
+	
+
+
+</mapper>
