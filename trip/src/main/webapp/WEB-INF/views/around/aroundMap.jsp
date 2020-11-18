@@ -96,10 +96,11 @@
 	        position: positions[i].latlng
 	    });
 
- 		var overlay = new kakao.maps.CustomOverlay({
- 			map: map, 
-		    position: positions[i].content
-		}); 
+	    var overlay = new kakao.maps.CustomOverlay({
+ 			content: positions[i].content,
+ 		    map: map,
+ 		    position: positions[i].latlng
+		});
 	}
 
  	kakao.maps.event.addListener(marker, 'click', function() {
