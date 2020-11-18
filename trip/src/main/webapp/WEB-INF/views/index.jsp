@@ -42,7 +42,7 @@
          <li class="nav-item"><a href="board/listArticles.do" class="nav-link">책거래</a></li>
          <li class="nav-item"><a href="with.do" class="nav-link">주변거래</a></li>
          <li class="nav-item"><a href="themaTour.do" class="nav-link">채팅</a></li>
-         <li class="nav-item"><a href="myPage.do" class="nav-link">커뮤니티</a></li>
+         <li class="nav-item"><a href="community/listCommunity.do" class="nav-link">커뮤니티</a></li>
      </ul>
    </div>
 </div>

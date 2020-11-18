@@ -4,7 +4,7 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mapper.board">
-	<resultMap id="articlesResult" type="articleVO">
+	<resultMap id="communitysResult" type="communityVO">
 		<result property="id" column="id" />
 		<result property="a_no" column="a_no" />
 		<result property="a_title" column="a_title" />
@@ -22,56 +22,88 @@
 		<result property="condition" column="condition" />				
 	</resultMap>
 	
+ <resultMap id="imgResult" type="imageVO">
+	  <result property="imageFileNO" column="imageFileNO" />
+	  <result property="communityNO" column="communityNO" />
+	  <result property="imageFileName" column="imageFileName" />
+ </resultMap>
 
-
-<select id="selectAllArticlesList" resultMap="articlesResult"   >
+  <select id="selectAllArticlesList" resultMap="communitysResult"   >
     <![CDATA[
-      SELECT id, a_no, a_title, a_content, a_date, img_1,img_2,img_3, genre, way, condition
-      from article
+      SELECT level, communityNO, parentNO, title, content, writeDate, imageFileName, id
+      from t_board
+      START WITH  parentNO=0
+      CONNECT BY PRIOR communityNO=parentNO 
+      ORDER SIBLINGS BY communityNO DESC		
     ]]>
   </select>
-  	
-  	<!--단일이미지 추가  -->
-  	<insert id="insertNewArticle"  parameterType="java.util.Map">
-			INSERT into t_board( id, a_no, a_title, a_content, img_1,img_2,img_3)       <!--  , genre, way, condition -->
-			VALUES(#{id}, #{a_no}, #{title}, #{content}, #{img_1},#{img_2},#{img_3})  <!-- , #{genre}, #{way}, #{condition} -->
-	</insert>
+  
+
 	
-  	<select id="selectNewArticleNO" resultType="int"  >
+  <select id="selectNewArticleNO" resultType="int"  >
 		<![CDATA[
-			SELECT  nvl(max(a_no), 0) + 1 from article		
+			SELECT  nvl(max(communityNO), 0) + 1 from t_board		
 		]]>
 	</select>
 	
- 	 <select id="selectArticle" resultType="articleVO"   parameterType="int">
+  <select id="selectArticle" resultType="communityVO"   parameterType="int">
     <![CDATA[
-      SELECT * from article
-      where a_no = #{a_no}		
+      SELECT * from t_board
+      where communityNO = #{communityNO}		
     ]]>
- 	 </select>
+  </select>
   
-  	<update id="updateArticle"  parameterType="java.util.Map">
-			update article
-			set a_title=#{a_title},	 
-			a_content=#{a_content}
-			 <if test="img_1 !='' and img_1!=null">
-			  , img_1=#{img_1}
+  <update id="updateArticle"  parameterType="java.util.Map">
+			update t_board
+			set title=#{title},	 
+			content=#{content}
+			 <if test="imageFileName!='' and imageFileName!=null">
+			  , imageFileName=#{imageFileName}
 			</if>
-			 <if test="img_2 !='' and img_2!=null">
-			  , img_2=#{img_2}
-			</if>
-			 <if test="img_1 !='' and img_1!=null">
-			  , img_3=#{img_3}
-			</if>
-			where a_no=#{a_no}
+			where communityNO=#{communityNO}
 	</update>
 	
 	<delete id="deleteArticle"  parameterType="int">
-      delete from article
-      where a_no in (
-         SELECT a_no FROM  article
-          )
-  	</delete>
+    <![CDATA[
+      delete from t_board
+      where communityNO in (
+         SELECT communityNO FROM  t_board
+         START WITH communityNO = #{communityNO}
+         CONNECT BY PRIOR  communityNO = parentNO )
+    ]]>      
+  </delete>
 
+ <!--다중 이미지 추가 SQL문 -->   
+ 
+    <insert id="insertNewArticle"  parameterType="java.util.Map">
+    <![CDATA[
+      insert into t_board(communityNO, id, title, content, imageFileName)
+      values(#{communityNO}, #{id}, #{title}, #{content}, null)
+    ]]>      
+  </insert>
 
+ 
+   <insert id="insertNewImage"  parameterType="java.util.Map">
+    <foreach item="item"  collection="list"   open="INSERT ALL" 
+                  separator=" " close="SELECT * FROM DUAL" >
+      INTO t_imageFile(imageFileNO, imageFileName, communityNO, regDate)
+      VALUES (#{item.imageFileNO}, #{item.imageFileName}, #{item.communityNO}, sysdate)
+    </foreach>
+  </insert>
+ 
+ 
+  <select id="selectNewImageFileNO" resultType="int"  >
+    <![CDATA[
+      SELECT  nvl(max(imageFileNO),0) from t_imageFile		
+    ]]>
+  </select>
+	
+
+  <select  id="selectImageFileList" resultMap="imgResult" parameterType="int">
+    <![CDATA[
+      SELECT * from t_imageFile
+      where communityNO=#{communityNO}	
+    ]]>
+  </select> 
+  
 </mapper>
