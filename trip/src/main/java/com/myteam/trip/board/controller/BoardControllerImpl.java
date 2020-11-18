@@ -63,30 +63,32 @@ public class BoardControllerImpl implements BoardController {
 			articleMap.put(name, value);
 		}
 
-		List<String> imageFileName = upload(multipartRequest); 
+		List<String> imageFileName =upload(multipartRequest); 
 		HttpSession session = multipartRequest.getSession();
 		MemberVO memberVO = (MemberVO) session.getAttribute("member"); 
 		String id = memberVO.getId();
 		articleMap.put("id", id);
-		articleMap.put("imageFileName", imageFileName);
+		articleMap.put("img_1", imageFileName.get(0));
+		articleMap.put("img_2", imageFileName.get(1));
+		articleMap.put("img_3", imageFileName.get(2));
 
 		String message;
 		ResponseEntity resEnt = null;
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+
 		try {
 			int a_no = boardService.addNewArticle(articleMap);
-			if (imageFileName != null) {
+			if (imageFileName != null && imageFileName.size()!=0) {
 				for (int i = 0; i < imageFileName.size(); i++) {
 					File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName.get(i));
 					File destDir = new File(ARTICLE_IMAGE_REPO + "\\" + a_no);
 					FileUtils.moveFileToDirectory(srcFile, destDir, true);
 				}
 			}
-
 			message = "<script>";
 			message += " alert('새글을 추가했습니다.');";
-			message += " location.href='" + multipartRequest.getContextPath() + "/board/listArticles.do'; ";
+			message += " location.href='" + multipartRequest.getContextPath() + "/index.do'; ";
 			message += " </script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
 		} catch (Exception e) {
@@ -129,7 +131,7 @@ public class BoardControllerImpl implements BoardController {
 			articleMap.put(name, value);
 		}
 
-		List<String> imageFileName = upload(multipartRequest);  
+	    List<String> imageFileName = upload(multipartRequest);  
 		articleMap.put("imageFileName", imageFileName);
 
 		String a_no = (String) articleMap.get("a_no");

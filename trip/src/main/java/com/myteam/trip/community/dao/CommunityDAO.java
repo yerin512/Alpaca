@@ -1,5 +1,6 @@
 package com.myteam.trip.community.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -9,20 +10,22 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.myteam.trip.community.vo.CommunityVO;
+
+
+
 @Repository("communityDAO")
-public class CommunityDAO {
-
-
-
+public class CommunityDAO{
 	@Autowired
 	private SqlSession sqlSession;
 
-	public List selectAllCommunityList() throws DataAccessException {
-		List<CommunityVO> communityList = communityList = sqlSession.selectList("mapper.community.selectAllCommunitysList");
-		return communityList;
+	 
+	public List selectAllCommunitysList() throws DataAccessException {
+		List<CommunityVO> communitysList = communitysList = sqlSession.selectList("mapper.community.selectAllCommunitysList");
+		return communitysList;
 	}
 
 	
+	 
 	public int insertNewCommunity(Map communityMap) throws DataAccessException {
 		int c_no = selectNewCommunityNO();
 		communityMap.put("c_no", c_no);
@@ -31,16 +34,19 @@ public class CommunityDAO {
 	}
     
 	
+	 
 	public CommunityVO selectCommunity(int communityNO) throws DataAccessException {
 		return sqlSession.selectOne("mapper.community.selectCommunity", communityNO);
 	}
 
+	 
 	public void updateCommunity(Map communityMap) throws DataAccessException {
 		sqlSession.update("mapper.community.updateCommunity", communityMap);
 	}
 
-	public void deleteCommunity(int c_no) throws DataAccessException {
-		sqlSession.delete("mapper.community.deleteCommunity", c_no);
+	 
+	public void deleteCommunity(int communityNO) throws DataAccessException {
+		sqlSession.delete("mapper.community.deleteCommunity", communityNO);
 		
 	}
 	
@@ -48,5 +54,5 @@ public class CommunityDAO {
 		return sqlSession.selectOne("mapper.community.selectNewCommunityNO");
 	}
 	
-}
 
+}

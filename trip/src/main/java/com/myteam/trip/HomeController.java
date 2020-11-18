@@ -28,51 +28,35 @@ public class HomeController {
 
 
 
-	@RequestMapping(value = "/instructor.do", method = RequestMethod.GET)
-	public String instructor(Locale locale, Model model) {
-		
-		
-	
-		return "instructor";
-	}
+
 	
 	@RequestMapping(value = "/plan.do", method = RequestMethod.GET)
 	public String about(Locale locale, Model model) {
-		
-		
 	
 		return "plan";
 	}
 	
 	@RequestMapping(value = "/myPage.do", method = RequestMethod.GET)
 	public String blog(Locale locale, Model model) {
-		
-		
 	
 		return "myPage";
 	}
 	
 	@RequestMapping(value = "/with.do", method = RequestMethod.GET)
 	public String course(Locale locale, Model model) {
-		
-		
 	
 		return "with";
 	}
 	
 	@RequestMapping(value = "/insertBoard.do", method = RequestMethod.GET)
 	public String insertBoard(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
 	
 		return "insertBoard";
 	}
 	
 	@RequestMapping(value = "/signupsuccess.do", method = RequestMethod.GET)
 	public String sucseccsignup(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
 		
-	
 		return "signupsuccess";
 	}
 }

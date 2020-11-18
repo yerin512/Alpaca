@@ -10,39 +10,44 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.myteam.trip.community.dao.CommunityDAO;
 import com.myteam.trip.community.vo.CommunityVO;
+
 @Service("communityService")
 @Transactional(propagation = Propagation.REQUIRED)
-
-
-public class CommunityService {
-	
+public class CommunityService{
 	@Autowired
 	CommunityDAO communityDAO;
 	
-	public List<CommunityVO> listCommunity() throws Exception{
-		List<CommunityVO> communityList =  communityDAO.selectAllCommunityList();
-        return communityList;
-	}                 
+	public List<CommunityVO> listCommunitys() throws Exception{
+		List<CommunityVO> communitysList =  communityDAO.selectAllCommunitysList();
+        return communitysList;
+	}
 
 	
 	
+	 
 	public int addNewCommunity(Map communityMap) throws Exception{
 		return communityDAO.insertNewCommunity(communityMap);
-	}  
+	}
 	
 	
+	
+	 
 	public CommunityVO viewCommunity(int communityNO) throws Exception {
 		CommunityVO communityVO = communityDAO.selectCommunity(communityNO);
 		return communityVO;
 	}
 	
+	
+	 
 	public void modCommunity(Map communityMap) throws Exception {
 		communityDAO.updateCommunity(communityMap);
 	}
 	
+	 
 	public void removeCommunity(int communityNO) throws Exception {
 		communityDAO.deleteCommunity(communityNO);
 	}
 	
 
+	
 }

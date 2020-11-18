@@ -38,11 +38,20 @@
 
    <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
+<<<<<<< HEAD
          <li class="nav-item active"><a href="index.do" class="nav-link">Home</a></li>
          <li class="nav-item"><a href="board/listArticles.do" class="nav-link">책거래</a></li>
          <li class="nav-item"><a href="with.do" class="nav-link">주변거래</a></li>
          <li class="nav-item"><a href="themaTour.do" class="nav-link">채팅</a></li>
          <li class="nav-item"><a href="community/listCommunity.do" class="nav-link">커뮤니티</a></li>
+=======
+         <li class="nav-item active"><a href="${contextPath}/index.do" class="nav-link">Home</a></li>
+         <li class="nav-item"><a href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
+         <li class="nav-item"><a href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
+         <li class="nav-item"><a href="${contextPath}/themaTour.do" class="nav-link">채팅</a></li>
+         <li class="nav-item"><a href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
+
+>>>>>>> 9cf0eeeb4d38b58b6782bcff1dc98cc687c9b753
      </ul>
    </div>
 </div>
@@ -56,7 +65,7 @@
       <div class="col-md-7 ftco-animate">
         <p class="caps">먼지 쌓인 책들을 그냥 버린다고?<br>헌 책 주면 새 돈으로 받는 믿을 수 있는 중고 책 거래 사이트</p>
         <h1 class="mb-4"><span class="maintitle">책도 알고 팔자 <br>알파카</span></h1>
-        <p class="mb-0"><a href="plan.do" class="btn btn-primary">책 구매</a> <a href="with.do" class="btn btn-white">책 판매</a></p>
+        <p class="mb-0"><a href="board/listArticles.do" class="btn btn-primary">책 구매</a> <a href="board/articleForm.do" class="btn btn-white">책 판매</a></p>
     </div>
 </div>
 </div>
@@ -73,7 +82,7 @@
           <form class="signup-form">
           <img src="${profileImage}" width="100px" height="100px">
                				<div class="form-group">
-								${nickname}님@
+								${nickname}님
 							</div>
 							<div class="form-group">
 								<a href="myPage.do">마이페이지</a>
