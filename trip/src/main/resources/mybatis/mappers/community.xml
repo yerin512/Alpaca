@@ -16,13 +16,15 @@
 
 <select id="selectAllCommunityList" resultMap="communityResult"   >
     <![CDATA[
-   
+   		  SELECT c_no, c_title, c_content, c_imageFileName, c_date, id
+          from c_board	
     ]]>
   </select>
   	
   	<!--단일이미지 추가  -->
   	<insert id="insertNewCommunity"  parameterType="java.util.Map">
-			
+			INSERT into c_board( c_no, c_title, c_content, c_imageFileName, c_date, id)
+			VALUES(#{c_no}, #{c_title}, #{c_content}, #{c_imageFileName}, #{c_date}, #{id})
 	</insert>
 	
   	<select id="selectNewCommunityNO" resultType="int"  >
