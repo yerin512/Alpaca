@@ -48,7 +48,10 @@
 	</update>
 	
 	<delete id="deleteCommunity"  parameterType="int">
-   
+   		 delete from c_board
+      	 where c_no in (
+         SELECT c_no FROM c_board
+          )
   	</delete>
 	
 

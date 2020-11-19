@@ -6,6 +6,7 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -52,6 +54,15 @@ public class CommunityController  {
 		return mav;
 
 	}
+	
+	
+
+	@RequestMapping(value = "/community/se2Test.do", method = RequestMethod.GET)
+	public String about(Locale locale, Model model) {
+	
+		return "se2Test";
+	}
+	
 
 	// 한 개 이미지 글쓰기
 	@RequestMapping(value = "/community/addNewCommunity.do", method = RequestMethod.POST)

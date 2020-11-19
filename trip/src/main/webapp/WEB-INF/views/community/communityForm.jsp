@@ -30,7 +30,6 @@
   <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
   <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
   
-
 </head>
 <script type="text/javascript">
 	function fn_communityForm(isLogOn,communityForm, index){
@@ -51,22 +50,18 @@
          reader.readAsDataURL(input.files[0]);
       }
   }  
+   
   function backToList(obj){
     obj.action="${contextPath}/community/listCommunity.do";
     obj.submit();
   }
   
-  var cnt=1;
-  function fn_addFile(){
-	  $("#d_file").append("<br>"+"<input type='file' name='file"+cnt+"' />");
-	  cnt++;
-  }  
-
+  
 </script>
 <style>
 #board_write_se .w_table{margin:30px auto!important;}
-	#board_write_se .w_table td{margin-botton:10px!important;border-spacing:43spx}
-	.sw_btn{margin-bottom:25px}
+#board_write_se .w_table td{margin-botton:10px!important;border-spacing:43spx}
+.sw_btn{margin-bottom:25px}
 #board_write_se .btn{background: #4986fc !important;padding:5px 13px !important; border: 1px solid #4986fc !important;color: #fff !important; }
 
 </style>
@@ -118,7 +113,7 @@
 	 </tr>
 	 <tr>
 		<td align="right" valign="top"><br>글내용: </td>
-		<td colspan=2><textarea name="c_content" rows="10" cols="65" maxlength="4000"></textarea> </td>
+		<td colspan=2><textarea name="c_content" id="c_content" rows="10" cols="100"></textarea> </td>
      </tr>
      <tr>
         <td align="right">이미지파일 첨부:  </td>
@@ -159,18 +154,11 @@
 <script src="resources/js/popper.min.js"></script>
 <script src="resources/js/bootstrap.min.js"></script>
 <script src="resources/js/jquery.easing.1.3.js"></script>
-<script src="resources/js/jquery.waypoints.min.js"></script>
-<script src="resources/js/jquery.stellar.min.js"></script>
-<script src="resources/js/owl.carousel.min.js"></script>
-<script src="resources/js/jquery.magnific-popup.min.js"></script>
-<script src="resources/js/jquery.animateNumber.min.js"></script>
-<script src="resources/js/bootstrap-datepicker.js"></script>
-<script src="resources/js/scrollax.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="resources/js/google-map.js"></script>
 <script src="resources/js/main.js"></script>
-<script type="text/javascript" src="se2/js/HuskyEZCreator.js" charset="utf-8"></script> <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-  
-  
+<script type="text/javascript" src="se2/js/HuskyEZCreator.js" charset="utf-8"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
 </body>
 </html>
+<!-- SmartEditor2 -->
+<script type="text/javascript" src = "resources/js/notice_write.js"></script>
