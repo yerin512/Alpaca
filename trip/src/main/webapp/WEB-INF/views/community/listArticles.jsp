@@ -4,11 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
-<c:set  var="articlesList"  value="${articlesMap.articlesList}" />
-<c:set  var="totArticles"  value="${articlesMap.totArticles}" />
-<c:set  var="section"  value="${articlesMap.section}" />
-<c:set  var="pageNum"  value="${articlesMap.pageNum}" />
-
 <%
   request.setCharacterEncoding("UTF-8");
 %>  
@@ -16,14 +11,22 @@
 <html>
 <head>
  <style>
-   .no-uline {text-decoration:none;}
-   .sel-page{text-decoration:none;color:red;}
    .cls1 {text-decoration:none;}
    .cls2{text-align:center; font-size:30px;}
   </style>
   <meta charset="UTF-8">
   <title>글목록창</title>
 </head>
+<script>
+	function fn_communityForm(isLogOn,communityForm, index){
+	  if(isLogOn != '' && isLogOn != 'false'){
+	    location.href=communityForm;
+	  }else{
+	    alert("로그인 후 글쓰기가 가능합니다.")
+	    location.href=index+'?action=/community/communityForm.do';
+	  }
+	}
+</script>
 <body>
 <table align="center" border="1"  width="80%"  >
   <tr height="10" align="center"  bgcolor="lightgreen">
@@ -33,7 +36,7 @@
      <td >작성일</td>
   </tr>
 <c:choose>
-  <c:when test="${empty articlesList}" >
+  <c:when test="${communityList ==null }" >
     <tr  height="10">
       <td colspan="4">
          <p align="center">
@@ -42,69 +45,28 @@
       </td>  
     </tr>
   </c:when>
-  <c:when test="${!empty articlesList}" >
-    <c:forEach  var="article" items="${articlesList }" varStatus="articleNum" >
+  <c:when test="${communityList !=null }" >
+    <c:forEach  var="community" items="${communityList }" varStatus="communityNum" >
      <tr align="center">
-	<td width="5%">${articleNum.count}</td>
-	<td width="10%">${article.id }</td>
-	<td align='left'  width="35%">
-	    <span style="padding-right:30px"></span>    
-	   <c:choose>
-	      <c:when test='${article.level > 1 }'>  
-	         <c:forEach begin="1" end="${article.level }" step="1">
-	             <span style="padding-left:10px"></span> 
-	         </c:forEach>
-	         <span style="font-size:12px;">[답변]</span>
-                   <a class='cls1' href="${contextPath}/board/viewArticle.do?articleNO=${article.articleNO}">${article.title}</a>
-	          </c:when>
-	          <c:otherwise>
-	            <a class='cls1' href="${contextPath}/board/viewArticle.do?articleNO=${article.articleNO}">${article.title }</a>
-	          </c:otherwise>
-	        </c:choose>
+	<!--  <td width="5%">${communityNum.count}</td>-->
+	<td>${community.c_no }</td>
+	<td>${community.c_title }</td>
+	<td>${community.c_content }</td>
+	<td>${community.c_date }</td>
+	<td>${community.id }</td>
+	<!--  <td width="10%">${community.id }</td>-->
+	<!-- <td align='left'  width="35%">
+	  <span style="padding-right:30px"></span>
+	            <a class='cls1' href="${contextPath}/community/viewCommunity.do?communityNO=${community.c_no}">${community.c_title }</a>
 	  </td>
-	  <td  width="10%"><fmt:formatDate value="${article.writeDate}" /></td> 
+	   <td  width="10%">${community.c_date}</td> -->
 	</tr>
     </c:forEach>
      </c:when>
     </c:choose>
 </table>
-
-<div class="cls2">
- <c:if test="${totArticles != null }" >
-      <c:choose>
-        <c:when test="${totArticles >100 }">  <!-- 글 개수가 100 초과인경우 -->
-	      <c:forEach   var="page" begin="1" end="10" step="1" >
-	         <c:if test="${section >1 && page==1 }">
-	          <a class="no-uline" href="${contextPath }/board/listArticles.do?section=${section-1}&pageNum=${(section-1)*10 +1 }">&nbsp; pre </a>
-	         </c:if>
-	          <a class="no-uline" href="${contextPath }/board/listArticles.do?section=${section}&pageNum=${page}">${(section-1)*10 +page } </a>
-	         <c:if test="${page ==10 }">
-	          <a class="no-uline" href="${contextPath }/board/listArticles.do?section=${section+1}&pageNum=${section*10+1}">&nbsp; next</a>
-	         </c:if>
-	      </c:forEach>
-        </c:when>
-        <c:when test="${totArticles ==100 }" >  <!--등록된 글 개수가 100개인경우  -->
-	      <c:forEach   var="page" begin="1" end="10" step="1" >
-	        <a class="no-uline"  href="#">${page } </a>
-	      </c:forEach>
-        </c:when>
-        
-        <c:when test="${totArticles< 100 }" >   <!--등록된 글 개수가 100개 미만인 경우  -->
-	      <c:forEach   var="page" begin="1" end="${totArticles/10 +1}" step="1" >
-	         <c:choose>
-	           <c:when test="${page==pageNum }">
-	            <a class="sel-page"  href="${contextPath }/board/listArticles.do?section=${section}&pageNum=${page}">${page } </a>
-	          </c:when>
-	          <c:otherwise>
-	            <a class="no-uline"  href="${contextPath }/board/listArticles.do?section=${section}&pageNum=${page}">${page } </a>
-	          </c:otherwise>
-	        </c:choose>
-	      </c:forEach>
-        </c:when>
-      </c:choose>
-    </c:if>
-</div>    
-<br><br>
-<a  class="cls1"  href="${contextPath}/board/articleForm.do"><p class="cls2">글쓰기</p></a>
+<!-- <a  class="cls1"  href="#"><p class="cls2">글쓰기</p></a> -->
+<a  class="cls1"  href="javascript:fn_communityForm('${isLogOn}','${contextPath}/community/communityForm.do', 
+                                                    '${contextPath}/index.do')"><p class="cls2">글쓰기</p></a>
 </body>
 </html>

@@ -20,17 +20,17 @@ public class CommunityDAO{
 
 	 
 	public List selectAllCommunitysList() throws DataAccessException {
-		List<CommunityVO> communitysList = communitysList = sqlSession.selectList("mapper.community.selectAllCommunitysList");
-		return communitysList;
+		List<CommunityVO> communityList = communityList = sqlSession.selectList("mapper.community.selectAllCommunityList");
+		return communityList;
 	}
 
 	
 	 
 	public int insertNewCommunity(Map communityMap) throws DataAccessException {
-		int c_no = selectNewCommunityNO();
-		communityMap.put("c_no", c_no);
+		int communityNO = selectNewCommunityNO();
+		communityMap.put("communityNO", communityNO);
 		sqlSession.insert("mapper.community.insertNewCommunity",communityMap);
-		return c_no;
+		return communityNO;
 	}
     
 	

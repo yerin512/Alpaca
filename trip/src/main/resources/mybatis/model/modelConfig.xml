@@ -14,7 +14,6 @@
 			alias="articleVO" />
 		<typeAlias type="com.myteam.trip.community.vo.CommunityVO"  
 			alias="communityVO" />	
-			<typeAlias type="com.myteam.trip.community.vo.ImageVO"  
-			alias="ImageVO" />	
+		
 	</typeAliases>
 </configuration>

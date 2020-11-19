@@ -32,6 +32,13 @@ public class CommunityVO {
 
 
 
+	@Override
+	public String toString() {
+		return "CommunityVO [c_no=" + c_no + ", c_title=" + c_title + ", c_content=" + c_content + ", c_imageFileName="
+				+ c_imageFileName + ", c_date=" + c_date + ", id=" + id + "]";
+	}
+
+
 	public int getC_no() {
 		return c_no;
 	}

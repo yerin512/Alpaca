@@ -15,7 +15,7 @@ import com.myteam.trip.community.vo.CommunityVO;
 @Transactional(propagation = Propagation.REQUIRED)
 public class CommunityService{
 	@Autowired
-	CommunityDAO communityDAO;
+	private CommunityDAO communityDAO;
 	
 	public List<CommunityVO> listCommunitys() throws Exception{
 		List<CommunityVO> communitysList =  communityDAO.selectAllCommunitysList();

@@ -9794,6 +9794,179 @@ textarea.form-control {
     margin-right: 5px; }
     .block-21 .text .meta > div a {
       color: gray; }
+      
+.communityList .content_wrap{margin:95px auto}
+
+.communityList .bestTM_area .best_list li{width: 150px;text-align: center;}
+.communityList .bestTM_area .best_list_4 li{width: 150px;text-align: center;}
+.communityList .bestTM_area .best_list li+li{margin-left: 40px;}
+.communityList .bestTM_area .best_list .thumb{width: 150px;height: 130px;}
+.communityList .bestTM_area .best_list_4 .thumb_product{width: 255px;height: 242px;}
+.communityList .bestTM_area .best_list .thumb img{margin: auto;height: 100%;}
+.communityList .mainT .best_list span{display: block; text-align:right;}
+.communityList .bestTM_area .best_list .info{padding-top: 12px;text-align: center;}
+.communityList .bestTM_area .best_list .info span+span{padding-top: 10px;}
+.communityList .checkBox{display:none}
+/*with board_list*/
+.communityList {padding:margin auto;padding:130px 0;background:#FAFAFA}
+.communityList .board{margin:0 auto;}
+.content_wrap .col-lg-8{margin:50px auto 60px}
+.communityList .btn{background: #4986fc !important;padding:4px !important; border: 1px solid #4986fc !important;color: #fff !important; }
+.communityList .searchWrap .mainT {
+    padding-top: 50px;
+    margin-top: 50px;
+    padding-left: 0;
+    padding-right: 0;
+}
+.communityList .searchWrap.subWrap .container {
+    padding-bottom: 0;
+}
+
+.communityList .new_search_box li {
+    float: left;
+    border: 0 !important;
+    padding: 0 !important;
+    height: auto;
+    width: auto;
+    position: relative;
+}
+
+.communityList .new_wrap_wrap {
+    padding-top: 0;
+}
+
+.communityList .new_travel_list .product_list {
+    padding: 0 0 50px 0;
+    min-height: 400px;
+}
+
+.communityList .new_search_area .main_tit_area {
+    text-align: left;
+}
+
+.communityList .new_search_area .main_tit_area h2 {
+    font-size: 20px;
+}
+
+.communityList .new_search_area .main_tit_area p {
+    font-size: 20px;
+}
+
+.communityList .new_search_area .main_tit_area span {
+    font-size: 14px;
+    color:#777
+}
+
+.communityList .new_search_area {
+	margin:0 auto;
+    padding-bottom: 60px;
+}
+
+.communityList .new_search_box select, .new_search_box input {
+    border: 1px solid #D2D2D2;
+    background: #fff;
+    height: 38px;
+    width: 151px;
+}
+
+.communityList .new_search_box .canlender input {
+    width: 140px;
+    position: static;
+}
+
+.communityList .new_search_area li {
+    margin-right: 20px;
+    overflow: inherit;
+    list-style:none
+}
+
+.communityList .new_search_area li:last-of-type {
+    margin-right: 0px;
+}
+
+.communityList .new_search_area .search_ico {
+    left: inherit;
+    right: 10px;
+}
+
+.communityList .new_search_area label input {
+    width: 180px;
+    padding-right: 14px;
+    padding-left: 10px;
+}
+
+.communityList .new_search_area .auto_select li {
+    padding: 10px 20px !important;
+    margin-right: 0 !important;
+    float: none;
+}
+
+.communityList #selectTR .bestUT_area > .best_list {
+    padding: 50px 0;
+    min-height: 400px;
+}
+
+.communityList .new_search_tm .main_tit_area {
+    text-align: left;
+}
+
+.communityList .searchWrap .search_bestTM .best_list li {
+    width: 50%;
+}
+
+.communityList .new_best_tm_slider .slick-slider {
+    margin: 0 -15px;
+}
+
+.communityList .new_best_tm_slider .slick-slide {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.communityList .new_best_tm_slider .new_profile {
+    padding: 10px 10px 18px 10px;
+}
+
+.communityList .new_best_tm_slider .new_profile a:hover .go {
+    color: #FF7358;
+    border-bottom: 1px solid #FF7358;
+}
+
+.communityList .new_best_tm_slider .go {
+    display: inline-block;
+    border-bottom: 1px solid #777;
+    color: #777;
+    padding-bottom: 3px;
+}
+
+.communityList .new_plan_list li {
+    width: calc(33.333% - 14px) !important;
+    margin-right: 20px;
+    margin-left: 0 !important;
+    margin-bottom: 20px;
+}
+
+.communityList .new_plan_list li:nth-of-type(3n) {
+    margin-right: 0;
+}
+
+.communityList .new_tm_search_area {
+    background: #FAFAFA;
+}
+
+.communityList .new_plan_list {
+    clear: both;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.communityList .clearfix2 > *:first-child {
+    float: left;
+}
+
+.communityList .clearfix2 > *:nth-child(2) {
+    float: right;
+}
 
 /* Blog*/
 .post-info {
