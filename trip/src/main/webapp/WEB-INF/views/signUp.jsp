@@ -155,8 +155,6 @@
                     <label class="label" for="email">Email Address</label>
                     <input type="text" name="email" class="form-control" placeholder="hong@gmail.com">
 
-                  <!--   <button>인증번호 보내기</button>
-                    <input type="text" class="form-control" placeholder="인증번호 입력">	--> 
                 </div>
                
 
