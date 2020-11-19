@@ -70,7 +70,7 @@
       글번호
    </td>
    <td >
-    <input type="text"  value="${community.communityNO }"  disabled />
+    <input type="text"  value="${community.c_no }"  disabled />
     <input type="hidden" name="c_no" value="${community.c_no}"  />
    </td>
   </tr>
@@ -106,7 +106,7 @@
    </td>
    <td>
      <input  type= "hidden"   name="originalFileName" value="${community.imageFileName }" />
-    <img src="${contextPath}/download.do?communityNO=${community.communityNO}&imageFileName=${community.imageFileName}" id="preview"  /><br>
+    <img src="${contextPath}/download.do?c_no=${community.c_no}&imageFileName=${community.imageFileName}" id="preview"  /><br>
        
    </td>   
   </tr>  

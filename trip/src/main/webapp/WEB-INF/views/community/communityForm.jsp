@@ -110,7 +110,7 @@
     <table border="0" align="center">
      <tr>
 		<td align="right"> 작성자</td>
-		<td colspan=2  align="left"><input type="text" size="20" maxlength="100" name="id" value="${member.name }" readonly/> </td>
+		<td colspan=2  align="left"><input type="text" size="20" maxlength="100" name="id" value="${member.id }" readonly/> </td>
 	 </tr>
      <tr>
 	   <td align="right">글제목: </td>
@@ -128,7 +128,7 @@
 	 <tr>
 	    <td align="right"> </td>
 	    <td colspan="2">
-	    	<input type="hidden" name="c_no" value="${community.c_no}"  />
+	    	
 	       <input type="submit" value="글쓰기" />
 	       <input type=button value="목록보기"onClick="backToList(this.form)" />
 	    </td>

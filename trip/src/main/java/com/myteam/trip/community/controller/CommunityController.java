@@ -43,9 +43,9 @@ public class CommunityController  {
 	
 	
 	@RequestMapping(value = "/community/listCommunity.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView listCommunitys(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ModelAndView listCommunity(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String) request.getAttribute("viewName");
-		List communityList = communityService.listCommunitys();
+		List communityList = communityService.listCommunity();
 		ModelAndView mav = new ModelAndView(viewName);
 		mav.addObject("communityList", communityList);
 		
@@ -65,25 +65,26 @@ public class CommunityController  {
 			String value = multipartRequest.getParameter(name);
 			communityMap.put(name, value);
 		}
-
+//id, c_title, c_content, c_imageFileName
 		String c_imageFileName =uploadCommunity(multipartRequest); 
 		HttpSession session = multipartRequest.getSession();
 		MemberVO memberVO = (MemberVO) session.getAttribute("member"); 
 		String id = memberVO.getId();
 		communityMap.put("id", id);
+		System.out.println("id : " + id);
 		communityMap.put("c_imageFileName", c_imageFileName);
 
 		String message;
 		ResponseEntity resEnt = null;
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
-
+System.out.println("여기까지가 끝인가보오");
 		try {
 			int c_no = communityService.addNewCommunity(communityMap);
 			if (c_imageFileName != null && c_imageFileName.length()!=0) {
 				for (int i = 0; i < c_imageFileName.length(); i++) {
 					File srcFile = new File(COMMUNITY_IMAGE_REPO + "\\" + "temp" + "\\" + c_imageFileName);
-					File destDir = new File(COMMUNITY_IMAGE_REPO + "\\" + communityNO);
+					File destDir = new File(COMMUNITY_IMAGE_REPO + "\\" + c_no);
 					FileUtils.moveFileToDirectory(srcFile, destDir, true);
 				}
 			}
@@ -186,14 +187,15 @@ public class CommunityController  {
 
 			message = "<script>";
 			message += " alert('글을 삭제했습니다.');";
-			message += " location.href='" + request.getContextPath() + "/community/listCommunitys.do';";
+			message += " location.href='" + request.getContextPath() + "/community/listCommunity.do';";
 			message += " </script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
 
 		} catch (Exception e) {
 			message = "<script>";
 			message += " alert('작업중 오류가 발생했습니다.다시 시도해 주세요.');";
-			message += " location.href='" + request.getContextPath() + "/community/listCommunitys.do';";
+			message += " location.href='" + request.getContextPath() + "/community/listCommunity"
+					+ ".do';";
 			message += " </script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
 			e.printStackTrace();

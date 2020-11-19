@@ -19,24 +19,24 @@ public class CommunityDAO{
 	private SqlSession sqlSession;
 
 	 
-	public List selectAllCommunitysList() throws DataAccessException {
-		List<CommunityVO> communityList = communityList = sqlSession.selectList("mapper.community.selectAllCommunityList");
+	public List selectAllCommunityList() throws DataAccessException {
+		List<CommunityVO> communityList = sqlSession.selectList("mapper.community.selectAllCommunityList");
 		return communityList;
 	}
 
 	
 	 
 	public int insertNewCommunity(Map communityMap) throws DataAccessException {
-		int communityNO = selectNewCommunityNO();
-		communityMap.put("communityNO", communityNO);
+		int c_no = selectNewC_no();
+		communityMap.put("c_no", c_no);
 		sqlSession.insert("mapper.community.insertNewCommunity",communityMap);
-		return communityNO;
+		return c_no;
 	}
     
 	
 	 
-	public CommunityVO selectCommunity(int communityNO) throws DataAccessException {
-		return sqlSession.selectOne("mapper.community.selectCommunity", communityNO);
+	public CommunityVO selectCommunity(int c_no) throws DataAccessException {
+		return sqlSession.selectOne("mapper.community.selectCommunity", c_no);
 	}
 
 	 
@@ -45,13 +45,13 @@ public class CommunityDAO{
 	}
 
 	 
-	public void deleteCommunity(int communityNO) throws DataAccessException {
-		sqlSession.delete("mapper.community.deleteCommunity", communityNO);
+	public void deleteCommunity(int c_no) throws DataAccessException {
+		sqlSession.delete("mapper.community.deleteCommunity", c_no);
 		
 	}
 	
-	private int selectNewCommunityNO() throws DataAccessException {
-		return sqlSession.selectOne("mapper.community.selectNewCommunityNO");
+	private int selectNewC_no() throws DataAccessException {
+		return sqlSession.selectOne("mapper.community.selectNewC_no");
 	}
 	
 

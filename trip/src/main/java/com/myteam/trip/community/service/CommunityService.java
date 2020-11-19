@@ -17,9 +17,9 @@ public class CommunityService{
 	@Autowired
 	private CommunityDAO communityDAO;
 	
-	public List<CommunityVO> listCommunitys() throws Exception{
-		List<CommunityVO> communitysList =  communityDAO.selectAllCommunitysList();
-        return communitysList;
+	public List<CommunityVO> listCommunity() throws Exception{
+		List<CommunityVO> communityList =  communityDAO.selectAllCommunityList();
+        return communityList;
 	}
 
 	
@@ -32,8 +32,8 @@ public class CommunityService{
 	
 	
 	 
-	public CommunityVO viewCommunity(int communityNO) throws Exception {
-		CommunityVO communityVO = communityDAO.selectCommunity(communityNO);
+	public CommunityVO viewCommunity(int c_no) throws Exception {
+		CommunityVO communityVO = communityDAO.selectCommunity(c_no);
 		return communityVO;
 	}
 	
@@ -44,8 +44,8 @@ public class CommunityService{
 	}
 	
 	 
-	public void removeCommunity(int communityNO) throws Exception {
-		communityDAO.deleteCommunity(communityNO);
+	public void removeCommunity(int c_no) throws Exception {
+		communityDAO.deleteCommunity(c_no);
 	}
 	
 

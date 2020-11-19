@@ -14,7 +14,7 @@
 	</resultMap>
 	
 
-<select id="selectAllCommunitysList" resultMap="communityResult"   >
+<select id="selectAllCommunityList" resultMap="communityResult"   >
     <![CDATA[
    		  SELECT c_no, c_title, c_content, c_imageFileName, c_date, id
           from c_board	
@@ -23,11 +23,11 @@
   	
   	<!--단일이미지 추가  -->
   	<insert id="insertNewCommunity"  parameterType="java.util.Map">
-			INSERT into c_board( c_no, c_title, c_content, c_imageFileName, c_date, id)
-			VALUES(#{c_no}, #{c_title}, #{c_content}, #{c_imageFileName}, #{c_date}, #{id})
+			INSERT into c_board( c_no, c_title, c_content, c_imageFileName, id)
+			VALUES(#{c_no}, #{c_title}, #{c_content}, #{c_imageFileName}, #{id})
 	</insert>
 	
-  	<select id="selectNewCommunityNO" resultType="int"  >
+  	<select id="selectNewC_no" resultType="int"  >
 		<![CDATA[
 			SELECT  nvl(max(c_no), 0) + 1 from c_board		
 		]]>
