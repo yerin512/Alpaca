@@ -52,7 +52,7 @@
 	<td width="10%">${article.id }</td>
 	<td align='left'  width="35%">
 	  <span style="padding-right:30px"></span>
-	            <a class='cls1' href="${contextPath}/board/viewArticle.do?articleNO=${article.a_no}">${article.title }</a>
+	            <a class='cls1' href="${contextPath}/board/viewArticle.do?articleNO=${article.a_no}">${article.a_title }</a>
 	  </td>
 	  <td  width="10%">${article.a_date}</td> 
 	</tr>

@@ -42,9 +42,9 @@ public class BoardControllerImpl implements BoardController {
 	@RequestMapping(value = "/board/listArticles.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView listArticles(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String) request.getAttribute("viewName");
-	//	List articlesList = boardService.listArticles();
+		List articlesList = boardService.listArticles();
 		ModelAndView mav = new ModelAndView(viewName);
-	//	mav.addObject("articlesList", articlesList);
+		mav.addObject("articlesList", articlesList);
 		return mav;
 
 	}
@@ -81,9 +81,14 @@ public class BoardControllerImpl implements BoardController {
 			int a_no = boardService.addNewArticle(articleMap);
 			if (imageFileName != null && imageFileName.size()!=0) {
 				for (int i = 0; i < imageFileName.size(); i++) {
+					System.out.println("이미지파일 "+(i+1)+": "+ imageFileName.get(i));
+					try {
 					File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName.get(i));
 					File destDir = new File(ARTICLE_IMAGE_REPO + "\\" + a_no);
 					FileUtils.moveFileToDirectory(srcFile, destDir, true);
+					}catch(Exception e) {
+						//try catch없으면 파일오류뜨고 넣으면 null이여도 잘 돌아가서 여기 안먹네......  						
+					}
 				}
 			}
 			message = "<script>";
