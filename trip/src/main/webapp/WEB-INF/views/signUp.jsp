@@ -29,61 +29,61 @@
   
  <script src="/resources/js/jquery-3.2.1.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-	
-	<%-- 비밀번호 체크 스크립트 --%>
-	<script type="text/javascript"> 
-		$(function(){ 
-			$("#alert-success").hide(); 
-			$("#alert-danger").hide();
-			$("input").keyup(function(){ 
-				var pwd1=$("#pwd1").val(); 
-				var pwd2=$("#pwd2").val(); 
-				if(pwd1 != "" || pwd2 != ""){ 
-					if(pwd1 == pwd2){ 
-						$("#alert-success").show(); 
-						$("#alert-danger").hide(); 
-						$("#submit").removeAttr("disabled"); 
-						}else{ 
-							$("#alert-success").hide();
-							$("#alert-danger").show(); 
-							$("#submit").attr("disabled", "disabled"); 
-							} 
-					} 
-				}); 
-			}); 
-	</script>
-  	
-  	<%-- 아이디 중복 체크 스크립트 --%>
-  	<script type="text/javascript"> 
-		$(function(){ 
-			$("#signimp").hide(); 
-			$("#signp").hide();
-			$("input").keyup(function(){ 
-			var id=$("#id").val(); 
-			$.ajax({
-			type : 'POST',
+   
+   <%-- 비밀번호 체크 스크립트 --%>
+   <script type="text/javascript"> 
+      $(function(){ 
+         $("#alert-success").hide(); 
+         $("#alert-danger").hide();
+         $("input").keyup(function(){ 
+            var pwd1=$("#pwd1").val(); 
+            var pwd2=$("#pwd2").val(); 
+            if(pwd1 != "" || pwd2 != ""){ 
+               if(pwd1 == pwd2){ 
+                  $("#alert-success").show(); 
+                  $("#alert-danger").hide(); 
+                  $("#submit").removeAttr("disabled"); 
+                  }else{ 
+                     $("#alert-success").hide();
+                     $("#alert-danger").show(); 
+                     $("#submit").attr("disabled", "disabled"); 
+                     } 
+               } 
+            }); 
+         }); 
+   </script>
+     
+     <%-- 아이디 중복 체크 스크립트 --%>
+     <script type="text/javascript"> 
+      $(function(){ 
+         $("#signimp").hide(); 
+         $("#signp").hide();
+         $("input").keyup(function(){ 
+         var id=$("#id").val(); 
+         $.ajax({
+         type : 'POST',
             data : {id : id},
             dataType : 'text',
             url : "idChk.do",
             success : function(data){
-            		 if (data != 0){ 
-	                	$("#signimp").show(); 
-						$("#signp").hide(); 
-						$("#submit").attr("disabled", "disabled");  
-	                 } else { 
-	                	 $("#signimp").hide();
-						$("#signp").show(); 
-						$("#submit").removeAttr("disabled");
-	                 } 
+                   if (data != 0){ 
+                      $("#signimp").show(); 
+                  $("#signp").hide(); 
+                  $("#submit").attr("disabled", "disabled");  
+                    } else { 
+                       $("#signimp").hide();
+                  $("#signp").show(); 
+                  $("#submit").removeAttr("disabled");
+                    } 
                  },
             error: function (data) {
-            	alert(data+"실패");
-            	console.dir();
-				}
-				}); 
-			}); 
-		});
-	</script>
+               alert(data+"실패");
+               console.dir();
+            }
+            }); 
+         }); 
+      });
+   </script>
  
 </head>
 <body>
@@ -126,16 +126,16 @@
           <div class="p-4 p-md-5" id="sign_up_wrap">
               <h3 class="mb-4">Create your account</h3>
 
-              <form action="member/addMember.do" class="signup-form" method="post">
+              <form action="member/addMember.do" class="signup-form" method="post" enctype="multipart/form-data">
               
-	              <div class="form-group">
-	                   <label class="label" for="id">ID</label>
-	                   <input type="text" name="id" id="id" class="form-control" placeholder="ID">
-	                   <div class="alert alert-success" id="signp">사용 가능한 ID 입니다</div> 
-					   <div class="alert alert-danger" id="signimp">중복된 ID 입니다</div>
-				</div>
-				
-				
+                 <div class="form-group">
+                      <label class="label" for="id">ID</label>
+                      <input type="text" name="id" id="id" class="form-control" placeholder="ID">
+                      <div class="alert alert-success" id="signp">사용 가능한 ID 입니다</div> 
+                  <div class="alert alert-danger" id="signimp">중복된 ID 입니다</div>
+            </div>
+            
+            
                  <div class="form-group">
                  <label class="label" for="password">Password</label>
                  <input id="pwd1" name="pwd" type="password" class="form-control" placeholder="Password">
@@ -143,8 +143,8 @@
              <div class="form-group">
                  <label class="label" for="password">Confirm Password</label>
                  <input id="pwd2" type="password" class="form-control" placeholder="Confirm Password">
-             	 <div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div> 
-				<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
+                 <div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div> 
+            <div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
              </div>
                  <div class="form-group">
                     <label class="label" for="name">Full Name</label>
@@ -156,9 +156,15 @@
                     <input type="text" name="email" class="form-control" placeholder="hong@gmail.com">
 
                 </div>
-               
+               	
+               	<form name="fileForm" action="proFile_img" method="post" enctype="multipart/form-data">
+               	ProFile : 	<input type="file" name="file" />
+               				<input type="text" name="src" />
+        					<input type="submit" value="전송" />
+               	</form>
 
-            	 <div class="form-group d-flex justify-content-end mt-4">
+
+                <div class="form-group d-flex justify-content-end mt-4">
 
                  <button type="submit" id="submit" class="btn btn-primary submit" disabled><span class="fa fa-paper-plane">　가입하기</span></button>
              </div>

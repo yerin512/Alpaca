@@ -27,7 +27,7 @@ public class MemberVO {
 		this.pwd = pwd;
 		this.name = name;
 		this.email = email;
-		this.profile_img = profile_img;
+		this.profile_img= profile_img;
 	}
 
 
@@ -79,6 +79,8 @@ public class MemberVO {
 	public void setProfile_img(String profile_img) {
 		this.profile_img = profile_img;
 	}
+	
+
 
 
 }
