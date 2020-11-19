@@ -22,7 +22,7 @@
   </select>
   	
   	<!--단일이미지 추가  -->
-  	<insert id="insertNewCommunity"  parameterType="java.util.Map">
+  	<insert id="addNewCommunity"  parameterType="java.util.Map">
 			INSERT into c_board( c_no, c_title, c_content, c_imageFileName, c_date, id)
 			VALUES(#{c_no}, #{c_title}, #{c_content}, #{c_imageFileName}, #{c_date}, #{id})
 	</insert>
