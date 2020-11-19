@@ -42,7 +42,7 @@ public class CommunityController  {
 	private CommunityVO communityVO;
 	
 	
-	@RequestMapping(value = "/community/listCommunitys.do", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/community/listCommunity.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView listCommunitys(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String) request.getAttribute("viewName");
 	//	List communitysList = communityService.listCommunitys();
