@@ -12,22 +12,25 @@ public class CommunityVO {
 	private String c_title;
 	private String c_content;
 	private String c_imageFileName;
-	private String id;
 	private Date c_date;
+	private String id;
 	
+	public CommunityVO() {
+		
+	}
 	
 
-	public  CommunityVO() {}
-
-	public CommunityVO(int c_no, String c_title, String c_content, String c_imageFileName, String id, Date c_date) {
+	public CommunityVO(int c_no, String c_title, String c_content, String c_imageFileName, Date c_date, String id) {
 		super();
 		this.c_no = c_no;
 		this.c_title = c_title;
 		this.c_content = c_content;
 		this.c_imageFileName = c_imageFileName;
-		this.id = id;
 		this.c_date = c_date;
+		this.id = id;
 	}
+
+
 
 	public int getC_no() {
 		return c_no;
@@ -61,14 +64,6 @@ public class CommunityVO {
 		this.c_imageFileName = c_imageFileName;
 	}
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
 	public Date getC_date() {
 		return c_date;
 	}
@@ -76,6 +71,16 @@ public class CommunityVO {
 	public void setC_date(Date c_date) {
 		this.c_date = c_date;
 	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	
 	
 
 }

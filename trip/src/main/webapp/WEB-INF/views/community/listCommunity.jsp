@@ -31,15 +31,15 @@
 	<link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
 	<link rel="stylesheet" href="${contextPath}/resources/css/style.css">
 </head>
-<script type="text/javascript">
-$(document).ready(function() {   
-    $(".checkBox_btn").mouseover(function(){
-        $(".checkBox").show();
-    });
-    $(".checkBox_btn").mouseout(function(){
-        $(".checkBox").hide();
-    });
-});
+<script>
+	function fn_articleForm(isLogOn,articleForm, index){
+	  if(isLogOn != '' && isLogOn != 'false'){
+	    location.href=articleForm;
+	  }else{
+	    alert("로그인 후 글쓰기가 가능합니다.")
+	    location.href=index+'?action=/community/communityForm.do';
+	  }
+	}
 </script>
 <style>
 /*����ã�� �Խ���*/
@@ -280,55 +280,28 @@ $(document).ready(function() {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>제목</td>
-                                <td>작성자</td>
-                                <td>작성일</td>
-                                <td>조회수</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>제목</td>
-                                <td>작성자</td>
-                                <td>작성일</td>
-                                <td>조회수</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>제목</td>
-                                <td>작성자</td>
-                                <td>작성일</td>
-                                <td>조회수</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>제목</td>
-                                <td>작성자</td>
-                                <td>작성일</td>
-                                <td>조회수</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>제목</td>
-                                <td>작성자</td>
-                                <td>작성일</td>
-                                <td>조회수</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>제목</td>
-                                <td>작성자</td>
-                                <td>작성일</td>
-                                <td>조회수</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>제목</td>
-                                <td>작성자</td>
-                                <td>작성일</td>
-                                <td>조회수</td>
-                            </tr>
+                           <c:choose>
+							  <c:when test="${communityList ==null }" >
+							    <tr  height="10">
+							      <td colspan="5">
+							         <p align="center">
+							            <b><span style="font-size:14pt;">등록된 글이 없습니다.</span></b>
+							        </p>
+							      </td>  
+							    </tr>
+							  </c:when>
+							  <c:when test="${communityList !=null }" >
+							    <c:forEach  var="community" items="${communityList }" varStatus="c_no" ><!-- 질문 -->
+							     <tr align="center">
+									<!-- <td>${communityNum.count}</td> -->
+									<td>${community.c_no }</td>
+									<td>${community.c_title }</td>
+									<td>${community.c_date }</td>
+									<td>${community.id }</td>
+								 </tr>
+							    </c:forEach>
+							     </c:when>
+						    </c:choose>
                         </tbody>
                     </table>
                 </div>
@@ -336,7 +309,7 @@ $(document).ready(function() {
             <div class="row">
                   <div class="col-lg-12">
                       <button type="button" class="btn btn-outline btn-primary pull-right">
-                      <a href="insertBoard.do" class="btn"><i class="fa fa-edit fa-fw"></i>글  작성</a>
+                      <a href="communityForm.do" class="btn"><i class="fa fa-edit fa-fw"></i>글  작성</a>
                       </button>
                   </div>
               </div>
@@ -359,7 +332,6 @@ $(document).ready(function() {
 </div>
 </footer>
 			<!-- loader -->
-			<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
 			<script src="resources/js/jquery.min.js"></script>
