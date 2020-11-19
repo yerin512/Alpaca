@@ -38,20 +38,12 @@
 
    <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
-<<<<<<< HEAD
-         <li class="nav-item active"><a href="index.do" class="nav-link">Home</a></li>
-         <li class="nav-item"><a href="board/listArticles.do" class="nav-link">책거래</a></li>
-         <li class="nav-item"><a href="with.do" class="nav-link">주변거래</a></li>
-         <li class="nav-item"><a href="themaTour.do" class="nav-link">채팅</a></li>
-         <li class="nav-item"><a href="community/listCommunity.do" class="nav-link">커뮤니티</a></li>
-=======
          <li class="nav-item active"><a href="${contextPath}/index.do" class="nav-link">Home</a></li>
          <li class="nav-item"><a href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
          <li class="nav-item"><a href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
          <li class="nav-item"><a href="${contextPath}/themaTour.do" class="nav-link">채팅</a></li>
          <li class="nav-item"><a href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
 
->>>>>>> 9cf0eeeb4d38b58b6782bcff1dc98cc687c9b753
      </ul>
    </div>
 </div>

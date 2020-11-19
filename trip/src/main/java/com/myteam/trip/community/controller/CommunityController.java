@@ -1,15 +1,8 @@
 package com.myteam.trip.community.controller;
 
 import java.io.File;
-<<<<<<< HEAD
 import java.util.Enumeration;
 import java.util.HashMap;
-=======
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Iterator;
->>>>>>> 9cf0eeeb4d38b58b6782bcff1dc98cc687c9b753
 import java.util.List;
 import java.util.Map;
 
@@ -35,15 +28,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.myteam.trip.community.service.CommunityService;
 import com.myteam.trip.community.vo.CommunityVO;
 import com.myteam.trip.member.vo.MemberVO;
-<<<<<<< HEAD
 
  
 @Repository
-=======
-
-
-
->>>>>>> 9cf0eeeb4d38b58b6782bcff1dc98cc687c9b753
 @Controller("communityController")
 public class CommunityController  {
 	private static final String ARTICLE_IMAGE_REPO = "C:\\community\\community_image";
@@ -77,7 +64,6 @@ public class CommunityController  {
 			File destDir = new File(ARTICLE_IMAGE_REPO + "\\" + c_no);
 			FileUtils.deleteDirectory(destDir);
 
-<<<<<<< HEAD
 	// 한 개 이미지 글쓰기
 	@RequestMapping(value = "/community/communityForm.do", method = RequestMethod.POST)
 	public ResponseEntity communityForm(MultipartHttpServletRequest multipartRequest, HttpServletResponse response)
@@ -137,13 +123,6 @@ public class CommunityController  {
 		// TODO Auto-generated method stub
 		return null;
 	}
-=======
-			message = "<script>";
-			message += " alert('글을 삭제했습니다.');";
-			message += " location.href='" + request.getContextPath() + "/community/listCommunitys.do';";
-			message += " </script>";
-			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
->>>>>>> 9cf0eeeb4d38b58b6782bcff1dc98cc687c9b753
 
 		} catch (Exception e) {
 			message = "<script>";
