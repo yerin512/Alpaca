@@ -84,6 +84,29 @@
          }); 
       });
    </script>
+   
+   <%-- 프로필 이미지  --%>
+   <script type="text/javascript">
+   		function fileSubmit() {
+			var form = $("#fileUploadForm")[0];
+			var formDate = new FormData(form);
+			$.ajax({
+				type : 'post',
+				url : 'signUp.do',
+				data : formData,
+				processData : false,
+				contentType : false,
+				success : function(html) {
+					alert("파일 업로드 하였습니다.");
+				},
+				error : function(error) {
+					alert("파일 업로드에 실패하였습니다.");
+					console.log(error);
+					console.log(error.status);
+				}
+			});
+		}
+   </script>
  
 </head>
 <body>
@@ -156,14 +179,22 @@
                     <input type="text" name="email" class="form-control" placeholder="hong@gmail.com">
 
                 </div>
+                
+               	<!-- 프로필 파일 이미지 추가 -->
+                <div class="form-group">
+              	  <form name="fileUpload"  method="post" enctype="multipart/form-data">
+              	   <label class="label" for="email">Profile image</label>
+                    <input type="file" name="uploadfile" placeholder = "파일 선택" onClick= "fileSubmit();"/><br>
+                    <input type = "button" value = "ProFile_image" onClick= "fileSubmit();">
+                </div>
                	
-               	<form name="fileForm" action="proFile_img" method="post" enctype="multipart/form-data">
-               	ProFile : 	<input type="file" name="file" />
-               				<input type="text" name="src" />
-        					<input type="submit" value="전송" />
-               	</form>
-
-
+               	<!--  
+               	<div class="form-group">
+               		<form name="fileForm" action="proFile_img" method="post" enctype="multipart/form-data">
+               			ProFile : 	<input type="file" name="file" class = "form-control" />
+               		</form>
+				</div>
+				-->
                 <div class="form-group d-flex justify-content-end mt-4">
 
                  <button type="submit" id="submit" class="btn btn-primary submit" disabled><span class="fa fa-paper-plane">　가입하기</span></button>

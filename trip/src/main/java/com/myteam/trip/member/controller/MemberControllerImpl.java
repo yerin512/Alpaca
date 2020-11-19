@@ -200,7 +200,7 @@ public class MemberControllerImpl   implements MemberController {
 	}
 	
 	//회원가입 이미지
-	@RequestMapping(value = "profile_img")
+	@RequestMapping(value = "/signUp.do")
     public String imgUpload(MultipartHttpServletRequest mtfRequest) {
         String src = mtfRequest.getParameter("src");
         System.out.println("src value : " + src);
@@ -224,7 +224,7 @@ public class MemberControllerImpl   implements MemberController {
             e.printStackTrace();
         }
 
-        return "redirect:/signUp.do";
+        return "redirect:/index.do";
     }
 
 
