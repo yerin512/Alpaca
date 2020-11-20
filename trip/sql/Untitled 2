@@ -32,6 +32,15 @@ constraint fk_articleNO foreign key(articleNO) references article(articleNO) on 
        condition varchar2(1000)
        );
        
+CREATE TABLE c_imageFile(
+	FILE_NO NUMBER primary key,
+	ORG_FILE_NAME VARCHAR2(260) NOT NULL,
+	STORED_FILE_NAME VARCHAR2(36) NOT NULL,
+	FILE_SIZE NUMBER,
+	REGDATE DATE DEFAULT SYSDATE NOT NULL,
+	DEL_GB VARCHAR2(1) DEFAULT 'N' NOT NULL,
+	       
+       
 create table c_board(
 		c_no number(10) primary key,
 		c_title varchar2(500) not null,

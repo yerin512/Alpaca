@@ -16,6 +16,5 @@
 			alias="aImageVO" />	
 		<typeAlias type="com.myteam.trip.community.vo.CommunityVO"  
 			alias="communityVO" />	
-		
 	</typeAliases>
 </configuration>
