@@ -9,8 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
-import com.myteam.trip.board.vo.AImageVO;
 import com.myteam.trip.board.vo.ArticleVO;
+import com.myteam.trip.board.vo.AImageVO;
+
 
 
 
@@ -28,12 +29,26 @@ public class BoardDAOImpl implements BoardDAO {
 	
 	@Override
 	public int insertNewArticle(Map articleMap) throws DataAccessException {
-		int a_no = selectNewArticleNO();
-		articleMap.put("a_no", a_no);
+		int articleNO = selectNewArticleNO();
+		articleMap.put("articleNO", articleNO);
 		sqlSession.insert("mapper.board.insertNewArticle",articleMap);
-		return a_no;
+		return articleNO;
 	}
     
+
+	@Override
+	public void insertNewImage(Map articleMap) throws DataAccessException {
+		List<AImageVO> imageFileList = (ArrayList)articleMap.get("imageFileList");
+		int articleNO = (Integer)articleMap.get("articleNO");
+		int imageFileNO = selectNewImageFileNO();
+		for(AImageVO imageVO : imageFileList){
+			imageVO.setImageFileNO(++imageFileNO);
+			imageVO.setArticleNO(articleNO);
+		}
+		sqlSession.insert("mapper.board.insertNewImage",imageFileList);
+	}
+	
+  
 	
 	@Override
 	public ArticleVO selectArticle(int articleNO) throws DataAccessException {
@@ -52,15 +67,10 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 	
 	@Override
-	public void insertNewImage(Map articleMap) throws DataAccessException {
-		List<AImageVO> imageFileList = (ArrayList)articleMap.get("imageFileList");
-		int a_no = (Integer)articleMap.get("a_no");
-		int imageFileNO = selectNewImageFileNO();
-		for(AImageVO imageVO : imageFileList){
-			imageVO.setImageFileNO(++imageFileNO);
-			imageVO.setA_no(a_no);
-		}
-		sqlSession.insert("mapper.board.insertNewImage",imageFileList);
+	public List selectImageFileList(int articleNO) throws DataAccessException {
+		List<AImageVO> imageFileList = null;
+		imageFileList = sqlSession.selectList("mapper.board.selectImageFileList",articleNO);
+		return imageFileList;
 	}
 	
 	private int selectNewArticleNO() throws DataAccessException {
@@ -70,15 +80,5 @@ public class BoardDAOImpl implements BoardDAO {
 	private int selectNewImageFileNO() throws DataAccessException {
 		return sqlSession.selectOne("mapper.board.selectNewImageFileNO");
 	}
-
-
-	@Override
-	public List selectImageFileList(int a_no) throws DataAccessException {
-		List<AImageVO> imageFileList = null;
-		imageFileList = sqlSession.selectList("mapper.board.selectImageFileList",a_no);
-		return imageFileList;
-	}
-
-	
 
 }

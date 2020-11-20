@@ -32,36 +32,36 @@
 	    obj.submit();
      }
  
- 	 function fn_enable(obj){
+	 function fn_enable(obj){
 		 document.getElementById("i_title").disabled=false;
 		 document.getElementById("i_content").disabled=false;
 		 document.getElementById("i_imageFileName").disabled=false;
 		 document.getElementById("tr_btn_modify").style.display="block";
 		 document.getElementById("tr_file_upload").style.display="block";
 		 document.getElementById("tr_btn").style.display="none";
-	 } 
+	 }
 	 
-/* 	 function fn_modify_article(obj){
+	 function fn_modify_article(obj){
 		 obj.action="${contextPath}/board/modArticle.do";
 		 obj.submit();
-	 } */
+	 }
 	 
-/* 	 function fn_remove_article(url,a_no){
+	 function fn_remove_article(url,articleNO){
 		 var form = document.createElement("form");
 		 form.setAttribute("method", "post");
 		 form.setAttribute("action", url);
-	     var a_noInput = document.createElement("input");
-	     a_noInput.setAttribute("type","hidden");
-	     a_noInput.setAttribute("name","a_no");
-	     a_noInput.setAttribute("value", a_no);
+	     var articleNOInput = document.createElement("input");
+	     articleNOInput.setAttribute("type","hidden");
+	     articleNOInput.setAttribute("name","articleNO");
+	     articleNOInput.setAttribute("value", articleNO);
 		 
-	     form.appendChild(a_noInput);
+	     form.appendChild(articleNOInput);
 	     document.body.appendChild(form);
 	     form.submit();
 	 
-	 } */
+	 }
 	 
-/* 	 function fn_reply_form(url, parentNO){
+	 function fn_reply_form(url, parentNO){
 		 var form = document.createElement("form");
 		 form.setAttribute("method", "post");
 		 form.setAttribute("action", url);
@@ -73,7 +73,7 @@
 	     form.appendChild(parentNOInput);
 	     document.body.appendChild(form);
 		 form.submit();
-	 } */
+	 }
 	 
 	 function readURL(input) {
 	     if (input.files && input.files[0]) {
@@ -94,8 +94,8 @@
       글번호
    </td>
    <td >
-    <input type="text"  value="${article.a_no }"  disabled />
-    <input type="hidden" name="a_no" value="${article.a_no}"  />
+    <input type="text"  value="${article.articleNO }"  disabled />
+    <input type="hidden" name="articleNO" value="${article.articleNO}"  />
    </td>
   </tr>
   <tr>
@@ -111,7 +111,7 @@
       제목 
    </td>
    <td>
-    <input type=text value="${article.a_title }"  name="a_title"  id="i_title" disabled />
+    <input type=text value="${article.title }"  name="title"  id="i_title" disabled />
    </td>   
   </tr>
   <tr>
@@ -119,7 +119,7 @@
       내용
    </td>
    <td>
-    <textarea rows="20" cols="60"  name="a_content"  id="i_content"  disabled />${article.a_content }</textarea>
+    <textarea rows="20" cols="60"  name="content"  id="i_content"  disabled />${article.content }</textarea>
    </td>  
   </tr>
  
@@ -131,7 +131,7 @@
 			   </td>
 			   <td>
 			     <input  type= "hidden"   name="originalFileName" value="${item.imageFileName }" />
-			    <img src="${contextPath}/download.do?a_no=${article.a_no}&imageFileName=${item.imageFileName}" id="preview"  /><br>
+			    <img src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${item.imageFileName}" id="preview"  /><br>
 			   </td>   
 			  </tr>  
 			  <tr>
@@ -144,14 +144,14 @@
 
  	
   <c:choose> 
-	  <c:when test="${not empty article.imgFileName && article.imgFileName!='null' }">
+	  <c:when test="${not empty article.imageFileName && article.imageFileName!='null' }">
 	   	<tr>
 		    <td width="150" align="center" bgcolor="#FF9933"  rowspan="2">
 		      이미지
 		   </td>
 		   <td>
-		     <input  type= "hidden"   name="originalFileName" value="${article.imgFileName }" />
-		    <img src="${contextPath}/download.do?a_no=${article.a_no}&imageFileName=${article.imgFileName}" id="preview"  /><br>
+		     <input  type= "hidden"   name="originalFileName" value="${article.imageFileName }" />
+		    <img src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${article.imageFileName}" id="preview"  /><br>
 		   </td>   
 		  </tr>  
 		  <tr>
@@ -167,7 +167,7 @@
 				      이미지
 				    </td>
 				    <td>
-				      <input  type= "hidden"   name="originalFileName" value="${article.imgFileName }" />
+				      <input  type= "hidden"   name="originalFileName" value="${article.imageFileName }" />
 				    </td>
 			    </tr>
 			    <tr>
@@ -184,24 +184,24 @@
 	      등록일자
 	   </td>
 	   <td>
-	    <input type=text value="<fmt:formatDate value="${article.a_date}" />" disabled />
+	    <input type=text value="<fmt:formatDate value="${article.writeDate}" />" disabled />
 	   </td>   
   </tr>
   <tr   id="tr_btn_modify"  align="center"  >
 	   <td colspan="2"   >
-<!-- 	       <input type=button value="수정반영하기"   onClick="fn_modify_article(frmArticle)"  > -->
+	       <input type=button value="수정반영하기"   onClick="fn_modify_article(frmArticle)"  >
            <input type=button value="취소"  onClick="backToList(frmArticle)">
 	   </td>   
   </tr>
     
   <tr  id="tr_btn"    >
    <td colspan="2" align="center">
-<%--        <c:if test="${member.id == article.id }">
+       <c:if test="${member.id == article.id }">
 	      <input type=button value="수정하기" onClick="fn_enable(this.form)">
-	      <input type=button value="삭제하기" onClick="fn_remove_article('${contextPath}/board/removeArticle.do', ${article.a_no})">
-	    </c:if> --%>
+	      <input type=button value="삭제하기" onClick="fn_remove_article('${contextPath}/board/removeArticle.do', ${article.articleNO})">
+	    </c:if>
 	    <input type=button value="리스트로 돌아가기"  onClick="backToList(this.form)">
-	<%--      <input type=button value="답글쓰기"  onClick="fn_reply_form('${contextPath}/board/replyForm.do', ${article.a_no})"> --%>
+	     <input type=button value="답글쓰기"  onClick="fn_reply_form('${contextPath}/board/replyForm.do', ${article.articleNO})">
    </td>
   </tr>
  </table>

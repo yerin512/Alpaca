@@ -18,12 +18,12 @@
   <title>글목록창</title>
 </head>
 <script>
-	function fn_articleForm(isLogOn,articleForm, index){
+	function fn_articleForm(isLogOn,articleForm,loginForm){
 	  if(isLogOn != '' && isLogOn != 'false'){
 	    location.href=articleForm;
 	  }else{
 	    alert("로그인 후 글쓰기가 가능합니다.")
-	    location.href=index+'?action=/board/articleForm.do';
+	    location.href=loginForm+'?action=/board/articleForm.do';
 	  }
 	}
 </script>
@@ -52,9 +52,11 @@
 	<td width="10%">${article.id }</td>
 	<td align='left'  width="35%">
 	  <span style="padding-right:30px"></span>
-	            <a class='cls1' href="${contextPath}/board/viewArticle.do?a_no=${article.a_no}">${article.a_title }</a>
+
+	            <a class='cls1' href="${contextPath}/board/viewArticle.do?articleNO=${article.articleNO}">${article.title }</a>
+
 	  </td>
-	  <td  width="10%">${article.a_date}</td> 
+	  <td  width="10%">${article.writeDate}</td> 
 	</tr>
     </c:forEach>
      </c:when>
@@ -62,6 +64,6 @@
 </table>
 <!-- <a  class="cls1"  href="#"><p class="cls2">글쓰기</p></a> -->
 <a  class="cls1"  href="javascript:fn_articleForm('${isLogOn}','${contextPath}/board/articleForm.do', 
-                                                    '${contextPath}/index.do')"><p class="cls2">글쓰기</p></a>
+                                                    '${contextPath}/member/loginForm.do')"><p class="cls2">글쓰기</p></a>
 </body>
 </html>
