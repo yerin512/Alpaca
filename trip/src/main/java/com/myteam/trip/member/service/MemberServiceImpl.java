@@ -32,11 +32,11 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	//아이디 중복 체크
-		@Override
-		public String idChk(MemberVO vo) throws Exception {
-			String result = memberDAO.idChk(vo);
-			return result;
-		}
+	@Override
+	public String idChk(MemberVO vo) throws Exception {
+		String result = memberDAO.idChk(vo);
+		return result;
+	}
 	
 	
 }

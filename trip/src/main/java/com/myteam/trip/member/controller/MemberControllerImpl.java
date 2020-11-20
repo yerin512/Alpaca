@@ -1,5 +1,8 @@
 package com.myteam.trip.member.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -74,7 +79,11 @@ public class MemberControllerImpl   implements MemberController {
 	        
 	        
 	        return "index";
+	        
+	        
 	    }
+	    
+	    
 	    //카카오 로그아웃
 	    @RequestMapping(value="/logout")
 	    public String logout(HttpSession session) {
@@ -82,9 +91,12 @@ public class MemberControllerImpl   implements MemberController {
 	        session.removeAttribute("access_Token");
 	        session.removeAttribute("kakaoID");
 	        session.removeAttribute("isLogOn");
+	        session.removeAttribute("member");
 	        return "index";
 	    }
 	
+	    
+	    
 		@RequestMapping(value="/kakao/viewProfile.do" ,method = RequestMethod.GET)
 		public ModelAndView viewArticle(@RequestParam("userId") int id,
 	                                    HttpServletRequest request, HttpServletResponse response) throws Exception{
@@ -107,7 +119,7 @@ public class MemberControllerImpl   implements MemberController {
 		response.setContentType("html/text;charset=utf-8");
 		int result = 0;
 		result = memberService.addMember(member);
-		ModelAndView mav = new ModelAndView("redirect:/signupsuccess.do");
+		ModelAndView mav = new ModelAndView("redirect:/index.do");
 		return mav;
 	}
 	
@@ -131,7 +143,6 @@ public class MemberControllerImpl   implements MemberController {
 	    HttpSession session = request.getSession();
 	    session.setAttribute("member", memberVO);
 	    session.setAttribute("isLogOn", true);
-	    //mav.setViewName("redirect:/member/listMembers.do");
 	    String action = (String)session.getAttribute("action");
 	    session.removeAttribute("action");
 	    if(action!= null) {
@@ -142,7 +153,7 @@ public class MemberControllerImpl   implements MemberController {
 
 	}else {
 	   rAttr.addFlashAttribute("result","loginFailed");
-	   mav.setViewName("redirect:/index.do");
+	  	  mav.setViewName("redirect:/index.do");
 	}
 	return mav;
 	}
@@ -187,6 +198,35 @@ public class MemberControllerImpl   implements MemberController {
 		}
 		return viewName;
 	}
+	
+	//회원가입 이미지
+	@RequestMapping(value = "/signUp.do")
+    public String imgUpload(MultipartHttpServletRequest mtfRequest) {
+        String src = mtfRequest.getParameter("src");
+        System.out.println("src value : " + src);
+        MultipartFile mf = mtfRequest.getFile("file");
+
+        String path = "C:\\board\\";
+
+        String originFileName = mf.getOriginalFilename(); 
+        long fileSize = mf.getSize(); 
+
+        System.out.println("originFileName : " + originFileName);
+        System.out.println("fileSize : " + fileSize);
+
+        String safeFile = path + System.currentTimeMillis() + originFileName;
+
+        try {
+            mf.transferTo(new File(safeFile));
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "redirect:/index.do";
+    }
+
 
 
 }

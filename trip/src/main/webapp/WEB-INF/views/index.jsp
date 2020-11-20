@@ -62,8 +62,9 @@
 </div>
 </div>
 </div>
+<!-- 카카오 로그인 됐을 때 창 -->
 <c:choose>
-<c:when test="${kakaoID ne null}"> <!-- 로그인 됐을 때 창 -->
+<c:when test="${kakaoID ne null}"> 
 <section class="ftco-section ftco-no-pb ftco-no-pt">
    <div class="container">
       <div class="row">
@@ -87,6 +88,34 @@
 </div>
 </section>
 </c:when>
+
+
+<c:when test="${member.id ne null}"> 
+<section class="ftco-section ftco-no-pb ftco-no-pt">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-7"></div>
+         <div class="col-md-5 order-md-last">
+          <div class="login-wrap p-4 p-md-5">
+              <h3 class="mb-4">환영합니다!!</h3>
+          <form class="signup-form">
+          <!-- <img src="${profileImage}" width="100px" height="100px"> -->
+               				<div class="form-group">
+								${member.name}님
+							</div>
+							<div class="form-group">
+								<a href="myPage.do">마이페이지</a>
+							</div>
+         </form>
+    	<a href="http://localhost:8090/trip/logout"><input type="button" value="로그아웃" ></a>
+     </div>
+ </div>
+</div>
+</div>
+</section>
+</c:when>
+
+
 <c:otherwise>
 <section class="ftco-section ftco-no-pb ftco-no-pt">
    <div class="container">
