@@ -91,7 +91,7 @@
       제목 
    </td>
    <td>
-    <input type=text value="${community.title }"  name="c_title"  id="i_title" disabled />
+    <input type=text value="${community.c_title }"  name="c_title"  id="i_title" disabled />
    </td>   
   </tr>
   <tr>
@@ -99,7 +99,7 @@
       내용
    </td>
    <td>
-    <textarea rows="20" cols="60"  name="c_content"  id="i_content"  disabled />${community.content }</textarea>
+    <textarea rows="20" cols="60"  name="c_content"  id="i_content"  disabled />${community.c_content }</textarea>
    </td>  
   </tr>
  <%-- 

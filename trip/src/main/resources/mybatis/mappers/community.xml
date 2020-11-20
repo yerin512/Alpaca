@@ -53,7 +53,21 @@
       	 where c_no = #{c_no}
           ]]>  
   	</delete>
+  	
+  	 <select id="selectNewImageFileNO" resultType="int"  >
+    <![CDATA[
+      SELECT  nvl(max(c_imageFileNO),0) from c_imageFile		
+    ]]>
+  </select>
 	
+<!--  
+  <select  id="selectImageFileList" resultMap="imgResult" parameterType="int">
+    <![CDATA[
+      SELECT * from c_imageFile
+      where c_no=#{c_no}	
+    ]]>
+  </select> 
+-->	
 
 
 </mapper>
