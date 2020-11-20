@@ -29,6 +29,23 @@
   
 
 </head>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+   function readURL(input) {
+      if (input.files && input.files[0]) {
+	      var reader = new FileReader();
+	      reader.onload = function (e) {
+	        $('#preview').attr('src', e.target.result);
+          }
+         reader.readAsDataURL(input.files[0]);
+      }
+  }  
+  function backToList(obj){
+    obj.action="${contextPath}/community/listCommunity.do";
+    obj.submit();
+  }
+
+</script>
 <style>
 #board_write_se .w_table{margin:30px auto!important;}
 	#board_write_se .w_table td{margin-botton:10px!important;border-spacing:43spx}
@@ -40,18 +57,19 @@
 
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
    <div class="container">
-     <a class="navbar-brand" href="index.do"><span>TRAVEL </span>MAKER</a>
+     <a class="navbar-brand" href="index.do">알파카 <span class="navbar-brandsp">중고책 거래소</span></a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-       <span class="oi oi-menu"></span> Menu
+     <span class="oi oi-menu"></span> Menu
    </button>
 
    <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
-         <li class="nav-item active"><a href="index.do" class="nav-link">Home</a></li>
-         <li class="nav-item"><a href="plan.do" class="nav-link">일정짜기</a></li>
-         <li class="nav-item"><a href="with.do" class="nav-link">동행찾기</a></li>
-         <li class="nav-item"><a href="themaTour.do" class="nav-link">맞춤테마</a></li>
-           <li class="nav-item"><a href="myPage.do" class="nav-link">마이페이지</a></li>
+         <li class="nav-item active"><a href="${contextPath}/index.do" class="nav-link">Home</a></li>
+         <li class="nav-item"><a href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
+         <li class="nav-item"><a href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
+         <li class="nav-item"><a href="${contextPath}/themaTour.do" class="nav-link">채팅</a></li>
+         <li class="nav-item"><a href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
+
      </ul>
    </div>
 </div>
@@ -70,10 +88,9 @@
  </div>
 </section>
 
-<section id="board_write_se">
+<section id="community_write_se">
 	<table>
-		<form name="BoardWriteForm" method="post" action="Board_Write_action.jsp" 
-														onsubmit="return boardWriteCheck();" >
+		<form name="communityForm" method="post"   action="${contextPath}/community/addNewCommunity.do"   enctype="multipart/form-data">
    		<colgroup>
    			<col width="20%">
    			<col width="80%">
@@ -85,55 +102,22 @@
     		</tr>
     		<tr>
      			<td>본 문</td>
-     			 <td><textarea id="popContent" name="popContent" cols="108" rows="15"></textarea></td>
+     			 <td><textarea id="content" name="content" cols="108" rows="15"></textarea></td>
 
     		</tr>
     		<tr>
-     			<td>태그 선택</td> 
-     			<td>
-     			 	<div class="checkBox">
-					<label for="style01">
-			        <input type="checkbox" id="style01" />힐링</label>
-			        <label for="style02">
-			        <input type="checkbox" id="style02" />가성비</label>
-			        <label for="style03">
-			        <input type="checkbox" id="style03" />플렉스</label>
-			        <label for="style04">
-			        <input type="checkbox" id="style04" />힐링</label>
-			        <label for="style05">
-			        <input type="checkbox" id="style05" />가성비</label>
-			        <br>
-			        <label for="style06">
-			        <input type="checkbox" id="style06" />플렉스</label>
-			        <label for="style07">
-			        <input type="checkbox" id="style07" />힐링</label>
-			        <label for="style08">
-			        <input type="checkbox" id="style08" />가성비</label>
-			        <label for="style09">
-			        <input type="checkbox" id="style09" />플렉스</label>
-			        <label for="style10">
-			        <input type="checkbox" id="style10" />플렉스</label>
-			        <br>
-			        <label for="style11">
-			        <input type="checkbox" id="style01" />힐링</label>
-			        <label for="style12">
-			        <input type="checkbox" id="style02" />가성비</label>
-			        <label for="style13">
-			        <input type="checkbox" id="style03" />플렉스</label>
-			        <label for="style14">
-			        <input type="checkbox" id="style04" />힐링</label>
-			        <label for="style15">
-			        <input type="checkbox" id="style05" />가성비</label>
-				</div>
-     			</td>
+    			<td align="right">이미지파일 첨부:  </td>
+	     		<td> <input type="file" name="imageFileName"  onchange="readURL(this);" /></td>
+        		<td><img  id="preview" src="#"   width=200 height=200/></td>
     		</tr>
     		<tr>
      			<td colspan=2><hr size=1></td>
     		</tr>
+    		
     		<tr>
      			<td colspan="2"><div class="sw_btn" align="center">
      			<input class="btn" type="submit" value="등록" >&nbsp;&nbsp;
-         		<input class="btn" type="button" value="뒤로" onclick="location.href='with.do'"></div>
+         		<input class="btn" type="button" value="뒤로" onclick="backToList(this.form)'"></div>
      			</td>
     		</tr> 
 		</table>
@@ -160,8 +144,6 @@
 
 
 <!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
 
 <script src="resources/js/jquery.min.js"></script>
 <script src="resources/js/jquery-migrate-3.0.1.min.js"></script>

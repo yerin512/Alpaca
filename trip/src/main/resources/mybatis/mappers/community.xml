@@ -23,28 +23,35 @@
   	
   	<!--단일이미지 추가  -->
   	<insert id="insertNewCommunity"  parameterType="java.util.Map">
-			INSERT into c_board( c_no, c_title, c_content, c_imageFileName, c_date, id)
-			VALUES(#{c_no}, #{c_title}, #{c_content}, #{c_imageFileName}, #{c_date}, #{id})
+			INSERT into c_board( c_no, c_title, c_content, c_imageFileName, id)
+			VALUES(#{c_no}, #{c_title}, #{c_content}, #{c_imageFileName}, #{id})
 	</insert>
 	
-  	<select id="selectNewCommunityNO" resultType="int"  >
+  	<select id="selectNewC_no" resultType="int"  >
 		<![CDATA[
-				
+			SELECT  nvl(max(c_no), 0) + 1 from c_board		
 		]]>
 	</select>
 	
  	 <select id="selectCommunity" resultType="communityVO"   parameterType="int">
     <![CDATA[
-    	
+    	SELECT * from c_board
+        where c_no = #{c_no}	
     ]]>
  	 </select>
   
   	<update id="updateCommunity"  parameterType="java.util.Map">
-			
+		update c_board
+		set c_title=#{c_title},	 
+		c_content=#{c_content}
+		where c_no=#{c_no}	
 	</update>
 	
 	<delete id="deleteCommunity"  parameterType="int">
-   
+   		 delete from c_board
+      	 where c_no in (
+         SELECT c_no FROM c_board
+          )
   	</delete>
 	
 

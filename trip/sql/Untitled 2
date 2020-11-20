@@ -29,10 +29,10 @@ constraint fk_a_no foreign key(a_no) references article(a_no) on delete cascade)
        
 create table c_board(
 		c_no number(10) primary key,
-		c_title varchar2(500),
+		c_title varchar2(500) not null,
 		c_content varchar2(4000),
 		c_imageFileName varchar2(100),
-		c_date date default sysdate not null,
+		c_date date default sysdate,
 		id varchar2(20),
 		CONSTRAINT FK_ID FOREIGN KEY(id)
 		REFERENCES trip_member(id)
