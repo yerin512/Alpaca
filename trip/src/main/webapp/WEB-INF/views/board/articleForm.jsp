@@ -72,15 +72,15 @@
 					<td colspan=6></td>
      </tr>
      <tr>
-			  <td align="right">이미지파일 첨부:  </td>
+			  <td align="right">이미지파일 1:  </td>
 			  <td> <input type="file" name="imageFileName"  onchange="readURL1(this);" /></td>
 			  <td><img  id="preview1" src="#"   width=100 height=100/></td>
 			  
-			   <td align="right">이미지파일 첨부:  </td>
+			   <td align="right">이미지파일 2:  </td>
 			  <td> <input type="file" name="file1"  onchange="readURL2(this);" /></td>
 			  <td><img  id="preview2" src="#"   width=100 height=100/></td>
 			  
-			   <td align="right">이미지파일 첨부:  </td>
+			   <td align="right">이미지파일 3:  </td>
 			  <td> <input type="file" name="file2"  onchange="readURL3(this);" /></td>
 			  <td><img  id="preview3" src="#"   width=100 height=100/></td>
 			  

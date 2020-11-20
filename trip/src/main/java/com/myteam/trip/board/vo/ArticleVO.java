@@ -11,7 +11,7 @@ public class ArticleVO {
 	private String a_title;
 	private String a_content;
 	private int a_price;
-	private String imgFileName;
+	private String imageFileName;
 	private Date a_date;
 	private String location;
 	private int loc_x;
@@ -25,7 +25,7 @@ public class ArticleVO {
 		
 	}
 
-	public ArticleVO(String id, int a_no, String a_title, String a_content, int a_price, String imgFileName,
+	public ArticleVO(String id, int a_no, String a_title, String a_content, int a_price, String imageFileName,
 			Date a_date, String location, int loc_x, int loc_y, String genre, String way, String condition) {
 		super();
 		this.id = id;
@@ -33,7 +33,7 @@ public class ArticleVO {
 		this.a_title = a_title;
 		this.a_content = a_content;
 		this.a_price = a_price;
-		this.imgFileName = imgFileName;
+		this.imageFileName = imageFileName;
 		this.a_date = a_date;
 		this.location = location;
 		this.loc_x = loc_x;
@@ -98,12 +98,12 @@ public class ArticleVO {
 
 
 	public String getImgFileName() {
-		return imgFileName;
+		return imageFileName;
 	}
 
 
-	public void setImgFileName(String imgFileName) {
-		this.imgFileName = imgFileName;
+	public void setImgFileName(String imageFileName) {
+		this.imageFileName = imageFileName;
 	}
 
 

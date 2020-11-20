@@ -28,11 +28,15 @@ public class BoardServiceImpl  implements BoardService{
 	}
 
 	
-	
+	//다중 파일 인서트
 	@Override
 	public int addNewArticle(Map articleMap) throws Exception{
-		return boardDAO.insertNewArticle(articleMap);
+		int a_no = boardDAO.insertNewArticle(articleMap);
+		articleMap.put("a_no", a_no);
+		boardDAO.insertNewImage(articleMap);
+		return a_no;
 	}
+	
 	
 	
 	//다중 파일 보이기

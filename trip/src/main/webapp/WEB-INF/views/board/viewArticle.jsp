@@ -4,17 +4,16 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
-<%-- 
+
 <c:set var="article"  value="${articleMap.article}"  />
 <c:set var="imageFileList"  value="${articleMap.imageFileList}"  />
 
- --%>
+
 <%
   request.setCharacterEncoding("UTF-8");
 %> 
-<!DOCTYPE html>
-<html>
-<head> 
+
+<head>
    <meta charset="UTF-8">
    <title>글보기</title>
    <style>
@@ -33,36 +32,36 @@
 	    obj.submit();
      }
  
-	 function fn_enable(obj){
+ 	 function fn_enable(obj){
 		 document.getElementById("i_title").disabled=false;
 		 document.getElementById("i_content").disabled=false;
 		 document.getElementById("i_imageFileName").disabled=false;
 		 document.getElementById("tr_btn_modify").style.display="block";
 		 document.getElementById("tr_file_upload").style.display="block";
 		 document.getElementById("tr_btn").style.display="none";
-	 }
+	 } 
 	 
-	 function fn_modify_article(obj){
+/* 	 function fn_modify_article(obj){
 		 obj.action="${contextPath}/board/modArticle.do";
 		 obj.submit();
-	 }
+	 } */
 	 
-	 function fn_remove_article(url,articleNO){
+/* 	 function fn_remove_article(url,a_no){
 		 var form = document.createElement("form");
 		 form.setAttribute("method", "post");
 		 form.setAttribute("action", url);
-	     var articleNOInput = document.createElement("input");
-	     articleNOInput.setAttribute("type","hidden");
-	     articleNOInput.setAttribute("name","articleNO");
-	     articleNOInput.setAttribute("value", articleNO);
+	     var a_noInput = document.createElement("input");
+	     a_noInput.setAttribute("type","hidden");
+	     a_noInput.setAttribute("name","a_no");
+	     a_noInput.setAttribute("value", a_no);
 		 
-	     form.appendChild(articleNOInput);
+	     form.appendChild(a_noInput);
 	     document.body.appendChild(form);
 	     form.submit();
 	 
-	 }
+	 } */
 	 
-	 function fn_reply_form(url, parentNO){
+/* 	 function fn_reply_form(url, parentNO){
 		 var form = document.createElement("form");
 		 form.setAttribute("method", "post");
 		 form.setAttribute("action", url);
@@ -74,33 +73,13 @@
 	     form.appendChild(parentNOInput);
 	     document.body.appendChild(form);
 		 form.submit();
-	 }
+	 } */
 	 
-	 function readURL1(input) {
+	 function readURL(input) {
 	     if (input.files && input.files[0]) {
 	         var reader = new FileReader();
 	         reader.onload = function (e) {
-	             $('#preview1').attr('src', e.target.result);
-	         }
-	         reader.readAsDataURL(input.files[0]);
-	     }
-	 }  
-	 
-	 function readURL2(input) {
-	     if (input.files && input.files[0]) {
-	         var reader = new FileReader();
-	         reader.onload = function (e) {
-	             $('#preview2').attr('src', e.target.result);
-	         }
-	         reader.readAsDataURL(input.files[0]);
-	     }
-	 }  
-	 
-	 function readURL3(input) {
-	     if (input.files && input.files[0]) {
-	         var reader = new FileReader();
-	         reader.onload = function (e) {
-	             $('#preview3').attr('src', e.target.result);
+	             $('#preview').attr('src', e.target.result);
 	         }
 	         reader.readAsDataURL(input.files[0]);
 	     }
@@ -116,7 +95,7 @@
    </td>
    <td >
     <input type="text"  value="${article.a_no }"  disabled />
-    <input type="hidden" name="articleNO" value="${article.a_no}"  />
+    <input type="hidden" name="a_no" value="${article.a_no}"  />
    </td>
   </tr>
   <tr>
@@ -132,7 +111,7 @@
       제목 
    </td>
    <td>
-    <input type=text value="${article.a_title }"  name="title"  id="i_title" disabled />
+    <input type=text value="${article.a_title }"  name="a_title"  id="i_title" disabled />
    </td>   
   </tr>
   <tr>
@@ -140,10 +119,10 @@
       내용
    </td>
    <td>
-    <textarea rows="20" cols="60"  name="content"  id="i_content"  disabled />${article.a_content }</textarea>
+    <textarea rows="20" cols="60"  name="a_content"  id="i_content"  disabled />${article.a_content }</textarea>
    </td>  
   </tr>
- <%-- 
+ 
  <c:if test="${not empty imageFileList && imageFileList!='null' }">
 	  <c:forEach var="item" items="${imageFileList}" varStatus="status" >
 		    <tr>
@@ -162,23 +141,23 @@
 			 </tr>
 		</c:forEach>
  </c:if>
- 	 --%>    
- 	 
+
+ 	
   <c:choose> 
-	  <c:when test="${not empty article.img_1 && article.img_1!='null' }">
+	  <c:when test="${not empty article.imgFileName && article.imgFileName!='null' }">
 	   	<tr>
 		    <td width="150" align="center" bgcolor="#FF9933"  rowspan="2">
 		      이미지
 		   </td>
 		   <td>
-		     <input  type= "hidden"   name="originalFileName1" value="${article.img_1 }" />
-		    <img src="${contextPath}/download.do?a_no=${article.a_no}&imageFileName=${article.img_1}" id="preview1"  /><br>
+		     <input  type= "hidden"   name="originalFileName" value="${article.imgFileName }" />
+		    <img src="${contextPath}/download.do?a_no=${article.a_no}&imageFileName=${article.imgFileName}" id="preview"  /><br>
 		   </td>   
 		  </tr>  
 		  <tr>
 		    <td ></td>
 		    <td>
-		       <input  type="file"  name="imageFileName1" id="i_imageFileName"   disabled   onchange="readURL1(this);"   />
+		       <input  type="file"  name="imageFileName " id="i_imageFileName"   disabled   onchange="readURL(this);"   />
 		    </td>
 		  </tr> 
 		 </c:when>
@@ -188,86 +167,14 @@
 				      이미지
 				    </td>
 				    <td>
-				      <input  type= "hidden"   name="originalFileName1" value="${article.img_1 }" />
+				      <input  type= "hidden"   name="originalFileName" value="${article.imgFileName }" />
 				    </td>
 			    </tr>
 			    <tr>
 				    <td ></td>
 				    <td>
-				       <img id="preview1"  /><br>
-				       <input  type="file"  name="imageFileName1" id="i_imageFileName"   disabled   onchange="readURL1(this);"   />
-				    </td>
-			  </tr>
-		 </c:otherwise>
-	 </c:choose>
-	  <c:choose> 
-	  <c:when test="${not empty article.img_2 && article.img_2!='null' }">
-	   	<tr>
-		    <td width="150" align="center" bgcolor="#FF9933"  rowspan="2">
-		      이미지
-		   </td>
-		   <td>
-		     <input  type= "hidden"   name="originalFileName2" value="${article.img_2 }" />
-		    <img src="${contextPath}/download.do?a_no=${article.a_no}&imageFileName=${article.img_2}" id="preview2"  /><br>
-		   </td>   
-		  </tr>  
-		  <tr>
-		    <td ></td>
-		    <td>
-		       <input  type="file"  name="imageFileName2" id="i_imageFileName"   disabled   onchange="readURL2(this);"   />
-		    </td>
-		  </tr> 
-		 </c:when>
-		 <c:otherwise>
-		    <tr  id="tr_file_upload" >
-				    <td width="150" align="center" bgcolor="#FF9933"  rowspan="2">
-				      이미지
-				    </td>
-				    <td>
-				      <input  type= "hidden"   name="originalFileName2" value="${article.img_2 }" />
-				    </td>
-			    </tr>
-			    <tr>
-				    <td ></td>
-				    <td>
-				       <img id="preview2"  /><br>
-				       <input  type="file"  name="imageFileName1" id="i_imageFileName"   disabled   onchange="readURL2(this);"   />
-				    </td>
-			  </tr>
-		 </c:otherwise>
-	 </c:choose>
-	  <c:choose> 
-	  <c:when test="${not empty article.img_3 && article.img_3!='null' }">
-	   	<tr>
-		    <td width="150" align="center" bgcolor="#FF9933"  rowspan="2">
-		      이미지
-		   </td>
-		   <td>
-		     <input  type= "hidden"   name="originalFileName3" value="${article.img_3 }" />
-		    <img src="${contextPath}/download.do?a_no=${article.a_no}&imageFileName=${article.img_3}" id="preview3"  /><br>
-		   </td>   
-		  </tr>  
-		  <tr>
-		    <td ></td>
-		    <td>
-		       <input  type="file"  name="imageFileName3" id="i_imageFileName"   disabled   onchange="readURL3(this);"   />
-		    </td>
-		  </tr> 
-		 </c:when>
-		 <c:otherwise>
-		    <tr  id="tr_file_upload" >
-				    <td width="150" align="center" bgcolor="#FF9933"  rowspan="2">
-				      이미지
-				    </td>
-				    <td>
-				      <input  type= "hidden"   name="originalFileName3" value="${article.img_3 }" />
-				    </td>
-			    </tr>
-			    <tr>
-				    <td ></td>
-				    <td>
-				       <img id="preview3"  /><br>
-				       <input  type="file"  name="imageFileName3" id="i_imageFileName"   disabled   onchange="readURL3(this);"   />
+				       <img id="preview"  /><br>
+				       <input  type="file"  name="imageFileName " id="i_imageFileName"   disabled   onchange="readURL(this);"   />
 				    </td>
 			  </tr>
 		 </c:otherwise>
@@ -282,19 +189,19 @@
   </tr>
   <tr   id="tr_btn_modify"  align="center"  >
 	   <td colspan="2"   >
-	       <input type=button value="수정반영하기"   onClick="fn_modify_article(frmArticle)"  >
+<!-- 	       <input type=button value="수정반영하기"   onClick="fn_modify_article(frmArticle)"  > -->
            <input type=button value="취소"  onClick="backToList(frmArticle)">
 	   </td>   
   </tr>
     
   <tr  id="tr_btn"    >
    <td colspan="2" align="center">
-       <c:if test="${member.id == article.id }">
+<%--        <c:if test="${member.id == article.id }">
 	      <input type=button value="수정하기" onClick="fn_enable(this.form)">
 	      <input type=button value="삭제하기" onClick="fn_remove_article('${contextPath}/board/removeArticle.do', ${article.a_no})">
-	    </c:if>
+	    </c:if> --%>
 	    <input type=button value="리스트로 돌아가기"  onClick="backToList(this.form)">
-	     <input type=button value="답글쓰기"  onClick="fn_reply_form('${contextPath}/board/replyForm.do', ${article.a_no})">
+	<%--      <input type=button value="답글쓰기"  onClick="fn_reply_form('${contextPath}/board/replyForm.do', ${article.a_no})"> --%>
    </td>
   </tr>
  </table>

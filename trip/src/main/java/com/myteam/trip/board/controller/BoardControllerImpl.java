@@ -127,6 +127,7 @@ public class BoardControllerImpl implements BoardController{
 	
 	
 	List<String> fileList =upload(multipartRequest);
+	System.out.println(fileList);
 	List<AImageVO> imageFileList = new ArrayList<AImageVO>();
 	if(fileList!= null && fileList.size()!=0) {
 		for(String fileName : fileList) {
@@ -137,6 +138,7 @@ public class BoardControllerImpl implements BoardController{
 		articleMap.put("imageFileList", imageFileList);
 		System.out.println(articleMap.toString());
 	}
+	
 	String message;
 	ResponseEntity resEnt=null;
 	HttpHeaders responseHeaders = new HttpHeaders();
