@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/jquery.timepicker.css">
 
-
     <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
     
@@ -34,16 +33,15 @@
      <a class="navbar-brand" href="index.do">알파카 <span class="navbar-brandsp">중고책 거래소</span></a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
      <span class="oi oi-menu"></span> Menu
-   </button>
+   	 </button>
 
    <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
          <li class="nav-item active"><a href="${contextPath}/index.do" class="nav-link">Home</a></li>
          <li class="nav-item"><a href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
          <li class="nav-item"><a href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
-         <li class="nav-item"><a href="${contextPath}/themaTour.do" class="nav-link">채팅</a></li>
+         <li class="nav-item"><a href="${contextPath}/chat/login.do" class="nav-link">채팅하기</a></li>
          <li class="nav-item"><a href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
-
      </ul>
    </div>
 </div>
