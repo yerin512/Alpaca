@@ -16,7 +16,7 @@ public class FileDownloadController {
 	//커뮤니티는  커뮤니티 파일 위치값
 	
 	
-	@RequestMapping("/article/download.do")
+	@RequestMapping("/board/download.do")
 	protected void articleDownload(@RequestParam("imageFileName") String imageFileName,
 							@RequestParam("a_no") String a_no,
 			                 HttpServletResponse response)throws Exception {

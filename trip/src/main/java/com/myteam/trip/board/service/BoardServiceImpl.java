@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.myteam.trip.board.dao.BoardDAO;
+import com.myteam.trip.board.vo.AImageVO;
 import com.myteam.trip.board.vo.ArticleVO;
 
 
@@ -34,12 +35,17 @@ public class BoardServiceImpl  implements BoardService{
 	}
 	
 	
-	
+	//다중 파일 보이기
 	@Override
-	public ArticleVO viewArticle(int articleNO) throws Exception {
-		ArticleVO articleVO = boardDAO.selectArticle(articleNO);
-		return articleVO;
+	public Map viewArticle(int a_no) throws Exception {
+		Map articleMap = new HashMap();
+		ArticleVO articleVO = boardDAO.selectArticle(a_no);
+		List<AImageVO> imageFileList = boardDAO.selectImageFileList(a_no);
+		articleMap.put("article", articleVO);
+		articleMap.put("imageFileList", imageFileList);
+		return articleMap;
 	}
+
 	
 	
 	@Override
@@ -48,8 +54,8 @@ public class BoardServiceImpl  implements BoardService{
 	}
 	
 	@Override
-	public void removeArticle(int articleNO) throws Exception {
-		boardDAO.deleteArticle(articleNO);
+	public void removeArticle(int a_no) throws Exception {
+		boardDAO.deleteArticle(a_no);
 	}
 	
 

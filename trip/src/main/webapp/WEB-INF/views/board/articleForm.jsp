@@ -42,18 +42,12 @@
 	         reader.readAsDataURL(input.files[0]);
 	      }
 	  }  
-
-   
   function backToList(obj){
     obj.action="${contextPath}/board/listArticles.do";
     obj.submit();
   }
   
-  var cnt=1;
-  function fn_addFile(){
-	  $("#d_file").append("<br>"+"<input type='file' name='file"+cnt+"' />");
-	  cnt++;
-  }  
+
 
 </script>
  <title>글쓰기창</title>
@@ -64,32 +58,34 @@
     <table border="0" align="center">
       <tr>
 					<td align="right"> 작성자</td>
-					<td colspan=2  align="left"><input type="text" size="20" maxlength="100" name="id" value="${member.name }" readonly/> </td>
+					<td colspan=2  align="left"><input type="text" size="20" maxlength="100"  value="${member.name }" readonly/> </td>
+					<td colspan=6></td>
 			</tr>
 	     <tr>
 			   <td align="right">글제목: </td>
 			   <td colspan="2"><input type="text" size="67"  maxlength="500" name="a_title" /></td>
+			   	<td colspan=6></td>
 		 </tr>
 	 		<tr>
 				<td align="right" valign="top"><br>글내용: </td>
 				<td colspan=2><textarea name="a_content" rows="10" cols="65" maxlength="4000"></textarea> </td>
+					<td colspan=6></td>
      </tr>
      <tr>
 			  <td align="right">이미지파일 첨부:  </td>
-			  <td> <input type="file" name="img_1"  onchange="readURL1(this);" /></td>
-			  <td><img  id="preview1" src="#"   width=200 height=200/></td>
+			  <td> <input type="file" name="imageFileName"  onchange="readURL1(this);" /></td>
+			  <td><img  id="preview1" src="#"   width=100 height=100/></td>
 			  
-			  			  <td align="right">이미지파일 첨부:  </td>
-			  <td> <input type="file" name="img_2"  onchange="readURL2(this);" /></td>
-			  <td><img  id="preview2" src="#"   width=200 height=200/></td>
+			   <td align="right">이미지파일 첨부:  </td>
+			  <td> <input type="file" name="file1"  onchange="readURL2(this);" /></td>
+			  <td><img  id="preview2" src="#"   width=100 height=100/></td>
+			  
+			   <td align="right">이미지파일 첨부:  </td>
+			  <td> <input type="file" name="file2"  onchange="readURL3(this);" /></td>
+			  <td><img  id="preview3" src="#"   width=100 height=100/></td>
 			  
 			  
-			  			  <td align="right">이미지파일 첨부:  </td>
-			  <td> <input type="file" name="img_3"  onchange="readURL3(this);" /></td>
-			  <td><img  id="preview3" src="#"   width=200 height=200/></td>
 			  
-			  
-			 
 				
 				
 	   </tr>

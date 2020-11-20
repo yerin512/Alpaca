@@ -1,8 +1,10 @@
 package com.myteam.trip.community.controller;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +35,7 @@ import com.myteam.trip.member.vo.MemberVO;
 @Repository
 @Controller("communityController")
 public class CommunityController  {
-	private static final String ARTICLE_IMAGE_REPO = "C:\\community\\community_image";
+	private static final String COMMUNITY_IMAGE_REPO = "C:\\community\\community_image";
 	@Autowired
 	private CommunityService communityService;
 	@Autowired
@@ -61,8 +63,18 @@ public class CommunityController  {
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
 		try {
 			communityService.removeCommunity(c_no);
-			File destDir = new File(ARTICLE_IMAGE_REPO + "\\" + c_no);
+			File destDir = new File(COMMUNITY_IMAGE_REPO + "\\" + c_no);
 			FileUtils.deleteDirectory(destDir);
+		} catch (Exception e) {
+			message = "<script>";
+			message += " alert('작업중 오류가 발생했습니다.다시 시도해 주세요.');";
+			message += " location.href='" + request.getContextPath() + "/community/listCommunitys.do';";
+			message += " </script>";
+			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
+			e.printStackTrace();
+		}
+		return resEnt;
+	}
 
 	// 한 개 이미지 글쓰기
 	@RequestMapping(value = "/community/communityForm.do", method = RequestMethod.POST)
@@ -119,21 +131,7 @@ public class CommunityController  {
 	
 	
 
-	private List<String> upload(MultipartHttpServletRequest multipartRequest) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-		} catch (Exception e) {
-			message = "<script>";
-			message += " alert('작업중 오류가 발생했습니다.다시 시도해 주세요.');";
-			message += " location.href='" + request.getContextPath() + "/community/listCommunitys.do';";
-			message += " </script>";
-			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
-			e.printStackTrace();
-		}
-		return resEnt;
-	}
 
 	@RequestMapping(value = "/community/*Form.do", method = RequestMethod.GET)
 	private ModelAndView form(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -153,14 +151,14 @@ public class CommunityController  {
 			MultipartFile mFile = multipartRequest.getFile(fileName);
 			String originalFileName = mFile.getOriginalFilename();
 			fileList.add(originalFileName);
-			File file = new File(ARTICLE_IMAGE_REPO + "\\" + fileName);
+			File file = new File(COMMUNITY_IMAGE_REPO + "\\" + fileName);
 			if (mFile.getSize() != 0) { // File Null Check
 				if (!file.exists()) { // 경로상에 파일이 존재하지 않을 경우
 					if (file.getParentFile().mkdirs()) { // 경로에 해당하는 디렉토리들을 생성
 						file.createNewFile(); // 이후 파일 생성
 					}
 				}
-				mFile.transferTo(new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + originalFileName)); // 임시로 저장된
+				mFile.transferTo(new File(COMMUNITY_IMAGE_REPO + "\\" + "temp" + "\\" + originalFileName)); // 임시로 저장된
 																											// multipartFile을
 																											// 실제 파일로 전송
 			}

@@ -96,11 +96,12 @@
 
    <div class="collapse navbar-collapse" id="ftco-nav">
        <ul class="navbar-nav ml-auto">
-         <li class="nav-item active"><a href="index.do" class="nav-link">Home</a></li>
-         <li class="nav-item"><a href="plan.do" class="nav-link">일정짜기</a></li>
-         <li class="nav-item"><a href="with.do" class="nav-link">동행찾기</a></li>
-         <li class="nav-item"><a href="themaTour.do" class="nav-link">맞춤테마</a></li>
-           <li class="nav-item"><a href="myPage.do" class="nav-link">마이페이지</a></li>
+       <li class="nav-item active"><a href="${contextPath}/index.do" class="nav-link">Home</a></li>
+         <li class="nav-item"><a href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
+         <li class="nav-item"><a href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
+         <li class="nav-item"><a href="${contextPath}/themaTour.do" class="nav-link">채팅</a></li>
+         <li class="nav-item"><a href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
+
      </ul>
    </div>
 </div>
