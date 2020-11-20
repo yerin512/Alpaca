@@ -117,7 +117,7 @@
 	<!--  <td>${community.c_no }</td>-->
 	<td align='left'  width="35%">
 	  <span style="padding-right:30px"></span>
-	            <a class='cls1' href="${contextPath}/community/viewCommunity.do?communityNO=${community.c_no}">${community.c_title }</a>
+	            <a class='cls1' href="${contextPath}/community/viewCommunity.do?c_no=${community.c_no}">${community.c_title }</a>
 								  </td>
 		<td>${community.c_date }</td>
 		<td>${community.id }</td>

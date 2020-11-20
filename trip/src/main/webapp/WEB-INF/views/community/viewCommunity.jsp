@@ -11,6 +11,9 @@
    <meta charset="UTF-8">
    <title>글보기</title>
    <style>
+     #tr_file_upload{
+       display:none;
+     }
      #tr_btn_modify{
        display:none;
      }
@@ -24,10 +27,11 @@
      }
  
 	 function fn_enable(obj){
-		 document.getElementById("c_title").disabled=false;
-		 document.getElementById("c_content").disabled=false;
-		 document.getElementById("c_imageFileName").disabled=false;
+		 document.getElementById("i_title").disabled=false;
+		 document.getElementById("i_content").disabled=false;
+		 document.getElementById("i_imageFileName").disabled=false;
 		 document.getElementById("tr_btn_modify").style.display="block";
+		 document.getElementById("tr_file_upload").style.display="block";
 		 document.getElementById("tr_btn").style.display="none";
 	 }
 	 
@@ -87,7 +91,7 @@
       제목 
    </td>
    <td>
-    <input type=text value="${community.title }"  name="c_title"  id="c_title" disabled />
+    <input type=text value="${community.title }"  name="c_title"  id="i_title" disabled />
    </td>   
   </tr>
   <tr>
@@ -95,27 +99,66 @@
       내용
    </td>
    <td>
-    <textarea rows="20" cols="60"  name="content"  id="c_content"  disabled />${community.content }</textarea>
+    <textarea rows="20" cols="60"  name="c_content"  id="i_content"  disabled />${community.content }</textarea>
    </td>  
   </tr>
- 
-<c:if test="${not empty community.imageFileName && community.imageFileName!='null' }">  
-<tr>
-    <td width="150" align="center" bgcolor="#FF9933"  rowspan="2">
-      이미지
-   </td>
-   <td>
-     <input  type= "hidden"   name="originalFileName" value="${community.imageFileName }" />
-    <img src="${contextPath}/download.do?c_no=${community.c_no}&imageFileName=${community.imageFileName}" id="preview"  /><br>
-       
-   </td>   
-  </tr>  
-  <tr>
-    <td>
-       <input  type="file"  name="c_imageFileName " id="c_imageFileName"   disabled   onchange="readURL(this);"   />
-    </td>
-  </tr>
+ <%-- 
+ <c:if test="${not empty imageFileList && imageFileList!='null' }">
+	  <c:forEach var="item" items="${imageFileList}" varStatus="status" >
+		    <tr>
+			    <td width="150" align="center" bgcolor="#FF9933"  rowspan="2">
+			      이미지${status.count }
+			   </td>
+			   <td>
+			     <input  type= "hidden"   name="originalFileName" value="${item.c_imageFileName }" />
+			    <img src="${contextPath}/download.do?c_no=${community.c_no}&c_imageFileName=${item.c_imageFileName}" id="preview"  /><br>
+			   </td>   
+			  </tr>  
+			  <tr>
+			    <td>
+			       <input  type="file"  name="c_imageFileName " id="i_imageFileName"   disabled   onchange="readURL(this);"   />
+			    </td>
+			 </tr>
+		</c:forEach>
  </c:if>
+ 	 --%>    
+ 	 
+  <c:choose> 
+	  <c:when test="${not empty community.c_imageFileName && community.c_imageFileName!='null' }">
+	   	<tr>
+		    <td width="150" align="center" bgcolor="#FF9933"  rowspan="2">
+		      이미지
+		   </td>
+		   <td>
+		     <input  type= "hidden"   name="originalFileName" value="${community.c_imageFileName }" />
+		    <img src="${contextPath}/download.do?c_no=${community.c_no}&c_imageFileName=${community.c_imageFileName}" id="preview"  /><br>
+		   </td>   
+		  </tr>  
+		  <tr>
+		    <td ></td>
+		    <td>
+		       <input  type="file"  name="c_imageFileName " id="i_imageFileName"   disabled   onchange="readURL(this);"   />
+		    </td>
+		  </tr> 
+		 </c:when>
+		 <c:otherwise>
+		    <tr  id="tr_file_upload" >
+				    <td width="150" align="center" bgcolor="#FF9933"  rowspan="2">
+				      이미지
+				    </td>
+				    <td>
+				      <input  type= "hidden"   name="originalFileName" value="${community.c_imageFileName }" />
+				    </td>
+			    </tr>
+			    <tr>
+				    <td ></td>
+				    <td>
+				       <img id="preview"  /><br>
+				       <input  type="file"  name="c_imageFileName " id="i_imageFileName"   disabled   onchange="readURL(this);"   />
+				    </td>
+			  </tr>
+		 </c:otherwise>
+	 </c:choose>
   <tr>
 	   <td width="150" align="center" bgcolor="#FF9933">
 	      등록일자
@@ -124,8 +167,8 @@
 	    <input type=text value="<fmt:formatDate value="${community.c_date}" />" disabled />
 	   </td>   
   </tr>
-  <tr   id="tr_btn_modify"  >
-	   <td colspan="2"   align="center" >
+  <tr   id="tr_btn_modify"  align="center"  >
+	   <td colspan="2"   >
 	       <input type=button value="수정반영하기"   onClick="fn_modify_community(frmCommunity)"  >
            <input type=button value="취소"  onClick="backToList(frmCommunity)">
 	   </td>   
@@ -133,9 +176,12 @@
     
   <tr  id="tr_btn"    >
    <td colspan="2" align="center">
-	    <input type=button value="수정하기" onClick="fn_enable(this.form)">
-	    <input type=button value="삭제하기" onClick="fn_remove_community('${contextPath}/community/removeCommunity.do', ${community.c_no})">
+       <c:if test="${member.id == community.id }">
+	      <input type=button value="수정하기" onClick="fn_enable(this.form)">
+	      <input type=button value="삭제하기" onClick="fn_remove_community('${contextPath}/community/removeCommunity.do', ${community.c_no})">
+	    </c:if>
 	    <input type=button value="리스트로 돌아가기"  onClick="backToList(this.form)">
+	     <input type=button value="답글쓰기"  onClick="fn_reply_form('${contextPath}/community/replyForm.do', ${community.c_no})">
    </td>
   </tr>
  </table>

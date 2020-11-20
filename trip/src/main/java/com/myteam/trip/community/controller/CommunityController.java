@@ -55,17 +55,10 @@ public class CommunityController  {
 
 	}
 	
-	
-
-	@RequestMapping(value = "/community/se2Test.do", method = RequestMethod.GET)
-	public String about(Locale locale, Model model) {
-	
-		return "se2Test";
-	}
-	
 
 	// 한 개 이미지 글쓰기
 	@RequestMapping(value = "/community/addNewCommunity.do", method = RequestMethod.POST)
+	@ResponseBody
 	public ResponseEntity addNewCommunity(MultipartHttpServletRequest multipartRequest, HttpServletResponse response)
 			throws Exception {
 		multipartRequest.setCharacterEncoding("utf-8");
@@ -89,16 +82,16 @@ public class CommunityController  {
 		ResponseEntity resEnt = null;
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
-System.out.println("여기까지가 끝인가보오");
+		
 		try {
 			int c_no = communityService.addNewCommunity(communityMap);
-			if (c_imageFileName != null && c_imageFileName.length()!=0) {
-				for (int i = 0; i < c_imageFileName.length(); i++) {
-					File srcFile = new File(COMMUNITY_IMAGE_REPO + "\\" + "temp" + "\\" + c_imageFileName);
-					File destDir = new File(COMMUNITY_IMAGE_REPO + "\\" + c_no);
-					FileUtils.moveFileToDirectory(srcFile, destDir, true);
-				}
+			if(c_imageFileName!=null && c_imageFileName.length()!=0) {
+				File srcFile = new 
+				File(COMMUNITY_IMAGE_REPO+"\\"+"temp"+"\\"+c_imageFileName);
+				File destDir = new File(COMMUNITY_IMAGE_REPO+"\\"+c_no);
+				FileUtils.moveFileToDirectory(srcFile, destDir,true);
 			}
+			
 			message = "<script>";
 			message += " alert('새글을 추가했습니다.');";
 			message += " location.href='" + multipartRequest.getContextPath() + "/index.do'; ";
@@ -126,61 +119,66 @@ System.out.println("여기까지가 끝인가보오");
 		communityVO = communityService.viewCommunity(c_no);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
+		System.out.println("viewName!!!! :" +viewName);
 		mav.addObject("community", communityVO);
 		return mav;
+		
+		
 	}
 
-	// 한 개 이미지 수정 기능
-	@RequestMapping(value = "/community/modCommunity.do", method = RequestMethod.POST)
-	@ResponseBody
-	public ResponseEntity modCommunity(MultipartHttpServletRequest multipartRequest, HttpServletResponse response)
-			throws Exception {
-		multipartRequest.setCharacterEncoding("utf-8");
-		Map<String, Object> communityMap = new HashMap<String, Object>();
-		Enumeration enu = multipartRequest.getParameterNames();
-		while (enu.hasMoreElements()) {
-			String name = (String) enu.nextElement();
-			String value = multipartRequest.getParameter(name);
-			communityMap.put(name, value);
+	 //한 개 이미지 수정 기능
+	  @RequestMapping(value="/community/modCommunity.do" ,method = RequestMethod.POST)
+	  @ResponseBody
+	  public ResponseEntity modCommunity(MultipartHttpServletRequest multipartRequest,  
+	    HttpServletResponse response) throws Exception{
+	    multipartRequest.setCharacterEncoding("utf-8");
+		Map<String,Object> communityMap = new HashMap<String, Object>();
+		Enumeration enu=multipartRequest.getParameterNames();
+		while(enu.hasMoreElements()){
+			String name=(String)enu.nextElement();
+			String value=multipartRequest.getParameter(name);
+			communityMap.put(name,value);
 		}
-
-	    String c_imageFileName = uploadCommunity(multipartRequest);  
+		
+		String c_imageFileName= uploadCommunity(multipartRequest);
+		HttpSession session = multipartRequest.getSession();
+		MemberVO memberVO = (MemberVO) session.getAttribute("member");
+		String id = memberVO.getId();
+		communityMap.put("id", id);
 		communityMap.put("c_imageFileName", c_imageFileName);
-
-		String c_no = (String) communityMap.get("c_no");
+		
+		String c_no=(String)communityMap.get("c_no");
 		String message;
-		ResponseEntity resEnt = null;
+		ResponseEntity resEnt=null;
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
-		try {
-			communityService.modCommunity(communityMap);
-			if (c_imageFileName != null && c_imageFileName.length() != 0) {  
-				File srcFile = new File(COMMUNITY_IMAGE_REPO + "\\" + "temp" + "\\" + c_imageFileName);
-				File destDir = new File(COMMUNITY_IMAGE_REPO + "\\" + c_no);
-				FileUtils.moveFileToDirectory(srcFile, destDir, true);
-
-				String originalFileName = (String) communityMap.get("originalFileName");
-				File oldFile = new File(COMMUNITY_IMAGE_REPO + "\\" + c_no + "\\" + originalFileName);
-				oldFile.delete();
-			}
-			message = "<script>";
-			message += " alert('글을 수정했습니다.');";
-			message += " location.href='" + multipartRequest.getContextPath() + "/community/viewCommunity.do?c_no=" + c_no
-					+ "';";
-			message += " </script>";
-			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
-		} catch (Exception e) {
-			File srcFile = new File(COMMUNITY_IMAGE_REPO + "\\" + "temp" + "\\" + c_imageFileName);
-			srcFile.delete();
-			message = "<script>";
-			message += " alert('오류가 발생했습니다.다시 수정해주세요');";
-			message += " location.href='" + multipartRequest.getContextPath() + "/community/viewCommunity.do?c_no=" + c_no
-					+ "';";
-			message += " </script>";
-			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
-		}
-		return resEnt;
-	}
+	    try {
+	       communityService.modCommunity(communityMap);
+	       if(c_imageFileName!=null && c_imageFileName.length()!=0) {
+	         File srcFile = new File(COMMUNITY_IMAGE_REPO+"\\"+"temp"+"\\"+c_imageFileName);
+	         File destDir = new File(COMMUNITY_IMAGE_REPO+"\\"+c_no);
+	         FileUtils.moveFileToDirectory(srcFile, destDir, true);
+	         
+	         String originalFileName = (String)communityMap.get("originalFileName");
+	         File oldFile = new File(COMMUNITY_IMAGE_REPO+"\\"+c_no+"\\"+originalFileName);
+	         oldFile.delete();
+	       }	
+	       message = "<script>";
+		   message += " alert('글을 수정했습니다.');";
+		   message += " location.href='"+multipartRequest.getContextPath()+"/community/viewCommunity.do?c_no="+c_no+"';";
+		   message +=" </script>";
+	       resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
+	    }catch(Exception e) {
+	      File srcFile = new File(COMMUNITY_IMAGE_REPO+"\\"+"temp"+"\\"+c_imageFileName);
+	      srcFile.delete();
+	      message = "<script>";
+		  message += " alert('오류가 발생했습니다.다시 수정해주세요');";
+		  message += " location.href='"+multipartRequest.getContextPath()+"/community/viewCommunity.do?c_no="+c_no+"';";
+		  message +=" </script>";
+	      resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
+	    }
+	    return resEnt;
+	  }
 
 	@RequestMapping(value = "/community/removeCommunity.do", method = RequestMethod.POST)
 	@ResponseBody

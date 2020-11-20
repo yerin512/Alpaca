@@ -48,10 +48,10 @@
 	</update>
 	
 	<delete id="deleteCommunity"  parameterType="int">
+   		  <![CDATA[
    		 delete from c_board
-      	 where c_no in (
-         SELECT c_no FROM c_board
-          )
+      	 where c_no = #{c_no}
+          ]]>  
   	</delete>
 	
 

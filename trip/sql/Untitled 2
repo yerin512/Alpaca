@@ -10,11 +10,13 @@ commit;
 create table kakao_profile (id varchar2(20) , profileImage varchar2(100), jagisogae varchar2(200));
 select * from kakao_profile;
 
-create table a_imageFile(imageFileNO number(10) primary key,
-imageFileName varchar2(50),
-regDate date default sysdate,
-a_no number(10),
-constraint fk_a_no foreign key(a_no) references article(a_no) on delete cascade);
+create table a_imageFile(
+	imageFileNO number(10) primary key,
+	imageFileName varchar2(50),
+	regDate date default sysdate,
+	a_no number(10),
+	constraint fk_a_no foreign key(a_no) references article(a_no) on delete cascade
+);
 
  create table article(
        id varchar(50) not null,
@@ -31,6 +33,15 @@ constraint fk_a_no foreign key(a_no) references article(a_no) on delete cascade)
        way varchar2(100),
        condition varchar2(1000)
        );
+       
+CREATE TABLE c_imageFile(
+	FILE_NO NUMBER primary key,
+	ORG_FILE_NAME VARCHAR2(260) NOT NULL,
+	STORED_FILE_NAME VARCHAR2(36) NOT NULL,
+	FILE_SIZE NUMBER,
+	REGDATE DATE DEFAULT SYSDATE NOT NULL,
+	DEL_GB VARCHAR2(1) DEFAULT 'N' NOT NULL,
+	       
        
 create table c_board(
 		c_no number(10) primary key,
