@@ -54,5 +54,9 @@ public class CommunityDAO{
 		return sqlSession.selectOne("mapper.community.selectNewC_no");
 	}
 	
+	private int selectNewImageFileNO() throws DataAccessException {
+		return sqlSession.selectOne("mapper.community.selectNewImageFileNO");
+	}
+	
 
 }
