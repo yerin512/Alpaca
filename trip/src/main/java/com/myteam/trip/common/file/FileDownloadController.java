@@ -44,9 +44,8 @@ public class FileDownloadController {
 							@RequestParam("c_no") String c_no,
 			                 HttpServletResponse response)throws Exception {
 		OutputStream out = response.getOutputStream();
-		String downFile = COMMUNITY_IMAGE_REPO +  "\\" +"temp"+"\\"+ c_no + c_imageFileName;
+		String downFile = COMMUNITY_IMAGE_REPO +  "\\" + c_no +"\\"+ c_imageFileName;
 		File file = new File(downFile);
-		
 
 		response.setHeader("Cache-Control", "no-cache");
 		response.addHeader("Content-disposition", "attachment; fileName=" + c_imageFileName);
