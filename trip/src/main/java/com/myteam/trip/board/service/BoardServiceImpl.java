@@ -10,8 +10,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.myteam.trip.board.dao.BoardDAO;
-import com.myteam.trip.board.vo.AImageVO;
 import com.myteam.trip.board.vo.ArticleVO;
+import com.myteam.trip.board.vo.AImageVO;
 
 
 
@@ -27,20 +27,24 @@ public class BoardServiceImpl  implements BoardService{
         return articlesList;
 	}
 
+
 	
-	
+
 	@Override
 	public int addNewArticle(Map articleMap) throws Exception{
-		return boardDAO.insertNewArticle(articleMap);
+		int articleNO = boardDAO.insertNewArticle(articleMap);
+		articleMap.put("articleNO", articleNO);
+		boardDAO.insertNewImage(articleMap);
+		return articleNO;
 	}
-	
-	
-	//다중 파일 보이기
+
+
+
 	@Override
-	public Map viewArticle(int a_no) throws Exception {
+	public Map viewArticle(int articleNO) throws Exception {
 		Map articleMap = new HashMap();
-		ArticleVO articleVO = boardDAO.selectArticle(a_no);
-		List<AImageVO> imageFileList = boardDAO.selectImageFileList(a_no);
+		ArticleVO articleVO = boardDAO.selectArticle(articleNO);
+		List<AImageVO> imageFileList = boardDAO.selectImageFileList(articleNO);
 		articleMap.put("article", articleVO);
 		articleMap.put("imageFileList", imageFileList);
 		return articleMap;
@@ -48,14 +52,16 @@ public class BoardServiceImpl  implements BoardService{
 
 	
 	
+
+	
 	@Override
 	public void modArticle(Map articleMap) throws Exception {
 		boardDAO.updateArticle(articleMap);
 	}
 	
 	@Override
-	public void removeArticle(int a_no) throws Exception {
-		boardDAO.deleteArticle(a_no);
+	public void removeArticle(int articleNO) throws Exception {
+		boardDAO.deleteArticle(articleNO);
 	}
 	
 

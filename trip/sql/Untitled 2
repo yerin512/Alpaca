@@ -1,4 +1,4 @@
-create table trip_member(id varchar2(20) not null primary key,
+create table trip_member(id varchar2(20)  primary key,
 						 name varchar2(20), 
 						 email varchar2(40), 
 						 pwd varchar2(20)
@@ -10,22 +10,20 @@ commit;
 create table kakao_profile (id varchar2(20) , profileImage varchar2(100), jagisogae varchar2(200));
 select * from kakao_profile;
 
-create table a_imageFile(
-	imageFileNO number(10) primary key,
-	imageFileName varchar2(50),
-	regDate date default sysdate,
-	a_no number(10),
-	constraint fk_a_no foreign key(a_no) references article(a_no) on delete cascade
-);
+create table aImageFile(imageFileNO number(10) primary key,
+imageFileName varchar2(50),
+regDate date default sysdate,
+articleNO number(10),
+constraint fk_articleNO foreign key(articleNO) references article(articleNO) on delete cascade);
 
  create table article(
-       id varchar(50) not null,
-       a_no number primary key,
-       a_title varchar2(100),
-       a_content varchar2(2000),
-       a_price number,
+       id varchar(20),
+       articleNO number primary key,
+       title varchar2(100),
+       content varchar2(2000),
+       price number,
        imageFileName varchar2(1000), 
-       a_date date DEFAULT sysdate,
+       writeDate date DEFAULT sysdate,
        location varchar2(1000),
        loc_x number,
        loc_y number,

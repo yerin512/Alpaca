@@ -1,13 +1,20 @@
 package com.myteam.trip.board.vo;
+
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.sql.Date;
 
 public class AImageVO {
+	@Override
+	public String toString() {
+		return "AImageVO [imageFileNO=" + imageFileNO + ", imageFileName=" + imageFileName + ", regDate=" + regDate
+				+ ", articleNO=" + articleNO + "]";
+	}
 	private int imageFileNO;
 	private String imageFileName;
 	private Date regDate;
-	private int a_no;
+	private int articleNO;
 	
 	public int getImageFileNO() {
 		return imageFileNO;
@@ -28,24 +35,20 @@ public class AImageVO {
 		}
 	}
 	
-	public Date getRagDate() {
+	public Date getRegDate() {
 		return regDate;
 	}
-	public void setRagDate(Date regDate) {
+	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
-	public int getA_no() {
-		return a_no;
+	public int getArticleNO() {
+		return articleNO;
 	}
-	public void setA_no(int a_no) {
-		this.a_no = a_no;
+	public void setArticleNO(int articleNO) {
+		this.articleNO = articleNO;
 	}
 	
-	@Override
-	public String toString() {
-		return "AImageVO [imageFileNO=" + imageFileNO + ", imageFileName=" + imageFileName + ", regDate=" + regDate
-				+ ", a_no=" + a_no + "]";
-	}
+	
 	
 
 }

@@ -18,10 +18,10 @@ public class FileDownloadController {
 	
 	@RequestMapping("/board/download.do")
 	protected void articleDownload(@RequestParam("imageFileName") String imageFileName,
-							@RequestParam("a_no") String a_no,
+							@RequestParam("articleNO") String articleNO,
 			                 HttpServletResponse response)throws Exception {
 		OutputStream out = response.getOutputStream();
-		String downFile = ARTICLE_IMAGE_REPO + "\\" +a_no+"\\"+ imageFileName;
+		String downFile = ARTICLE_IMAGE_REPO + "\\" +articleNO+"\\"+ imageFileName;
 		File file = new File(downFile);
 
 		response.setHeader("Cache-Control", "no-cache");
@@ -44,9 +44,8 @@ public class FileDownloadController {
 							@RequestParam("c_no") String c_no,
 			                 HttpServletResponse response)throws Exception {
 		OutputStream out = response.getOutputStream();
-		String downFile = COMMUNITY_IMAGE_REPO +  "\\" +"temp"+"\\"+ c_no + c_imageFileName;
+		String downFile = COMMUNITY_IMAGE_REPO +  "\\" + c_no +"\\"+ c_imageFileName;
 		File file = new File(downFile);
-		
 
 		response.setHeader("Cache-Control", "no-cache");
 		response.addHeader("Content-disposition", "attachment; fileName=" + c_imageFileName);

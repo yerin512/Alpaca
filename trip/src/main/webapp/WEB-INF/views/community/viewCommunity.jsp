@@ -121,8 +121,7 @@
 			 </tr>
 		</c:forEach>
  </c:if>
- 	 --%>    
- 	 
+ 	 --%>
   <c:choose> 
 	  <c:when test="${not empty community.c_imageFileName && community.c_imageFileName!='null' }">
 	   	<tr>
@@ -131,7 +130,7 @@
 		   </td>
 		   <td>
 		     <input  type= "hidden"   name="originalFileName" value="${community.c_imageFileName }" />
-		    <img src="${contextPath}/download.do?c_no=${community.c_no}&c_imageFileName=${community.c_imageFileName}" id="preview"  /><br>
+		    <img src="${contextPath}/community/download.do?c_no=${community.c_no}&c_imageFileName=${community.c_imageFileName}" id="preview"  /><br>
 		   </td>   
 		  </tr>  
 		  <tr>

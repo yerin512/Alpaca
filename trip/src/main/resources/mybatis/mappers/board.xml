@@ -6,12 +6,12 @@
 <mapper namespace="mapper.board">
 	<resultMap id="articlesResult" type="articleVO">
 		<result property="id" column="id" />
-		<result property="a_no" column="a_no" />
-		<result property="a_title" column="a_title" />
-		<result property="a_content" column="a_content" />
-		<result property="a_price" column="a_price" />
+		<result property="articleNO" column="articleNO" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="price" column="price" />
 		<result property="imageFileName" column="imageFileName" />
-		<result property="a_date" column="a_date" />
+		<result property="writeDate" column="writeDate" />
 		<result property="location" column="location" />
 		<result property="loc_x" column="loc_X" />
 		<result property="loc_y" column="loc_y" />
@@ -20,16 +20,17 @@
 		<result property="condition" column="condition" />				
 	</resultMap>
 	
-  
+ 
   <resultMap id="imgResult" type="aImageVO">
 	  <result property="imageFileNO" column="imageFileNO" />
-	  <result property="a_no" column="a_no" />
+	  <result property="articleNO" column="articleNO" />
 	  <result property="imageFileName" column="imageFileName" />
+	  
  </resultMap>
 
 <select id="selectAllArticlesList" resultMap="articlesResult"   >
     <![CDATA[
-      SELECT id, a_no, a_title, a_content, a_date, imageFileName, genre, way, condition
+      SELECT id, articleNO, title, content, writeDate, imageFileName, genre, way, condition
       from article
     ]]>
   </select>
@@ -38,14 +39,14 @@
 			
   	<select id="selectNewArticleNO" resultType="int"  >
 		<![CDATA[
-			SELECT  nvl(max(a_no), 0) + 1 from article		
+			SELECT  nvl(max(articleNO), 0) + 1 from article		
 		]]>
 	</select>
 	
  	 <select id="selectArticle" resultType="articleVO"   parameterType="int">
     <![CDATA[
       SELECT * from article
-      where a_no = #{a_no}		
+      where articleNO = #{articleNO}		
     ]]>
  	 </select>
   
@@ -55,8 +56,8 @@
 	
 	<delete id="deleteArticle"  parameterType="int">
       delete from article
-      where a_no in (
-         SELECT a_no FROM  article
+      where articleNO in (
+         SELECT articleNO FROM  article
           )
   	</delete>  
   
@@ -64,8 +65,8 @@
   	 
   	  <insert id="insertNewArticle"  parameterType="java.util.Map">
     <![CDATA[
-    INSERT into article( id, a_no, a_title, a_content, imageFileName)         
-			VALUES(#{id}, #{a_no}, #{a_title}, #{a_content}, #{imageFileName})  
+    INSERT into article( id, articleNO, title, content)         
+			VALUES(#{id}, #{articleNO}, #{title}, #{content})  
     ]]>      
   </insert>
 
@@ -73,8 +74,8 @@
    <insert id="insertNewImage"  parameterType="java.util.Map">
     <foreach item="item"  collection="list"   open="INSERT ALL" 
                   separator=" " close="SELECT * FROM DUAL" >
-      INTO a_imageFile(imageFileNO, imageFileName, regDate, a_no)
-      VALUES (#{item.imageFileNO}, #{item.imageFileName},  sysdate, #{item.a_no})
+      INTO aImageFile(imageFileNO, imageFileName, regDate, articleNO)
+      VALUES (#{item.imageFileNO}, #{item.imageFileName},  sysdate, #{item.articleNO})
     </foreach>
   </insert>
   	
@@ -85,15 +86,15 @@
   	
   	  <select id="selectNewImageFileNO" resultType="int"  >
     <![CDATA[
-      SELECT  nvl(max(imageFileNO),0) from a_imageFile		
+      SELECT  nvl(max(imageFileNO),0) from aImageFile		
     ]]>
   </select>
 	
 
   <select  id="selectImageFileList" resultMap="imgResult" parameterType="int">
     <![CDATA[
-      SELECT * from a_imageFile
-      where a_no=#{a_no}	
+      SELECT * from aImageFile
+      where articleNO=#{articleNO}	
     ]]>
   </select> 
 
