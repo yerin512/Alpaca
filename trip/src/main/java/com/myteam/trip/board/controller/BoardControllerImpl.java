@@ -199,10 +199,19 @@ public class BoardControllerImpl  implements BoardController{
 		if(imageFileList!=null && imageFileList.size()!=0) {
 			for(AImageVO  imageVO:imageFileList) {
 				imageFileName = imageVO.getImageFileName();
+				if(!(imageFileName == null || imageFileName.equals("null"))) {
 				File srcFile = new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+imageFileName);
 				File destDir = new File(ARTICLE_IMAGE_REPO+"\\"+articleNO);
 				//destDir.mkdirs();
 				FileUtils.moveFileToDirectory(srcFile, destDir,true);
+				}else {
+					message = "<script>";
+					message += " alert('각각 다른 3장의 사진이 필요합니다.');";
+					message += " location.href='"+multipartRequest.getContextPath()+"/board/articleForm.do'; ";
+					message +=" </script>";
+				    resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
+				}
+				
 			}
 		}
 		    

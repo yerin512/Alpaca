@@ -41,7 +41,9 @@ public class BoardDAOImpl implements BoardDAO {
 		List<AImageVO> imageFileList = (ArrayList)articleMap.get("imageFileList");
 		int articleNO = (Integer)articleMap.get("articleNO");
 		int imageFileNO = selectNewImageFileNO();
-		for(AImageVO imageVO : imageFileList){
+		for(AImageVO imageVO : imageFileList) {
+			if(imageVO.getImageFileName()==null || imageVO.getImageFileName().equals(""))
+				imageVO.setImageFileName("null");
 			imageVO.setImageFileNO(++imageFileNO);
 			imageVO.setArticleNO(articleNO);
 		}

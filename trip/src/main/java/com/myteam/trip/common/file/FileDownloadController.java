@@ -20,6 +20,7 @@ public class FileDownloadController {
 	protected void articleDownload(@RequestParam("imageFileName") String imageFileName,
 							@RequestParam("articleNO") String articleNO,
 			                 HttpServletResponse response)throws Exception {
+		if(!imageFileName.equals("null")) {
 		OutputStream out = response.getOutputStream();
 		String downFile = ARTICLE_IMAGE_REPO + "\\" +articleNO+"\\"+ imageFileName;
 		File file = new File(downFile);
@@ -36,6 +37,7 @@ public class FileDownloadController {
 		}
 		in.close();
 		out.close();
+		}
 	}                  
 	
 //맵핑이랑 메서드 이름만 바꿔놨어요 메서드 내용쪽은 맞춰서 수정	 ㅇㅋㅇㅋ
