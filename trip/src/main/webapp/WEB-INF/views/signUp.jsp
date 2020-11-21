@@ -85,27 +85,19 @@
       });
    </script>
    
+     
    <%-- 프로필 이미지  --%>
    <script type="text/javascript">
-   		function fileSubmit() {
-			var form = $("#fileUploadForm")[0];
-			var formDate = new FormData(form);
-			$.ajax({
-				type : 'post',
-				url : 'signUp.do',
-				data : formData,
-				processData : false,
-				contentType : false,
-				success : function(html) {
-					alert("파일 업로드 하였습니다.");
-				},
-				error : function(error) {
-					alert("파일 업로드에 실패하였습니다.");
-					console.log(error);
-					console.log(error.status);
-				}
-			});
-		}
+   function readURL(input) {
+	      if (input.files && input.files[0]) {
+		      var reader = new FileReader();
+		      reader.onload = function (e) {
+		        $('#img').attr('src', e.target.result);
+	          }
+	         reader.readAsDataURL(input.files[0]);
+	      }
+	  }  
+		
    </script>
  
 </head>
@@ -181,21 +173,15 @@
 
                 </div>
                 
-               	<!-- 프로필 파일 이미지 추가 -->
-                <div class="form-group">
-              	  <form name="fileUpload"  method="post" enctype="multipart/form-data">
-              	   <label class="label" for="email">Profile image</label>
-                    <input type="file" name="uploadfile" placeholder = "파일 선택" onClick= "fileSubmit();"/><br>
-                    <input type = "button" value = "ProFile_image" onClick= "fileSubmit();">
-                </div>
+               
+			  <tr>	
+              	 <td align="right">Profile Image  <br></td>
+			 	 <td> <input type="file" name="profile_img" onchange="readURL(this);" /></td>
+				 <td><img  id="img" src="#"   width=200 height=200/></td>
+			  </tr>
+			  
+			  
                	
-               	<!--  
-               	<div class="form-group">
-               		<form name="fileForm" action="proFile_img" method="post" enctype="multipart/form-data">
-               			ProFile : 	<input type="file" name="file" class = "form-control" />
-               		</form>
-				</div>
-				-->
                 <div class="form-group d-flex justify-content-end mt-4">
 
                  <button type="submit" id="submit" class="btn btn-primary submit" disabled><span class="fa fa-paper-plane">　가입하기</span></button>
