@@ -29,61 +29,76 @@
   
  <script src="/resources/js/jquery-3.2.1.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-	
-	<%-- 비밀번호 체크 스크립트 --%>
-	<script type="text/javascript"> 
-		$(function(){ 
-			$("#alert-success").hide(); 
-			$("#alert-danger").hide();
-			$("input").keyup(function(){ 
-				var pwd1=$("#pwd1").val(); 
-				var pwd2=$("#pwd2").val(); 
-				if(pwd1 != "" || pwd2 != ""){ 
-					if(pwd1 == pwd2){ 
-						$("#alert-success").show(); 
-						$("#alert-danger").hide(); 
-						$("#submit").removeAttr("disabled"); 
-						}else{ 
-							$("#alert-success").hide();
-							$("#alert-danger").show(); 
-							$("#submit").attr("disabled", "disabled"); 
-							} 
-					} 
-				}); 
-			}); 
-	</script>
-  	
-  	<%-- 아이디 중복 체크 스크립트 --%>
-  	<script type="text/javascript"> 
-		$(function(){ 
-			$("#signimp").hide(); 
-			$("#signp").hide();
-			$("input").keyup(function(){ 
-			var id=$("#id").val(); 
-			$.ajax({
-			type : 'POST',
+   
+   <%-- 비밀번호 체크 스크립트 --%>
+   <script type="text/javascript"> 
+      $(function(){ 
+         $("#alert-success").hide(); 
+         $("#alert-danger").hide();
+         $("input").keyup(function(){ 
+            var pwd1=$("#pwd1").val(); 
+            var pwd2=$("#pwd2").val(); 
+            if(pwd1 != "" || pwd2 != ""){ 
+               if(pwd1 == pwd2){ 
+                  $("#alert-success").show(); 
+                  $("#alert-danger").hide(); 
+                  $("#submit").removeAttr("disabled"); 
+                  }else{ 
+                     $("#alert-success").hide();
+                     $("#alert-danger").show(); 
+                     $("#submit").attr("disabled", "disabled"); 
+                     } 
+               } 
+            }); 
+         }); 
+   </script>
+     
+     <%-- 아이디 중복 체크 스크립트 --%>
+     <script type="text/javascript"> 
+      $(function(){ 
+         $("#signimp").hide(); 
+         $("#signp").hide();
+         $("input").keyup(function(){ 
+         var id=$("#id").val(); 
+         $.ajax({
+         type : 'POST',
             data : {id : id},
             dataType : 'text',
             url : "idChk.do",
             success : function(data){
-            		 if (data != 0){ 
-	                	$("#signimp").show(); 
-						$("#signp").hide(); 
-						$("#submit").attr("disabled", "disabled");  
-	                 } else { 
-	                	 $("#signimp").hide();
-						$("#signp").show(); 
-						$("#submit").removeAttr("disabled");
-	                 } 
+                   if (data != 0){ 
+                      $("#signimp").show(); 
+                  $("#signp").hide(); 
+                  $("#submit").attr("disabled", "disabled");  
+                    } else { 
+                       $("#signimp").hide();
+                  $("#signp").show(); 
+                  $("#submit").removeAttr("disabled");
+                    } 
                  },
             error: function (data) {
-            	alert(data+"실패");
-            	console.dir();
-				}
-				}); 
-			}); 
-		});
-	</script>
+               alert(data+"실패");
+               console.dir();
+            }
+            }); 
+         }); 
+      });
+   </script>
+   
+     
+   <%-- 프로필 이미지  --%>
+   <script type="text/javascript">
+   function readURL(input) {
+	      if (input.files && input.files[0]) {
+		      var reader = new FileReader();
+		      reader.onload = function (e) {
+		        $('#img').attr('src', e.target.result);
+	          }
+	         reader.readAsDataURL(input.files[0]);
+	      }
+	  }  
+		
+   </script>
  
 </head>
 <body>
@@ -96,11 +111,12 @@
 
    <div class="collapse navbar-collapse" id="ftco-nav">
        <ul class="navbar-nav ml-auto">
-         <li class="nav-item active"><a href="index.do" class="nav-link">Home</a></li>
-         <li class="nav-item"><a href="plan.do" class="nav-link">일정짜기</a></li>
-         <li class="nav-item"><a href="with.do" class="nav-link">동행찾기</a></li>
-         <li class="nav-item"><a href="themaTour.do" class="nav-link">맞춤테마</a></li>
-           <li class="nav-item"><a href="myPage.do" class="nav-link">마이페이지</a></li>
+       <li class="nav-item active"><a href="${contextPath}/index.do" class="nav-link">Home</a></li>
+         <li class="nav-item"><a href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
+         <li class="nav-item"><a href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
+         <li class="nav-item"><a href="${contextPath}/themaTour.do" class="nav-link">채팅</a></li>
+         <li class="nav-item"><a href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
+
      </ul>
    </div>
 </div>
@@ -126,16 +142,16 @@
           <div class="p-4 p-md-5" id="sign_up_wrap">
               <h3 class="mb-4">Create your account</h3>
 
-              <form action="member/addMember.do" class="signup-form" method="post">
+              <form action="member/addMember.do" class="signup-form" method="post" enctype="multipart/form-data">
               
-	              <div class="form-group">
-	                   <label class="label" for="id">ID</label>
-	                   <input type="text" name="id" id="id" class="form-control" placeholder="ID">
-	                   <div class="alert alert-success" id="signp">사용 가능한 ID 입니다</div> 
-					   <div class="alert alert-danger" id="signimp">중복된 ID 입니다</div>
-				</div>
-				
-				
+                 <div class="form-group">
+                      <label class="label" for="id">ID</label>
+                      <input type="text" name="id" id="id" class="form-control" placeholder="ID">
+                      <div class="alert alert-success" id="signp">사용 가능한 ID 입니다</div> 
+                  <div class="alert alert-danger" id="signimp">중복된 ID 입니다</div>
+            </div>
+            
+            
                  <div class="form-group">
                  <label class="label" for="password">Password</label>
                  <input id="pwd1" name="pwd" type="password" class="form-control" placeholder="Password">
@@ -143,8 +159,8 @@
              <div class="form-group">
                  <label class="label" for="password">Confirm Password</label>
                  <input id="pwd2" type="password" class="form-control" placeholder="Confirm Password">
-             	 <div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div> 
-				<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
+                 <div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div> 
+            <div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
              </div>
                  <div class="form-group">
                     <label class="label" for="name">Full Name</label>
@@ -155,12 +171,18 @@
                     <label class="label" for="email">Email Address</label>
                     <input type="text" name="email" class="form-control" placeholder="hong@gmail.com">
 
-                  <!--   <button>인증번호 보내기</button>
-                    <input type="text" class="form-control" placeholder="인증번호 입력">	--> 
                 </div>
+                
                
-
-            	 <div class="form-group d-flex justify-content-end mt-4">
+			  <tr>	
+              	 <td align="right">Profile Image  <br></td>
+			 	 <td> <input type="file" name="profile_img" onchange="readURL(this);" /></td>
+				 <td><img  id="img" src="#"   width=200 height=200/></td>
+			  </tr>
+			  
+			  
+               	
+                <div class="form-group d-flex justify-content-end mt-4">
 
                  <button type="submit" id="submit" class="btn btn-primary submit" disabled><span class="fa fa-paper-plane">　가입하기</span></button>
              </div>

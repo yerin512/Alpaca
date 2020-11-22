@@ -22,8 +22,8 @@ public class MemberServiceImpl implements MemberService {
 	private MemberDAO memberDAO;
 
 	@Override
-	public int addMember(MemberVO member) throws DataAccessException {
-		return memberDAO.insertMember(member);
+	public int addMember(MemberVO memberVO) throws DataAccessException {
+		return memberDAO.insertMember(memberVO);
 	}
 	
 	@Override
@@ -32,11 +32,11 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	//아이디 중복 체크
-		@Override
-		public String idChk(MemberVO vo) throws Exception {
-			String result = memberDAO.idChk(vo);
-			return result;
-		}
+	@Override
+	public String idChk(MemberVO vo) throws Exception {
+		String result = memberDAO.idChk(vo);
+		return result;
+	}
 	
 	
 }

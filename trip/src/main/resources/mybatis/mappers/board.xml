@@ -6,14 +6,12 @@
 <mapper namespace="mapper.board">
 	<resultMap id="articlesResult" type="articleVO">
 		<result property="id" column="id" />
-		<result property="a_no" column="a_no" />
-		<result property="a_title" column="a_title" />
-		<result property="a_content" column="a_content" />
-		<result property="a_price" column="a_price" />
-		<result property="img_1" column="img_1" />
-		<result property="img_2" column="img_2" />
-		<result property="img_3" column="img_3" />
-		<result property="a_date" column="a_date" />
+		<result property="articleNO" column="articleNO" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="price" column="price" />
+		<result property="imageFileName" column="imageFileName" />
+		<result property="writeDate" column="writeDate" />
 		<result property="location" column="location" />
 		<result property="loc_x" column="loc_X" />
 		<result property="loc_y" column="loc_y" />
@@ -22,56 +20,83 @@
 		<result property="condition" column="condition" />				
 	</resultMap>
 	
-
+ 
+  <resultMap id="imgResult" type="aImageVO">
+	  <result property="imageFileNO" column="imageFileNO" />
+	  <result property="articleNO" column="articleNO" />
+	  <result property="imageFileName" column="imageFileName" />
+	  
+ </resultMap>
 
 <select id="selectAllArticlesList" resultMap="articlesResult"   >
     <![CDATA[
-      SELECT id, a_no, a_title, a_content, a_date, img_1,img_2,img_3, genre, way, condition
+      SELECT id, articleNO, title, content, writeDate, imageFileName, genre, way, condition
       from article
     ]]>
   </select>
   	
-  	<!--단일이미지 추가  -->
-  	<insert id="insertNewArticle"  parameterType="java.util.Map">
-			INSERT into article( id, a_no, a_title, a_content, img_1,img_2,img_3)       <!--  , genre, way, condition -->
-			VALUES(#{id}, #{a_no}, #{a_title}, #{a_content}, #{img_1},#{img_2},#{img_3})  <!-- , #{genre}, #{way}, #{condition} -->
-	</insert>
-	
+
+			
   	<select id="selectNewArticleNO" resultType="int"  >
 		<![CDATA[
-			SELECT  nvl(max(a_no), 0) + 1 from article		
+			SELECT  nvl(max(articleNO), 0) + 1 from article		
 		]]>
 	</select>
 	
  	 <select id="selectArticle" resultType="articleVO"   parameterType="int">
     <![CDATA[
       SELECT * from article
-      where a_no = #{a_no}		
+      where articleNO = #{articleNO}		
     ]]>
  	 </select>
   
   	<update id="updateArticle"  parameterType="java.util.Map">
-			update article
-			set a_title=#{a_title},	 
-			a_content=#{a_content}
-			 <if test="img_1 !='' and img_1!=null">
-			  , img_1=#{img_1}
-			</if>
-			 <if test="img_2 !='' and img_2!=null">
-			  , img_2=#{img_2}
-			</if>
-			 <if test="img_1 !='' and img_1!=null">
-			  , img_3=#{img_3}
-			</if>
-			where a_no=#{a_no}
+		
 	</update>
 	
 	<delete id="deleteArticle"  parameterType="int">
       delete from article
-      where a_no in (
-         SELECT a_no FROM  article
+      where articleNO in (
+         SELECT articleNO FROM  article
           )
-  	</delete>
+  	</delete>  
+  
+  	 <!--  , genre, way, condition --> <!-- , #{genre}, #{way}, #{condition} -->
+  	 
+  	  <insert id="insertNewArticle"  parameterType="java.util.Map">
+    <![CDATA[
+    INSERT into article( id, articleNO, title, content)         
+			VALUES(#{id}, #{articleNO}, #{title}, #{content})  
+    ]]>      
+  </insert>
+
+ 
+   <insert id="insertNewImage"  parameterType="java.util.Map">
+    <foreach item="item"  collection="list"   open="INSERT ALL" 
+                  separator=" " close="SELECT * FROM DUAL" >
+      INTO aImageFile(imageFileNO, imageFileName, regDate, articleNO)
+      VALUES (#{item.imageFileNO}, #{item.imageFileName},  sysdate, #{item.articleNO})
+    </foreach>
+  </insert>
+  	
+  	
+  	
+  	
+  	
+  	
+  	  <select id="selectNewImageFileNO" resultType="int"  >
+    <![CDATA[
+      SELECT  nvl(max(imageFileNO),0) from aImageFile		
+    ]]>
+  </select>
+	
+
+  <select  id="selectImageFileList" resultMap="imgResult" parameterType="int">
+    <![CDATA[
+      SELECT * from aImageFile
+      where articleNO=#{articleNO}	
+    ]]>
+  </select> 
 
 
 </mapper>

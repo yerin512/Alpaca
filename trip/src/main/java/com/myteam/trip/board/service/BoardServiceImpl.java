@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.myteam.trip.board.dao.BoardDAO;
 import com.myteam.trip.board.vo.ArticleVO;
+import com.myteam.trip.board.vo.AImageVO;
 
 
 
@@ -26,21 +27,32 @@ public class BoardServiceImpl  implements BoardService{
         return articlesList;
 	}
 
+
 	
-	
+
 	@Override
 	public int addNewArticle(Map articleMap) throws Exception{
-		return boardDAO.insertNewArticle(articleMap);
+		int articleNO = boardDAO.insertNewArticle(articleMap);
+		articleMap.put("articleNO", articleNO);
+		boardDAO.insertNewImage(articleMap);
+		return articleNO;
 	}
-	
-	
-	
+
+
+
 	@Override
-	public ArticleVO viewArticle(int articleNO) throws Exception {
+	public Map viewArticle(int articleNO) throws Exception {
+		Map articleMap = new HashMap();
 		ArticleVO articleVO = boardDAO.selectArticle(articleNO);
-		return articleVO;
+		List<AImageVO> imageFileList = boardDAO.selectImageFileList(articleNO);
+		articleMap.put("article", articleVO);
+		articleMap.put("imageFileList", imageFileList);
+		return articleMap;
 	}
+
 	
+	
+
 	
 	@Override
 	public void modArticle(Map articleMap) throws Exception {
