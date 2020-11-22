@@ -122,6 +122,7 @@ public class KakaoAPI {
 			int end = result.indexOf(",");
 			String kakaoID = result.substring(begin, end);
 			System.out.println("카카오 아이디: " + kakaoID);
+			System.out.println("카카오 닉네임: " + nickname);
 
 			// 프사 추출
 			begin = result.indexOf("http");
@@ -136,6 +137,7 @@ public class KakaoAPI {
 			memberVO.setEmail(email);
 			memberVO.setName(nickname);
 			memberVO.setPwd("1234");
+			memberVO.setProfile_img(profileImage);
 
 			// profile VO 생성
 			ProfileVO profileVO = new ProfileVO();
