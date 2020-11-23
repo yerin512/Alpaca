@@ -108,6 +108,8 @@
 							</div>
          </form>
     	<a href="http://localhost:8090/trip/logout"><input type="button" value="로그아웃" ></a>
+    	<a href="http://localhost:8090/trip/memberUpdate"><input type="button" value="회원정보 수정" ></a>
+    	<a href="http://localhost:8090/trip/memberDelete"><input type="button" value="회원 탈퇴" ></a>
      </div>
  </div>
 </div>

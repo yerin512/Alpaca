@@ -85,7 +85,7 @@
       });
    </script>
    
-     
+ <!--     
    <%-- 프로필 이미지  --%>
    <script type="text/javascript">
    function readURL(input) {
@@ -99,7 +99,7 @@
 	  }  
 		
    </script>
- 
+ -->
 </head>
 <body>
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -174,12 +174,13 @@
                 </div>
                 
                
+               <!-- 
 			  <tr>	
               	 <td align="right">Profile Image  <br></td>
 			 	 <td> <input type="file" name="profile_img" onchange="readURL(this);" /></td>
 				 <td><img  id="img" src="#"   width=200 height=200/></td>
 			  </tr>
-			  
+			   -->
 			  
                	
                 <div class="form-group d-flex justify-content-end mt-4">
