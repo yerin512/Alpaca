@@ -51,7 +51,7 @@
 <body>
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
    <div class="container">
-     <a class="navbar-brand" href="index.do">알파카 <span class="navbar-brandsp">중고책 거래소</span></a>
+     <a class="navbar-brand" href="${contextPath}/index.do">알파카 <span class="navbar-brandsp">중고책 거래소</span></a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
      <span class="oi oi-menu"></span> Menu
    </button>
@@ -61,9 +61,8 @@
          <li class="nav-item active"><a href="${contextPath}/index.do" class="nav-link">Home</a></li>
          <li class="nav-item"><a href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
          <li class="nav-item"><a href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
-         <li class="nav-item"><a href="${contextPath}/themaTour.do" class="nav-link">채팅</a></li>
+         <li class="nav-item"><a href="${contextPath}/chat/login.do" class="nav-link">채팅하기</a></li>
          <li class="nav-item"><a href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
-
      </ul>
    </div>
 </div>
@@ -84,7 +83,7 @@
 	
  	<!-- 게시판 -->
  	<section class="communityList">
-<div class="page-wrapper">
+  <div class="page-wrapper">
     <div class="container-fluid">
         <div class="col-lg-8 board"><!--게시판 넓이 -->
             <div class="panel panel-default">

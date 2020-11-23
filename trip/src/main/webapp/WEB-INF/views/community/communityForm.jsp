@@ -29,23 +29,25 @@
   
   <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
   <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
+
   
 </head>
 <script type="text/javascript">
-	function fn_communityForm(isLogOn,communityForm, index){
-		  if(isLogOn != '' && isLogOn != 'false'){
-		    location.href=communityForm;
-		  }else{
-		    alert("로그인 후 글쓰기가 가능합니다.")
-		    location.href=index+'?action=/community/communityForm.do';
-		  }
-		}
+
+   function fn_communityForm(isLogOn,communityForm, index){
+        if(isLogOn != '' && isLogOn != 'false'){
+          location.href=communityForm;
+        }else{
+          alert("로그인 후 글쓰기가 가능합니다.")
+          location.href=index+'?action=/community/communityForm.do';
+        }
+      }
 
    function readURL(input) {
       if (input.files && input.files[0]) {
-	      var reader = new FileReader();
-	      reader.onload = function (e) {
-	        $('#preview').attr('src', e.target.result);
+         var reader = new FileReader();
+         reader.onload = function (e) {
+           $('#preview').attr('src', e.target.result);
           }
          reader.readAsDataURL(input.files[0]);
       }
@@ -55,16 +57,7 @@
     obj.action="${contextPath}/community/listCommunity.do";
     obj.submit();
   }
-  
-  
 </script>
-<style>
-#board_write_se .w_table{margin:30px auto!important;}
-#board_write_se .w_table td{margin-botton:10px!important;border-spacing:43spx}
-.sw_btn{margin-bottom:25px}
-#board_write_se .btn{background: #4986fc !important;padding:5px 13px !important; border: 1px solid #4986fc !important;color: #fff !important; }
-
-</style>
 <body>
 
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -79,58 +72,80 @@
          <li class="nav-item active"><a href="${contextPath}/index.do" class="nav-link">Home</a></li>
          <li class="nav-item"><a href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
          <li class="nav-item"><a href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
-         <li class="nav-item"><a href="${contextPath}/themaTour.do" class="nav-link">채팅</a></li>
+         <li class="nav-item"><a href="${contextPath}/chat/login.do" class="nav-link">채팅하기</a></li>
          <li class="nav-item"><a href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
-
      </ul>
    </div>
 </div>
 </nav>
- <!-- END nav -->
- 
- <section class="hero-wrap hero-wrap-2" style="background-image: url('${contextPath}/resources/images/bg_2.jpg');">
-  <div class="overlay"></div>
-  <div class="container">
-    <div class="row no-gutters slider-text align-items-end justify-content-center">
-      <div class="col-md-9 ftco-animate pb-5 text-center">
-       <p class="breadcrumbs"><span class="mr-2"><a href="index.do">Home <i class="fa fa-chevron-right"></i></a></span> <span>일정짜기 <i class="fa fa-chevron-right"></i></span></p>
-       <h1 class="mb-0 bread">일정짜기</h1>
-     </div>
-   </div>
- </div>
-</section>
+   <!-- END nav -->
+   
+   <section class="hero-wrap hero-wrap-2" style="background-image: url('${contextPath}/resources/images/bg_2.jpg');">
+      <div class="overlay"></div>
+      <div class="container">
+         <div class="row no-gutters slider-text align-items-end justify-content-center">
+            <div class="col-md-9 ftco-animate pb-5 text-center">
+               <p class="breadcrumbs"><span class="mr-2"><a href="index.do">Home <i class="fa fa-chevron-right"></i></a></span> <span>주변거래 <i class="fa fa-chevron-right"></i></span></p>
+               <h1 class="mb-0 bread">주변거래</h1>
+            </div>
+         </div>
+      </div>
+   </section>
+<section id="communityFrom">
+   <p class="p_title">커뮤니티 글쓰기</p>
+   <div class="line_hr"></div>
+        <form name="communityForm" method="post"  action="${contextPath}/community/addNewCommunity.do"   enctype="multipart/form-data">
+          <table border="0" align="center">
+           <tr>
+            <td colspan=2  align="left"><input type="hidden" size="20" maxlength="100" name="id" value="${member.id }" readonly/> </td>
+          </tr>
+           <tr>
+            <td colspan="2"><input type="text" class="title_input" maxlength="500" name="c_title" placeholder="제목을 입력해주세요"/></td>
+          </tr>
+          <tr>
+            <td colspan=2>
+            <textarea name="c_content" id="c_content" rows="10" cols="100" placeholder="내용을 입력해주세요"></textarea> 
+            <script src="${contextPath}/resources/ckeditor/ckeditor.js"></script>
+            <script type="text/javascript">
 
-<h1 style="text-align:center">새글 쓰기</h1>
-  <form name="communityForm" method="post"  action="${contextPath}/community/addNewCommunity.do"   enctype="multipart/form-data">
-    <table border="0" align="center">
-     <tr>
-		<td align="right"> 작성자</td>
-		<td colspan=2  align="left"><input type="text" size="20" maxlength="100" name="id" value="${member.id }" readonly/> </td>
-	 </tr>
-     <tr>
-	   <td align="right">글제목: </td>
-	   <td colspan="2"><input type="text" size="67"  maxlength="500" name="c_title" /></td>
-	 </tr>
-	 <tr>
-		<td align="right" valign="top"><br>글내용: </td>
-		<td colspan=2><textarea name="c_content" id="c_content" rows="10" cols="100"></textarea> </td>
-     </tr>
-     <tr>
-        <td align="right">이미지파일 첨부:  </td>
-	     <td> <input type="file" name="c_imageFileName"  onchange="readURL(this);" /></td>
-         <td><img  id="preview" src="#"   width=200 height=200/></td>
-	 </tr>
-	 <tr>
-	    <td align="right"> </td>
-	    <td colspan="2">
-	    	
-	       <input type="submit" value="글쓰기" />
-	       <input type=button value="목록보기"onClick="backToList(this.form)" />
-	    </td>
-     </tr>
-    </table>
-  </form>
-  
+                
+                CKEDITOR.replace( 'c_content', {//해당 이름으로 된 textarea에 에디터를 적용
+                    width:'100%',
+                    height:'400px',
+                    filebrowserImageUploadUrl: '/community/uploadCommunity' //여기 경로로 파일을 전달하여 업로드 시킨다.
+                });
+                
+                
+                CKEDITOR.on('dialogDefinition', function( ev ){
+                    var dialogName = ev.data.name;
+                    var dialogDefinition = ev.data.definition;
+                 
+                    switch (dialogName) {
+                        case 'image': //Image Properties dialog
+                            //dialogDefinition.removeContents('info');
+                            dialogDefinition.removeContents('Link');
+                            dialogDefinition.removeContents('advanced');
+                            break;
+                    }
+                });
+            </script>
+            </td>
+           </tr>
+           
+           <tr>
+              <td align="right"></td>
+              <td> <input type="file" name="c_imageFileName"  onchange="readURL(this);" /></td>
+               <td><img  id="preview" src="#"   width=200 height=200/></td>
+          </tr>
+          <tr>
+             <td class="td_btn">
+                <input type="submit" value="등록" class="btn btn-outline btn-primary" />
+                <input type=button value="목록"onClick="backToList(this.form)" class="btn btn-outline btn-primary" />
+             </td>
+           </tr>
+          </table>
+        </form>
+ </section> 
   <footer class="ftco-footer ftco-no-pt">
   <div class="container">
  
@@ -144,21 +159,19 @@
 </div>
 </div>
 </footer>
-
-
-
 <!-- loader -->
-
 <script src="resources/js/jquery.min.js"></script>
 <script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
 <script src="resources/js/popper.min.js"></script>
 <script src="resources/js/bootstrap.min.js"></script>
 <script src="resources/js/jquery.easing.1.3.js"></script>
 <script src="resources/js/main.js"></script>
-<script type="text/javascript" src="se2/js/HuskyEZCreator.js" charset="utf-8"></script>
+
+
+<!--  <script type="text/javascript" src="resources/se2/js/service/HuskyEZCreator.js" charset="utf-8"></script>-->
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
 </body>
 </html>
-<!-- SmartEditor2 -->
-<script type="text/javascript" src = "resources/js/notice_write.js"></script>
+<!-- <script type="text/javascript" src = "resources/js/notice_write.js"></script>-->
+<!--<script src="resources/ckeditor/ckeditor.js"></script>-->
