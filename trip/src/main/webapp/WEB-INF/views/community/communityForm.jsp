@@ -57,16 +57,7 @@
     obj.action="${contextPath}/community/listCommunity.do";
     obj.submit();
   }
-  
-
 </script>
-<style>
-#board_write_se .w_table{margin:30px auto!important;}
-#board_write_se .w_table td{margin-botton:10px!important;border-spacing:43spx}
-.sw_btn{margin-bottom:25px}
-#board_write_se .btn{background: #4986fc !important;padding:5px 13px !important; border: 1px solid #4986fc !important;color: #fff !important; }
-
-</style>
 <body>
 
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -81,9 +72,8 @@
          <li class="nav-item active"><a href="${contextPath}/index.do" class="nav-link">Home</a></li>
          <li class="nav-item"><a href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
          <li class="nav-item"><a href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
-         <li class="nav-item"><a href="${contextPath}/themaTour.do" class="nav-link">채팅</a></li>
+         <li class="nav-item"><a href="${contextPath}/chat/login.do" class="nav-link">채팅하기</a></li>
          <li class="nav-item"><a href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
-
      </ul>
    </div>
 </div>
@@ -101,21 +91,18 @@
          </div>
       </div>
    </section>
-<section class="communityFrom">
+<section id="communityFrom">
    <p class="p_title">커뮤니티 글쓰기</p>
    <div class="line_hr"></div>
         <form name="communityForm" method="post"  action="${contextPath}/community/addNewCommunity.do"   enctype="multipart/form-data">
-          <table width="70%" border="0" align="center">
+          <table border="0" align="center">
            <tr>
-            <td align="right"></td>
             <td colspan=2  align="left"><input type="hidden" size="20" maxlength="100" name="id" value="${member.id }" readonly/> </td>
           </tr>
            <tr>
-            <td align="right"> </td>
-            <td colspan="2"><input type="text" size="67"  maxlength="500" name="c_title" placeholder="제목을 입력해주세요"/></td>
+            <td colspan="2"><input type="text" class="title_input" maxlength="500" name="c_title" placeholder="제목을 입력해주세요"/></td>
           </tr>
           <tr>
-            <td align="right" valign="top"><br></td>
             <td colspan=2>
             <textarea name="c_content" id="c_content" rows="10" cols="100" placeholder="내용을 입력해주세요"></textarea> 
             <script src="${contextPath}/resources/ckeditor/ckeditor.js"></script>
@@ -141,9 +128,6 @@
                             break;
                     }
                 });
-                
-
-          
             </script>
             </td>
            </tr>
@@ -154,10 +138,9 @@
                <td><img  id="preview" src="#"   width=200 height=200/></td>
           </tr>
           <tr>
-             <td colspan="2">
-                
-                <input type="submit" value="글쓰기" />
-                <input type=button value="목록보기"onClick="backToList(this.form)" />
+             <td class="td_btn">
+                <input type="submit" value="등록" class="btn btn-outline btn-primary" />
+                <input type=button value="목록"onClick="backToList(this.form)" class="btn btn-outline btn-primary" />
              </td>
            </tr>
           </table>
@@ -176,12 +159,7 @@
 </div>
 </div>
 </footer>
-
-
-
 <!-- loader -->
-
-
 <script src="resources/js/jquery.min.js"></script>
 <script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
 <script src="resources/js/popper.min.js"></script>
@@ -196,5 +174,4 @@
 </body>
 </html>
 <!-- <script type="text/javascript" src = "resources/js/notice_write.js"></script>-->
-
 <!--<script src="resources/ckeditor/ckeditor.js"></script>-->
