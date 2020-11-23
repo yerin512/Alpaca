@@ -195,7 +195,7 @@ public class BoardControllerImpl implements BoardController {
 						FileUtils.moveFileToDirectory(srcFile, destDir, true);
 						}catch(FileNotFoundException e) {
 							message = " <script>";
-							message += " alert('중복된 파일이 있습니다.');');";
+							message += " alert('중복된 파일이 있습니다.');";
 							message += " location.href='" + multipartRequest.getContextPath() + "/board/articleForm.do'; ";
 							message += " </script>";
 							resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
@@ -222,7 +222,7 @@ public class BoardControllerImpl implements BoardController {
 			}
 
 			message = " <script>";
-			message += " alert('작성 실패');');";
+			message += " alert('작성 실패');";
 			message += " location.href='" + multipartRequest.getContextPath() + "/board/articleForm.do'; ";
 			message += " </script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
@@ -267,7 +267,7 @@ public class BoardControllerImpl implements BoardController {
 			responseHeaders.add("Content-Type", "text/html; charset=utf-8");
 			
 			message = " <script>";
-			message += " alert('중복된 파일이 있습니다.');');";
+			message += " alert('중복된 파일이 있습니다.');";
 			message += " location.href='" + multipartRequest.getContextPath() + "/board/articleForm.do'; ";
 			message += " </script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
