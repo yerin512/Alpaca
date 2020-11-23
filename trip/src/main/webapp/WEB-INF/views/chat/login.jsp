@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
-<html>
+<!DOCTYPE html>
+<html lang="ko">
 <head>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
@@ -17,7 +18,7 @@
 	    }
 	
 	</style>
-	<title>Home</title>
+	<title>알파카 - 믿을 수 있는 중고 책 거래사이트</title>
 </head>
 <div class="container">
     <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
@@ -26,7 +27,7 @@
                 <div class="panel-title">환영합니다!</div>
             </div>
             <div class="panel-body">
-                <form id="login-form" method="post" action="${contextPath}/chat/echo.do">
+                <form id="login-form" method="post" action="/trip/chat/loginProcess.do">
                     <div>
                         <input type="text" name="id" class="form-control" name="아이디 입력" placeholder="Username" autofocus>
                     </div>

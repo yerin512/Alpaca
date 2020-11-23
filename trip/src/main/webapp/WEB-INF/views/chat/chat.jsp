@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Simple Chat</title>
+<title>알파카 - 믿을 수 있는 중고 책 거래사이트</title>
 </head>
 <body>
     <div>
@@ -31,7 +30,7 @@
                 return;
             }
             //웹소켓 객체 만드는 코드
-            ws = new WebSocket("ws://localhost:8090/chat/echo.do");
+            ws = new WebSocket("ws://localhost:8090/trip/chat/echo.do");
             
             ws.onopen = function(event){
                 if(event.data === undefined){

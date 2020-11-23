@@ -23,7 +23,7 @@ public class LoginController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = {"/chat/login.do"}, method = RequestMethod.GET)
+	@RequestMapping(value = "/chat/login.do", method = RequestMethod.GET)
 	private ModelAndView main(HttpServletRequest request, HttpServletResponse response) {
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
@@ -41,6 +41,6 @@ public class LoginController {
 
 		HttpSession session = request.getSession();
 		session.setAttribute("id", id);
-		return "chat";
+		return "/chat/chat";
 	}
 }
