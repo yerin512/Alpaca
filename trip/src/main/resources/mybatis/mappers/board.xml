@@ -25,13 +25,36 @@
 	  <result property="imageFileNO" column="imageFileNO" />
 	  <result property="articleNO" column="articleNO" />
 	  <result property="imageFileName" column="imageFileName" />
-	  
  </resultMap>
+ 
+   <resultMap id="TumbResult" type="thumbnailVO">
+	  <result property="articleNO" column="articleNO" />
+	  <result property="title" column="title" />
+	  <result property="price" column="price" />
+	   <result property="imageFileName" column="imageFileName" />
+	    <result property="imageFileNO" column="imageFileNO" />
+ </resultMap>
+ 
+ 
 
 <select id="selectAllArticlesList" resultMap="articlesResult"   >
     <![CDATA[
       SELECT id, articleNO, title, content, writeDate, imageFileName, genre, way, condition
       from article
+    ]]>
+  </select>
+  
+  
+   <select id="selectAllThumnail" resultMap="imgResult" >
+     <![CDATA[
+      SELECT ai.articleno, a.title, a.price, ai.imagefilename,
+      CASE MOD(ai.imagefileno, 3) WHEN 1 THEN ai.imagefileno
+      ELSE 0
+      END imagefileno
+      FROM article a, aimagefile ai 
+      WHERE a.articleno = ai.articleno
+      AND MOD(ai.imagefileno, 3) = 1
+      ORDER BY ai.imagefileno;
     ]]>
   </select>
   	
@@ -97,6 +120,10 @@
       where articleNO=#{articleNO}	
     ]]>
   </select> 
+  
+    
+  
+  
 
 
 </mapper>
