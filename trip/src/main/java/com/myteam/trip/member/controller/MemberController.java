@@ -2,6 +2,7 @@ package com.myteam.trip.member.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,5 +21,6 @@ public interface MemberController {
    public ModelAndView login(@ModelAttribute("member") MemberVO member,
             RedirectAttributes rAttr,
              HttpServletRequest request, HttpServletResponse response) throws Exception;
-   
+
+
 }

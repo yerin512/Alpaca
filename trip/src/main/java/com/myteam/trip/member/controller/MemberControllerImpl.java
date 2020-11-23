@@ -33,7 +33,7 @@ import com.myteam.trip.member.vo.ProfileVO;
 @Controller("memberController")
 //@EnableAspectJAutoProxy
 public class MemberControllerImpl implements MemberController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
 	@Autowired
@@ -191,44 +191,51 @@ public class MemberControllerImpl implements MemberController {
 		return viewName;
 	}
 
-	//회원 정보 수정
-	@RequestMapping(value="/memberUpdate", method = RequestMethod.GET)
+	// 회원 정보 수정
+	@RequestMapping(value="/memberUpdateView", method = RequestMethod.GET)
+	public String memberUpdateView() throws Exception{
+		
+		return "member/memberUpdateView";
+	}
+
+	@RequestMapping(value="/memberUpdate", method = RequestMethod.POST)
 	public String memberUpdate(MemberVO vo, HttpSession session) throws Exception{
 		
 		memberService.memberUpdate(vo);
 		session.invalidate();
 		return "redirect:/index.do";
 	}
-	
-	//회원 탈퇴 get
-	@RequestMapping(value="/memberDeleteView", method = RequestMethod.GET)
-	public String memberDeleteView() throws Exception{
-		return "trip/memberDeleteView";
-	}
 
 	
+	// 회원 탈퇴 get
+	@RequestMapping(value = "/memberDeleteView", method = RequestMethod.GET)
+	public String memberDeleteView() throws Exception {
+		return "member/memberDeleteView";
+	}
+
 	// 회원 탈퇴 post
-		@RequestMapping(value="/memberDelete", method = RequestMethod.POST)
-		public String memberDelete(MemberVO vo, HttpSession session, RedirectAttributes rttr) throws Exception{
-			
-			MemberVO member = (MemberVO) session.getAttribute("member");
-			String sessionPass = member.getPwd();
-			String voPass = vo.getPwd();
-			
-			if(!(sessionPass.equals(voPass))) {
-				rttr.addFlashAttribute("msg", false);
-				return "redirect:/trip/memberDeleteView";
-			}
-			memberService.memberDelete(vo);
-			session.invalidate();
-			return "redirect:/index.do";
+	@RequestMapping(value = "/memberDelete", method = RequestMethod.POST)
+	public String memberDelete(MemberVO vo, HttpSession session, RedirectAttributes rttr) throws Exception {
+
+		MemberVO member = (MemberVO) session.getAttribute("member");
+		String sessionPass = member.getPwd();
+		String voPass = vo.getPwd();
+
+		if (!(sessionPass.equals(voPass))) {
+			rttr.addFlashAttribute("msg", false);
+			return "redirect:/member/memberDeleteView";
 		}
-		
-	// 회원 탈퇴에 필요한 패스워드 체크 	
-	    @ResponseBody
-	    @RequestMapping(value="/passChk", method = RequestMethod.POST)
-	    public int passChk(MemberVO vo) throws Exception {
-	        int result = memberService.passChk(vo);
-	        return result;
-}
+		memberService.memberDelete(vo);
+		session.invalidate();
+		return "redirect:/index.do";
+	}
+
+	// 회원 탈퇴에 필요한 패스워드 체크
+	@ResponseBody
+	@RequestMapping(value = "/passChk", method = RequestMethod.POST)
+	public int passChk(MemberVO memberVO) throws Exception {
+		int result = memberService.passChk(memberVO);
+		return result;
+	}
+
 }
