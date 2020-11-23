@@ -81,6 +81,7 @@ public class MemberControllerImpl implements MemberController {
 			session.setAttribute("isLogOn", true);
 
 			memberVO.setId((String) userInfo.get("kakaoID"));
+			memberVO.setName((String) userInfo.get("nickname"));
 			session.setAttribute("member", memberVO); // 카카오 로긴값 세션에 묶어보기 시도
 		}
 
