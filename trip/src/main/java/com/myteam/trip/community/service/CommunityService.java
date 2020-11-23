@@ -3,14 +3,10 @@ package com.myteam.trip.community.service;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.myteam.trip.community.dao.CommunityDAO;
 import com.myteam.trip.community.vo.CommunityVO;
@@ -50,14 +46,6 @@ public class CommunityService{
 	 
 	public void removeCommunity(int c_no) throws Exception {
 		communityDAO.deleteCommunity(c_no);
-	}
-
-
-
-
-	public void ckeditorImageUpload(HttpServletRequest request, HttpServletResponse response, MultipartFile upload) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 
