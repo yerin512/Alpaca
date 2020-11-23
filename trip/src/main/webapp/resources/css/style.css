@@ -9244,6 +9244,14 @@ textarea.form-control {
   @media (max-width: 767.98px) {
     .ftco-section {
       padding: 6em 0; } }
+      
+.ftco-section-kis {
+  padding: 1em 0;
+  position: relative;
+  width: 100%; }
+  @media (max-width: 767.98px) {
+    .ftco-section {
+      padding: 1em 0; } }      
 
 .ftco-no-pt {
   padding-top: 0 !important; }
