@@ -29,9 +29,8 @@
   
   <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
   <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
-
-  
 </head>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
 
    function fn_communityForm(isLogOn,communityForm, index){
@@ -107,36 +106,14 @@
             <textarea name="c_content" id="c_content" rows="10" cols="100" placeholder="내용을 입력해주세요"></textarea> 
             <script src="${contextPath}/resources/ckeditor/ckeditor.js"></script>
             <script type="text/javascript">
-
-                
-                CKEDITOR.replace( 'c_content', {//해당 이름으로 된 textarea에 에디터를 적용
-                    width:'100%',
-                    height:'400px',
-                    filebrowserImageUploadUrl: '/community/uploadCommunity' //여기 경로로 파일을 전달하여 업로드 시킨다.
+                CKEDITOR.replace('c_content',{
+                	filebrowserUploadUrl: '${pageContext.request.contextPath }/community/fileupload.do'
                 });
-                
-                
-                CKEDITOR.on('dialogDefinition', function( ev ){
-                    var dialogName = ev.data.name;
-                    var dialogDefinition = ev.data.definition;
-                 
-                    switch (dialogName) {
-                        case 'image': //Image Properties dialog
-                            //dialogDefinition.removeContents('info');
-                            dialogDefinition.removeContents('Link');
-                            dialogDefinition.removeContents('advanced');
-                            break;
-                    }
-                });
+                window.parent.CKEDITOR.tools.callFunction(1, "${url}", "전송완료");
             </script>
             </td>
            </tr>
            
-           <tr>
-              <td align="right"></td>
-              <td> <input type="file" name="c_imageFileName"  onchange="readURL(this);" /></td>
-               <td><img  id="preview" src="#"   width=200 height=200/></td>
-          </tr>
           <tr>
              <td class="td_btn">
                 <input type="submit" value="등록" class="btn btn-outline btn-primary" />
@@ -159,19 +136,5 @@
 </div>
 </div>
 </footer>
-<!-- loader -->
-<script src="resources/js/jquery.min.js"></script>
-<script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="resources/js/popper.min.js"></script>
-<script src="resources/js/bootstrap.min.js"></script>
-<script src="resources/js/jquery.easing.1.3.js"></script>
-<script src="resources/js/main.js"></script>
-
-
-<!--  <script type="text/javascript" src="resources/se2/js/service/HuskyEZCreator.js" charset="utf-8"></script>-->
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-
 </body>
 </html>
-<!-- <script type="text/javascript" src = "resources/js/notice_write.js"></script>-->
-<!--<script src="resources/ckeditor/ckeditor.js"></script>-->

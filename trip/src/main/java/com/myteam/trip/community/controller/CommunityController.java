@@ -1,21 +1,17 @@
 package com.myteam.trip.community.controller;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
-import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -28,7 +24,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,16 +33,16 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.JsonObject;
 import com.myteam.trip.community.service.CommunityService;
 import com.myteam.trip.community.vo.CommunityVO;
-import com.myteam.trip.community.vo.FileUploadVO;
 import com.myteam.trip.member.vo.MemberVO;
 
  
 @Repository
 @Controller("communityController")
 public class CommunityController  {
-	private static final String COMMUNITY_IMAGE_REPO = "C:\\community\\community_image";
+	private static final String FILE_URL = null;
 	@Autowired
 	private CommunityService communityService;
 	@Autowired
@@ -79,13 +75,12 @@ public class CommunityController  {
 			communityMap.put(name, value);
 		}
 //id, c_title, c_content, c_imageFileName
-		String c_imageFileName =uploadCommunity(multipartRequest); 
 		HttpSession session = multipartRequest.getSession();
 		MemberVO memberVO = (MemberVO) session.getAttribute("member"); 
 		String id = memberVO.getId();
 		communityMap.put("id", id);
 		System.out.println("id : " + id);
-		communityMap.put("c_imageFileName", c_imageFileName);
+
 
 		String message;
 		ResponseEntity resEnt = null;
@@ -94,21 +89,13 @@ public class CommunityController  {
 		
 		try {
 			int c_no = communityService.addNewCommunity(communityMap);
-			if(c_imageFileName!=null && c_imageFileName.length()!=0) {
-				File srcFile = new 
-				File(COMMUNITY_IMAGE_REPO+"\\"+"temp"+"\\"+c_imageFileName);
-				File destDir = new File(COMMUNITY_IMAGE_REPO+"\\"+c_no);
-				FileUtils.moveFileToDirectory(srcFile, destDir,true);
-			}
-			
+						
 			message = "<script>";
 			message += " alert('새글을 추가했습니다.');";
 			message += " location.href='" + multipartRequest.getContextPath() + "/index.do'; ";
 			message += " </script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
 		} catch (Exception e) {
-			File srcFile = new File(COMMUNITY_IMAGE_REPO + "\\" + "temp" + "\\" + c_imageFileName);
-			srcFile.delete();
 
 			message = " <script>";
 			message += " alert('오류가 발생했습니다. 다시 시도해 주세요');');";
@@ -149,12 +136,11 @@ public class CommunityController  {
 			communityMap.put(name,value);
 		}
 		
-		String c_imageFileName= uploadCommunity(multipartRequest);
+		
 		HttpSession session = multipartRequest.getSession();
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		String id = memberVO.getId();
 		communityMap.put("id", id);
-		communityMap.put("c_imageFileName", c_imageFileName);
 		
 		String c_no=(String)communityMap.get("c_no");
 		String message;
@@ -163,23 +149,12 @@ public class CommunityController  {
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
 	    try {
 	       communityService.modCommunity(communityMap);
-	       if(c_imageFileName!=null && c_imageFileName.length()!=0) {
-	         File srcFile = new File(COMMUNITY_IMAGE_REPO+"\\"+"temp"+"\\"+c_imageFileName);
-	         File destDir = new File(COMMUNITY_IMAGE_REPO+"\\"+c_no);
-	         FileUtils.moveFileToDirectory(srcFile, destDir, true);
-	         
-	         String originalFileName = (String)communityMap.get("originalFileName");
-	         File oldFile = new File(COMMUNITY_IMAGE_REPO+"\\"+c_no+"\\"+originalFileName);
-	         oldFile.delete();
-	       }	
 	       message = "<script>";
 		   message += " alert('글을 수정했습니다.');";
 		   message += " location.href='"+multipartRequest.getContextPath()+"/community/viewCommunity.do?c_no="+c_no+"';";
 		   message +=" </script>";
 	       resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
 	    }catch(Exception e) {
-	      File srcFile = new File(COMMUNITY_IMAGE_REPO+"\\"+"temp"+"\\"+c_imageFileName);
-	      srcFile.delete();
 	      message = "<script>";
 		  message += " alert('오류가 발생했습니다.다시 수정해주세요');";
 		  message += " location.href='"+multipartRequest.getContextPath()+"/community/viewCommunity.do?c_no="+c_no+"';";
@@ -200,8 +175,6 @@ public class CommunityController  {
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
 		try {
 			communityService.removeCommunity(c_no);
-			File destDir = new File(COMMUNITY_IMAGE_REPO + "\\" + c_no);
-			FileUtils.deleteDirectory(destDir);
 
 			message = "<script>";
 			message += " alert('글을 삭제했습니다.');";
@@ -229,27 +202,6 @@ public class CommunityController  {
 		return mav;
 	}
 
-//	 한개 이미지 업로드하기
-	private String uploadCommunity(MultipartHttpServletRequest multipartRequest) throws Exception{
-		String c_imageFileName= null;
-		Iterator<String> fileNames = multipartRequest.getFileNames();
-		
-		while(fileNames.hasNext()){
-			String fileName = fileNames.next();
-			MultipartFile mFile = multipartRequest.getFile(fileName);
-			c_imageFileName=mFile.getOriginalFilename();
-			File file = new File(COMMUNITY_IMAGE_REPO +"\\"+ fileName);
-			if(mFile.getSize()!=0){ //File Null Check
-				if(! file.exists()){ //경로상에 파일이 존재하지 않을 경우
-					if(file.getParentFile().mkdirs()){ //경로에 해당하는 디렉토리들을 생성
-							file.createNewFile(); //이후 파일 생성
-					}
-				}
-				mFile.transferTo(new File(COMMUNITY_IMAGE_REPO +"\\"+"temp"+ "\\"+c_imageFileName)); //임시로 저장된 multipartFile을 실제 파일로 전송
-			}
-		}
-		return c_imageFileName;
-	}
 
 //	// 다중 이미지 업로드하기
 //	private List<String> upload(MultipartHttpServletRequest multipartRequest) throws Exception {
@@ -421,52 +373,69 @@ public class CommunityController  {
 //	        return "sample/fileUploadComplete";
 //	}
 	
-	@RequestMapping(value = "/community/imageUpload.do", method = RequestMethod.POST)
-	public void communityImageUpload(HttpServletRequest request, HttpServletResponse response, @RequestParam MultipartFile upload) {
-	 
-	    OutputStream out = null;
-	    PrintWriter printWriter = null;
-	    response.setCharacterEncoding("utf-8");
-	    response.setContentType("text/html;charset=utf-8");
-	 
-	    try{
-	 
-	        String fileName = upload.getOriginalFilename();
-	        byte[] bytes = upload.getBytes();
-	        String uploadPath = COMMUNITY_IMAGE_REPO +"\\" + fileName;//저장경로
-	 
-	        out = new FileOutputStream(new File(uploadPath));
-	        out.write(bytes);
-	        String callback = request.getParameter("CKEditorFuncNum");
-	 
-	        printWriter = response.getWriter();
-	        String fileUrl = COMMUNITY_IMAGE_REPO +"\\" + fileName;//url경로
-	 
-	        printWriter.println("<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction("
-	                + callback
-	                + ",'"
-	                + fileUrl
-	                + "','이미지를 업로드 하였습니다.'"
-	                + ")</script>");
-	        printWriter.flush();
-	 
-	    }catch(IOException e){
-	        e.printStackTrace();
-	    } finally {
-	        try {
-	            if (out != null) {
-	                out.close();
-	            }
-	            if (printWriter != null) {
-	                printWriter.close();
-	            }
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
-	    }
-	 
-	    return;
-	}
+	
+	@RequestMapping(value="/community/fileupload.do", method=RequestMethod.POST)
+	@ResponseBody
+	public String fileUpload(HttpServletRequest req, HttpServletResponse resp, 
+                 MultipartHttpServletRequest multiFile) throws Exception {
+		JsonObject json = new JsonObject();
+		PrintWriter printWriter = null;
+		OutputStream out = null;
+		MultipartFile file = multiFile.getFile("upload");
+		if(file != null){
+			if(file.getSize() > 0){
+				if(file.getContentType().toLowerCase().startsWith("image/")){
+					try{
+						String fileName = file.getName();
+						byte[] bytes = file.getBytes();
+						String uploadPath = req.getServletContext().getRealPath("/img");
+						File uploadFile = new File(uploadPath);
+						if(!uploadFile.exists()){
+							uploadFile.mkdirs();
+						}
+						fileName = UUID.randomUUID().toString();
+						uploadPath = uploadPath + "/" + fileName;
+						out = new FileOutputStream(new File(uploadPath));
+                        out.write(bytes);
+                        
+                        printWriter = resp.getWriter();
+                        resp.setContentType("text/html");
+                        String fileUrl = req.getContextPath() +  "/resources" + "/img/" + fileName;
+                        
+                        
+                        /*
+                        File srcFile = new File("C:\\community\\community_image" + fileName);
+						File destDir = new File(fileUrl);
+				
+						FileUtils.moveFileToDirectory(srcFile, destDir, true);
+                        */
+                        
+                        
+                        // json 데이터로 등록
+                        // {"uploaded" : 1, "fileName" : "test.jpg", "url" : "/img/test.jpg"}
+                        // 이런 형태로 리턴이 나가야함.
+                        json.addProperty("uploaded", 1);
+                        json.addProperty("fileName", fileName);
+                        json.addProperty("url", fileUrl);
+                        
+                        printWriter.println(json);
+                    }catch(IOException e){
+                        e.printStackTrace();
+                    }finally{
+                        if(out != null){
+                            out.close();
+                        }
+                        if(printWriter != null){
+                            printWriter.close();
+                        }		
+					}
+				}
+			}
+		}
+		return null;
+	}	
+	
 
+	
 
 }
