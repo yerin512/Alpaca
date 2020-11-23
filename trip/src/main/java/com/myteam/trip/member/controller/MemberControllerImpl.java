@@ -194,13 +194,11 @@ public class MemberControllerImpl implements MemberController {
 	// 회원 정보 수정
 	@RequestMapping(value="/memberUpdateView", method = RequestMethod.GET)
 	public String memberUpdateView() throws Exception{
-		
 		return "member/memberUpdateView";
 	}
 
 	@RequestMapping(value="/memberUpdate", method = RequestMethod.POST)
 	public String memberUpdate(MemberVO vo, HttpSession session) throws Exception{
-		
 		memberService.memberUpdate(vo);
 		session.invalidate();
 		return "redirect:/index.do";
@@ -208,7 +206,7 @@ public class MemberControllerImpl implements MemberController {
 
 	
 	// 회원 탈퇴 get
-	@RequestMapping(value = "/memberDeleteView", method = RequestMethod.GET)
+	@RequestMapping(value = "member/memberDeleteView", method = RequestMethod.GET)
 	public String memberDeleteView() throws Exception {
 		return "member/memberDeleteView";
 	}

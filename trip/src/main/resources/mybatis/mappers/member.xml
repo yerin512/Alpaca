@@ -54,7 +54,7 @@
 	</update>
 
 	<!-- 회원 탈퇴 -->
-	<delete id="memberDelete">
+	<delete id="memberDelete" parameterType="String">
 	<![CDATA[
 	   Delete FROM  trip_member
 	   WHERE id=#{id}

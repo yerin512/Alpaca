@@ -36,7 +36,7 @@ public class MemberServiceImpl implements MemberService {
 		String result = memberDAO.idChk(vo);
 		return result;
 	}
-
+	
 	// 회원 정보 수정
 	@Override
 	public void memberUpdate(MemberVO vo) throws Exception {

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <title>알파카 - 믿을 수 있는 중고 책 거래사이트</title>
     <meta charset="utf-8">
@@ -106,6 +106,8 @@
 							<div class="form-group">
 								<a href="myPage.do">마이페이지</a>
 							</div>
+							    	<button formaction="http://localhost:8090/trip/logout">로그아웃2</button>
+									<button formaction="http://localhost:8090/member/memberDeleteView.do">회원 탈퇴2</button>
          </form>
     	<a href="http://localhost:8090/trip/logout"><input type="button" value="로그아웃" ></a>
     	<a href="http://localhost:8090/member/memberUpdateView"><input type="button" value="회원정보 수정" ></a>
