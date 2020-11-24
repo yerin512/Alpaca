@@ -14,14 +14,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPkXtedSjcR4hmYgEAvIjgOb_aTuiGKQk&callback=initMap&region=kr"></script>
   <style>
-     body {overflow: hidden;}
-     div#map {width: 100vw; height: 100vh;}
-     div.wrap {width: 200px;}
-     div.text-box {text-align: center;}
+     #map {width: 100vw; height: 100vh;}
+     .wrap {width: 200px;}
+     .text-box {text-align: center;}
      h3 {margin: 10px auto 0;}
-     div.img-box { max-height: 100px; overflow: hidden;}
-     img {width: 150px; margin: -20px auto 0;}
-     a {text-decoration: none; color: #000;}   
+     .img-box {max-height: 80px; overflow: hidden; float: left;}
+     img {width: 70px; height: 70px; margin: -20px auto 0;}
+     a {color: blue;}
      .gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}       
   </style>
 </head>
@@ -39,15 +38,25 @@
       });
 
       var locations = [  // 마커 정보
-          ['<div class="wrap"><div class="text-box"><h3>트렌드 코리아</h3><div class="img-box"><img src="${contextPath}/resources/images/around/book1.jpg"></div><div class="price">가격 : 8,500원</div><a href="${contextPath}/board/listArticles.do" class="link">상세보기</a></div>',
-        	  37.57115541194289, 126.97775376894938],         
-          ['<div class="wrap"><div class="text-box"><h3>기분이 태도가 되지 않게</h3><div class="img-box"><img src="${contextPath}/resources/images/around/book4.jpg"></div><div class="price">가격 : 6,000원</div><a href="${contextPath}/board/listArticles.do" class="link">상세보기</a></div>',
-        	  37.56649243480132, 126.98401308959981],         
-          ['<div class="wrap"><div class="text-box"><h3>돈의 속성</h3><div class="img-box"><img src="${contextPath}/resources/images/around/book2.jpg"></div><div class="price">가격 : 7,300원</div><a href="${contextPath}/board/listArticles.do" class="link">상세보기</a></div>', 
-        	  37.566081094077525, 126.96597699812116]          
+          ['<div class="wrap"><div class="text-box"><h3>트렌드 코리아</h3>'
+        	  + '<div class="img-box"><img src="${contextPath}/resources/images/around/book1.jpg"></div>'
+        	  + '<div class="price">가격 : 8,500원</div>'
+        	  + '<a href="${contextPath}/board/listArticles.do" class="link">상세보기</a></div>',
+          37.57115541194289, 126.97775376894938],         
+          ['<div class="wrap"><div class="text-box"><h3>기분이 태도가 되지 않게</h3>'
+        	  + '<div class="img-box"><img src="${contextPath}/resources/images/around/book4.jpg"></div>'
+        	  + '<div class="price">가격 : 6,000원</div>'
+        	  + '<a href="${contextPath}/board/listArticles.do" class="link">상세보기</a></div>',
+          37.56649243480132, 126.98401308959981],         
+          ['<div class="wrap"><div class="text-box"><h3>돈의 속성</h3>'
+        	  + '<div class="img-box"><img src="${contextPath}/resources/images/around/book2.jpg"></div>'
+        	  + '<div class="price">가격 : 7,300원</div>'
+        	  + '<a href="${contextPath}/board/listArticles.do" class="link">상세보기</a></div>', 
+          37.566081094077525, 126.96597699812116]          
       ]
 
-      var customicon = 'http://drive.google.com/uc?export=view&id=1tZgPtboj4mwBYT6cZlcY36kYaQDR2bRM';    		  
+      var customicon = 'http://drive.google.com/uc?export=view&id=1tZgPtboj4mwBYT6cZlcY36kYaQDR2bRM';  // 기본 마커
+//      var customicon = "${contextPath}/resources/images/around/alpaca.png"  // 알파카 이미지 마커
       var infowindow = new google.maps.InfoWindow(); // 인포윈도우
      
       var marker, i;  //마커 생성
