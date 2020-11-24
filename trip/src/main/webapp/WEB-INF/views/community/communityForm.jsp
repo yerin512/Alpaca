@@ -31,7 +31,29 @@
   <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
 </head>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>
 <script type="text/javascript">
+	$(document).ready(function(){
+		var formObj = $("form[name='communityForm']");
+		$(".write_btn").on("click", function(){
+			if(fn_valiChk()){
+				return false;
+			}
+			formObj.attr("action", "${contextPath}/community/addNewCommunity.do");
+			formObj.attr("method", "post");
+			formObj.submit();
+		});
+	})
+	
+	function fn_valiChk(){
+			var regForm = $("form[name='communityForm'] .chk").length;
+			for(var i = 0; i<regForm; i++){
+				if($(".chk").eq(i).val() == "" || $(".chk").eq(i).val() == null){
+					alert($(".chk").eq(i).attr("title"));
+					return true;
+				}
+			}
+		}
 
    function fn_communityForm(isLogOn,communityForm, index){
         if(isLogOn != '' && isLogOn != 'false'){
@@ -99,11 +121,11 @@
             <td colspan=2  align="left"><input type="hidden" size="20" maxlength="100" name="id" value="${member.id }" readonly/> </td>
           </tr>
            <tr>
-            <td colspan="2"><input type="text" class="title_input" maxlength="500" name="c_title" placeholder="제목을 입력해주세요"/></td>
+            <td colspan="2"><input type="text" class="title_input chk" maxlength="500" name="c_title" placeholder="제목을 입력해주세요" title="제목을 입력해주세요."/></td>
           </tr>
           <tr>
             <td colspan=2>
-            <textarea name="c_content" id="c_content" rows="10" cols="100" placeholder="내용을 입력해주세요"></textarea> 
+            <textarea name="c_content" id="c_content" rows="10" cols="100" placeholder="내용을 입력해주세요"  title="내ㅇ용을 입력해주세요."></textarea> 
             <script src="${contextPath}/resources/ckeditor/ckeditor.js"></script>
             <script type="text/javascript">
                 CKEDITOR.replace('c_content',{
@@ -116,7 +138,7 @@
            
           <tr>
              <td class="td_btn">
-                <input type="submit" value="등록" class="btn btn-outline btn-primary" />
+                <input type="submit" value="등록" class="write_btn btn btn-outline btn-primary" />
                 <input type=button value="목록"onClick="backToList(this.form)" class="btn btn-outline btn-primary" />
              </td>
            </tr>

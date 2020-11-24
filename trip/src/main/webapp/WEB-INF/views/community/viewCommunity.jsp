@@ -42,11 +42,8 @@
  <script  src="http://code.jquery.com/jquery-latest.min.js"></script> 
    <script type="text/javascript" >
    
-   $(function(){
-	   $('#tr_btn_modify .btn').click(function(){
-	     $('#tr_btn').hide();
-	   });
-	 });
+   
+   
    
      function backToList(obj){
 	    obj.action="${contextPath}/community/listCommunity.do";
@@ -56,9 +53,7 @@
 	 function fn_enable(obj){
 		 document.getElementById("i_title").disabled=false;
 		 document.getElementById("i_content").disabled=false;
-		 document.getElementById("i_imageFileName").disabled=false;
 		 document.getElementById("tr_btn_modify").style.display="block";
-		 document.getElementById("tr_file_upload").style.display="block";
 		 document.getElementById("tr_btn").style.display="none";
 	 }
 	 
@@ -92,6 +87,9 @@
 	         reader.readAsDataURL(input.files[0]);
 	     }
 	 }  
+	 
+		 
+	 
  </script>
 <style>
 
@@ -99,7 +97,7 @@
 <body>
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
    <div class="container">
-     <a class="navbar-brand" href="index.do">알파카 <span class="navbar-brandsp">중고책 거래소</span></a>
+     <a class="navbar-brand" href="${contextPath}/index.do">알파카 <span class="navbar-brandsp">중고책 거래소</span></a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
      <span class="oi oi-menu"></span> Menu
    </button>
@@ -159,8 +157,10 @@
 								  <tr>
 									   <td>
 									    <textarea rows="20" cols="120"  name="c_content"  id="i_content"  disabled />${community.c_content }</textarea>
+									    
 									   </td>  
 								  </tr>
+								  <!-- 이미지 파일...
 								  <c:choose> 
 								  <c:when test="${not empty community.c_imageFileName && community.c_imageFileName!='null' }">
 									   	<tr>
@@ -189,7 +189,7 @@
 											  </tr>
 										 </c:otherwise>
 									 </c:choose>
-								  
+								  	-->
 								  <tr   id="tr_btn_modify"  align="center"  >
 									   <td colspan="2"   >
 									       <input type=button value="수정"   onClick="fn_modify_community(frmCommunity)" class="btn btn-outline btn-primary pull-right" >
@@ -200,7 +200,7 @@
 								   <td colspan="12" align="center">
 								       <c:if test="${member.id == community.id }">
 									      <input type=button value="수정" onClick="fn_enable(this.form)" class="btn btn-outline btn-primary pull-right" >
-									      <input type=button value="삭제" onClick="fn_remove_community('${contextPath}/community/removeCommunity.do', ${community.c_no})" class="btn btn-outline btn-primary pull-right">
+									      <input type=button value="삭제" onClick="fn_remove_community('${contextPath}/community/removeCommunity.do', ${community.c_no})" class="delete_btn btn btn-outline btn-primary pull-right">
 									    </c:if>
 									    <input type=button value="목록"  onClick="backToList(this.form)" class="btn btn-outline btn-primary pull-right">
 								   </td>

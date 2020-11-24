@@ -9721,16 +9721,6 @@ textarea.form-control {
       border: 1px solid #e6e6e6; }
     .block-27 ul li.active a, .block-27 ul li.active span, .block-27 ul li:hover a, .block-27 ul li:hover span {
       background: #4986fc;
-      background: #ce4be8;
-      background: -moz-linear-gradient(-45deg, #ce4be8 0%, #207ce5 100%);
-      background: -webkit-gradient(left top, right bottom, color-stop(0%, #ce4be8), color-stop(100%, #207ce5));
-      background: -webkit-linear-gradient(-45deg, #ce4be8 0%, #207ce5 100%);
-      background: -o-linear-gradient(-45deg, #ce4be8 0%, #207ce5 100%);
-      background: -ms-linear-gradient(-45deg, #ce4be8 0%, #207ce5 100%);
-      background: -webkit-linear-gradient(315deg, #ce4be8 0%, #207ce5 100%);
-      background: -o-linear-gradient(315deg, #ce4be8 0%, #207ce5 100%);
-      background: linear-gradient(135deg, #ce4be8 0%, #207ce5 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ce4be8', endColorstr='#207ce5', GradientType=1 );
       color: #fff;
       border: 1px solid transparent; }
 
@@ -9996,7 +9986,7 @@ alret
 .viewCommunity .flot_tr{overflow:hidden}
 .viewCommunity .flot_tr>td{float:left}
 .viewCommunity input{float:left;width:50%!important}
-.viewCommunity #i_content{border:none}
+.viewCommunity #i_content{border:none;background:#f8f8f8}
 .viewCommunity #tr_btn{text-align:center}
 .viewCommunity #tr_btn input{margin-right:5px}
  .viewCommunity #tr_file_upload{
