@@ -48,7 +48,7 @@ public class MemberDAOImpl implements MemberDAO {
 	// 회원 탈퇴
 	@Override
 	public void memberDelete(MemberVO vo) throws Exception {
-		sqlSession.delete("mappeer.member.memberDelete", vo);
+		sqlSession.delete("mapper.member.memberDelete", vo);
 		
 	}
 	//회원 탈퇴에 쓰일 패스워드 체크

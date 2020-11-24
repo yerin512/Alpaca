@@ -194,19 +194,27 @@ public class MemberControllerImpl implements MemberController {
 	// 회원 정보 수정
 	@RequestMapping(value="/memberUpdateView", method = RequestMethod.GET)
 	public String memberUpdateView() throws Exception{
+		System.out.println("첫번째 이동");
 		return "member/memberUpdateView";
+
 	}
 
 	@RequestMapping(value="/memberUpdate", method = RequestMethod.POST)
 	public String memberUpdate(MemberVO vo, HttpSession session) throws Exception{
+		System.out.println("2번째 이동");
+
 		memberService.memberUpdate(vo);
+		System.out.println("3번째 이동");
+
 		session.invalidate();
+		System.out.println("4번째 이동");
+
 		return "redirect:/index.do";
 	}
 
 	
 	// 회원 탈퇴 get
-	@RequestMapping(value = "member/memberDeleteView", method = RequestMethod.GET)
+	@RequestMapping(value = "/memberDeleteView", method = RequestMethod.GET)
 	public String memberDeleteView() throws Exception {
 		return "member/memberDeleteView";
 	}
@@ -227,7 +235,7 @@ public class MemberControllerImpl implements MemberController {
 		session.invalidate();
 		return "redirect:/index.do";
 	}
-
+		
 	// 회원 탈퇴에 필요한 패스워드 체크
 	@ResponseBody
 	@RequestMapping(value = "/passChk", method = RequestMethod.POST)

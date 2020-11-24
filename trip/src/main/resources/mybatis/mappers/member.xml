@@ -45,21 +45,19 @@
 	</select>
 
 	<!-- 회원정보 수정 -->
-	<update id="memberUpdate">
+	<update id="memberUpdate" parameterType="memberVO">
 		UPDATE trip_member SET
 		pwd = #{pwd},
 		name = #{name},
-		email = #{email},
+		email = #{email}
 		where id = #{id}
 	</update>
 
 	<!-- 회원 탈퇴 -->
-	<delete id="memberDelete" parameterType="String">
-	<![CDATA[
+	<delete id="memberDelete">
 	   Delete FROM  trip_member
 	   WHERE id=#{id}
 	   AND pwd=#{pwd}
-	]]>
 	</delete>
 	<!-- 회원 탈퇴에 쓰일 패스워드 체크 -->
 	<select id="passChk" resultType="int">

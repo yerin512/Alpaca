@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!DOCTYPE html>
 <html>
 	<head>
 		<!-- 합쳐지고 최소화된 최신 CSS -->
@@ -14,7 +17,7 @@
 			// 취소
 			$(".cancle").on("click", function(){
 				
-				location.href = "/index.do";
+				location.href = "/trip/index.do";
 						    
 			})
 		
@@ -32,7 +35,7 @@
 					success: function(data){
 						
 						if(data==0){
-							alert("패스워드가 틀렸습니다.");
+							alert("비밀번호 가 틀렸습니다.");
 							return;
 						}else{
 							if(confirm("회원탈퇴하시겠습니까?")){
@@ -59,10 +62,6 @@
 				<div class="form-group has-feedback">
 					<label class="control-label" for="pwd">패스워드</label>
 					<input class="form-control" type="password" id="pwd" name="pwd" />
-				</div>
-				<div class="form-group has-feedback">
-					<label class="control-label" for="name">성명</label>
-					<input class="form-control" type="text" id="name" name="name" value="${member.name}" readonly="readonly"/>
 				</div>
 			</form>
 			<div class="form-group has-feedback">

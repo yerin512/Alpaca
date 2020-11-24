@@ -17,19 +17,24 @@
 			// 취소
 			$(".cancle").on("click", function(){
 				
-				location.href = "/";
+				location.href = "/trip/index.do";
 						    
 			})
 		
 			$("#submit").on("click", function(){
 				if($("#pwd").val()==""){
-					alert("비밀번호를 입력해주세요.");
+					alert("비밀번호 를 입력해주세요.");
 					$("#pwd").focus();
 					return false;
 				}
 				if($("#name").val()==""){
-					alert("성명을 입력해주세요.");
+					alert("이름 을 입력해주세요.");
 					$("#name").focus();
+					return false;
+				}
+				if($("#Email").val()==""){
+					alert("Email 을 입력해주세요.");
+					$("#Email").focus();
 					return false;
 				}
 			});
@@ -40,7 +45,7 @@
 	</script>
 	<body>
 		<section id="container">
-			<form action="/member/memberUpdate" method="post">
+			<form action="/trip/memberUpdate" method="post">
 				<div class="form-group has-feedback">
 					<label class="control-label" for="id">아이디</label>
 					<input class="form-control" type="text" id="id" name="id" value="${member.id}" readonly="readonly"/>
@@ -54,7 +59,11 @@
 					<input class="form-control" type="text" id="name" name="name" value="${member.name}"/>
 				</div>
 				<div class="form-group has-feedback">
-					<button class="btn btn-success" type="submit" id="submit">회원정보수정</button>
+					<label class="control-label" for="email">Email</label>
+					<input class="form-control" type="text" id="email" name="email" value="${member.email}"/>
+				</div>
+				<div class="form-group has-feedback">
+					<button class="btn btn-success" type="submit" id="submit">회원 정보 수정</button>
 					<button class="cancle btn btn-danger" type="button">취소</button>
 				</div>
 			</form>

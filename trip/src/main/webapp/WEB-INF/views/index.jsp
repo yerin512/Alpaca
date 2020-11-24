@@ -106,12 +106,11 @@
 							<div class="form-group">
 								<a href="myPage.do">마이페이지</a>
 							</div>
-							    	<button formaction="http://localhost:8090/trip/logout">로그아웃2</button>
-									<button formaction="http://localhost:8090/member/memberDeleteView.do">회원 탈퇴2</button>
          </form>
-    	<a href="http://localhost:8090/trip/logout"><input type="button" value="로그아웃" ></a>
-    	<a href="http://localhost:8090/member/memberUpdateView"><input type="button" value="회원정보 수정" ></a>
-    	<a href="http://localhost:8090/member/memberDeleteView"><input type="button" value="회원 탈퇴" ></a>
+        
+        	<button type="button" onclick="location.href='logout'">로그아웃</button>
+ 			<button type="button" onclick="location.href='memberUpdateView'">회원 정보 수정</button>
+        	<button type="button" onclick="location.href='memberDeleteView'">회원 탈퇴</button>     
      </div>
  </div>
 </div>
