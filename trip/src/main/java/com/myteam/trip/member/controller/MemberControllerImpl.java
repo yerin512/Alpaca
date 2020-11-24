@@ -191,24 +191,17 @@ public class MemberControllerImpl implements MemberController {
 		return viewName;
 	}
 
-	// 회원 정보 수정
+	// 회원 정보 수정 get
 	@RequestMapping(value="/memberUpdateView", method = RequestMethod.GET)
 	public String memberUpdateView() throws Exception{
-		System.out.println("첫번째 이동");
 		return "member/memberUpdateView";
 
 	}
-
+	// 회원 정보 수정 post
 	@RequestMapping(value="/memberUpdate", method = RequestMethod.POST)
 	public String memberUpdate(MemberVO vo, HttpSession session) throws Exception{
-		System.out.println("2번째 이동");
-
 		memberService.memberUpdate(vo);
-		System.out.println("3번째 이동");
-
 		session.invalidate();
-		System.out.println("4번째 이동");
-
 		return "redirect:/index.do";
 	}
 
@@ -216,31 +209,39 @@ public class MemberControllerImpl implements MemberController {
 	// 회원 탈퇴 get
 	@RequestMapping(value = "/memberDeleteView", method = RequestMethod.GET)
 	public String memberDeleteView() throws Exception {
+		System.out.println("1번");
 		return "member/memberDeleteView";
 	}
 
 	// 회원 탈퇴 post
 	@RequestMapping(value = "/memberDelete", method = RequestMethod.POST)
 	public String memberDelete(MemberVO vo, HttpSession session, RedirectAttributes rttr) throws Exception {
-
+		System.out.println("2번");
 		MemberVO member = (MemberVO) session.getAttribute("member");
+		System.out.println("3번");
 		String sessionPass = member.getPwd();
+		System.out.println("4번");
 		String voPass = vo.getPwd();
+		System.out.println("5번");
 
 		if (!(sessionPass.equals(voPass))) {
 			rttr.addFlashAttribute("msg", false);
+			System.out.println("6번");
 			return "redirect:/member/memberDeleteView";
 		}
+		System.out.println("7번");
 		memberService.memberDelete(vo);
+		System.out.println("8번");
 		session.invalidate();
+		System.out.println("9번");
 		return "redirect:/index.do";
 	}
 		
 	// 회원 탈퇴에 필요한 패스워드 체크
 	@ResponseBody
 	@RequestMapping(value = "/passChk", method = RequestMethod.POST)
-	public int passChk(MemberVO memberVO) throws Exception {
-		int result = memberService.passChk(memberVO);
+	public int passChk(MemberVO vo) throws Exception {
+		int result = memberService.passChk(vo);
 		return result;
 	}
 

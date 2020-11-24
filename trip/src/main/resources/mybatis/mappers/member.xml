@@ -54,8 +54,8 @@
 	</update>
 
 	<!-- 회원 탈퇴 -->
-	<delete id="memberDelete">
-	   Delete FROM  trip_member
+	<delete id="memberDelete" parameterType="String">
+	   DELETE FROM trip_member
 	   WHERE id=#{id}
 	   AND pwd=#{pwd}
 	</delete>
