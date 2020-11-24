@@ -238,6 +238,14 @@ public class BoardControllerImpl implements BoardController {
 		mav.setViewName(viewName);
 		return mav;
 	}
+	
+	@RequestMapping(value = "/board/instructorForm.do", method = RequestMethod.GET)
+	private ModelAndView insform(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String viewName = (String) request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName(viewName);
+		return mav;
+	}
 
 	private List<String> upload(MultipartHttpServletRequest multipartRequest, HttpServletResponse response) throws Exception {
 		List<String> fileList = new ArrayList<String>();
