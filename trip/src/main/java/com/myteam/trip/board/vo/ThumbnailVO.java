@@ -1,5 +1,8 @@
 package com.myteam.trip.board.vo;
 
+import org.springframework.stereotype.Component;
+
+@Component("thumbnailVO")
 public class ThumbnailVO {
 	private int articleNO;
 	private String title;

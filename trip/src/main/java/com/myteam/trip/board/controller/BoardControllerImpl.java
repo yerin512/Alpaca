@@ -30,6 +30,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.myteam.trip.board.service.BoardService;
 import com.myteam.trip.board.vo.ArticleVO;
+import com.myteam.trip.board.vo.ThumbnailVO;
 import com.myteam.trip.board.vo.AImageVO;
 import com.myteam.trip.member.vo.MemberVO;
 
@@ -40,6 +41,8 @@ public class BoardControllerImpl implements BoardController {
 	private BoardService boardService;
 	@Autowired
 	private ArticleVO articleVO;
+	@Autowired
+	private ThumbnailVO thumbnailVO;
 
 	@Override
 	@RequestMapping(value = "/board/listArticles.do", method = { RequestMethod.GET, RequestMethod.POST })
@@ -52,10 +55,10 @@ public class BoardControllerImpl implements BoardController {
 
 	}
 	
-	@RequestMapping(value = "/board/listThumnails.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView listThumnails(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	@RequestMapping(value = "/board/instructor.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView instructor(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String) request.getAttribute("viewName");
-		List thumbnailsList = boardService.listThumbnails();
+		List<ThumbnailVO> thumbnailsList = boardService.listThumbnails();
 		ModelAndView mav = new ModelAndView(viewName);
 		mav.addObject("thumbnailsList", thumbnailsList);
 		return mav;

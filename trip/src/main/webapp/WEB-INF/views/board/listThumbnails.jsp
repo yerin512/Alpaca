@@ -3,6 +3,7 @@
     isELIgnored="false" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
 <%
   request.setCharacterEncoding("UTF-8");
@@ -26,6 +27,17 @@
 	    location.href=loginForm+'?action=/board/articleForm.do';
 	  }
 	}
+	
+	 function readURL(input) {
+	     if (input.files && input.files[0]) {
+	         var reader = new FileReader();
+	         reader.onload = function (e) {
+	             $('#preview').attr('src', e.target.result);
+	         }
+	         reader.readAsDataURL(input.files[0]);
+	     }
+	 }  
+	
 </script>
 <body>
 <table align="center" border="1"  width="80%"  >
@@ -36,7 +48,7 @@
      <td >작성일</td>
   </tr>
 <c:choose>
-  <c:when test="${thumnailsList ==null }" >
+  <c:when test="${thumbnailsList ==null }" >
     <tr  height="10">
       <td colspan="4">
          <p align="center">
@@ -45,17 +57,17 @@
       </td>  
     </tr>
   </c:when>
-  <c:when test="${thumnailsList !=null }" >
-    <c:forEach  var="article" items="${thumnailsList }" varStatus="articleNum" >
+  <c:when test="${thumbnailsList !=null }" >
+    <c:forEach  var="item" items="${thumbnailsList }" varStatus="articleNum" >
      <tr align="center">
 	<td width="5%">${articleNum.count}</td>
 	<td align='left'  width="35%">
 	  <span style="padding-right:30px"></span>
 
-	            <a class='cls1' href="${contextPath}/board/viewArticle.do?articleNO=${article.articleNO}">
-	            
-	            
-	            
+	            <a class='cls1' href="${contextPath}/board/viewArticle.do?articleNO=${item.articleNO}">
+	                <input  type= "hidden"   name="originalFileName" value="${item.imageFileName }" />
+			    <img src="${contextPath}/board/download.do?articleNO=${item.articleNO}&imageFileName=${item.imageFileName}" id="preview"  /><br>
+	            	            
 	            </a>
 	  </td>
 	</tr>

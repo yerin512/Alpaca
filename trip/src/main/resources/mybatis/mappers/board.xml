@@ -27,12 +27,12 @@
 	  <result property="imageFileName" column="imageFileName" />
  </resultMap>
  
-   <resultMap id="TumbResult" type="thumbnailVO">
-	  <result property="articleNO" column="articleNO" />
-	  <result property="title" column="title" />
-	  <result property="price" column="price" />
-	   <result property="imageFileName" column="imageFileName" />
-	    <result property="imageFileNO" column="imageFileNO" />
+   <resultMap id="thumbResult" type="thumbnailVO">
+	  <result property="articleNO" column="ai.articleNO" />
+	  <result property="title" column="a.title" />
+	  <result property="price" column="a.price" />
+	   <result property="imageFileName" column="ai.imageFileName" />
+	    <result property="imageFileNO" column="ai.imageFileNO" />
  </resultMap>
  
  
@@ -45,16 +45,16 @@
   </select>
   
   
-   <select id="selectAllThumnail" resultMap="imgResult" >
+   <select id="selectAllThumbnailsList" resultMap="thumbResult" >
      <![CDATA[
-      SELECT ai.articleno, a.title, a.price, ai.imagefilename,
-      CASE MOD(ai.imagefileno, 3) WHEN 1 THEN ai.imagefileno
+      SELECT ai.articleNO, a.title, a.price, ai.imageFileName,
+      CASE MOD(ai.imageFileNO, 3) WHEN 1 THEN ai.imageFileNO
       ELSE 0
       END imagefileno
       FROM article a, aimagefile ai 
-      WHERE a.articleno = ai.articleno
-      AND MOD(ai.imagefileno, 3) = 1
-      ORDER BY ai.imagefileno;
+      WHERE a.articleNO = ai.articleNO
+      AND MOD(ai.imageFileNO, 3) = 1
+      ORDER BY ai.imageFileNO
     ]]>
   </select>
   	
