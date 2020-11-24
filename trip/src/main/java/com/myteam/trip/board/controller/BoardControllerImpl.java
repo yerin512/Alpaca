@@ -51,6 +51,16 @@ public class BoardControllerImpl implements BoardController {
 		return mav;
 
 	}
+	
+	@RequestMapping(value = "/board/listThumnails.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView listThumnails(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String viewName = (String) request.getAttribute("viewName");
+		List thumbnailsList = boardService.listThumbnails();
+		ModelAndView mav = new ModelAndView(viewName);
+		mav.addObject("thumbnailsList", thumbnailsList);
+		return mav;
+
+	}
 
 	@RequestMapping(value = "/board/viewArticle.do", method = RequestMethod.GET)
 	public ModelAndView viewArticle(@RequestParam("articleNO") int articleNO, HttpServletRequest request,
@@ -239,13 +249,7 @@ public class BoardControllerImpl implements BoardController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/board/instructorForm.do", method = RequestMethod.GET)
-	private ModelAndView insform(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String viewName = (String) request.getAttribute("viewName");
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName(viewName);
-		return mav;
-	}
+
 
 	private List<String> upload(MultipartHttpServletRequest multipartRequest, HttpServletResponse response) throws Exception {
 		List<String> fileList = new ArrayList<String>();
