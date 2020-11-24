@@ -10,6 +10,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.myteam.trip.board.vo.ArticleVO;
+import com.myteam.trip.board.vo.ThumbnailVO;
 import com.myteam.trip.board.vo.AImageVO;
 
 
@@ -26,6 +27,12 @@ public class BoardDAOImpl implements BoardDAO {
 		return articlesList;
 	}
 
+	@Override
+	public List selectAllThumbnailsList() throws DataAccessException {
+		List<ThumbnailVO> thumbnailsList = sqlSession.selectList("mapper.board.selectAllThumbnailsList");
+		return thumbnailsList;
+	}
+	
 	
 	@Override
 	public int insertNewArticle(Map articleMap) throws DataAccessException {
@@ -82,5 +89,8 @@ public class BoardDAOImpl implements BoardDAO {
 	private int selectNewImageFileNO() throws DataAccessException {
 		return sqlSession.selectOne("mapper.board.selectNewImageFileNO");
 	}
+
+
+
 
 }

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.myteam.trip.board.dao.BoardDAO;
 import com.myteam.trip.board.vo.ArticleVO;
+import com.myteam.trip.board.vo.ThumbnailVO;
 import com.myteam.trip.board.vo.AImageVO;
 
 
@@ -27,7 +28,11 @@ public class BoardServiceImpl  implements BoardService{
         return articlesList;
 	}
 
-
+	@Override
+	public List<ThumbnailVO> listThumbnails() throws Exception {
+		List<ThumbnailVO> thumbnailsList =  boardDAO.selectAllThumbnailsList();
+		return thumbnailsList;
+	}
 	
 
 	@Override
@@ -63,6 +68,11 @@ public class BoardServiceImpl  implements BoardService{
 	public void removeArticle(int articleNO) throws Exception {
 		boardDAO.deleteArticle(articleNO);
 	}
+
+
+
+
+
 	
 
 	
