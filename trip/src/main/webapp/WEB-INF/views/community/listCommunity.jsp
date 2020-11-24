@@ -35,6 +35,7 @@
 	<link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
 	<link rel="stylesheet" href="${contextPath}/resources/css/style.css">
 </head>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 	function fn_communityForm(isLogOn,communityForm, index){
 	  if(isLogOn != '' && isLogOn != 'false'){
@@ -83,70 +84,68 @@
 	
  	<!-- 게시판 -->
  	<section class="communityList">
-  <div class="page-wrapper">
-    <div class="container-fluid">
-        <div class="col-lg-8 board"><!--게시판 넓이 -->
-            <div class="panel panel-default">
-                <div class="panel-heading">게시글 목록</div>
-                <div class="panel-body">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>No.1</th>
-                                <th>제목</th>
-                                <th>작성자</th>
-                                <th>작성일</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                          <c:choose>
-  <c:when test="${communityList ==null }" >
-    <tr  height="10">
-      <td colspan="4">
-         <p align="center">
-            <b><span style="font-size:9pt;">등록된 글이 없습니다.</span></b>
-        </p>
-      </td>  
-    </tr>
-  </c:when>
-  <c:when test="${communityList !=null }" >
-    <c:forEach  var="community" items="${communityList }" varStatus="communityNum" >
-     <tr align="center">
-	 <td width="5%">${communityNum.count}</td>
-	<!--  <td>${community.c_no }</td>-->
-	<td align='left'  width="35%">
-	  <span style="padding-right:30px"></span>
-	            <a class='cls1' href="${contextPath}/community/viewCommunity.do?c_no=${community.c_no}">${community.c_title }</a>
-								  </td>
-		<td>${community.c_date }</td>
-		<td>${community.id }</td>
-	</tr>
-    </c:forEach>
-     </c:when>
-    </c:choose>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="row">
-                  <div class="col-lg-12">
-                      <button type="button" class="btn btn-outline btn-primary pull-right">
-                      <a href="javascript:fn_communityForm('${isLogOn}','${contextPath}/community/communityForm.do', 
-                                                    '${contextPath}/index.do')" class="btn"><i class="fa fa-edit fa-fw"></i>글  작성</a>
-                      </button>
-                  </div>
-              </div>
-        </div>
-    </div>
-</div>
+		  <div class="page-wrapper">
+		    <div class="container-fluid">
+		        <div class="col-lg-8 board"><!--게시판 넓이 -->
+		            <div class="panel panel-default">
+		                <div class="panel-heading">게시글 목록</div>
+		                <div class="panel-body">
+		                    <table class="table table-hover">
+		                        <thead>
+		                            <tr>
+		                                <th>No.1</th>
+		                                <th>제목</th>
+		                                <th>작성자</th>
+		                                <th>작성일</th>
+		                            </tr>
+		                        </thead>
+		                        <tbody>
+		                          <c:choose>
+								  <c:when test="${communityList ==null }" >
+								    <tr  height="10">
+								      <td colspan="4">
+								         <p align="center">
+								            <b><span style="font-size:9pt;">등록된 글이 없습니다.</span></b>
+								        </p>
+								      </td>  
+								    </tr>
+								  </c:when>
+								  <c:when test="${communityList !=null }" >
+								    <c:forEach  var="community" items="${communityList }" varStatus="communityNum" >
+								     <tr align="center">
+									 <td width="5%">${communityNum.count}</td>
+									<!--  <td>${community.c_no }</td>-->
+									<td align='left'  width="35%">
+									  <span style="padding-right:30px"></span>
+									            <a class='cls1' href="${contextPath}/community/viewCommunity.do?c_no=${community.c_no}">${community.c_title }</a>
+																  </td>
+										<td>${community.c_date }</td>
+										<td>${community.id }</td>
+									</tr>
+								    </c:forEach>
+								     </c:when>
+								    </c:choose>
+		                        </tbody>
+		                    </table>
+		                </div>
+		            </div>
+		            <div class="row">
+		                  <div class="col-lg-12">
+		                      <button type="button" class="btn btn-outline btn-primary pull-right">
+		                      <a href="javascript:fn_communityForm('${isLogOn}','${contextPath}/community/communityForm.do', 
+		                                                    '${contextPath}/index.do')" class="btn"><i class="fa fa-edit fa-fw"></i>글  작성</a>
+		                      </button>
+		                  </div>
+		              </div>
+		        </div>
+		    </div>
+		</div>
  	</section>
  	
 <footer class="ftco-footer ftco-no-pt">
   <div class="container">
- 
 <div class="row">
   <div class="col-md-12 text-center">
-
     <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
       Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
       <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
@@ -154,24 +153,5 @@
 </div>
 </div>
 </footer>
-			<!-- loader -->
-
-
-			<script src="resources/js/jquery.min.js"></script>
-			<script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
-			<script src="resources/js/popper.min.js"></script>
-			<script src="resources/js/bootstrap.min.js"></script>
-			<script src="resources/js/jquery.easing.1.3.js"></script>
-			<script src="resources/js/jquery.waypoints.min.js"></script>
-			<script src="resources/js/jquery.stellar.min.js"></script>
-			<script src="resources/js/owl.carousel.min.js"></script>
-			<script src="resources/js/jquery.magnific-popup.min.js"></script>
-			<script src="resources/js/jquery.animateNumber.min.js"></script>
-			<script src="resources/js/bootstrap-datepicker.js"></script>
-			<script src="resources/js/scrollax.min.js"></script>
-			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-			<script src="resources/js/google-map.js"></script>
-			<script src="resources/js/main.js"></script>
-			
 		</body>
 		</html>

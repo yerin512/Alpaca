@@ -25,6 +25,7 @@ create table aImageFile(
 	constraint fk_articleNO foreign key(articleNO) references article(articleNO) on delete cascade
 );
 
+
  create table article(
        id varchar(20),
        articleNO number primary key,
