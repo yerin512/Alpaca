@@ -33,6 +33,8 @@
 	  <result property="price" column="a.price" />
 	   <result property="imageFileName" column="ai.imageFileName" />
 	    <result property="imageFileNO" column="ai.imageFileNO" />
+	      <result property="loc_x" column="a.loc_x" />
+	        <result property="loc_y" column="a.loc_y" />
  </resultMap>
  
  
@@ -47,7 +49,7 @@
   
    <select id="selectAllThumbnailsList" resultMap="thumbResult" >
      <![CDATA[
-      SELECT ai.articleNO, a.title, a.price, ai.imageFileName,
+      SELECT ai.articleNO, a.title, a.price, ai.imageFileName, a.loc_x, a.loc_y,
       CASE MOD(ai.imageFileNO, 3) WHEN 1 THEN ai.imageFileNO
       ELSE 0
       END imagefileno
