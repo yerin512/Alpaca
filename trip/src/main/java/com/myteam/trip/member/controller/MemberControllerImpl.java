@@ -3,6 +3,7 @@ package com.myteam.trip.member.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +32,7 @@ import com.myteam.trip.member.vo.MemberVO;
 import com.myteam.trip.member.vo.ProfileVO;
 
 @Controller("memberController")
-//@EnableAspectJAutoProxy
+@RequestMapping("/file")
 public class MemberControllerImpl implements MemberController {
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
@@ -118,6 +119,7 @@ public class MemberControllerImpl implements MemberController {
 		result = memberService.addMember(member);
 		ModelAndView mav = new ModelAndView("redirect:/index.do");
 		return mav;
+
 	}
 
 	@RequestMapping(value = "signUp.do", method = RequestMethod.GET)
@@ -126,6 +128,12 @@ public class MemberControllerImpl implements MemberController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
 		return mav;
+	}
+
+	// 회원가입 이미지 업로드
+	@RequestMapping(value = "/signUp", method = RequestMethod.GET)
+	public void uploadImage() {
+
 	}
 
 	@Override
@@ -193,57 +201,85 @@ public class MemberControllerImpl implements MemberController {
 	}
 
 	// 회원 정보 수정 get
-	@RequestMapping(value="/memberUpdateView", method = RequestMethod.GET)
-	public String memberUpdateView() throws Exception{
+	@RequestMapping(value = "/memberUpdateView", method = RequestMethod.GET)
+	public String memberUpdateView() throws Exception {
 		return "member/memberUpdateView";
 
 	}
+
 	// 회원 정보 수정 post
-	@RequestMapping(value="/memberUpdate", method = RequestMethod.POST)
-	public String memberUpdate(MemberVO vo, HttpSession session) throws Exception{
+	@RequestMapping(value = "/memberUpdate", method = RequestMethod.POST)
+	public String memberUpdate(MemberVO vo, HttpSession session) throws Exception {
 		memberService.memberUpdate(vo);
 		session.invalidate();
 		return "redirect:/index.do";
 	}
 
-	
 	// 회원 탈퇴 get
 	@RequestMapping(value = "/memberDeleteView", method = RequestMethod.GET)
 	public String memberDeleteView() throws Exception {
-		System.out.println("1번");
 		return "member/memberDeleteView";
 	}
 
 	// 회원 탈퇴 post
 	@RequestMapping(value = "/memberDelete", method = RequestMethod.POST)
 	public String memberDelete(MemberVO vo, HttpSession session, RedirectAttributes rttr) throws Exception {
-		System.out.println("2번");
 		MemberVO member = (MemberVO) session.getAttribute("member");
-		System.out.println("3번");
 		String sessionPass = member.getPwd();
-		System.out.println("4번");
 		String voPass = vo.getPwd();
-		System.out.println("5번");
 
 		if (!(sessionPass.equals(voPass))) {
 			rttr.addFlashAttribute("msg", false);
-			System.out.println("6번");
 			return "redirect:/member/memberDeleteView";
 		}
-		System.out.println("7번");
 		memberService.memberDelete(vo);
-		System.out.println("8번");
 		session.invalidate();
-		System.out.println("9번");
 		return "redirect:/index.do";
 	}
-		
+
 	// 회원 탈퇴에 필요한 패스워드 체크
 	@ResponseBody
 	@RequestMapping(value = "/passChk", method = RequestMethod.POST)
 	public int passChk(MemberVO vo) throws Exception {
 		int result = memberService.passChk(vo);
 		return result;
+	}
+
+	// 회원가입 프로필 이미지 업로드
+	@RequestMapping("/file/upload.do")
+	public String uploadFile(MultipartFile[] upload, HttpServletRequest request) {
+		// 파일이 업로드 될 경로 설정
+		String saveDir = request.getSession().getServletContext().getRealPath("/resources/images");
+
+		// 위에서 설정한 경로의 폴더가 없을 경우 생성
+		File dir = new File(saveDir);
+		if (!dir.exists()) {
+			dir.mkdirs();
+		}
+
+		// 파일 업로드
+		for (MultipartFile f : upload) {
+			if (!f.isEmpty()) {
+				// 기존 파일 이름을 받고 확장자 저장
+				String orifileName = f.getOriginalFilename();
+				String ext = orifileName.substring(orifileName.lastIndexOf("."));
+
+				// 이름 값 변경을 위한 설정
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmssSSS");
+				int rand = (int) (Math.random() * 1000);
+
+				// 파일 이름 변경
+				String reName = sdf.format(System.currentTimeMillis()) + "_" + rand + ext;
+
+				// 파일 저장
+				try {
+					f.transferTo(new File(saveDir + "/" + reName));
+				} catch (IllegalStateException | IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return "uploadEnd";
 	}
 
 }

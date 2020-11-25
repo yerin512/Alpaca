@@ -96,8 +96,8 @@
          <div class="col-md-5 order-md-last">
           <div class="login-wrap p-4 p-md-5">
               <h3 class="mb-4">환영합니다!!</h3>
+            <img src="resources/images/alpaca_2.jpg" width="100" height="100"/ >
           <form class="signup-form">
-          <!-- <img src="${profileImage}" width="100px" height="100px"> -->
                				<div class="form-group">
 								${member.name}님
 							</div>

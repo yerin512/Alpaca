@@ -13,7 +13,9 @@ create table trip_member(
 	pwd varchar2(20)
 	profile_img varchar2(1000) not null;
 );
-
+	
+	 alter table trip_member add profile_img varchar2(1000) default '-' not null;
+	 
 create table kakao_profile (id varchar2(20) , profileImage varchar2(100), jagisogae varchar2(200));
 select * from kakao_profile;
 
@@ -46,7 +48,6 @@ create table c_board(
 		c_no number(10) primary key,
 		c_title varchar2(500) not null,
 		c_content varchar2(4000),
-		c_imageFileName varchar2(100),
 		c_date date default sysdate,
 		id varchar2(20),
 		CONSTRAINT FK_ID FOREIGN KEY(id)

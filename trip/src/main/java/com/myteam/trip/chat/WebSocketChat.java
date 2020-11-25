@@ -1,6 +1,6 @@
 package com.myteam.trip.chat;
 
-import java.util.ArrayList;
+ import java.util.ArrayList;
 import java.util.List;
 
 import javax.websocket.OnClose;
