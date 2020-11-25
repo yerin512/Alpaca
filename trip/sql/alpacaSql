@@ -14,8 +14,9 @@ create table trip_member(
 	profile_img varchar2(1000)
 );
 
+alter table trip_member drop column profile_img;
+
 create table kakao_profile (id varchar2(20) , profileImage varchar2(100), jagisogae varchar2(200));
-select * from kakao_profile;
 
 create table aImageFile(
 	imageFileNO number(10) primary key,
@@ -24,7 +25,6 @@ create table aImageFile(
 	articleNO number(10),
 	constraint fk_articleNO foreign key(articleNO) references article(articleNO) on delete cascade
 );
-
 
  create table article(
    id varchar(20),
@@ -52,3 +52,11 @@ create table c_board(
 	CONSTRAINT FK_ID FOREIGN KEY(id)
 	REFERENCES trip_member(id)
 );
+
+create table chat (
+    chatName VARCHAR2(20),
+    chatContent VARCHAR2(100),
+    chatTime DATE
+);
+
+commit;
