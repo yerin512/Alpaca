@@ -81,10 +81,8 @@
 	
 	<delete id="deleteArticle"  parameterType="int">
       delete from article
-      where articleNO in (
-         SELECT articleNO FROM  article
-          )
-  	</delete>  
+      where articleNO=#{articleNO}
+   	</delete>  
   
   	 <!--  , genre, way, condition --> <!-- , #{genre}, #{way}, #{condition} -->
   	 

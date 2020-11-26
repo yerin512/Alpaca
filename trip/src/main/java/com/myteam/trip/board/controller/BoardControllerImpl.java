@@ -44,16 +44,6 @@ public class BoardControllerImpl implements BoardController {
 	@Autowired
 	private ThumbnailVO thumbnailVO;
 
-//	@Override
-//	@RequestMapping(value = "/board/listArticles.do", method = { RequestMethod.GET, RequestMethod.POST })
-//	public ModelAndView listArticles(HttpServletRequest request, HttpServletResponse response) throws Exception {
-//		String viewName = (String) request.getAttribute("viewName");
-//		List articlesList = boardService.listArticles();
-//		ModelAndView mav = new ModelAndView(viewName);
-//		mav.addObject("articlesList", articlesList);
-//		return mav;
-//
-//	}
 	
 	@RequestMapping(value = "/board/listArticles.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView listArticles(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -69,7 +59,6 @@ public class BoardControllerImpl implements BoardController {
 	public ModelAndView viewArticle(@RequestParam("articleNO") int articleNO, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String viewName = (String) request.getAttribute("viewName");
-		System.out.println("내가 보고싶은 게시판 번호: " + articleNO);
 		Map articleMap = boardService.viewArticle(articleNO);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
