@@ -1,41 +1,33 @@
 package com.myteam.trip.community.controller;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
-import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
-import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.google.gson.JsonObject;
 import com.myteam.trip.community.service.CommunityService;
 import com.myteam.trip.community.vo.CommunityVO;
+import com.myteam.trip.community.vo.PageMaker;
+import com.myteam.trip.community.vo.PageVO;
 import com.myteam.trip.member.vo.MemberVO;
 
 
@@ -43,20 +35,27 @@ import com.myteam.trip.member.vo.MemberVO;
 @Repository
 @Controller("communityController")
 public class CommunityController  {
+	
+	private static final Logger logger = LoggerFactory.getLogger(CommunityController.class);
+	
 	private static final String FILE_URL = null;
 	@Autowired
 	private CommunityService communityService;
 	@Autowired
 	private CommunityVO communityVO;
+	private PageVO PageVO;
 	
 	
 	@RequestMapping(value = "/community/listCommunity.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView listCommunity(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String) request.getAttribute("viewName");
 		List communityList = communityService.listCommunity();
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setPvo(PageVO);
+		
 		ModelAndView mav = new ModelAndView(viewName);
 		mav.addObject("communityList", communityList);
-		
+		mav.addObject("pageMaker", pageMaker);
 		return mav;
 
 	}

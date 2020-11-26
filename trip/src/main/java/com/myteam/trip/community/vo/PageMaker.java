@@ -127,10 +127,6 @@ public class PageMaker {
 					+ prev + ", next=" + next + ", displayPageNum=" + displayPageNum + ", pvo=" + pvo + "]";
 		}
 
-		public void setPvo(SearchCriteria pvo2) {
-			// TODO Auto-generated method stub
-			
-		}
 		
 	}
 
