@@ -184,6 +184,11 @@ public class BoardControllerImpl implements BoardController {
 		ResponseEntity resEnt = null;
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+	
+
+		String a = articleMap.toString();
+		System.out.println(a);
+		
 		try {
 			int articleNO = boardService.addNewArticle(articleMap);
 			if (imageFileList != null && imageFileList.size() != 0) {
