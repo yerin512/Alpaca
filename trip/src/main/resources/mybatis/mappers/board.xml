@@ -88,8 +88,8 @@
   	 
   	  <insert id="insertNewArticle"  parameterType="java.util.Map">
     <![CDATA[
-    INSERT into article( id, articleNO, title, content)         
-			VALUES(#{id}, #{articleNO}, #{title}, #{content})  
+    INSERT into article( id, articleNO, title, content, loc_x, loc_y)         
+			VALUES(#{id}, #{articleNO}, #{title}, #{content}, #{loc_x}, #{loc_y})  
     ]]>      
   </insert>
 

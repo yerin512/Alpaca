@@ -157,12 +157,16 @@
 						<h3>글내용</h3></td>
 						<td colspan=2><textarea name="content" rows="10" cols="65"
 								maxlength="4000"></textarea></td>
-						<td colspan=6></td>
+						<td colspan=6>
+						<div id = "loc_x"></div>
+					<div id = "loc_y"></div>
+							 <input type="submit" value="글쓰기" /> 
+						</td>
 					</tr>
+					
 				</table>
 			</div>
 		</div>
-	</form>
 
 	<div id="search">
       <input id="search_input" placeholder="거래 장소를 입력해주세요" />
@@ -171,7 +175,7 @@
 	<div id="map"></div>
 	<p id="result"></p>
 	
-    <input type="submit" value="글쓰기" /> 
+
     <input type=button value="목록보기" onClick="backToList(this.form)" />
 
 	<!-- loader -->
@@ -248,9 +252,20 @@
 	        
 	        var message = '클릭한 위치의 위도: ' + latlng.getLat() + ', ';
 	        message += '경도: ' + latlng.getLng();
+
 	        
 	        var resultDiv = document.getElementById('result'); 
-	        resultDiv.innerHTML = message;	        
+	        resultDiv.innerHTML = message;	    
+	        
+	        
+	        
+	        
+	        var locx ='<input type="hidden" name="loc_x" value="'+latlng.getLat()+'">';
+	        var locy ='<input type="hidden" name="loc_y" value="'+latlng.getLng()+'">';
+	        var resultx = document.getElementById('loc_x');
+	        resultx.innerHTML = locx;
+	        var resulty = document.getElementById('loc_y');
+	        resulty.innerHTML = locy;
 	    });
 	</script>
 </body>

@@ -17,8 +17,8 @@ public class ArticleVO {
 	private String imageFileName;
 	private Date writeDate;
 	private String location;
-	private int loc_x;
-	private int loc_y;
+	private double loc_x;
+	private double loc_y;
 	private String genre;
 	private String way;
 	private String condition;
@@ -31,7 +31,7 @@ public class ArticleVO {
 
 
 	public ArticleVO(String id, int articleNO, String title, String content, int price, String imageFileName,
-			Date writeDate, String location, int loc_x, int loc_y, String genre, String way, String condition) {
+			Date writeDate, String location, double loc_x, double loc_y, String genre, String way, String condition) {
 		super();
 		this.id = id;
 		this.articleNO = articleNO;
@@ -47,6 +47,9 @@ public class ArticleVO {
 		this.way = way;
 		this.condition = condition;
 	}
+
+
+
 
 
 
@@ -110,25 +113,29 @@ public class ArticleVO {
 
 
 
-	public int getLoc_x() {
+
+
+
+
+	public double getLoc_x() {
 		return loc_x;
 	}
 
 
 
-	public void setLoc_x(int loc_x) {
+	public void setLoc_x(double loc_x) {
 		this.loc_x = loc_x;
 	}
 
 
 
-	public int getLoc_y() {
+	public double getLoc_y() {
 		return loc_y;
 	}
 
 
 
-	public void setLoc_y(int loc_y) {
+	public void setLoc_y(double loc_y) {
 		this.loc_y = loc_y;
 	}
 
