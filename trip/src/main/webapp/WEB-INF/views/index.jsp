@@ -124,7 +124,7 @@
          <div class="col-md-7"></div>
          <div class="col-md-5 order-md-last">
           <div class="login-wrap p-4 p-md-5">
-              <h3 class="mb-4">Sign in to Travel Maker</h3>
+              <h3 class="mb-4">Sign in to Alpaca</h3>
           <form action="${contextPath}/member/login.do"
 							class="signup-form" method="post">
                				<div class="form-group">
