@@ -203,16 +203,14 @@
 
 							</div>
 
-
-							<div>
-								<tr>
-									<br>
-									<td align="right">Profile Image <br></td>
-									<td><input type="file" name="profile_img"
-										onchange="readURL(this);" /></td>
-									<td><img id="img" src="#" width=200 height=200 /></td>
-								</tr>
+						 	<!--  
+							<div class="form-group">
+								<label class="label" for="profile_img"></label>Profile Image <br>
+								<input type="file" name="profile_img"  onchange="readURL(this);" /> 
+									<img id="img" src="#" width=200 height=200 />
 							</div>
+						  
+							-->
 
 							<div class="form-group d-flex justify-content-end mt-4">
 

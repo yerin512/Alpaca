@@ -4,15 +4,22 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,11 +39,10 @@ import com.myteam.trip.member.vo.MemberVO;
 import com.myteam.trip.member.vo.ProfileVO;
 
 @Controller("memberController")
-@RequestMapping("/file")
 public class MemberControllerImpl implements MemberController {
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
-
+	private static final String ARTICLE_IMAGE_REPO = "C:\\member\\profile_image";
 	@Autowired
 	private MemberService memberService;
 	@Autowired
@@ -55,7 +61,7 @@ public class MemberControllerImpl implements MemberController {
 		return "index";
 	}
 
-	@RequestMapping(value = { "index.do" }, method = RequestMethod.GET)
+	@RequestMapping(value = "index.do", method = RequestMethod.GET)
 	private ModelAndView main(HttpServletRequest request, HttpServletResponse response) {
 		String viewName = (String) request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
@@ -110,16 +116,82 @@ public class MemberControllerImpl implements MemberController {
 	}
 
 	@Override
-	@RequestMapping(value = "/member/addMember.do", method = RequestMethod.POST)
-	public ModelAndView addMember(@ModelAttribute("member") MemberVO member, HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+	@RequestMapping(value = "member/addMember.do", method = RequestMethod.POST)
+	public ResponseEntity addMember(@ModelAttribute("member") MemberVO member,
+			MultipartHttpServletRequest multipartRequest, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("html/text;charset=utf-8");
-		int result = 0;
-		result = memberService.addMember(member);
-		ModelAndView mav = new ModelAndView("redirect:/index.do");
-		return mav;
+		multipartRequest.setCharacterEncoding("utf-8");
+		System.out.println("  1번 ");
+		Map<String, Object> memberMap = new HashMap<String, Object>();
+		System.out.println(" 2 번 ");
+		Enumeration enu = multipartRequest.getParameterNames();
+		System.out.println("  3번 ");
+		while (enu.hasMoreElements()) {
+			String name = (String) enu.nextElement();
+			System.out.println(" 4 번 ");
+			String value = multipartRequest.getParameter(name);
+			System.out.println("  5번 ");
+			memberMap.put(name, value);
+			System.out.println("  6번 ");
+		}
+		String imageFileName = upload(multipartRequest);
+		System.out.println("  7번 ");
+		memberMap.put("imageFileName", imageFileName);
+		System.out.println("  8번 ");
 
+		String message;
+		ResponseEntity resEnt = null;
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+		try {
+			int result = 0;
+			result = memberService.addMember(member);
+			if (imageFileName != null && imageFileName.length() != 0) {
+				File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName);
+				File destDir = new File(ARTICLE_IMAGE_REPO + "\\");
+				FileUtils.moveFileToDirectory(srcFile, destDir, true);
+			}
+			message = "<script>";
+			message += " alert('새글을 추가 했습니다.');";
+			message += " </script>";
+			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
+		} catch (Exception e) {
+			File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName);
+			srcFile.delete();
+
+			message = " <script>";
+			message += " alert('오류가 발생했습니다. 다시 시도해 주세요.');');";
+			message += " </script>";
+			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
+			e.printStackTrace();
+		}
+		ModelAndView mav = new ModelAndView("redirect:/index.do");
+		return resEnt;
+
+	}
+
+	// 회원가입 프로필 이미지 업로드
+	private String upload(MultipartHttpServletRequest multipartRequest) throws Exception {
+		String imageFileName = null;
+		Iterator<String> fileNames = multipartRequest.getFileNames();
+		System.out.println("fileNames");
+		while (fileNames.hasNext()) {
+			String fileName = fileNames.next();
+			MultipartFile mFile = multipartRequest.getFile(fileName);
+			imageFileName = mFile.getOriginalFilename();
+			File file = new File(ARTICLE_IMAGE_REPO + "\\" + fileName);
+			if (mFile.getSize() != 0) {
+				if (!file.exists()) {
+					if (file.getParentFile().mkdirs()) {
+						file.createNewFile();
+					}
+				}
+				mFile.transferTo(new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName));
+			}
+		}
+		return imageFileName;
 	}
 
 	@RequestMapping(value = "signUp.do", method = RequestMethod.GET)
@@ -128,12 +200,6 @@ public class MemberControllerImpl implements MemberController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
 		return mav;
-	}
-
-	// 회원가입 이미지 업로드
-	@RequestMapping(value = "/signUp", method = RequestMethod.GET)
-	public void uploadImage() {
-
 	}
 
 	@Override
@@ -245,41 +311,6 @@ public class MemberControllerImpl implements MemberController {
 		return result;
 	}
 
-	// 회원가입 프로필 이미지 업로드
-	@RequestMapping("/file/upload.do")
-	public String uploadFile(MultipartFile[] upload, HttpServletRequest request) {
-		// 파일이 업로드 될 경로 설정
-		String saveDir = request.getSession().getServletContext().getRealPath("/resources/images");
-
-		// 위에서 설정한 경로의 폴더가 없을 경우 생성
-		File dir = new File(saveDir);
-		if (!dir.exists()) {
-			dir.mkdirs();
-		}
-
-		// 파일 업로드
-		for (MultipartFile f : upload) {
-			if (!f.isEmpty()) {
-				// 기존 파일 이름을 받고 확장자 저장
-				String orifileName = f.getOriginalFilename();
-				String ext = orifileName.substring(orifileName.lastIndexOf("."));
-
-				// 이름 값 변경을 위한 설정
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmssSSS");
-				int rand = (int) (Math.random() * 1000);
-
-				// 파일 이름 변경
-				String reName = sdf.format(System.currentTimeMillis()) + "_" + rand + ext;
-
-				// 파일 저장
-				try {
-					f.transferTo(new File(saveDir + "/" + reName));
-				} catch (IllegalStateException | IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return "uploadEnd";
-	}
+	
 
 }

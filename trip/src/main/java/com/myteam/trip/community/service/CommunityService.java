@@ -17,49 +17,34 @@ import com.myteam.trip.community.vo.CommunityVO;
 
 @Service("communityService")
 @Transactional(propagation = Propagation.REQUIRED)
-public class CommunityService{
+public class CommunityService {
 	@Autowired
 	private CommunityDAO communityDAO;
-	
-	public List<CommunityVO> listCommunity() throws Exception{
-		List<CommunityVO> communityList =  communityDAO.selectAllCommunityList();
-        return communityList;
+
+	public List<CommunityVO> listCommunity() throws Exception {
+		List<CommunityVO> communityList = communityDAO.selectAllCommunityList();
+		return communityList;
 	}
 
-	
-	
-	 
-	public int addNewCommunity(Map communityMap) throws Exception{
+	public int addNewCommunity(Map communityMap) throws Exception {
 		return communityDAO.insertNewCommunity(communityMap);
 	}
-	
-	
-	
-	 
+
 	public CommunityVO viewCommunity(int c_no) throws Exception {
 		CommunityVO communityVO = communityDAO.selectCommunity(c_no);
 		return communityVO;
 	}
-	
-	
-	 
+
 	public void modCommunity(Map communityMap) throws Exception {
 		communityDAO.updateCommunity(communityMap);
 	}
-	
-	 
+
 	public void removeCommunity(int c_no) throws Exception {
 		communityDAO.deleteCommunity(c_no);
 	}
 
-
-
-
 	public void ckeditorImageUpload(HttpServletRequest request, HttpServletResponse response, MultipartFile upload) {
-		// TODO Auto-generated method stub
-		
-	}
-	
 
-	
+	}
+
 }
