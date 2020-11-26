@@ -169,7 +169,7 @@
       <button id="search_button">검색</button>
     </div>
 	<div id="map"></div>
-	<p id="result"></p>
+	<div id="clickLatlng"></div>
 	
     <input type="submit" value="글쓰기" /> 
     <input type=button value="목록보기" onClick="backToList(this.form)" />
@@ -235,22 +235,28 @@
 			obj.submit();
 		}
 		
-		var container = document.getElementById('map');
-	    var options = {
-	        center: new kakao.maps.LatLng(37.56651203645214, 126.97785926709967),
+		var mapContainer = document.getElementById('map');
+	    var mapOption = {
+	        center: new kakao.maps.LatLng(37.50324897169478, 127.02453020156122),
 	        level: 4
 	    };
 	
-	    var map = new kakao.maps.Map(container, options);
+	    var map = new kakao.maps.Map(mapContainer, mapOption);
 	    
-	    kakao.maps.event.addListener(map, 'click', function(mouseEvent) { 
-	        var latlng = mouseEvent.latLng;
+	    var marker = new kakao.maps.Marker({ 
+	        position: map.getCenter() 
+	    });
+	    marker.setMap(map);
+	    
+	    kakao.maps.event.addListener(map, 'click', function(mouseEvent) {  
+	        var latlng = mouseEvent.latLng; 
+	        marker.setPosition(latlng);
 	        
 	        var message = '클릭한 위치의 위도: ' + latlng.getLat() + ', ';
 	        message += '경도: ' + latlng.getLng();
 	        
-	        var resultDiv = document.getElementById('result'); 
-	        resultDiv.innerHTML = message;	        
+	        var resultDiv = document.getElementById('clickLatlng'); 
+	        resultDiv.innerHTML = message;
 	    });
 	</script>
 </body>

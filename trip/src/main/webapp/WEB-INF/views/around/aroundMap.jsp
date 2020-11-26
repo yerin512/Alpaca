@@ -2,13 +2,8 @@
 	isELIgnored="false" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
-
-
-
-
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset="utf-8">
 <title>알파카 - 믿을 수 있는 중고 책 거래사이트</title>
