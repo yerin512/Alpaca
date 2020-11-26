@@ -3,43 +3,41 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
+<html>
 <head>
-<title>StudyLab - Free Bootstrap 4 Template by Colorlib</title>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
-	rel="stylesheet">
-
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<link rel="stylesheet" href="${contextPath}/resources/css/animate.css">
-
-<link rel="stylesheet"
-	href="${contextPath}/resources/css/owl.carousel.min.css">
-<link rel="stylesheet"
-	href="${contextPath}/resources/css/owl.theme.default.min.css">
-<link rel="stylesheet"
-	href="${contextPath}/resources/css/magnific-popup.css">
-
-<link rel="stylesheet"
-	href="${contextPath}/resources/css/bootstrap-datepicker.css">
-<link rel="stylesheet"
-	href="${contextPath}/resources/css/jquery.timepicker.css">
-
-
-<link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
-<link rel="stylesheet" href="${contextPath}/resources/css/style.css">
+	<title>알파카 - 믿을 수 있는 중고 책 거래사이트</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="${contextPath}/resources/css/animate.css">
+	
+	<link rel="stylesheet" href="${contextPath}/resources/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="${contextPath}/resources/css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="${contextPath}/resources/css/magnific-popup.css">
+	
+	<link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-datepicker.css">
+	<link rel="stylesheet" href="${contextPath}/resources/css/jquery.timepicker.css">
+	
+	<link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
+	<link rel="stylesheet" href="${contextPath}/resources/css/style.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPkXtedSjcR4hmYgEAvIjgOb_aTuiGKQk&callback=initMap&region=kr"></script>
+	 <style>
+	     .gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}       
+	  </style>
 </head>
 <body>
 	<nav
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="${contextPath}/index.do"><span>TRAVEL </span>MAKER</a>
+			<a class="navbar-brand" href="${contextPath}/index.do"><span>TRAVEL
+			</span>MAKER</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#ftco-nav" aria-controls="ftco-nav"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -76,8 +74,8 @@
 								<i class="fa fa-chevron-right"></i>
 						</a></span> <span class="mr-2"><a
 							href="${contextPath}/board/listArticles.do">게시글 목록 <i
-								class="fa fa-chevron-right"></i></a></span> <span>게시글 작성
-							<i class="fa fa-chevron-right"></i>
+								class="fa fa-chevron-right"></i></a></span> <span>게시글 작성 <i
+							class="fa fa-chevron-right"></i>
 						</span>
 					</p>
 					<h1 class="mb-0 bread">거래 게시물 작성</h1>
@@ -86,96 +84,101 @@
 		</div>
 	</section>
 
-<!-- 게시물 작성 폼 -->
-  <form name="articleForm" method="post"   action="${contextPath}/board/addNewArticle.do"   enctype="multipart/form-data">
+	<!-- 게시물 작성 폼 -->
+	<form name="articleForm" method="post"
+		action="${contextPath}/board/addNewArticle.do"
+		enctype="multipart/form-data">
 
-	<!-- 이미지 파일 올리는 섹션 -->
-	<section class="ftco-section-kis bg-light">
-		<div class="container">
-			<div class="row">
-				<div
-					class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
-					<div class="staff-2 w-100">
-						앞면 <input type="file" name="file1" onchange="readURL1(this);" />
-						<div class="img-wrap d-flex align-items-stretch">
-							<img id="preview1" src="#" width="100%" />
-
+		<!-- 이미지 파일 올리는 섹션 -->
+		<section class="ftco-section-kis bg-light">
+			<div class="container">
+				<div class="row">
+					<div
+						class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
+						<div class="staff-2 w-100">
+							앞면 <input type="file" name="file1" onchange="readURL1(this);" />
+							<div class="img-wrap d-flex align-items-stretch">
+								<img id="preview1" src="#" width="100%" />
+							</div>
 						</div>
 					</div>
-				</div>
 
-
-
-				<div
-					class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
-					<div class="staff-2 w-100">
-						뒷면 <input type="file" name="file2" onchange="readURL2(this);" />
-						<div class="img-wrap d-flex align-items-stretch">
-							<img id="preview2" src="#" width="100%" />
-
+					<div
+						class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
+						<div class="staff-2 w-100">
+							뒷면 <input type="file" name="file2" onchange="readURL2(this);" />
+							<div class="img-wrap d-flex align-items-stretch">
+								<img id="preview2" src="#" width="100%" />
+							</div>
 						</div>
 					</div>
-				</div>
 
-
-				<div
-					class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
-					<div class="staff-2 w-100">
-						옆면 <input type="file" name="file3" onchange="readURL3(this);" />
-						<div class="img-wrap d-flex align-items-stretch">
-							<img id="preview3" src="#" width="100%" />
-
+					<div
+						class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
+						<div class="staff-2 w-100">
+							옆면 <input type="file" name="file3" onchange="readURL3(this);" />
+							<div class="img-wrap d-flex align-items-stretch">
+								<img id="preview3" src="#" width="100%" />
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</section>
+
+
+		<div class="col-md-8 d-flex align-items-center">
+			<div class="staff-detail w-100 pl-md-5">
+				<table border="0" align="center">
+					<tr>
+						<td align="right"><h3>글제목</h3></td>
+						<td colspan="2"><input type="text" size="67" maxlength="500"
+							name="title" /></td>
+						<td colspan=6></td>
+					</tr>
+					<td align="right">
+						<h3>가 &nbsp;&nbsp;&nbsp;&nbsp;격</h3>
+					</td>
+					<td colspan=2 align="left"><input type="text" size="20"
+						maxlength="100" /></td>
+					<td colspan=6></td>
+					<tr>
+						<td align="right">
+							<h3>작성자</h3>
+						</td>
+						<td colspan=2 align="left"><input type="text" size="20"
+							maxlength="100" value="${member.name }" readonly /></td>
+						<td colspan=6></td>
+					</tr>
+
+					<tr>
+						<td align="right" valign="top"><br>
+						<h3>글내용</h3></td>
+						<td colspan=2><textarea name="content" rows="10" cols="65"
+								maxlength="4000"></textarea></td>
+						<td colspan=6></td>
+					</tr>
+					<tr>
+
+					</tr>
+					<tr>
+						<td align="right">
+							<h3>거래장소</h3>
+						</td>
+						<td colspan=2 align="left"><input type="text" size="20"
+							maxlength="100" /></td>						
+						<td colspan=6></td>
+					</tr>
+					<tbody id="map" style="width:600px; height: 300px;"></tbody>
+					<tr>
+						<td align="right"></td>
+						<td colspan="2"><input type="submit" value="글쓰기" /> <input
+							type=button value="목록보기" onClick="backToList(this.form)" /></td>
+					</tr>
+				</table>
+			</div>
 		</div>
-	</section>
-
-    
-	<div class="col-md-8 d-flex align-items-center">
-		<div class="staff-detail w-100 pl-md-5">
-		    <table border="0" align="center">
-		    	     <tr>
-			   <td align="right"><h3>글제목 </h3></td>
-			   <td colspan="2"><input type="text" size="67"  maxlength="500" name="title" /></td>
-			   	<td colspan=6></td>
-		 </tr>
-		 					<td align="right"> <h3>가 &nbsp;&nbsp;&nbsp;&nbsp;격</h3></td>
-					<td colspan=2  align="left"><input type="text" size="20" maxlength="100"   /> </td>
-					<td colspan=6></td>
-			 <tr>
-					<td align="right"> <h3>작성자</h3></td>
-					<td colspan=2  align="left"><input type="text" size="20" maxlength="100"  value="${member.name }" readonly/> </td>
-					<td colspan=6></td>
-			</tr>
-			
-	 		<tr>
-				<td align="right" valign="top"><br><h3>글내용</h3> </td>
-				<td colspan=2><textarea name="content" rows="10" cols="65" maxlength="4000"></textarea> </td>
-					<td colspan=6></td>
-     </tr>
-						 <tr>
-
-			</tr>
-			 <tr>
-					<td align="right"> <h3>거래장소</h3></td>
-					<td colspan=2  align="left"><input type="text" size="20" maxlength="100" /> </td>
-					<td colspan=6></td>
-			</tr>
-			   <tr>
-	      <td align="right"> </td>
-	      <td colspan="2">
-	       <input type="submit" value="글쓰기" />
-	       <input type=button value="목록보기"onClick="backToList(this.form)" />
-	      </td>
-     </tr>
-    </table>
-		</div>
-	</div>
-
-	 
-  </form>
+	</form>
 
 	<footer class="ftco-footer ftco-no-pt">
 		<div class="container">
@@ -260,7 +263,6 @@
 	</footer>
 
 
-
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">
 		<svg class="circular" width="48px" height="48px">
@@ -284,9 +286,6 @@
 	<script src="${contextPath}/resources/js/jquery.animateNumber.min.js"></script>
 	<script src="${contextPath}/resources/js/bootstrap-datepicker.js"></script>
 	<script src="${contextPath}/resources/js/scrollax.min.js"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-	<script src="${contextPath}/resources/js/google-map.js"></script>
 	<script src="${contextPath}/resources/js/main.js"></script>
 
 	<script type="text/javascript">
@@ -323,7 +322,16 @@
 			obj.action = "${contextPath}/board/listArticles.do";
 			obj.submit();
 		}
+		
+		function initMap() {
+	      var map = new google.maps.Map(document.getElementById('map'), {  // 지도 생성
+	          center: {  // 처음 중심 좌표
+	              lat: 37.56651203645214,
+	              lng: 126.97785926709967
+	          },
+	          zoom: 16
+	      });
+		}
 	</script>
-
 </body>
 </html>
