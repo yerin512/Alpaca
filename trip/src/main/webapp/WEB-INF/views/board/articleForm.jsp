@@ -25,11 +25,12 @@
 	<link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
 	<link rel="stylesheet" href="${contextPath}/resources/css/style.css">
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPkXtedSjcR4hmYgEAvIjgOb_aTuiGKQk&callback=initMap&region=kr"></script>
-	 <style>
-	     .gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}       
-	  </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c8f1e98d3b42f208e812d6c641c3952e"></script>
+    <style>
+	    #map {width: 500px; height: 300px;}
+	    .gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}       
+    </style>
 </head>
 <body>
 	<nav
@@ -158,110 +159,20 @@
 								maxlength="4000"></textarea></td>
 						<td colspan=6></td>
 					</tr>
-					<tr>
-
-					</tr>
-					<tr>
-						<td align="right">
-							<h3>거래장소</h3>
-						</td>
-						<td colspan=2 align="left"><input type="text" size="20"
-							maxlength="100" /></td>						
-						<td colspan=6></td>
-					</tr>
-					<tbody id="map" style="width:600px; height: 300px;"></tbody>
-					<tr>
-						<td align="right"></td>
-						<td colspan="2"><input type="submit" value="글쓰기" /> <input
-							type=button value="목록보기" onClick="backToList(this.form)" /></td>
-					</tr>
 				</table>
 			</div>
 		</div>
 	</form>
 
-	<footer class="ftco-footer ftco-no-pt">
-		<div class="container">
-			<div class="row mb-5">
-				<div class="col-md pt-5">
-					<div class="ftco-footer-widget pt-md-5 mb-4">
-						<h2 class="ftco-heading-2">About</h2>
-						<p>Far far away, behind the word mountains, far from the
-							countries Vokalia and Consonantia, there live the blind texts.</p>
-						<ul
-							class="ftco-footer-social list-unstyled float-md-left float-lft">
-							<li class="ftco-animate"><a href="#"><span
-									class="fa fa-twitter"></span></a></li>
-							<li class="ftco-animate"><a href="#"><span
-									class="fa fa-facebook"></span></a></li>
-							<li class="ftco-animate"><a href="#"><span
-									class="fa fa-instagram"></span></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md pt-5">
-					<div class="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
-						<h2 class="ftco-heading-2">Help Desk</h2>
-						<ul class="list-unstyled">
-							<li><a href="#" class="py-2 d-block">Customer Care</a></li>
-							<li><a href="#" class="py-2 d-block">Legal Help</a></li>
-							<li><a href="#" class="py-2 d-block">Services</a></li>
-							<li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-							<li><a href="#" class="py-2 d-block">Refund Policy</a></li>
-							<li><a href="#" class="py-2 d-block">Call Us</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md pt-5">
-					<div class="ftco-footer-widget pt-md-5 mb-4">
-						<h2 class="ftco-heading-2">Recent Courses</h2>
-						<ul class="list-unstyled">
-							<li><a href="#" class="py-2 d-block">Computer
-									Engineering</a></li>
-							<li><a href="#" class="py-2 d-block">Web Design</a></li>
-							<li><a href="#" class="py-2 d-block">Business Studies</a></li>
-							<li><a href="#" class="py-2 d-block">Civil Engineering</a></li>
-							<li><a href="#" class="py-2 d-block">Computer Technician</a></li>
-							<li><a href="#" class="py-2 d-block">Web Developer</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md pt-5">
-					<div class="ftco-footer-widget pt-md-5 mb-4">
-						<h2 class="ftco-heading-2">Have a Questions?</h2>
-						<div class="block-23 mb-3">
-							<ul>
-								<li><span class="icon fa fa-map-marker"></span><span
-									class="text">203 Fake St. Mountain View, San Francisco,
-										California, USA</span></li>
-								<li><a href="#"><span class="icon fa fa-phone"></span><span
-										class="text">+2 392 3929 210</span></a></li>
-								<li><a href="#"><span class="icon fa fa-paper-plane"></span><span
-										class="text">info@yourdomain.com</span></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 text-center">
-
-					<p>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						Copyright &copy;
-						<script>
-							document.write(new Date().getFullYear());
-						</script>
-						All rights reserved | This template is made with <i
-							class="fa fa-heart" aria-hidden="true"></i> by <a
-							href="https://colorlib.com" target="_blank">Colorlib</a>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					</p>
-				</div>
-			</div>
-		</div>
-	</footer>
-
+	<div id="search">
+      <input id="search_input" placeholder="거래 장소를 입력해주세요" />
+      <button id="search_button">검색</button>
+    </div>
+	<div id="map"></div>
+	<p id="result"></p>
+	
+    <input type="submit" value="글쓰기" /> 
+    <input type=button value="목록보기" onClick="backToList(this.form)" />
 
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">
@@ -298,7 +209,7 @@
 				reader.readAsDataURL(input.files[0]);
 			}
 		}
-
+	
 		function readURL2(input) {
 			if (input.files && input.files[0]) {
 				var reader = new FileReader();
@@ -308,7 +219,7 @@
 				reader.readAsDataURL(input.files[0]);
 			}
 		}
-
+	
 		function readURL3(input) {
 			if (input.files && input.files[0]) {
 				var reader = new FileReader();
@@ -318,20 +229,29 @@
 				reader.readAsDataURL(input.files[0]);
 			}
 		}
+		
 		function backToList(obj) {
 			obj.action = "${contextPath}/board/listArticles.do";
 			obj.submit();
 		}
 		
-		function initMap() {
-	      var map = new google.maps.Map(document.getElementById('map'), {  // 지도 생성
-	          center: {  // 처음 중심 좌표
-	              lat: 37.56651203645214,
-	              lng: 126.97785926709967
-	          },
-	          zoom: 16
-	      });
-		}
+		var container = document.getElementById('map');
+	    var options = {
+	        center: new kakao.maps.LatLng(37.56651203645214, 126.97785926709967),
+	        level: 4
+	    };
+	
+	    var map = new kakao.maps.Map(container, options);
+	    
+	    kakao.maps.event.addListener(map, 'click', function(mouseEvent) { 
+	        var latlng = mouseEvent.latLng;
+	        
+	        var message = '클릭한 위치의 위도: ' + latlng.getLat() + ', ';
+	        message += '경도: ' + latlng.getLng();
+	        
+	        var resultDiv = document.getElementById('result'); 
+	        resultDiv.innerHTML = message;	        
+	    });
 	</script>
 </body>
 </html>
