@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.myteam.trip.community.dao.CommunityDAO;
 import com.myteam.trip.community.vo.CommunityVO;
+import com.myteam.trip.community.vo.SearchCriteria;
 
 @Service("communityService")
 @Transactional(propagation = Propagation.REQUIRED)
@@ -52,13 +53,23 @@ public class CommunityService{
 		communityDAO.deleteCommunity(c_no);
 	}
 
-
-
-
+	/*ckEditor*/
 	public void ckeditorImageUpload(HttpServletRequest request, HttpServletResponse response, MultipartFile upload) {
 		// TODO Auto-generated method stub
 		
 	}
+	/*조회수
+	public void updateViewcnt(int c_no) throws Exception {
+		communityDAO.updateViewcnt(c_no);
+	}
+	*/
+	public List<CommunityVO> listSearch(SearchCriteria pvo) throws Exception {
+		return communityDAO.listSearch(pvo);
+	}
+	public int listSearchCount(SearchCriteria pvo) throws Exception {
+		return communityDAO.listSearchCount(pvo);
+	}
+	
 	
 
 	

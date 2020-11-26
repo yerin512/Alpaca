@@ -1,6 +1,5 @@
 package com.myteam.trip.community.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +9,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.myteam.trip.community.vo.CommunityVO;
+import com.myteam.trip.community.vo.SearchCriteria;
 
 
 
@@ -57,6 +57,35 @@ public class CommunityDAO{
 	private int selectNewImageFileNO() throws DataAccessException {
 		return sqlSession.selectOne("mapper.community.selectNewImageFileNO");
 	}
+	
+	/*페이징*/
+	/* 조회수
+	public void updateViewcnt(int c_no) throws Exception {
+		sqlSession.update("mapper.community.updateViewcnt", c_no);
+		
+	}
+	*/
+	public List<CommunityVO> listPage(int page) throws Exception {
+		
+		if(page <= 0) {
+			page = 1;
+		}
+		
+		page = (page -1) * 10;
+		
+		return sqlSession.selectList("mapper.community.listPage",page);
+		
+	}
+	
+	
+	public List<CommunityVO> listSearch(SearchCriteria pvo) throws Exception {
+		return sqlSession.selectList("mapper.community.listSearch", pvo);
+	}
+	
+	public int listSearchCount(SearchCriteria pvo) throws Exception {
+		return sqlSession.selectOne("mapper.community.listSearchCount", pvo);
+	}
+	
 	
 
 }

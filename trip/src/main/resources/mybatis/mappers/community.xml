@@ -8,7 +8,6 @@
 		<result property="c_no" column="c_no" />
 		<result property="c_title" column="c_title" />
 		<result property="c_content" column="c_content" />
-		<!--  <result property="c_imageFileName" column="c_imageFileName" />-->
 		<result property="c_date" column="c_date" />
 		<result property="id" column="id" />	
 	</resultMap>
@@ -54,7 +53,6 @@
           ]]>  
   	</delete>
   	
-
 <!--  
   <select  id="selectImageFileList" resultMap="imgResult" parameterType="int">
     <![CDATA[
@@ -63,6 +61,54 @@
     ]]>
   </select> 
 -->	
+<!--  
+	<update id="updateViewcnt"> 
+		UPDATE c_board SET viewcnt = NVL(viewcnt,0) + 1 WHERE c_no = #{c_no}
+	</update>
+	-->
+	
+	<select id="listSearch" resultType="com.myteam.trip.community.vo.CommunityVO">
+		SELECT * FROM (
+    		SELECT a.*, rownum rnum
+   			FROM (
+        		SELECT * FROM c_board
+        		WHERE c_no > 0
+        		<include refid="search"></include>
+        		ORDER BY c_date DESC) a
+    		WHERE  ((#{page} * #{perPageNum}) + 1 ) > rownum)	<!-- pageNumber pageSize-->
+		WHERE rnum >= (((#{page}-1) * #{perPageNum}) + 1)
+		ORDER BY c_no DESC, c_date DESC
+	</select>
+	
+	<select id="listSearchCount" resultType="int">
+		SELECT count(c_no) FROM c_no WHERE c_no > 0
+		<include refid="search"></include>
+	</select>
+	
+     	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">
+				AND c_title like ('%'|| #{keyword}|| '%')
+			</if>
+			<if test="searchType == 'c'.toString()">
+				AND c_content like ('%'|| #{keyword}|| '%')
+			</if>
+			<if test="searchType == 'w'.toString()">
+				AND id like ('%'|| #{keyword}|| '%')
+			</if>
+			<if test="searchType == 'tc'.toString()">
+				AND (c_title like ('%'|| #{keyword}|| '%') OR c_content like ('%'|| #{keyword}|| '%'))
+			</if>
+			<if test="searchType == 'cw'.toString()">
+				AND (c_content like ('%'|| #{keyword}|| '%') OR id like ('%'|| #{keyword}|| '%'))
+			</if>
+			<if test="searchType == 'tcw'.toString()">
+				AND (c_title like ('%'|| #{keyword}|| '%') 
+					OR c_content like ('%'|| #{keyword}|| '%') 
+					OR id like ('%'|| #{keyword}|| '%'))
+			</if>
+		</if>
+	</sql>
 
 
 </mapper>

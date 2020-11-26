@@ -38,6 +38,7 @@ import com.myteam.trip.community.service.CommunityService;
 import com.myteam.trip.community.vo.CommunityVO;
 import com.myteam.trip.member.vo.MemberVO;
 
+
  
 @Repository
 @Controller("communityController")
@@ -373,7 +374,7 @@ public class CommunityController  {
 //	        return "sample/fileUploadComplete";
 //	}
 	
-	
+/*	
 	@RequestMapping(value="/community/fileupload.do", method=RequestMethod.POST)
 	@ResponseBody
 	public String fileUpload(HttpServletRequest req, HttpServletResponse resp, 
@@ -414,6 +415,7 @@ public class CommunityController  {
                         // json 데이터로 등록
                         // {"uploaded" : 1, "fileName" : "test.jpg", "url" : "/img/test.jpg"}
                         // 이런 형태로 리턴이 나가야함.
+	/*
                         json.addProperty("uploaded", 1);
                         json.addProperty("fileName", fileName);
                         json.addProperty("url", fileUrl);
@@ -433,7 +435,7 @@ public class CommunityController  {
 			}
 		}
 		return null;
-	}	
+	}	*/
 	
 
 	
