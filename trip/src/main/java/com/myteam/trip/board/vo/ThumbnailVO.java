@@ -1,5 +1,7 @@
 package com.myteam.trip.board.vo;
 
+import java.sql.Date;
+
 import org.springframework.stereotype.Component;
 
 @Component("thumbnailVO")
@@ -9,6 +11,7 @@ public class ThumbnailVO {
 	private int price;
 	private String imageFileName;
 	private int imageFiileNO;
+	private Date writeDate;
 	private double loc_x;
 	private double loc_y;
 	
@@ -18,17 +21,35 @@ public class ThumbnailVO {
 	}
 
 
-	public ThumbnailVO(int articleNO, String title, int price, String imageFileName, int imageFiileNO, double loc_x,
-			double loc_y) {
+
+	public ThumbnailVO(int articleNO, String title, int price, String imageFileName, int imageFiileNO, Date writeDate,
+			double loc_x, double loc_y) {
 		super();
 		this.articleNO = articleNO;
 		this.title = title;
 		this.price = price;
 		this.imageFileName = imageFileName;
 		this.imageFiileNO = imageFiileNO;
+		this.writeDate = writeDate;
 		this.loc_x = loc_x;
 		this.loc_y = loc_y;
 	}
+
+
+
+
+	public Date getWriteDate() {
+		return writeDate;
+	}
+
+
+
+
+	public void setWriteDate(Date writeDate) {
+		this.writeDate = writeDate;
+	}
+
+
 
 
 	public int getArticleNO() {

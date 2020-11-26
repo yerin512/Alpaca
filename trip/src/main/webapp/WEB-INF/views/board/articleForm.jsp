@@ -5,32 +5,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>알파카 - 믿을 수 있는 중고 책 거래사이트</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
-	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-	
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	<link rel="stylesheet" href="${contextPath}/resources/css/animate.css">
-	
-	<link rel="stylesheet" href="${contextPath}/resources/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="${contextPath}/resources/css/owl.theme.default.min.css">
-	<link rel="stylesheet" href="${contextPath}/resources/css/magnific-popup.css">
-	
-	<link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-datepicker.css">
-	<link rel="stylesheet" href="${contextPath}/resources/css/jquery.timepicker.css">
-	
-	<link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
-	<link rel="stylesheet" href="${contextPath}/resources/css/style.css">
-	
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c8f1e98d3b42f208e812d6c641c3952e"></script>
-    <style>
-	    #map {width: 500px; height: 300px;}
-	    .gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}       
-    </style>
+<title>알파카 - 믿을 수 있는 중고 책 거래사이트</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
+	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="${contextPath}/resources/css/animate.css">
+
+<link rel="stylesheet"
+	href="${contextPath}/resources/css/owl.carousel.min.css">
+<link rel="stylesheet"
+	href="${contextPath}/resources/css/owl.theme.default.min.css">
+<link rel="stylesheet"
+	href="${contextPath}/resources/css/magnific-popup.css">
+
+<link rel="stylesheet"
+	href="${contextPath}/resources/css/bootstrap-datepicker.css">
+<link rel="stylesheet"
+	href="${contextPath}/resources/css/jquery.timepicker.css">
+
+<link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/style.css">
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c8f1e98d3b42f208e812d6c641c3952e"></script>
+<style>
+#map {
+	width: 500px;
+	height: 300px;
+}
+
+.gmnoprint, .gm-control-active.gm-fullscreen-control {
+	display: none;
+}
+</style>
 </head>
 <body>
 	<nav
@@ -141,7 +157,7 @@
 						<h3>가 &nbsp;&nbsp;&nbsp;&nbsp;격</h3>
 					</td>
 					<td colspan=2 align="left"><input type="text" size="20"
-						maxlength="100" /></td>
+						name="price" maxlength="100" /></td>
 					<td colspan=6></td>
 					<tr>
 						<td align="right">
@@ -154,29 +170,28 @@
 
 					<tr>
 						<td align="right" valign="top"><br>
-						<h3>글내용</h3></td>
+							<h3>글내용</h3></td>
 						<td colspan=2><textarea name="content" rows="10" cols="65"
 								maxlength="4000"></textarea></td>
 						<td colspan=6>
-						<div id = "loc_x"></div>
-					<div id = "loc_y"></div>
-							 <input type="submit" value="글쓰기" /> 
+							<div id="loc_x"></div>
+							<div id="loc_y"></div> <input type="submit" value="글쓰기" />
 						</td>
 					</tr>
-					
+
 				</table>
 			</div>
 		</div>
-
+	</form>
 	<div id="search">
-      <input id="search_input" placeholder="거래 장소를 입력해주세요" />
-      <button id="search_button">검색</button>
-    </div>
+		<input id="search_input" placeholder="거래 장소를 입력해주세요" />
+		<button id="search_button">검색</button>
+	</div>
 	<div id="map"></div>
 	<div id="clickLatlng"></div>
-	
 
-    <input type=button value="목록보기" onClick="backToList(this.form)" />
+
+	<input type=button value="목록보기" onClick="backToList(this.form)" />
 
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">
@@ -213,7 +228,7 @@
 				reader.readAsDataURL(input.files[0]);
 			}
 		}
-	
+
 		function readURL2(input) {
 			if (input.files && input.files[0]) {
 				var reader = new FileReader();
@@ -223,7 +238,7 @@
 				reader.readAsDataURL(input.files[0]);
 			}
 		}
-	
+
 		function readURL3(input) {
 			if (input.files && input.files[0]) {
 				var reader = new FileReader();
@@ -233,46 +248,43 @@
 				reader.readAsDataURL(input.files[0]);
 			}
 		}
-		
+
 		function backToList(obj) {
 			obj.action = "${contextPath}/board/listArticles.do";
 			obj.submit();
 		}
-		
-		var mapContainer = document.getElementById('map');
-	    var mapOption = {
-	        center: new kakao.maps.LatLng(37.50324897169478, 127.02453020156122),
-	        level: 4
-	    };
-	
-	    var map = new kakao.maps.Map(mapContainer, mapOption);
-	    
-	    var marker = new kakao.maps.Marker({ 
-	        position: map.getCenter() 
-	    });
-	    marker.setMap(map);
-	    
-	    kakao.maps.event.addListener(map, 'click', function(mouseEvent) {  
-	        var latlng = mouseEvent.latLng; 
-	        marker.setPosition(latlng);
-	        
-	        var message = '클릭한 위치의 위도: ' + latlng.getLat() + ', ';
-	        message += '경도: ' + latlng.getLng();
 
-	        
-	        var resultDiv = document.getElementById('result'); 
-	        resultDiv.innerHTML = message;	    
-	        
-	        
-	        
-	        
-	        var locx ='<input type="hidden" name="loc_x" value="'+latlng.getLat()+'">';
-	        var locy ='<input type="hidden" name="loc_y" value="'+latlng.getLng()+'">';
-	        var resultx = document.getElementById('loc_x');
-	        resultx.innerHTML = locx;
-	        var resulty = document.getElementById('loc_y');
-	        resulty.innerHTML = locy;
-	    });
+		var mapContainer = document.getElementById('map');
+		var mapOption = {
+			center : new kakao.maps.LatLng(37.50324897169478,
+					127.02453020156122),
+			level : 4
+		};
+
+		var map = new kakao.maps.Map(mapContainer, mapOption);
+
+		var marker = new kakao.maps.Marker({
+			position : map.getCenter()
+		});
+		marker.setMap(map);
+
+		kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+			var latlng = mouseEvent.latLng;
+			marker.setPosition(latlng);
+
+			var message = '클릭한 위치의 위도: ' + latlng.getLat() + ', ';
+			message += '경도: ' + latlng.getLng();
+
+			var resultDiv = document.getElementById('result');
+			resultDiv.innerHTML = message;
+
+			var locx = '<input type="hidden" name="loc_x" value="'+ latlng.getLat() + '">';
+			var locy = '<input type="hidden" name="loc_y" value="'+ latlng.getLng() + '">';
+			var resultx = document.getElementById('loc_x');
+			resultx.innerHTML = locx;
+			var resulty = document.getElementById('loc_y');
+			resulty.innerHTML = locy;
+		});
 	</script>
 </body>
 </html>
