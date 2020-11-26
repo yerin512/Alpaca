@@ -44,19 +44,19 @@ public class BoardControllerImpl implements BoardController {
 	@Autowired
 	private ThumbnailVO thumbnailVO;
 
-	@Override
+//	@Override
+//	@RequestMapping(value = "/board/listArticles.do", method = { RequestMethod.GET, RequestMethod.POST })
+//	public ModelAndView listArticles(HttpServletRequest request, HttpServletResponse response) throws Exception {
+//		String viewName = (String) request.getAttribute("viewName");
+//		List articlesList = boardService.listArticles();
+//		ModelAndView mav = new ModelAndView(viewName);
+//		mav.addObject("articlesList", articlesList);
+//		return mav;
+//
+//	}
+	
 	@RequestMapping(value = "/board/listArticles.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView listArticles(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String viewName = (String) request.getAttribute("viewName");
-		List articlesList = boardService.listArticles();
-		ModelAndView mav = new ModelAndView(viewName);
-		mav.addObject("articlesList", articlesList);
-		return mav;
-
-	}
-	
-	@RequestMapping(value = "/board/instructor.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView instructor(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String) request.getAttribute("viewName");
 		List<ThumbnailVO> thumbnailsList = boardService.listThumbnails();
 		ModelAndView mav = new ModelAndView(viewName);

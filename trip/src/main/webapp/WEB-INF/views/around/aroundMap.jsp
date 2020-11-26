@@ -3,6 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -12,10 +15,23 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script async defer
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPkXtedSjcR4hmYgEAvIjgOb_aTuiGKQk&callback=initMap&region=kr"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="${contextPath}/resources/css/animate.css">
+    
+    <link rel="stylesheet" href="${contextPath}/resources/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/jquery.timepicker.css">
+
+    <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
+
+
 <style>
 #map {
 	width: 100vw;
@@ -54,10 +70,11 @@ a {
 	display: none;
 }
 </style>
-</head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPkXtedSjcR4hmYgEAvIjgOb_aTuiGKQk&callback=initMap&region=kr"></script>
 
-<body>
-	<div id="map" style="width: 100%; height: 100vh;"></div>
 	<script>
 		function initMap() {
 			var map = new google.maps.Map(document.getElementById('map'), { // 지도 생성
@@ -159,5 +176,47 @@ a {
 			}
 		}
 	</script>
+	</head>
+<body>
+<nav
+		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+		id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="${contextPath}/index.do"><span>TRAVEL
+			</span>MAKER</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#ftco-nav" aria-controls="ftco-nav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a href="${contextPath}/index.do"
+						class="nav-link">Home</a></li>
+					<li class="nav-item"><a
+						href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
+					<li class="nav-item"><a
+						href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
+					<li class="nav-item"><a href="${contextPath}/chat/login.do"
+						class="nav-link">채팅하기</a></li>
+					<li class="nav-item"><a
+						href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<div id="map" style="width: 100%; height: 100vh;"></div>
+
+
+
+
+
+
+
+
+
 </body>
 </html>
