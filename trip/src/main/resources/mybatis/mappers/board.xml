@@ -76,8 +76,15 @@
  	 </select>
   
   	<update id="updateArticle"  parameterType="java.util.Map">
-		
+					update article
+			set title=#{title},	 
+			content=#{content},
+			price=#{price},
+			loc_x=#{loc_x},
+			loc_y=#{loc_y}
+			where articleNO=#{articleNO}
 	</update>
+		
 	
 	<delete id="deleteArticle"  parameterType="int">
       delete from article
@@ -102,8 +109,11 @@
     </foreach>
   </insert>
   	
-  	
-  	
+<!--   	<delete id="deleteImageFile"  parameterType="int">
+      delete from aImageFile
+      where articleNO=#{articleNO}
+   	</delete>  	
+  	 -->
   	
   	
   	

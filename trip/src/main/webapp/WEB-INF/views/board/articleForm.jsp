@@ -156,7 +156,7 @@
 					<td align="right">
 						<h3>가 &nbsp;&nbsp;&nbsp;&nbsp;격</h3>
 					</td>
-					<td colspan=2 align="left"><input type="text" size="20"
+					<td colspan=2 align="left"><input type="number" size="20"
 						name="price" maxlength="100" /></td>
 					<td colspan=6></td>
 					<tr>
@@ -173,25 +173,39 @@
 							<h3>글내용</h3></td>
 						<td colspan=2><textarea name="content" rows="10" cols="65"
 								maxlength="4000"></textarea></td>
-						<td colspan=6>
+						<td colspan=6></td>
+					</tr>
+
+					<tr>
+						<td>
 							<div id="loc_x"></div>
-							<div id="loc_y"></div> <input type="submit" value="글쓰기" />
+							<div id="loc_y"></div>
 						</td>
+						<td><input type="submit" value="글쓰기" />
+						<input type=button value="목록보기" onClick="backToList(this.form)" />
+						</td>
+						
 					</tr>
 
 				</table>
 			</div>
 		</div>
-	</form>
-	<div id="search">
+		
+		<div id="search">
 		<input id="search_input" placeholder="거래 장소를 입력해주세요" />
 		<button id="search_button">검색</button>
 	</div>
 	<div id="map"></div>
+	<div id="result"></div>
 	<div id="clickLatlng"></div>
+		
+		
+		
+	</form>
+	
 
 
-	<input type=button value="목록보기" onClick="backToList(this.form)" />
+
 
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">
@@ -278,8 +292,10 @@
 			var resultDiv = document.getElementById('result');
 			resultDiv.innerHTML = message;
 
-			var locx = '<input type="hidden" name="loc_x" value="'+ latlng.getLat() + '">';
-			var locy = '<input type="hidden" name="loc_y" value="'+ latlng.getLng() + '">';
+			var locx = '<input type="number" name="loc_x" value="'
+					+ latlng.getLat() + '">';
+			var locy = '<input type="number" name="loc_y" value="'
+					+ latlng.getLng() + '">';
 			var resultx = document.getElementById('loc_x');
 			resultx.innerHTML = locx;
 			var resulty = document.getElementById('loc_y');
