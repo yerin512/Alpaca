@@ -11,7 +11,6 @@ public class CommunityVO {
 	private int c_no;
 	private String c_title;
 	private String c_content;
-	private String c_imageFileName;
 	private Date c_date;
 	private String id;
 	
@@ -20,12 +19,11 @@ public class CommunityVO {
 	}
 	
 
-	public CommunityVO(int c_no, String c_title, String c_content, String c_imageFileName, Date c_date, String id) {
+	public CommunityVO(int c_no, String c_title, String c_content, Date c_date, String id) {
 		super();
 		this.c_no = c_no;
 		this.c_title = c_title;
 		this.c_content = c_content;
-		this.c_imageFileName = c_imageFileName;
 		this.c_date = c_date;
 		this.id = id;
 	}
@@ -34,8 +32,8 @@ public class CommunityVO {
 
 	@Override
 	public String toString() {
-		return "CommunityVO [c_no=" + c_no + ", c_title=" + c_title + ", c_content=" + c_content + ", c_imageFileName="
-				+ c_imageFileName + ", c_date=" + c_date + ", id=" + id + "]";
+		return "CommunityVO [c_no=" + c_no + ", c_title=" + c_title + ", c_content=" + c_content +
+				 ", c_date=" + c_date + ", id=" + id + "]";
 	}
 
 
@@ -63,13 +61,6 @@ public class CommunityVO {
 		this.c_content = c_content;
 	}
 
-	public String getC_imageFileName() {
-		return c_imageFileName;
-	}
-
-	public void setC_imageFileName(String c_imageFileName) {
-		this.c_imageFileName = c_imageFileName;
-	}
 
 	public Date getC_date() {
 		return c_date;

@@ -54,12 +54,12 @@ public class CommunityService{
 
 
 
-
+/*
 	public void ckeditorImageUpload(HttpServletRequest request, HttpServletResponse response, MultipartFile upload) {
 		// TODO Auto-generated method stub
 		
 	}
 	
-
+*/
 	
 }

@@ -160,36 +160,7 @@
 									    
 									   </td>  
 								  </tr>
-								  <!-- 이미지 파일...
-								  <c:choose> 
-								  <c:when test="${not empty community.c_imageFileName && community.c_imageFileName!='null' }">
-									   	<tr>
-											   <td>
-											     <input  type= "hidden"   name="originalFileName" value="${community.c_imageFileName }" />
-											    <img src="${contextPath}/community/download.do?c_no=${community.c_no}&c_imageFileName=${community.c_imageFileName}" id="preview"  /><br>
-											   </td>   
-										  </tr>  
-										  <tr>
-										    <td>
-										       <input  type="file"  name="c_imageFileName " id="i_imageFileName"   disabled   onchange="readURL(this);"   />
-										    </td>
-										  </tr> 
-								 </c:when>
-										 <c:otherwise>
-										    <tr  id="tr_file_upload" >
-												    <td>
-												      <input  type= "hidden"   name="originalFileName" value="${community.c_imageFileName }" />
-												    </td>
-											    </tr>
-											    <tr>
-												    <td>
-												       <img id="preview"  /><br>
-												       <input  type="file"  name="c_imageFileName " id="i_imageFileName"   disabled   onchange="readURL(this);"   />
-												    </td>
-											  </tr>
-										 </c:otherwise>
-									 </c:choose>
-								  	-->
+								  
 								  <tr   id="tr_btn_modify"  align="center"  >
 									   <td colspan="2"   >
 									       <input type=button value="수정"   onClick="fn_modify_community(frmCommunity)" class="btn btn-outline btn-primary pull-right" >

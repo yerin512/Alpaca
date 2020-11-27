@@ -1,41 +1,31 @@
 package com.myteam.trip.community.controller;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
-import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
-import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.google.gson.JsonObject;
+import com.myteam.trip.community.dao.CommunityDAO;
 import com.myteam.trip.community.service.CommunityService;
 import com.myteam.trip.community.vo.CommunityVO;
+import com.myteam.trip.community.vo.PagingVO;
 import com.myteam.trip.member.vo.MemberVO;
 
  
@@ -47,7 +37,72 @@ public class CommunityController  {
 	private CommunityService communityService;
 	@Autowired
 	private CommunityVO communityVO;
+	@Autowired
+	private CommunityDAO comunityDAO;
+	PagingVO p = new PagingVO();
 	
+	
+	
+	//1. 전체 게시물의 수를 구하기
+	@RequestMapping(value = "/community/getTotalCount.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView getTotalCount(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		//1. 전체 게시물의 수를 구하기
+		//System.out.println("totalCount : " + DAO.getTotalCount());
+		p.setTotalRecord(comunityDAO.getTotalCount()); // 전체 게시글 수
+		p.setTotalPage(); //전체 페이지 갯수 구하기
+		System.out.println("전체 게시글 수 : " + p.getTotalRecord());
+		System.out.println("전체 페이지 수 : " + p.getTotalPage());
+		
+		//2. 현재 페이지 구하기
+		String cPage = request.getParameter("cPage");
+		if (cPage != null) {
+			p.setNowPage(Integer.parseInt(cPage));
+		}
+		
+		//3. 현재 페이지에 표시할 게시글 시작번호(begin), 끝번호(end) 구하기
+		p.setEnd(p.getNowPage() * p.getNumPerPage());
+		p.setBegin(p.getEnd() - p.getNumPerPage() + 1);
+		System.out.println("---------");
+		System.out.println("현재페이지 : " + p.getNowPage());
+		System.out.println("시작글번호 : " + p.getBegin());
+		System.out.println("끝글번호 : " + p.getEnd());
+		
+		//4. 블록(block) 계산하기(블록의 시작, 끝페이지 구하기)
+		int nowPage = p.getNowPage();
+		int currentBlock = (nowPage - 1) / p.getPagePerBlock() + 1;
+		p.setEndPage(currentBlock * p.getPagePerBlock());
+		p.setBeginPage(p.getEndPage() - p.getPagePerBlock() + 1);
+		
+		System.out.println("---- 블럭의 시작, 끝 페이지 ----");
+		System.out.println("현재페이지 : " + p.getNowPage());
+		System.out.println("시작페이지 : " + p.getBeginPage());
+		System.out.println("끝페이지 : " + p.getEndPage());
+		
+		//5. 끝페이지(endPage)가 전체 페이지 수(totalPage) 보다 크면
+		// 끝페이지 값을 전체페이지수로 변경처리
+		if (p.getEndPage() > p.getTotalPage()) {
+			p.setEndPage(p.getTotalPage());
+		}
+		System.out.println("---- 블럭의 시작, 끝 페이지(정정후) ----");
+		System.out.println(">> 시작페이지 : " + p.getBeginPage());
+		System.out.println(">> 끝페이지 : " + p.getEndPage());
+		
+		//========================================================
+		//현재 페이지 기준으로 DB데이터(게시글) 가져오기
+		//시작글번호, 끝글번호로 Map 데이터 만들어서 파라미터 전달
+		Map<String, Integer> map = new HashMap<>();
+		map.put("begin", p.getBegin());
+		map.put("end", p.getEnd());
+		
+		String viewName = (String) request.getAttribute("viewName");
+		List communityList = communityService.listCommunity();
+		ModelAndView mav = new ModelAndView(viewName);
+		mav.addObject("communityList", communityList);
+		System.out.println("list : " + communityList);
+		
+		return mav;
+		
+	}
 	
 	@RequestMapping(value = "/community/listCommunity.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView listCommunity(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -57,7 +112,7 @@ public class CommunityController  {
 		mav.addObject("communityList", communityList);
 		
 		return mav;
-
+		
 	}
 	
 
@@ -374,7 +429,7 @@ public class CommunityController  {
 //	}
 	
 	
-	@RequestMapping(value="/community/fileupload.do", method=RequestMethod.POST)
+/*	@RequestMapping(value="/community/fileupload.do", method=RequestMethod.POST)
 	@ResponseBody
 	public String fileUpload(HttpServletRequest req, HttpServletResponse resp, 
                  MultipartHttpServletRequest multiFile) throws Exception {
@@ -414,7 +469,7 @@ public class CommunityController  {
                         // json 데이터로 등록
                         // {"uploaded" : 1, "fileName" : "test.jpg", "url" : "/img/test.jpg"}
                         // 이런 형태로 리턴이 나가야함.
-                        json.addProperty("uploaded", 1);
+	/* json.addProperty("uploaded", 1);
                         json.addProperty("fileName", fileName);
                         json.addProperty("url", fileUrl);
                         
@@ -433,7 +488,7 @@ public class CommunityController  {
 			}
 		}
 		return null;
-	}	
+	}	*/
 	
 
 	

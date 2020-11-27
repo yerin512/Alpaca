@@ -1,6 +1,5 @@
 package com.myteam.trip.community.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -17,8 +16,18 @@ import com.myteam.trip.community.vo.CommunityVO;
 public class CommunityDAO{
 	@Autowired
 	private SqlSession sqlSession;
+	
+	
+	//게시글(c_board)의 전체 건수 조회
+	public int getTotalCount() {
+		int totalCount = sqlSession.selectOne("mapper.community.totalCount");
+		
+		System.out.println("totalCount : " + totalCount);
+		
+		return totalCount;
+	}
 
-	 
+	//페이지에 해당하는 글목록(게시글) 가져오기
 	public List selectAllCommunityList() throws DataAccessException {
 		List<CommunityVO> communityList = sqlSession.selectList("mapper.community.selectAllCommunityList");
 		return communityList;
@@ -54,9 +63,6 @@ public class CommunityDAO{
 		return sqlSession.selectOne("mapper.community.selectNewC_no");
 	}
 	
-	private int selectNewImageFileNO() throws DataAccessException {
-		return sqlSession.selectOne("mapper.community.selectNewImageFileNO");
-	}
 	
 
 }

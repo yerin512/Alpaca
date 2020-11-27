@@ -41,6 +41,7 @@ public class FileDownloadController {
 	}                  
 	
 	//맵핑이랑 메서드 이름만 바꿔놨어요 메서드 내용쪽은 맞춰서 수정	 ㅇㅋㅇㅋ
+	/*
 		@RequestMapping("/community/download.do")
 		protected void communityDownload(@RequestParam("c_imageFileName") String c_imageFileName,
 								@RequestParam("c_no") String c_no,
@@ -61,5 +62,5 @@ public class FileDownloadController {
 			}
 			in.close();
 			out.close();
-		} 
+		} */
 	}
