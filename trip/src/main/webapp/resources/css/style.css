@@ -11047,40 +11047,32 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 #sign_up_wrap .form-control {
 	height: 43px
 }
-
 .login-wrap {
-	position: relative;
-	background: #fff;
-	border-radius: 10px;
-	-webkit-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
-	-moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
-	box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
-	z-index: 0;
-}
-
-@media ( max-width : 767.98px) {
-	.login-wrap {
-		margin-top: 3em;
-	}
-}
-
-.login-wrap:after {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	height: 145px;
-	content: '';
-	background: rgba(0, 0, 0, 0.05);
-	z-index: -1;
-	border-radius: 50% 0 0 0;
-}
-
-.login-wrap h3 {
-	font-weight: 500;
-	font-size: 20px;
-	color: #4986fc;
-}
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+  box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+  z-index: 0;
+  margin:-720px -59px -4px 68px; }
+  @media (max-width: 767.98px) {
+    .login-wrap {
+      margin-top: 3em; } }
+  .login-wrap:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 145px;
+    content: '';
+    background: rgba(0, 0, 0, 0.05);
+    z-index: -1;
+    border-radius: 50% 0 0 0; }
+  .login-wrap h3 {
+    font-weight: 500;
+    font-size: 20px;
+    color: #4986fc; }
 
 .login-wrap .form-group {
 	position: relative;
@@ -11848,7 +11840,7 @@ textarea.form-control {
 .ftco-no-pb {
 	padding-bottom: 0 !important;
 	position:absolute;
-	top:25%
+
 }
 
 .ftco-bg-dark {
@@ -12743,6 +12735,15 @@ max-width
 .main_btn {
 	background: #FFA648 !important
 }
+
+
+/*책판매작성 articleForm*/
+#articleForm{width:60%;margin:90px auto;border:1px solid #ddd}
+#articleForm #preview1, #articleForm #preview2, #articleForm #preview3{background:#ddd}
+#articleForm .staff-2 .img-wrap{width:250px!imporant;height:250px!important}
+
+
+/*커뮤니티*/
 
 .communityList .content_wrap {
 	margin: 95px auto
