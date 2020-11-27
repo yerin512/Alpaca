@@ -11,50 +11,14 @@
 		<result property="c_date" column="c_date" />
 		<result property="id" column="id" />	
 	</resultMap>
-	<resultMap id="pagingResult" type="int" >
-		<result property="nowPage" column="nowPage" />
-		<result property="nowBlock" column="nowBlock" />
-		<result property="numPerPage" column="numPerPage" />
-		<result property="pagePerBlock" column="pagePerBlock" />
-		<result property="totalRecord" column="totalRecord" />	
-		<result property="totalPage" column="totalPage" />
-		<result property="totalBlock" column="totalBlock" />
-		<result property="begin" column="begin" />
-		<result property="end" column="end" />
-		<result property="beginPage" column="beginPage" />
-		<result property="endPage" column="endPage" />
-	</resultMap>
 	
-	
-	<!-- 전체 게시글 갯수 조회 -->
-	<select id="totalCount" resultType="int">
-		SELECT COUNT(*) FROM c_board
-	</select>
-	
-	<!-- 페이지에 표시할 게시글 조회 -->
-	<select id="selectAllCommunityList" resultMap="communityResult">
-		
-		SELECT *
-		  FROM (SELECT ROWNUM R_NUM, B.*
-		          FROM (SELECT *
-		                  FROM c_board
-		                 ORDER BY c_no DESC
-		               ) B 
-		       )
-		 WHERE R_NUM BETWEEN #{begin, jdbcType=VARCHAR} AND #{end, jdbcType=VARCHAR}
-	</select>
-	
-
-	<!-- <select id="selectAllCommunityList" resultMap="communityResult"   >
+	<select id="selectAllCommunityList" resultMap="communityResult"   >
     <![CDATA[
    		  SELECT c_no, c_title, c_content, c_date, id
           from c_board	
     ]]>
-  </select> -->
+  </select>
   
-  
-  	
-  	<!--단일이미지 추가  -->
   	<insert id="insertNewCommunity"  parameterType="java.util.Map">
 			INSERT into c_board( c_no, c_title, c_content, id)
 			VALUES(#{c_no}, #{c_title}, #{c_content}, #{id})
@@ -87,15 +51,4 @@
           ]]>  
   	</delete>
   	
-
-<!--  
-  <select  id="selectImageFileList" resultMap="imgResult" parameterType="int">
-    <![CDATA[
-      SELECT * from c_imageFile
-      where c_no=#{c_no}	
-    ]]>
-  </select> 
--->	
-
-
 </mapper>

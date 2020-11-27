@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>알파카 - 믿을 수 있는 중고 책 거래사이트</title>
+	<title>알파카 - 헌 책 알고 팔자! 중고책거래 사이트</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
@@ -53,8 +53,7 @@
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="${contextPath}/index.do"><span>TRAVEL
-			</span>MAKER</a>
+			<a class="navbar-brand" href="${contextPath}/index.do" style="background-image: url('${contextPath}/resources/images/logo.png');"><span class="navbar-brandsp"></span></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#ftco-nav" aria-controls="ftco-nav"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +62,7 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a href="${contextPath}/index.do"
+					<li class="nav-item"><a href="${contextPath}/index.do"
 						class="nav-link">Home</a></li>
 					<li class="nav-item"><a
 						href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
@@ -71,7 +70,7 @@
 						href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
 					<li class="nav-item"><a href="${contextPath}/chat/login.do"
 						class="nav-link">채팅하기</a></li>
-					<li class="nav-item"><a
+					<li class="nav-item active"><a
 						href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
 				</ul>
 			</div>
@@ -80,7 +79,7 @@
 	<!-- END nav -->
 
 	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('${contextPath}/resources/images/bg_2.jpg');">
+		style="background-image: url('${contextPath}/resources/images/bg_2.png');">
 		<div class="overlay"></div>
 		<div class="container">
 			<div
@@ -88,10 +87,10 @@
 				<div class="col-md-9 ftco-animate pb-5 text-center">
 					<p class="breadcrumbs">
 						<span class="mr-2"><a href="index.html">Home <i
-								class="fa fa-chevron-right"></i></a></span> <span>맞춤테마 <i
+								class="fa fa-chevron-right"></i></a></span> <span>커뮤니티 <i
 							class="fa fa-chevron-right"></i></span>
 					</p>
-					<h1 class="mb-0 bread">맞춤테마</h1>
+					<h1 class="mb-0 bread">커뮤니티</h1>
 				</div>
 			</div>
 		</div>
@@ -152,46 +151,21 @@
 		                  </div>
 		              </div>
 		             <div class="row mt-5">
-		             
-			<div>
-				<ul class="paging">
-					<%--[이전으로] 사용불가 또는 안보이게 : 첫번째 블록인경우 --%>
-				<c:if test="${pvo.beginPage == 1}">	
-					<li class="disable">이전으로</li>
-				</c:if>
-				<c:if test="${pvo.beginPage != 1}">	
-					<li>
-						<a href="list.jsp?cPage=${pvo.beginPage - 1 }">이전으로</a>
-					</li>
-				</c:if>
+			<div class="col text-center">
 				
-				<%-- 페이지 표시(시작페이지~끝페이지) --%>
-				<c:forEach var="pageNo" begin="${pvo.beginPage }" end="${pvo.endPage }">
-				<c:if test="${pageNo == pvo.nowPage }"> 
-				 	<li class="now">${pageNo }</li> 
-				</c:if>
-				<c:if test="${pageNo != pvo.nowPage }">
-				 	<li>
-				 		<a href="list.jsp?cPage=${pageNo }">${pageNo }</a>
-				 	</li>
-				</c:if> 
-				</c:forEach> 
-				 	
-				
-				<%--[다음으로] 사용여부 처리 --%>
-				<c:if test="${pvo.endPage >= pvo.totalPage }">	
-				 	<li class="disable">다음으로</li>
-				</c:if> 
-				<c:if test="${pvo.endPage < pvo.totalPage }">	
-				 	<li>
-				 		<a href="list.jsp?cPage=${pvo.endPage + 1 }">다음으로</a>
-				 	</li>
-				</c:if> 
-				</ul>
-			</td>
-		
-	</div>
-		        </div>
+				<div class="block-27">
+					<ul>
+						<li><a href="#">&lt;</a></li>
+						<li class="active"><span>1</span></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#">&gt;</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 		    </div>
 		</div>
  	</section>

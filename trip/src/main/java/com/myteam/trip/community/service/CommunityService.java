@@ -25,15 +25,10 @@ public class CommunityService{
 		List<CommunityVO> communityList =  communityDAO.selectAllCommunityList();
         return communityList;
 	}
-
-	
-	
 	 
 	public int addNewCommunity(Map communityMap) throws Exception{
 		return communityDAO.insertNewCommunity(communityMap);
 	}
-	
-	
 	
 	 
 	public CommunityVO viewCommunity(int c_no) throws Exception {
@@ -42,7 +37,6 @@ public class CommunityService{
 	}
 	
 	
-	 
 	public void modCommunity(Map communityMap) throws Exception {
 		communityDAO.updateCommunity(communityMap);
 	}
@@ -52,14 +46,5 @@ public class CommunityService{
 		communityDAO.deleteCommunity(c_no);
 	}
 
-
-
-/*
-	public void ckeditorImageUpload(HttpServletRequest request, HttpServletResponse response, MultipartFile upload) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-*/
 	
 }

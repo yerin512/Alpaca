@@ -10651,6 +10651,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 		background: transparent;
 		padding-left: 0;
 		padding-right: 0;
+		background-size:cover
 	}
 }
 
@@ -10905,9 +10906,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 	width: 100%;
 	/*height : 100%*/
 	position: inherit;
-	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: center center;
 	background-attachment: fixed;
 }
 
@@ -11511,8 +11510,10 @@ textarea.form-control {
 }
 
 .ftco-animate {
+	/*
 	opacity: 0;
 	visibility: hidden;
+	*/
 }
 
 .bg-primary {

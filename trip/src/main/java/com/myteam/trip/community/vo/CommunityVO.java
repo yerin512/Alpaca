@@ -17,7 +17,6 @@ public class CommunityVO {
 	public CommunityVO() {
 		
 	}
-	
 
 	public CommunityVO(int c_no, String c_title, String c_content, Date c_date, String id) {
 		super();
@@ -27,7 +26,6 @@ public class CommunityVO {
 		this.c_date = c_date;
 		this.id = id;
 	}
-
 
 
 	@Override
