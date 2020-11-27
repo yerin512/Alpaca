@@ -11,10 +11,12 @@
 <c:set  var="section"  value="${communityMap.section}" />
 <c:set  var="pageNum"  value="${communityMap.pageNum}" />
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>알파카 - 믿을 수 있는 중고 책 거래사이트</title>
+	<title>알파카 - 헌 책 알고 팔자! 중고책거래 사이트</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
@@ -46,42 +48,53 @@
 	  }
 	}
 </script>
-<style>
-
-</style>
 <body>
- <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-   <div class="container">
-     <a class="navbar-brand" href="${contextPath}/index.do">알파카 <span class="navbar-brandsp">중고책 거래소</span></a>
-     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="oi oi-menu"></span> Menu
-   </button>
+ <nav
+		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+		id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="${contextPath}/index.do" style="background-image: url('${contextPath}/resources/images/logo.png');"><span class="navbar-brandsp"></span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#ftco-nav" aria-controls="ftco-nav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
 
-   <div class="collapse navbar-collapse" id="ftco-nav">
-      <ul class="navbar-nav ml-auto">
-         <li class="nav-item active"><a href="${contextPath}/index.do" class="nav-link">Home</a></li>
-         <li class="nav-item"><a href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
-         <li class="nav-item"><a href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
-         <li class="nav-item"><a href="${contextPath}/chat/login.do" class="nav-link">채팅하기</a></li>
-         <li class="nav-item"><a href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
-     </ul>
-   </div>
-</div>
-</nav>
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a href="${contextPath}/index.do"
+						class="nav-link">Home</a></li>
+					<li class="nav-item"><a
+						href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
+					<li class="nav-item"><a
+						href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
+					<li class="nav-item"><a href="${contextPath}/chat/login.do"
+						class="nav-link">채팅하기</a></li>
+					<li class="nav-item active"><a
+						href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 	<!-- END nav -->
-	
-	<section class="hero-wrap hero-wrap-2" style="background-image: url('${contextPath}/resources/images/bg_2.jpg');">
+
+	<section class="hero-wrap hero-wrap-2"
+		style="background-image: url('${contextPath}/resources/images/bg_2.png');">
 		<div class="overlay"></div>
 		<div class="container">
-			<div class="row no-gutters slider-text align-items-end justify-content-center">
+			<div
+				class="row no-gutters slider-text align-items-end justify-content-center">
 				<div class="col-md-9 ftco-animate pb-5 text-center">
-					<p class="breadcrumbs"><span class="mr-2"><a href="index.do">Home <i class="fa fa-chevron-right"></i></a></span> <span>주변거래 <i class="fa fa-chevron-right"></i></span></p>
-					<h1 class="mb-0 bread">주변거래</h1>
+					<p class="breadcrumbs">
+						<span class="mr-2"><a href="index.html">Home <i
+								class="fa fa-chevron-right"></i></a></span> <span>커뮤니티 <i
+							class="fa fa-chevron-right"></i></span>
+					</p>
+					<h1 class="mb-0 bread">커뮤니티</h1>
 				</div>
 			</div>
 		</div>
 	</section>
-	
  	<!-- 게시판 -->
  	<section class="communityList">
 		  <div class="page-wrapper">
@@ -137,22 +150,22 @@
 		                      </button>
 		                  </div>
 		              </div>
-		              <div class="row mt-5">
-						  <div class="col text-center">
-								<div class="block-27">
-									<ul>
-										<li><a href="#">&lt;</a></li>
-										<li class="active"><span>1</span></li>
-										<li><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#">4</a></li>
-										<li><a href="#">5</a></li>
-										<li><a href="#">&gt;</a></li>
-									</ul>
-								</div>
-						   </div>
-					  </div>
-		        </div>
+		             <div class="row mt-5">
+			<div class="col text-center">
+				
+				<div class="block-27">
+					<ul>
+						<li><a href="#">&lt;</a></li>
+						<li class="active"><span>1</span></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#">&gt;</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 		    </div>
 		</div>
  	</section>

@@ -1,6 +1,5 @@
 package com.myteam.trip.community.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -17,14 +16,13 @@ import com.myteam.trip.community.vo.CommunityVO;
 public class CommunityDAO{
 	@Autowired
 	private SqlSession sqlSession;
+	
 
-	 
 	public List selectAllCommunityList() throws DataAccessException {
 		List<CommunityVO> communityList = sqlSession.selectList("mapper.community.selectAllCommunityList");
 		return communityList;
 	}
 
-	
 	 
 	public int insertNewCommunity(Map communityMap) throws DataAccessException {
 		int c_no = selectNewC_no();
@@ -33,7 +31,6 @@ public class CommunityDAO{
 		return c_no;
 	}
     
-	
 	 
 	public CommunityVO selectCommunity(int c_no) throws DataAccessException {
 		return sqlSession.selectOne("mapper.community.selectCommunity", c_no);
@@ -54,9 +51,6 @@ public class CommunityDAO{
 		return sqlSession.selectOne("mapper.community.selectNewC_no");
 	}
 	
-	private int selectNewImageFileNO() throws DataAccessException {
-		return sqlSession.selectOne("mapper.community.selectNewImageFileNO");
-	}
 	
 
 }

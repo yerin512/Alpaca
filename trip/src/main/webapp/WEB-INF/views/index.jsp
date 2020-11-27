@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>알파카 - 믿을 수 있는 중고 책 거래사이트</title>
+    <title>알파카 - 헌 책 알고 팔자! 중고책거래 사이트</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -30,7 +30,7 @@
 <body>
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
    <div class="container">
-     <a class="navbar-brand" href="index.do">알파카 <span class="navbar-brandsp">중고책 거래소</span></a>
+     <a class="navbar-brand" href="${contextPath}/index.do" style="background-image: url('${contextPath}/resources/images/logo.png');"><span class="navbar-brandsp"></span></a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
      <span class="oi oi-menu"></span> Menu
    	 </button>
@@ -55,7 +55,7 @@
       <div class="col-md-7 ftco-animate">
         <p class="caps">먼지 쌓인 책들을 그냥 버린다고?<br>헌 책 주면 새 돈으로 받는 믿을 수 있는 중고 책 거래 사이트</p>
         <h1 class="mb-4"><span class="maintitle">책도 알고 팔자 <br>알파카</span></h1>
-        <p class="mb-0"><a href="board/listArticles.do" class="btn btn-primary">책 구매</a> <a href="board/articleForm.do" class="btn btn-white">책 판매</a></p>
+        <p class="mb-0"><a href="board/listArticles.do" class="main_btn btn btn-primary">책 구매</a> <a href="board/articleForm.do" class="btn btn-white">책 판매</a></p>
     </div>
 </div>
 </div>
