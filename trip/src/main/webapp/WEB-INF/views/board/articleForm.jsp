@@ -28,8 +28,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c8f1e98d3b42f208e812d6c641c3952e"></script>
     <style>
-	    #map {width: 500px; height: 300px;}
-	    .gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}       
+	           
     </style>
 </head>
 <body>
@@ -86,7 +85,11 @@
 			action="${contextPath}/board/addNewArticle.do"
 			enctype="multipart/form-data">
 			<!-- 이미지 파일 올리는 섹션 -->
-			<section class="ftco-section-kis">
+			
+			<table border="0" align="center">
+						<tr>
+							<td class="td_title">이미지</td>
+							<td><section class="ftco-section-kis">
 				<div class="container">
 					<div class="row">
 						<div
@@ -94,7 +97,7 @@
 							<div class="staff-2 w-100">
 								<input type="file" name="file1" onchange="readURL1(this);" />
 								<div class="img-wrap d-flex align-items-stretch">
-									<img id="preview1" src="${contextPath}/resources/images/board/pr01.jpg" />
+									<img id="preview1" src="${contextPath}/resources/images/board/pr01.jpg" width="100%" />
 								</div>
 							</div>
 						</div>
@@ -104,7 +107,7 @@
 							<div class="staff-2 w-100">
 								<input type="file" name="file2" onchange="readURL2(this);" />
 								<div class="img-wrap d-flex align-items-stretch">
-									<img id="preview2" src="${contextPath}/resources/images/pr02.jpg" width="100%" />
+									<img id="preview2" src="${contextPath}/resources/images/board/pr02.jpg" width="100%" />
 								</div>
 							</div>
 						</div>
@@ -119,57 +122,56 @@
 						</div>
 					</div>
 				</div>
-			</section>
-	
-	
-			<div class="col-md-8 d-flex align-items-center">
-				<div class="staff-detail w-100 pl-md-5">
-					<table border="0" align="center">
-						<tr>
-							<td align="right"><h3>글제목</h3></td>
-							<td colspan="2"><input type="text" size="67" maxlength="500"
-								name="title" /></td>
-							<td colspan=6></td>
+			</section></td>
 						</tr>
-						<td align="right">
-							<h3>가 &nbsp;&nbsp;&nbsp;&nbsp;격</h3>
-						</td>
-						<td colspan=2 align="left"><input type="text" size="20"
-							maxlength="100" /></td>
-						<td colspan=6></td>
 						<tr>
-							<td align="right">
-								<h3>작성자</h3>
-							</td>
-							<td colspan=2 align="left"><input type="text" size="20"
+							<td class="td_title" align="left" width="10%">책 제목</td>
+							<td colspan="2"><input type="text" size="67" maxlength="500"
+								name="title" placeholder="제목을 입력해주세요" class="title_input"/></td>
+						</tr>
+						<tr>
+							<td class="td_title" align="left">책 가격</td>
+							<td colspan=2 ><input type="text" size="20"
+								maxlength="100" placeholder="가격을 입력해주세요" class="title_input"/>원</td>
+						</tr>
+						<tr>
+							
+							<td class="td_title" colspan=2 align="left"><input type="hidden" size="20"
 								maxlength="100" value="${member.name }" readonly /></td>
 							<td colspan=6></td>
 						</tr>
-	
 						<tr>
-							<td align="right" valign="top"><br>
-							<h3>글내용</h3></td>
-							<td colspan=2><textarea name="content" rows="10" cols="65"
-									maxlength="4000"></textarea></td>
-							<td colspan=6>
-							<div id = "loc_x"></div>
-						<div id = "loc_y"></div>
-								 <input type="submit" value="글쓰기" /> 
-							</td>
+							<td class="td_title" align="left">책 설명</td>
+							<td colspan=2><textarea id="i_content" name="content" rows="10" cols="65"
+									maxlength="4000"></textarea>
+							<script
+							src="${contextPath}/resources/ckeditor/ckeditor.js"></script> <script
+							type="text/javascript">
+								CKEDITOR
+										.replace(
+												'i_content',
+												{
+													filebrowserUploadUrl : '${pageContext.request.contextPath }/community/fileupload.do'
+												});
+								window.parent.CKEDITOR.tools.callFunction(1,
+										"${url}", "전송완료");
+							</script>		
+									</td>
+						</tr>
+						<tr>
+							<td align="left" class="td_title">판매 위치</td>
+							<td><div id="map"></div>
+		<div id="clickLatlng"></div></td>
 						</tr>
 						
 					</table>
-				</div>
-			</div>
-	
-		<div id="search">
-	      <input id="search_input" placeholder="거래 장소를 입력해주세요" />
-	      <button id="search_button">검색</button>
+		
+		<div id = "loc_x"></div>
+		<div id = "loc_y"></div>
+		<div class="div_input">
+		<input type="submit" value="작성" class="write_btn btn btn-outline btn-primary" /> 
+	    <input type=button value="목록" onClick="backToList(this.form)" class="write_btn btn btn-outline btn-primary"/>
 	    </div>
-		<div id="map"></div>
-		<div id="clickLatlng"></div>
-	
-	    <input type=button value="목록보기" onClick="backToList(this.form)" />
 	    </div>
     </section>
 
@@ -182,7 +184,7 @@
 			<circle class="path" cx="24" cy="24" r="22" fill="none"
 				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
-
+</form>
 
 	<script src="${contextPath}/resources/js/jquery.min.js"></script>
 	<script src="${contextPath}/resources/js/jquery-migrate-3.0.1.min.js"></script>

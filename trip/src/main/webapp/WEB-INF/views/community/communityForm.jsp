@@ -138,7 +138,7 @@
 				<tr>
 					<td colspan=2><textarea name="c_content" id="c_content"
 							rows="10" cols="100" placeholder="내용을 입력해주세요"
-							title="내ㅇ용을 입력해주세요."></textarea> <script
+							title="내용을 입력해주세요."></textarea> <script
 							src="${contextPath}/resources/ckeditor/ckeditor.js"></script> <script
 							type="text/javascript">
 								CKEDITOR
