@@ -79,7 +79,7 @@
 				class="row no-gutters slider-text align-items-end justify-content-center">
 				<div class="col-md-9 ftco-animate pb-5 text-center">
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="{contextPath}/index.do">Home <i
+						<span class="mr-2"><a href="index.html">Home <i
 								class="fa fa-chevron-right"></i></a></span> <span>맞춤테마 <i
 							class="fa fa-chevron-right"></i></span>
 					</p>
@@ -127,9 +127,10 @@
 										<h3>
 											<a href="${contextPath}/board/viewArticle.do">${item.title}</a>
 										</h3>
-										<span class="position mb-2">작성일 : ${item.writeDate}</span>
+										<span class="position mb-2">Business</span>
 										<div class="faded">
-											<p>${item.price}</p>
+											<p>I am an ambitious workaholic, but apart from that,
+												pretty simple person.</p>
 										</div>
 									</div>
 								</div>

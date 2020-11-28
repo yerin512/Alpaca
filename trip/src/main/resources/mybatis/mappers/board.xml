@@ -109,11 +109,11 @@
     </foreach>
   </insert>
   	
-<!--   	<delete id="deleteImageFile"  parameterType="int">
+   	<delete id="deleteImageFile"  parameterType="int">
       delete from aImageFile
       where articleNO=#{articleNO}
    	</delete>  	
-  	 -->
+  	 
   	
   	
   	
