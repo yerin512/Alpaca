@@ -1,24 +1,64 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" isELIgnored="false"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>알파카 - 믿을 수 있는 중고 책 거래사이트</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="${contextPath}/resources/css/bootstrap.css">
+	<link rel="stylesheet" href="${contextPath}/resources/css/custom.css">
+	<title>알파카 - 믿을 수 있는 중고 책 거래사이트</title>
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="${contextPath}/resources/js/bootstrap.js"></script>
 </head>
 <body>
-    <div>
-        <button type="button" onclick="openSocket();">대화방 참여</button>
-        <button type="button" onclick="closeSocket();">대회방 나가기</button>
-    	<br/><br/><br/>
-  		메세지 입력 : 
-        <input type="text" id="sender" value="${sessionScope.id}" style="display: none;">
-        <input type="text" id="messageinput">
-        <button type="button" onclick="send();">메세지 전송</button>
-        <button type="button" onclick="javascript:clearText();">대화내용 지우기</button>
-    </div>
-    <!-- Server responses get written here -->
-    <div id="messages">
-    </div>
+	<div class="container">
+		<div class="container bootstrap sinppet">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="portlet portlet-default">
+						<div class="portlet-heading">
+							<div class="portlet-title">
+								<h4><i class="fa fa-circle text-green"></i>알파카 실시간 채팅방</h4>
+								<button type="button" onclick="openSocket();">대화방 참여</button>
+       	    					<button type="button" onclick="closeSocket();">대회방 나가기</button>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div id="chat" class="panel-collapse collapse in">
+							<div class="portlet-body chat-widget" style="overflow-y: auto; width: auto; height: 300px;">
+								<div class="row">
+									<div class="col-lg-12">
+										<p class="text-center text-muted small">2020년 11월 27일(수)</p>
+									</div>
+								</div>
+								<div class="row">											
+									<div id="messages">
+										<!-- 채팅 메시지 영역 -->
+									</div>
+								</div>
+							</div>
+							<div class="portlet-footer">
+								<div class="row" style="height: 90px">
+									<div class="form-group col-xs-10">
+										<input type="text" id="sender" class="form-control" placeholder="메세지를 입력하세요." maxlength="100" value="${sessionScope.id}" style="height: 80px; display: none;">
+										<input type="text" id="messageinput">
+									</div>
+									<div class="form-group col-xs-2">
+										<button type="button" class="btn btn-default pull-right" onclick="send();">전송</button>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+							</div>														
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    
     <!-- websocket javascript -->
     <script type="text/javascript">
         var ws;

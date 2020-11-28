@@ -24,7 +24,7 @@
     <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-success">
             <div class="panel-heading">
-                <div class="panel-title">환영합니다!</div>
+                <div class="panel-title">대화명을 입력하세요</div>
             </div>
             <div class="panel-body">
                 <form id="login-form" method="post" action="/trip/chat/loginProcess.do">
