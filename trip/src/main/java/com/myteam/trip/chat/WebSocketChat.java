@@ -24,7 +24,7 @@ public class WebSocketChat {
 
 	public WebSocketChat() {
 		// TODO Auto-generated constructor stub
-		System.out.println("ì›¹ì†Œì¼“(ì„œë²„) ê°ì²´ ìƒì„±");
+		System.out.println("À¥¼ÒÄÏ(¼­¹ö) °´Ã¼ »ı¼º");
 	}
 
 	@OnOpen
@@ -32,20 +32,13 @@ public class WebSocketChat {
 		logger.info("Open session id:" + session.getId());
 		try {
 			final Basic basic = session.getBasicRemote();
-			basic.sendText("ëŒ€í™”ë°©ì— ì—°ê²°ë˜ì—ˆìŠµë‹ˆë‹¤.");
+			basic.sendText("´ëÈ­ ½ÃÀÛ");
 		} catch (Exception e) {
-			// TODO: handle exception
 			System.out.println(e.getMessage());
 		}
 		sessionList.add(session);
 	}
 
-	/*
-	 * ëª¨ë“  ì‚¬ìš©ìì—ê²Œ ë©”ì‹œì§€ë¥¼ ì „ë‹¬
-	 * @param self
-	 * @param sender
-	 * @param message
-	 */
 	private void sendAllSessionToMessage(Session self, String sender, String message) {
 		try {
 			for (Session session : WebSocketChat.sessionList) {
@@ -54,16 +47,10 @@ public class WebSocketChat {
 				}
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			System.out.println(e.getMessage());
 		}
 	}
 
-	/*
-	 * ë‚´ê°€ ì…ë ¥í•˜ëŠ” ë©”ì„¸ì§€
-	 * @param message
-	 * @param session
-	 */
 	@OnMessage
 	public void onMessage(String message, Session session) {
 		String sender = message.split(",")[1];
@@ -72,7 +59,7 @@ public class WebSocketChat {
 		logger.info("Message From " + sender + ": " + message);
 		try {
 			final Basic basic = session.getBasicRemote();
-			basic.sendText("<ë‚˜> : " + message);
+			basic.sendText("<³ª> : " + message);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
