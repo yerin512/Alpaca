@@ -14,12 +14,13 @@
 	<script src="${contextPath}/resources/js/bootstrap.js"></script>
 </head>
 <body>
-	<div class="container">
-		<div class="container bootstrap sinppet">
+	<div class="container" id="chat">
+		<div class="container bootstrap sinppet" style="margin-top:100px">
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="portlet portlet-default">
 						<div class="portlet-heading">
+							<a class="homebtn" href="${contextPath}/index.do"></a>
 							<div class="portlet-title">
 								<h4><i class="fa fa-circle text-green"></i>알파카 실시간 채팅방</h4>
 								<button type="button" onclick="openSocket();">대화방 참여</button>
@@ -28,7 +29,7 @@
 							<div class="clearfix"></div>
 						</div>
 						<div id="chat" class="panel-collapse collapse in">
-							<div class="portlet-body chat-widget" style="overflow-y: auto; width: auto; height: 300px;">
+							<div class="portlet-body chat-widget" style="overflow-y: auto; width: auto; height: 400px;">
 								<div class="row">
 									<div class="col-lg-12">
 										<p class="text-center text-muted small">2020년 11월 27일(수)</p>
@@ -42,12 +43,12 @@
 							</div>
 							<div class="portlet-footer">
 								<div class="row" style="height: 90px">
-									<div class="form-group col-xs-10">
+									<div class="form-group">
 										<input type="text" id="sender" class="form-control" placeholder="메세지를 입력하세요." maxlength="100" value="${sessionScope.id}" style="height: 80px; display: none;">
 										<input type="text" id="messageinput">
 									</div>
-									<div class="form-group col-xs-2">
-										<button type="button" class="btn btn-default pull-right" onclick="send();">전송</button>
+									<div>
+										<button type="button" class="chat-submit-btn btn btn-default pull-right" onclick="send();"></button>
 										<div class="clearfix"></div>
 									</div>
 								</div>
