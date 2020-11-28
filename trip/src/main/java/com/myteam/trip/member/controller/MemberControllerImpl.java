@@ -117,58 +117,15 @@ public class MemberControllerImpl implements MemberController {
 
 	@Override
 	@RequestMapping(value = "member/addMember.do", method = RequestMethod.POST)
-	public ResponseEntity addMember(@ModelAttribute("member") MemberVO member,
-			MultipartHttpServletRequest multipartRequest, HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
+	public ModelAndView addMember(@ModelAttribute("member") MemberVO member, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("html/text;charset=utf-8");
-		multipartRequest.setCharacterEncoding("utf-8");
-		System.out.println("  1번 ");
-		Map<String, Object> memberMap = new HashMap<String, Object>();
-		System.out.println(" 2 번 ");
-		Enumeration enu = multipartRequest.getParameterNames();
-		System.out.println("  3번 ");
-		while (enu.hasMoreElements()) {
-			String name = (String) enu.nextElement();
-			System.out.println(" 4 번 ");
-			String value = multipartRequest.getParameter(name);
-			System.out.println("  5번 ");
-			memberMap.put(name, value);
-			System.out.println("  6번 ");
-		}
-		String imageFileName = upload(multipartRequest);
-		System.out.println("  7번 ");
-		memberMap.put("imageFileName", imageFileName);
-		System.out.println("  8번 ");
 
-		String message;
-		ResponseEntity resEnt = null;
-		HttpHeaders responseHeaders = new HttpHeaders();
-		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
-		try {
-			int result = 0;
-			result = memberService.addMember(member);
-			if (imageFileName != null && imageFileName.length() != 0) {
-				File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName);
-				File destDir = new File(ARTICLE_IMAGE_REPO + "\\");
-				FileUtils.moveFileToDirectory(srcFile, destDir, true);
-			}
-			message = "<script>";
-			message += " alert('새글을 추가 했습니다.');";
-			message += " </script>";
-			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
-		} catch (Exception e) {
-			File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName);
-			srcFile.delete();
-
-			message = " <script>";
-			message += " alert('오류가 발생했습니다. 다시 시도해 주세요.');');";
-			message += " </script>";
-			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
-			e.printStackTrace();
-		}
+		int result = 0;
+		result = memberService.addMember(member);
 		ModelAndView mav = new ModelAndView("redirect:/index.do");
-		return resEnt;
+		return mav;
 
 	}
 
@@ -310,7 +267,5 @@ public class MemberControllerImpl implements MemberController {
 		int result = memberService.passChk(vo);
 		return result;
 	}
-
-	
 
 }

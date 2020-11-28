@@ -10,6 +10,8 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+
+
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
 	rel="stylesheet">
@@ -97,17 +99,15 @@
 </script>
 
 
-<%-- 회원가입 할때 프로필 이미지   썸네일--%>
+
 <script type="text/javascript">
-	function readURL(input) {
-		if (input.files && input.files[0]) {
-			var reader = new FileReader();
-			reader.onload = function(e) {
-				$('#img').attr('src', e.target.result);
-			}
-			reader.readAsDataURL(input.files[0]);
-		}
-	}
+	$(document).ready(function() {
+		$(".btn").on("click", function() {
+			alert("회원가입을 축하합니다. 로그인 페이지로 이동합니다.");
+			location.href = "/trip/index.do";
+
+		})
+	})
 </script>
 
 </head>
@@ -194,31 +194,33 @@
 							</div>
 							<div class="form-group">
 								<label class="label" for="name">Full Name</label> <input
-									type="text" name="name" class="form-control" placeholder="홍길동">
+									type="text" id="id" name="name" class="form-control"
+									placeholder="홍길동">
 							</div>
 							<div class="form-group">
 								<label class="label" for="email">Email Address</label> <input
-									type="text" name="email" class="form-control"
+									id="email" type="text" name="email" class="form-control"
 									placeholder="hong@gmail.com">
 
 							</div>
 
-						 	<!--  
 							<div class="form-group">
-								<label class="label" for="profile_img"></label>Profile Image <br>
-								<input type="file" name="profile_img"  onchange="readURL(this);" /> 
-									<img id="img" src="#" width=200 height=200 />
-							</div>
-						  
-							-->
+								<label>약관 동의</label>
+								<div data-toggle="buttons">
+									<label class="btn btn-primary active"> <span
+										class="fa fa-check"></span> <input id="agree" type="checkbox"
+										autocomplete="off" checked>
+									</label> <a href="#">이용약관</a>에 동의합니다.
+								</div>
 
-							<div class="form-group d-flex justify-content-end mt-4">
 
-								<button type="submit" id="submit" class="btn btn-primary submit"
-									disabled>
-									<span class="fa fa-paper-plane"> 가입하기</span>
-								</button>
-							</div>
+								<div class="form-group d-flex justify-content-end mt-4">
+
+									<button type="submit" id="submit"
+										class="btn btn-primary submit" disabled>
+										<span class="fa fa-paper-plane"> 가입하기</span>
+									</button>
+								</div>
 						</form>
 					</div>
 				</div>
