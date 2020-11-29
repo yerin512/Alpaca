@@ -7,18 +7,12 @@
 <head>
 <style type="text/css">
 #container {
-	width: 100%;
-	height: 100vh;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
+	position: absolute;
 	text-align: center;
+	left: 50%;
+	top: 50%;
+	margin: -120px auto 0 -130px;
+	width: 260px;
 }
 </style>
 <!-- width: 100%;
@@ -78,9 +72,8 @@
 				$("#email").focus();
 				return false;
 			}
-			
-		}
-		);
+
+		});
 
 	})
 </script>

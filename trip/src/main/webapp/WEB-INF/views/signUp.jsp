@@ -204,14 +204,7 @@
 
 							</div>
 
-							<div class="form-group">
-								<label>약관 동의</label>
-								<div data-toggle="buttons">
-									<label class="btn btn-primary active"> <span
-										class="fa fa-check"></span> <input id="agree" type="checkbox"
-										autocomplete="off" checked>
-									</label> <a href="#">이용약관</a>에 동의합니다.
-								</div>
+						
 
 
 								<div class="form-group d-flex justify-content-end mt-4">

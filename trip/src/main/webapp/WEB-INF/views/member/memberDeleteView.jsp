@@ -7,20 +7,21 @@
 <style type="text/css">
 #container {
 	position: absolute;
-	width: 100%;
-	height: 100vh;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
 	text-align: center;
+	left: 50%;
+	top: 50%;
+	margin: -120px auto 0 -130px;
+	width: 260px;
 }
 </style>
+<!-- 
+	position: absolute;
+	text-align: center;
+	left: 50%;
+	top: 50%;
+	margin: -120px auto 0 -130px;
+	width: 260px;
+ -->
 <head>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
