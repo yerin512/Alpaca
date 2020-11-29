@@ -9,7 +9,6 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
 	rel="stylesheet">
@@ -35,7 +34,15 @@
 <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
 
 <style type="text/css">
-div {
+.form-group {
+	text-align: center;
+}
+
+.center {
+	text-align: center;
+}
+
+.kakao {
 	text-align: center;
 }
 </style>
@@ -104,21 +111,26 @@ div {
 						<div class="col-md-7"></div>
 						<div class="col-md-5 order-md-last">
 							<div class="login-wrap p-4 p-md-5">
-								<h3 class="mb-4">환영합니다!!</h3>
+								<h3 class="form-group">알파카에 오신걸 환영합니다!!</h3>
 								<form class="signup-form">
-									<div>
-										<img src="${profileImage}" width="100px" height="100px" />
-									</div>
-									<br>
-									<hr>
-									<div class="form-group">${nickname} 님</div>
 									<div class="form-group">
-										<a href="myPage.do">마이페이지</a>
+										<img src="${profileImage}" width="200px" height="200px" />
+									</div>
+
+									<hr>
+									<div class="form-group">
+										<span style="font-size: 1.5em; color: skyblue;">${nickname}</span>
+										님
 									</div>
 								</form>
-								<a
-									href="https://kauth.kakao.com/oauth/logout?client_id=4d6c516eb262829dabdcac45cae9703c&logout_redirect_uri=http://localhost:8090/trip/logout"><input
-									type="button" value="로그아웃"></a>
+								<div class="center">
+									<a
+										href="https://kauth.kakao.com/oauth/logout?client_id=4d6c516eb262829dabdcac45cae9703c&logout_redirect_uri=http://localhost:8090/trip/logout">
+										<input type="button" class="btn btn-outline-primary"
+										value="로그아웃">
+										</button>
+									</a>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -134,23 +146,26 @@ div {
 						<div class="col-md-7"></div>
 						<div class="col-md-5 order-md-last">
 							<div class="login-wrap p-4 p-md-5">
-								<h3 class="mb-4">환영합니다!!</h3>
-								<div>
-									<img src="resources/images/alpaca_2.jpg" width="100"
-										height="100" /><br><hr>
+								<h3 class="form-group">알파카에 오신걸 환영합니다!!</h3>
+								<div class="form-group">
+									<img src="resources/images/alpaca_2.jpg" width="200"
+										height="200" /><br>
+									<hr>
 								</div>
 								<form class="signup-form">
-									<div class="form-group">${member.name} 님</div>
 									<div class="form-group">
-										<a href="myPage.do">마이페이지</a>
+										<span style="font-size: 1.5em; color: skyblue;">${member.name}</span>
+										님
 									</div>
 								</form>
-
-								<button type="button" onclick="location.href='logout'">로그아웃</button>
-								<button type="button" onclick="location.href='memberUpdateView'">회원
-									정보 수정</button>
-								<button type="button" onclick="location.href='memberDeleteView'">회원
-									탈퇴</button>
+								<div class="center">
+									<button type="button" class="btn btn-outline-primary"
+										onclick="location.href='logout'">로그아웃</button>
+									<button type="button" class="btn btn-outline-primary"
+										onclick="location.href='memberUpdateView'">회원정보 수정</button>
+									<button type="button" class="btn btn-outline-primary"
+										onclick="location.href='memberDeleteView'">회원 탈퇴</button>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -194,7 +209,9 @@ div {
 								<c:if test="${kakaoID eq null}">
 									<a
 										href="https://kauth.kakao.com/oauth/authorize?client_id=4d6c516eb262829dabdcac45cae9703c&redirect_uri=http://localhost:8090/trip/login&response_type=code">
-										<img src="resources/images/kakao_login.png">
+										<div class="kakao">
+											<img src="resources/images/kakao_login.png">
+										</div>
 									</a>
 								</c:if>
 

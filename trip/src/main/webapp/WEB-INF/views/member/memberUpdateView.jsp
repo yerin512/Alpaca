@@ -5,6 +5,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
+	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="${contextPath}/resources/css/animate.css">
+
+<link rel="stylesheet"
+	href="${contextPath}/resources/css/owl.carousel.min.css">
+<link rel="stylesheet"
+	href="${contextPath}/resources/css/owl.theme.default.min.css">
+<link rel="stylesheet"
+	href="${contextPath}/resources/css/magnif.testimony-section .container-2ic-popup.css">
+
+<link rel="stylesheet"
+	href="${contextPath}/resources/css/bootstrap-datepicker.css">
+<link rel="stylesheet"
+	href="${contextPath}/resources/css/jquery.timepicker.css">
+
+
+<link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/style.css">
+
+
+<script src="/resources/js/jquery-3.2.1.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
 <style type="text/css">
 #container {
 	position: absolute;
@@ -38,15 +71,7 @@
 <title>회원 정보 수정</title>
 </head>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("#submit").on("click", function() {
-			alert("회원정보가 수정되었습니다. 로그인 페이지로 이동합니다.");
-			location.href = "/trip/index.do";
 
-		})
-	})
-</script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		// 취소
@@ -78,6 +103,57 @@
 	})
 </script>
 <body>
+
+<nav
+		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+		id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="index.do"><span>TRAVEL </span>MAKER</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#ftco-nav" aria-controls="ftco-nav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a href="${contextPath}/index.do"
+						class="nav-link">Home</a></li>
+					<li class="nav-item"><a
+						href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
+					<li class="nav-item"><a
+						href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
+					<li class="nav-item"><a href="${contextPath}/themaTour.do"
+						class="nav-link">채팅</a></li>
+					<li class="nav-item"><a
+						href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- END nav -->
+
+	<section class="hero-wrap hero-wrap-2"
+		style="background-image: url('${contextPath}/resources/images/bg_2.jpg');">
+		<div class="overlay"></div>
+		<div class="container">
+			<div
+				class="row no-gutters slider-text align-items-end justify-content-center">
+				<div class="col-md-9 ftco-animate pb-5 text-center">
+					<p class="breadcrumbs">
+						<span class="mr-2"><a href="index.do">Home <i
+								class="fa fa-chevron-right"></i></a></span> <span>일정짜기 <i
+							class="fa fa-chevron-right"></i></span>
+					</p>
+					<h1 class="mb-0 bread">회원가입</h1><br>
+            <p class="lead">회원가입하세요. 가입하면 게시판을 열람할 수 있습니다.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
 	<section id="container">
 		<form action="/trip/memberUpdate" method="post">
 			<div class="form-group has-feedback">

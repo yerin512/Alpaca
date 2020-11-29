@@ -154,7 +154,8 @@
 								class="fa fa-chevron-right"></i></a></span> <span>일정짜기 <i
 							class="fa fa-chevron-right"></i></span>
 					</p>
-					<h1 class="mb-0 bread">회원가입</h1>
+					<h1 class="mb-0 bread">회원가입</h1><br>
+            <p class="lead">회원가입하세요. 가입하면 게시판을 열람할 수 있습니다.</p>
 				</div>
 			</div>
 		</div>
@@ -165,7 +166,7 @@
 			<div class="row">
 				<div class="col-md-12 order-md-last">
 					<div class="p-4 p-md-5" id="sign_up_wrap">
-						<h3 class="mb-4">Create your account</h3>
+						<h3 class="mb-4">회원가입 해라 얍</h3>
 
 						<form action="member/addMember.do" class="signup-form"
 							method="post" enctype="multipart/form-data">
