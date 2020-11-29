@@ -36,11 +36,11 @@ public class MemberServiceImpl implements MemberService {
 		String result = memberDAO.idChk(vo);
 		return result;
 	}
-	
+
 	// 회원 정보 수정
 	@Override
 	public void memberUpdate(MemberVO vo) throws Exception {
-		 memberDAO.memberUpdate(vo);
+		memberDAO.memberUpdate(vo);
 	}
 
 	// 회원 탈퇴
@@ -48,7 +48,7 @@ public class MemberServiceImpl implements MemberService {
 	public void memberDelete(MemberVO vo) throws Exception {
 		memberDAO.memberDelete(vo);
 	}
-	
+
 	// 회원 탈퇴에 쓰일 패스워드 체크
 	@Override
 	public int passChk(MemberVO vo) throws Exception {
