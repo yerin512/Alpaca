@@ -11,7 +11,6 @@ create table trip_member(
 	name varchar2(20), 
 	email varchar2(40), 
 	pwd varchar2(20),
-	profile_img varchar2(1000)
 );
 
 alter table trip_member drop column profile_img;

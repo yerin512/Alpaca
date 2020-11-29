@@ -135,8 +135,7 @@ a {
 			articleNO[<c:out value='${status.index}'/>] = "<c:out value='${loc}'/>";
 			</c:forEach>
 
-			var customicon = 'http://drive.google.com/uc?export=view&id=1tZgPtboj4mwBYT6cZlcY36kYaQDR2bRM'; // 기본 마커
-			//      var customicon = "${contextPath}/resources/images/around/alpaca.png"  // 알파카 이미지 마커
+			var customicon = "${contextPath}/resources/images/around/icon.png";  // 알파카 이미지 마커
 			var infowindow = new google.maps.InfoWindow(); // 인포윈도우
 
 			var marker, i; //마커 생성
@@ -156,7 +155,7 @@ a {
 										infowindow
 												.setContent('<div class="wrap"><div class="text-box"><h3>'+title[i]+'</h3>'
 														+ '<div class="img-box"><img src="${contextPath}/board/download.do?articleNO='+articleNO[i]+'&imageFileName='+imageFileName[i]+'"></div>'
-														+ '<div class="price">'+price[i]+'원</div>'
+														+ '<div class="price">가격: '+price[i]+'원</div>'
 														+ '<a href="${contextPath}/board/viewArticle.do?articleNO='+articleNO[i]+'" class="link">상세보기</a></div>'); // html로 표시될 인포윈도우의 내용
 										infowindow.open(map, marker); // 인포윈도우가 표시될 위치
 									}

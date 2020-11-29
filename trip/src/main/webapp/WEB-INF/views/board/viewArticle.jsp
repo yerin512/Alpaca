@@ -2,6 +2,8 @@
 	isELIgnored="false" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<c:set var="article" value="${articleMap.article}" />
+<c:set var="imageFileList" value="${articleMap.imageFileList}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,14 +40,6 @@
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c8f1e98d3b42f208e812d6c641c3952e"></script>
 <style>
-#map {
-	width: 500px;
-	height: 300px;
-}
-
-.gmnoprint, .gm-control-active.gm-fullscreen-control {
-	display: none;
-}
 </style>
 </head>
 <body>
@@ -53,8 +47,9 @@
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="${contextPath}/index.do"><span>TRAVEL
-			</span>MAKER</a>
+			<a class="navbar-brand" href="${contextPath}/index.do"
+				style="background-image: url('${contextPath}/resources/images/logo.png');"><span
+				class="navbar-brandsp"></span></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#ftco-nav" aria-controls="ftco-nav"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -63,15 +58,15 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a href="${contextPath}/index.do"
+					<li class="nav-item"><a href="${contextPath}/index.do"
 						class="nav-link">Home</a></li>
-					<li class="nav-item"><a
+					<li class="nav-item active"><a
 						href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
 					<li class="nav-item"><a
 						href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
 					<li class="nav-item"><a href="${contextPath}/chat/login.do"
 						class="nav-link">채팅하기</a></li>
-					<li class="nav-item"><a
+					<li class="nav-item "><a
 						href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
 				</ul>
 			</div>
@@ -80,156 +75,124 @@
 	<!-- END nav -->
 
 	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('${contextPath}/resources/images/bg_2.jpg');">
+		style="background-image: url('${contextPath}/resources/images/bg_2.png');">
 		<div class="overlay"></div>
 		<div class="container">
 			<div
 				class="row no-gutters slider-text align-items-end justify-content-center">
 				<div class="col-md-9 ftco-animate pb-5 text-center">
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="${contextPath}/index.do">Home
-								<i class="fa fa-chevron-right"></i>
-						</a></span> <span class="mr-2"><a
-							href="${contextPath}/board/listArticles.do">게시글 목록 <i
-								class="fa fa-chevron-right"></i></a></span> <span>게시글 작성 <i
-							class="fa fa-chevron-right"></i>
-						</span>
+						<span class="mr-2"><a href="index.html">Home <i
+								class="fa fa-chevron-right"></i></a></span> <span>책거래 <i
+							class="fa fa-chevron-right"></i></span>
 					</p>
-					<h1 class="mb-0 bread">거래 게시물 작성</h1>
+					<h1 class="mb-0 bread">책 판매 작성</h1>
 				</div>
 			</div>
 		</div>
 	</section>
-
-	<!-- 게시물 작성 폼 -->
 	<form name="articleForm" method="post"
-		action="${contextPath}/board/addNewArticle.do"
+		action="${contextPath}/board/modArticle.do"
 		enctype="multipart/form-data">
+		<section id="articleForm">
+			<div class="articleFrom_table">
+				<!-- 게시물 작성 폼 -->
 
-		<!-- 이미지 파일 올리는 섹션 -->
-		<section class="ftco-section-kis bg-light">
-			<div class="container">
-				<div class="row">
-					<div
-						class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
-						<div class="staff-2 w-100">
-							앞면 <input type="file" name="file1" onchange="readURL1(this);" id="i_file"/>
-							<div class="img-wrap d-flex align-items-stretch">
-								<img id="preview1" src="#" width="100%" />
-							</div>
-						</div>
-					</div>
+				<!-- 이미지 파일 올리는 섹션 -->
 
-					<div
-						class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
-						<div class="staff-2 w-100">
-							뒷면 <input type="file" name="file2" onchange="readURL2(this);" id="i_file" />
-							<div class="img-wrap d-flex align-items-stretch">
-								<img id="preview2" src="#" width="100%" />
-							</div>
-						</div>
-					</div>
-
-					<div
-						class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
-						<div class="staff-2 w-100">
-							옆면 <input type="file" name="file3" onchange="readURL3(this);" id="i_file"/>
-							<div class="img-wrap d-flex align-items-stretch">
-								<img id="preview3" src="#" width="100%" />
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-
-		<div class="col-md-8 d-flex align-items-center">
-			<div class="staff-detail w-100 pl-md-5">
 				<table border="0" align="center">
 					<tr>
-						<td align="right"><h3>글제목</h3></td>
-						<td colspan="2"><input type="text" size="67" maxlength="500" id="i_title"
-							name="title" /></td>
+						<td class="td_title">이미지</td>
+						<td><section class="ftco-section-kis">
+								<div class="container">
+									<div class="row">
+
+										<c:forEach var="item" items="${imageFileList}"
+											varStatus="status">
+											<div
+												class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
+												<div class="staff-2 w-100">
+													<input type="hidden" name="originalFileName"
+														value="${item.imageFileName }" />
+													<div class="img-wrap d-flex align-items-stretch">
+														<img id="preview"
+															src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${item.imageFileName}"
+															width="100%" />
+
+														<div id="tr_file_upload">
+															<input type="file" name="imageFileName "
+																id="i_imageFileName" disabled onchange="readURL(this);" />
+														</div>
+													</div>
+												</div>
+											</div>
+										</c:forEach>
+									</div>
+								</div></td>
+					</tr>
+					<tr>
+						<td class="td_title" align="left" width="10%">책 제목</td>
+						<td colspan="2"><input type="text" size="67" maxlength="500"
+							name="title" value="${article.title}" class="title_input" /></td>
+					</tr>
+					<tr>
+						<td class="td_title" align="left">책 가격</td>
+						<td colspan=2><input type="text" size="20" maxlength="100"
+							value="${article.price}" class="title_input" />원</td>
+					</tr>
+					<tr>
+
+						<td class="td_title" colspan=2 align="left"><input
+							type="hidden" size="20" maxlength="100" value="${member.name }"
+							readonly /></td>
 						<td colspan=6></td>
 					</tr>
-					<td align="right">
-						<h3>가 &nbsp;&nbsp;&nbsp;&nbsp;격</h3>
-					</td>
-					<td colspan=2 align="left"><input type="number" size="20" id="i_price"
-						name="price" maxlength="100" /></td>
-					<td colspan=6></td>
 					<tr>
-						<td align="right">
-							<h3>작성자</h3>
-						</td>
-						<td colspan=2 align="left"><input type="text" size="20"
-							maxlength="100" value="${member.name }" readonly /></td>
-						<td colspan=6></td>
+						<td class="td_title" align="left">책 설명</td>
+						<td colspan=2><textarea id="i_content" name="content"
+								rows="10" cols="65" value="${article.content }" maxlength="4000"></textarea>
+							<script src="${contextPath}/resources/ckeditor/ckeditor.js"></script>
+							<script type="text/javascript">
+								CKEDITOR
+										.replace(
+												'i_content',
+												{
+													filebrowserUploadUrl : '${pageContext.request.contextPath }/community/fileupload.do'
+												});
+								window.parent.CKEDITOR.tools.callFunction(1,
+										"${url}", "전송완료");
+							</script></td>
+					</tr>
+					<tr>
+						<td align="left" class="td_title">판매 위치</td>
+						<td><div id="map"></div>
+							<div id="clickLatlng"></div></td>
+						<td><div id="loc_x"></div>
+							<div id="loc_y"></div></td>
 					</tr>
 
-					<tr>
-						<td align="right" valign="top"><br>
-							<h3>글내용</h3></td>
-						<td colspan=2><textarea name="content" rows="10" cols="65" id="i_content"
-								maxlength="4000"></textarea></td>
-						<td colspan=6></td>
-					</tr>
-
-					<tr>
-						<td>
-							<div id="loc_x"></div>
-							<div id="loc_y"></div>
-						</td>
-						<td><input type="submit" value="글쓰기" />
-						<input type=button value="목록보기" onClick="backToList(this.form)" />
-						</td>
-						
-					</tr>
-  <tr   id="tr_btn_modify"  align="center"  >
-	   <td colspan="2"   >
-	       <input type=button value="수정반영하기"   onClick="fn_modify_article(frmArticle)"  >
-           <input type=button value="취소"  onClick="backToList(frmArticle)">
-	   </td>   
-  </tr>
-    
-  <tr  id="tr_btn"    >
-   <td colspan="2" align="center">
-       <c:if test="${member.id == article.id }">
-	      <input type=button value="수정하기" onClick="fn_enable(this.form)">
-	      <input type=button value="삭제하기" onClick="fn_remove_article('${contextPath}/board/removeArticle.do', ${article.articleNO})">
-	    </c:if>
-	    <input type=button value="리스트로 돌아가기"  onClick="backToList(this.form)">
 				</table>
+
+
+				<div class="div_input">
+					<input type="submit" value="작성"
+						class="write_btn btn btn-outline btn-primary" /> <input
+						type=button value="목록" onClick="backToList(this.form)"
+						class="write_btn btn btn-outline btn-primary" />
+					<div id="tr_btn">
+						<c:if test="${member.id == article.id }">
+
+							<input type=button value="수정하기" onClick="fn_enable(this.form)">
+							<input type=button value="삭제하기"
+								onClick="fn_remove_article('${contextPath}/board/removeArticle.do', ${article.articleNO})">
+
+						</c:if>
+					</div>
+				</div>
+
 			</div>
-		</div>
-		
-		<div id="search">
-		<input id="search_input" placeholder="거래 장소를 입력해주세요" />
-		<button id="search_button">검색</button>
-	</div>
-	<div id="map"></div>
-	<div id="result"></div>
-	<div id="clickLatlng"></div>
-		
-		
-		
+		</section>
 	</form>
-	
-
-
-
-
-	<!-- loader -->
-	<div id="ftco-loader" class="show fullscreen">
-		<svg class="circular" width="48px" height="48px">
-			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
-				stroke-width="4" stroke="#eeeeee" />
-			
-			<circle class="path" cx="24" cy="24" r="22" fill="none"
-				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
-	</div>
-
 
 	<script src="${contextPath}/resources/js/jquery.min.js"></script>
 	<script src="${contextPath}/resources/js/jquery-migrate-3.0.1.min.js"></script>
@@ -250,9 +213,8 @@
 		 document.getElementById("i_title").disabled=false;
 		 document.getElementById("i_content").disabled=false;
 		 document.getElementById("i_price").disabled=false;
-		 document.getElementById("i_file").disabled=false;
+		 document.getElementById("i_imageFileName").disabled=false;
 		 document.getElementById("tr_btn_modify").style.display="block";
-		 
 		 document.getElementById("tr_file_upload").style.display="block";
 		 document.getElementById("tr_btn").style.display="none";
 	 }
@@ -276,77 +238,52 @@
 	     form.submit();
 	 
 	 }
+
 	
 	
 	
-		function readURL1(input) {
+		function readURL(input) {
 			if (input.files && input.files[0]) {
 				var reader = new FileReader();
 				reader.onload = function(e) {
-					$('#preview1').attr('src', e.target.result);
+					$('#preview').attr('src', e.target.result);
 				}
 				reader.readAsDataURL(input.files[0]);
 			}
 		}
 
-		function readURL2(input) {
-			if (input.files && input.files[0]) {
-				var reader = new FileReader();
-				reader.onload = function(e) {
-					$('#preview2').attr('src', e.target.result);
-				}
-				reader.readAsDataURL(input.files[0]);
-			}
-		}
-
-		function readURL3(input) {
-			if (input.files && input.files[0]) {
-				var reader = new FileReader();
-				reader.onload = function(e) {
-					$('#preview3').attr('src', e.target.result);
-				}
-				reader.readAsDataURL(input.files[0]);
-			}
-		}
-
+		
 		function backToList(obj) {
 			obj.action = "${contextPath}/board/listArticles.do";
 			obj.submit();
 		}
-
+		
 		var mapContainer = document.getElementById('map');
-		var mapOption = {
-			center : new kakao.maps.LatLng(37.50324897169478,
-					127.02453020156122),
-			level : 4
-		};
+	    var mapOption = {
+	        center: new kakao.maps.LatLng(37.50324897169478, 127.02453020156122),
+	        level: 4
+	    };
+	
+	    var map = new kakao.maps.Map(mapContainer, mapOption);
+	    
+	    var marker = new kakao.maps.Marker({ 
+	        position: map.getCenter() 
+	    });
+	    marker.setMap(map);
+	 
+	    
+	    kakao.maps.event.addListener(map, 'click', function(mouseEvent) {  
+	        var latlng = mouseEvent.latLng; 
+	        marker.setPosition(latlng);
+	        
 
-		var map = new kakao.maps.Map(mapContainer, mapOption);
-
-		var marker = new kakao.maps.Marker({
-			position : map.getCenter()
-		});
-		marker.setMap(map);
-
-		kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
-			var latlng = mouseEvent.latLng;
-			marker.setPosition(latlng);
-
-			var message = '클릭한 위치의 위도: ' + latlng.getLat() + ', ';
-			message += '경도: ' + latlng.getLng();
-
-			var resultDiv = document.getElementById('result');
-			resultDiv.innerHTML = message;
-
-			var locx = '<input type="number" name="loc_x" value="'
-					+ latlng.getLat() + '">';
-			var locy = '<input type="number" name="loc_y" value="'
-					+ latlng.getLng() + '">';
-			var resultx = document.getElementById('loc_x');
-			resultx.innerHTML = locx;
-			var resulty = document.getElementById('loc_y');
-			resulty.innerHTML = locy;
-		});
+	        var locx ='<input type="number" name="loc_x" value="'+latlng.getLat()+'"/>';
+	        var locy ='<input type="number" name="loc_y" value="'+latlng.getLng()+'"/>';
+	        var resultx = document.getElementById('loc_x');
+	        resultx.innerHTML = locx;
+	        var resulty = document.getElementById('loc_y');
+	        resulty.innerHTML = locy;
+	    });
 	</script>
 </body>
 </html>
