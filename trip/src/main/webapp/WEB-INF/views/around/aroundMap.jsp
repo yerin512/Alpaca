@@ -5,70 +5,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>알파카 - 믿을 수 있는 중고 책 거래사이트</title>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="utf-8">
+	<title>알파카 - 헌 책 알고 팔자! 중고책거래 사이트</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" href="${contextPath}/resources/css/animate.css">
-    
+    <link rel="stylesheet" href="${contextPath}/resources/css/animate.css">    
     <link rel="stylesheet" href="${contextPath}/resources/css/owl.carousel.min.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/magnific-popup.css">
-
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/jquery.timepicker.css">
-
     <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
 
-
-<style>
-#map {
-	width: 100vw;
-	height: 100vh;
-}
-
-.wrap {
-	width: 200px;
-}
-
-.text-box {
-	text-align: center;
-}
-
-h3 {
-	margin: 10px auto 0;
-}
-
-.img-box {
-	max-height: 80px;
-	overflow: hidden;
-	float: left;
-}
-
-img {
-	width: 70px;
-	height: 70px;
-	margin: -20px auto 0;
-}
-
-a {
-	color: blue;
-}
-
-.gmnoprint, .gm-control-active.gm-fullscreen-control {
-	display: none;
-}
-</style>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script async defer
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPkXtedSjcR4hmYgEAvIjgOb_aTuiGKQk&callback=initMap&region=kr"></script>
+	<style>
+		#map {width: 100vw; height: 100vh;}
+		.wrap {width: 200px;}
+		.text-box {text-align: center;}	
+		h3 {margin: 10px auto 0;}
+		.img-box {max-height: 80px;overflow: hidden;float: left;}	
+		img {width: 70px;height: 70px;margin: -20px auto 0;}	
+		a {color: blue;}
+		.gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}
+	</style>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPkXtedSjcR4hmYgEAvIjgOb_aTuiGKQk&callback=initMap&region=kr"></script>
 
 	<script>
 		function initMap() {
@@ -79,26 +43,6 @@ a {
 				},
 				zoom : 16
 			});
-
-			var locations = [ // 마커 정보
-					[
-							'<div class="wrap"><div class="text-box"><h3>트렌드 코리아</h3>'
-									+ '<div class="img-box"><img src="${contextPath}/resources/images/around/book1.jpg"></div>'
-									+ '<div class="price">가격 : 8,500원</div>'
-									+ '<a href="${contextPath}/board/listArticles.do" class="link">상세보기</a></div>',
-							37.57115541194289, 126.97775376894938 ],
-					[
-							'<div class="wrap"><div class="text-box"><h3>기분이 태도가 되지 않게</h3>'
-									+ '<div class="img-box"><img src="${contextPath}/resources/images/around/book4.jpg"></div>'
-									+ '<div class="price">가격 : 6,000원</div>'
-									+ '<a href="${contextPath}/board/listArticles.do" class="link">상세보기</a></div>',
-							37.56649243480132, 126.98401308959981 ],
-					[
-							'<div class="wrap"><div class="text-box"><h3>돈의 속성</h3>'
-									+ '<div class="img-box"><img src="${contextPath}/resources/images/around/book2.jpg"></div>'
-									+ '<div class="price">가격 : 7,300원</div>'
-									+ '<a href="${contextPath}/board/listArticles.do" class="link">상세보기</a></div>',
-							37.566081094077525, 126.96597699812116 ] ]
 
 			var locX = [];
 			<c:forEach var = "loc" items="${locX}" varStatus="status">
@@ -146,41 +90,31 @@ a {
 					map : map
 				});
 
-				google.maps.event
-						.addListener(
-								marker,
-								'click',
-								(function(marker, i) {
-									return function() {
-										infowindow
-												.setContent('<div class="wrap"><div class="text-box"><h3>'+title[i]+'</h3>'
-														+ '<div class="img-box"><img src="${contextPath}/board/download.do?articleNO='+articleNO[i]+'&imageFileName='+imageFileName[i]+'"></div>'
-														+ '<div class="price">가격: '+price[i]+'원</div>'
-														+ '<a href="${contextPath}/board/viewArticle.do?articleNO='+articleNO[i]+'" class="link">상세보기</a></div>'); // html로 표시될 인포윈도우의 내용
-										infowindow.open(map, marker); // 인포윈도우가 표시될 위치
-									}
-								})(marker, i));
+				google.maps.event.addListener(marker, 'click', (function(marker, i) {
+					return function() {
+						infowindow.setContent('<div class="wrap"><div class="text-box"><h3>'+title[i]+'</h3>'
+							+ '<div class="img-box"><img src="${contextPath}/board/download.do?articleNO='+articleNO[i]+'&imageFileName='+imageFileName[i]+'"></div>'
+							+ '<div class="price">가격: '+price[i]+'원</div>'
+							+ '<a href="${contextPath}/board/viewArticle.do?articleNO='+articleNO[i]+'" class="link">상세보기</a></div>'); // html로 표시될 인포윈도우의 내용
+						infowindow.open(map, marker); // 인포윈도우가 표시될 위치
+					}
+				})(marker, i));
 
 				if (marker) {
 					marker.addListener('click', function() {
 						map.setCenter(this.getPosition()); // 중심 위치를 클릭된 마커의 위치로 변경
-						map.setZoom(17); // 마커 클릭 시 줌 변화
+						map.setZoom(17);
 					});
 				}
 			}
 		}
 	</script>
-	</head>
+</head>
 <body>
-<nav
-		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
-		id="ftco-navbar">
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="${contextPath}/index.do"><span>TRAVEL
-			</span>MAKER</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#ftco-nav" aria-controls="ftco-nav"
-				aria-expanded="false" aria-label="Toggle navigation">
+			<a class="navbar-brand" href="${contextPath}/index.do" style="background-image: url('${contextPath}/resources/images/logo.png');"><span class="navbar-brandsp"></span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span> Menu
 			</button>
 
@@ -188,26 +122,15 @@ a {
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active"><a href="${contextPath}/index.do" class="nav-link">Home</a></li>
 					<li class="nav-item active"><a href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
-					<li class="nav-item active"><a
-						href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
+					<li class="nav-item active"><a href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
 					<li class="nav-item active"><a href="${contextPath}/chat/login.do"class="nav-link">채팅하기</a></li>
-					<li class="nav-item active"><a
-						href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
+					<li class="nav-item active"><a href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-
 	<div id="map" style="width: 100%; height: 100vh;"></div>
-
-
-
-
-
-
-
-
 
 </body>
 </html>
