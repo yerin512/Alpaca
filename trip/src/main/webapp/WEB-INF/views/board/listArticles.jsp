@@ -127,10 +127,9 @@
 										<h3>
 											<a href="${contextPath}/board/viewArticle.do">${item.title}</a>
 										</h3>
-										<span class="position mb-2">Business</span>
+									   <span class="position mb-2">${item.writeDate }</span>
 										<div class="faded">
-											<p>I am an ambitious workaholic, but apart from that,
-												pretty simple person.</p>
+											<p>${item.price}원</p>
 										</div>
 									</div>
 								</div>

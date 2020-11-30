@@ -69,7 +69,10 @@ public class BoardServiceImpl  implements BoardService{
 		boardDAO.deleteArticle(articleNO);
 	}
 
-
+	@Override
+	public void removeImageFile(int articleNO) throws Exception{
+		boardDAO.deleteImageFile(articleNO);
+	}
 
 
 

@@ -49,7 +49,7 @@
   
    <select id="selectAllThumbnailsList" resultMap="thumbResult" >
      <![CDATA[
-      SELECT ai.articleNO, a.title, a.price, ai.imageFileName, a.loc_x, a.loc_y,
+      SELECT ai.articleNO, a.title, a.price, ai.imageFileName, a.loc_x, a.loc_y, a.writeDate,
       CASE MOD(ai.imageFileNO, 3) WHEN 1 THEN ai.imageFileNO
       ELSE 0
       END imagefileno
@@ -76,8 +76,15 @@
  	 </select>
   
   	<update id="updateArticle"  parameterType="java.util.Map">
-		
+					update article
+			set title=#{title},	 
+			content=#{content},
+			price=#{price},
+			loc_x=#{loc_x},
+			loc_y=#{loc_y}
+			where articleNO=#{articleNO}
 	</update>
+		
 	
 	<delete id="deleteArticle"  parameterType="int">
       delete from article
@@ -88,8 +95,8 @@
   	 
   	  <insert id="insertNewArticle"  parameterType="java.util.Map">
     <![CDATA[
-    INSERT into article( id, articleNO, title, content, loc_x, loc_y)         
-			VALUES(#{id}, #{articleNO}, #{title}, #{content}, #{loc_x}, #{loc_y})  
+    INSERT into article( id, articleNO, title, content, loc_x, loc_y, price)         
+			VALUES(#{id}, #{articleNO}, #{title}, #{content}, #{loc_x}, #{loc_y}, #{price})  
     ]]>      
   </insert>
 
@@ -102,8 +109,11 @@
     </foreach>
   </insert>
   	
-  	
-  	
+   	<delete id="deleteImageFile"  parameterType="int">
+      delete from aImageFile
+      where articleNO=#{articleNO}
+   	</delete>  	
+  	 
   	
   	
   	
