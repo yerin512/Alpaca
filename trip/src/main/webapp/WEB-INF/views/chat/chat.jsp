@@ -7,9 +7,11 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>알파카 - 헌 책 알고 팔자! 중고책거래 사이트</title>
+		
 	<link rel="stylesheet" href="${contextPath}/resources/css/bootstrap.css">
 	<link rel="stylesheet" href="${contextPath}/resources/css/custom.css">
-	<title>알파카 - 믿을 수 있는 중고 책 거래사이트</title>
+
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="${contextPath}/resources/js/bootstrap.js"></script>
 </head>
@@ -32,7 +34,7 @@
 							<div class="portlet-body chat-widget" style="overflow-y: auto; width: auto; height: 400px;">
 								<div class="row">
 									<div class="col-lg-12">
-										<p class="text-center text-muted small">2020년 11월 27일(수)</p>
+										<p class="text-center text-muted small">2020년 12월 7일(월)</p>
 									</div>
 								</div>
 								<div class="row">											

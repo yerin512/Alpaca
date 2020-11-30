@@ -6,3 +6,5 @@
 /.settings/
 *.class
 trip/target/
+*.MF
+*.properties
