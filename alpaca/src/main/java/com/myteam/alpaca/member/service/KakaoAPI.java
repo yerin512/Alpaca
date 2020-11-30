@@ -45,7 +45,7 @@ public class KakaoAPI {
 			StringBuilder sb = new StringBuilder();
 			sb.append("grant_type=authorization_code");
 			sb.append("&client_id=4d6c516eb262829dabdcac45cae9703c");
-			sb.append("&redirect_uri=http://localhost:8090/trip/login");
+			sb.append("&redirect_uri=http://localhost:8090/alpaca/login");
 			sb.append("&code=" + authorize_code);
 			bw.write(sb.toString());
 			bw.flush();
