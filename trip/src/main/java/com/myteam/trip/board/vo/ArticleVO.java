@@ -24,6 +24,16 @@ public class ArticleVO {
 	private String condition;
 	
 	
+	@Override
+	public String toString() {
+		return "ArticleVO [id=" + id + ", articleNO=" + articleNO + ", title=" + title + ", content=" + content
+				+ ", price=" + price + ", imageFileName=" + imageFileName + ", writeDate=" + writeDate + ", location="
+				+ location + ", loc_x=" + loc_x + ", loc_y=" + loc_y + ", genre=" + genre + ", way=" + way
+				+ ", condition=" + condition + "]";
+	}
+
+
+
 	public ArticleVO() {
 		
 	}

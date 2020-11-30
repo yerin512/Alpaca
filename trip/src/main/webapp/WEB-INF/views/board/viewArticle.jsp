@@ -133,12 +133,12 @@
 					<tr>
 						<td class="td_title" align="left" width="10%">책 제목</td>
 						<td colspan="2"><input type="text" size="67" maxlength="500"
-							name="title" value="${article.title}" class="title_input" /></td>
+							name="title" value="${article.title}" class="title_input" disabled/></td>
 					</tr>
 					<tr>
 						<td class="td_title" align="left">책 가격</td>
 						<td colspan=2><input type="text" size="20" maxlength="100"
-							value="${article.price}" class="title_input" />원</td>
+							value="${article.price}" class="title_input" disabled/>원</td>
 					</tr>
 					<tr>
 
@@ -150,7 +150,7 @@
 					<tr>
 						<td class="td_title" align="left">책 설명</td>
 						<td colspan=2><textarea id="i_content" name="content"
-								rows="10" cols="65" value="${article.content }" maxlength="4000"></textarea>
+								rows="10" cols="65"  maxlength="4000" disabled>${article.content }</textarea>
 							<script src="${contextPath}/resources/ckeditor/ckeditor.js"></script>
 							<script type="text/javascript">
 								CKEDITOR
@@ -260,7 +260,7 @@
 		
 		var mapContainer = document.getElementById('map');
 	    var mapOption = {
-	        center: new kakao.maps.LatLng(37.50324897169478, 127.02453020156122),
+	        center: new kakao.maps.LatLng(${article.loc_x}, ${article.loc_y}),
 	        level: 4
 	    };
 	
