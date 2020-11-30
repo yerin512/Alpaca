@@ -59,7 +59,7 @@ div {
 					<li class="nav-item active"><a href="${contextPath}/index.do"
 						class="nav-link">Home</a></li>
 					<li class="nav-item"><a
-						href="${contextPath}/board/instructor.do" class="nav-link">책거래</a></li>
+						href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
 					<li class="nav-item"><a
 						href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
 					<li class="nav-item"><a href="${contextPath}/chat/login.do"
