@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>StudyLab - Free Bootstrap 4 Template by Colorlib</title>
+<title>알파카 - 헌 책 알고 팔자! 중고책거래 사이트</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -79,10 +79,10 @@
 				<div class="col-md-9 ftco-animate pb-5 text-center">
 					<p class="breadcrumbs">
 						<span class="mr-2"><a href="index.html">Home <i
-								class="fa fa-chevron-right"></i></a></span> <span>맞춤테마 <i
+								class="fa fa-chevron-right"></i></a></span> <span>책거래 <i
 							class="fa fa-chevron-right"></i></span>
 					</p>
-					<h1 class="mb-0 bread">맞춤테마</h1>
+					<h1 class="mb-0 bread">책거래 목록</h1>
 				</div>
 			</div>
 		</div>

@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>알파카 - 믿을 수 있는 중고 책 거래사이트</title>
+<title>알파카 - 헌 책 알고 팔자! 중고책거래 사이트</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -178,12 +178,12 @@
 					<input type="submit" value="작성"
 						class="write_btn btn btn-outline btn-primary" /> <input
 						type=button value="목록" onClick="backToList(this.form)"
-						class="write_btn btn btn-outline btn-primary" />
+						class="btn_list write_btn btn btn-outline btn-primary" />
 					<div id="tr_btn">
 						<c:if test="${member.id == article.id }">
 
-							<input type=button value="수정하기" onClick="fn_enable(this.form)">
-							<input type=button value="삭제하기"
+							<input class="write_btn btn btn-outline btn-primary" type=button value="수정" onClick="fn_enable(this.form)">
+							<input class="write_btn btn btn-outline btn-primary" type=button value="삭제"
 								onClick="fn_remove_article('${contextPath}/board/removeArticle.do', ${article.articleNO})">
 
 						</c:if>
@@ -239,8 +239,6 @@
 	     form.submit();
 	 
 	 }
-
-	
 	
 	
 		function readURL(input) {

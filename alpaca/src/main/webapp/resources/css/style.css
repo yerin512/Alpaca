@@ -12744,11 +12744,12 @@ max-width
 #articleForm .gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}
 #articleForm  table{width:95%}
 #articleForm .btn.btn-primary{padding:4px 38px!important;}
-#articleForm .div_input{width:235px;margin:20px auto;}
+#articleForm .div_input{width:250px;margin:20px auto;}
 #articleForm .div_input>input{margin-right:10px}
-#articleForm .div_input>input:last-child{margin-right:0}
 #articleForm input.title_input{width:30%;height:40px;border:1px solid #ddd}
 #articleForm .td_title{font-size:16px;color:#666;font-weight:bold}
+#articleForm #tr_btn{width:250px}
+#articleForm #tr_btn>input{margin-right:10px}
 /*而ㅻ�ㅻ땲�떚*/
 
 .communityList .content_wrap {
