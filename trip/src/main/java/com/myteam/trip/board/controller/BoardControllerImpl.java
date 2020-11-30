@@ -61,6 +61,8 @@ public class BoardControllerImpl implements BoardController {
 		Map articleMap = boardService.viewArticle(articleNO);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
+		String a = articleMap.toString();
+		System.out.println(a);  //위도 경도 값 잘 들어있다
 		mav.addObject("articleMap", articleMap);
 		return mav;
 	}
@@ -80,13 +82,8 @@ public class BoardControllerImpl implements BoardController {
 			articleMap.put(name, value);
 		}
 		//articleForm에 지도 넣어서 값 찍을 수 있을 때까지 고정값을 넣어준다
-		double x = 37.56651203645214;
-		double y = 126.97785926709967;
-		articleMap.put("loc_x", x);
-		articleMap.put("loc_y", y);
-		
+
 		articleMap.remove("originalFileName");  //이건 imageList거를 가져와야되는데 article에 있는 imageFileName을 가져오더라 그래서 지운다.
-		articleMap.put("price", 5000);
 		//여기까지
 		String mapString = articleMap.toString();
 		System.out.println("수정전에서 가져온 name속성들: "+mapString);
