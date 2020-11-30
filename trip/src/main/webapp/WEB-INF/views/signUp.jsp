@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Travel Maker - 개인 맞춤형 여행 사이트</title>
+<title>알파카 - 믿을 수 있는 중고 책 거래사이트</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -99,7 +99,7 @@
 </script>
 
 
-
+<%-- 회원가입 후 로그인페이지로 이동 --%>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$(".btn").on("click", function() {
@@ -154,7 +154,8 @@
 								class="fa fa-chevron-right"></i></a></span> <span>일정짜기 <i
 							class="fa fa-chevron-right"></i></span>
 					</p>
-					<h1 class="mb-0 bread">회원가입</h1>
+					<h1 class="mb-0 bread">회원가입</h1><br>
+            <p class="lead">회원가입하세요. 가입하면 게시판을 열람할 수 있습니다.</p>
 				</div>
 			</div>
 		</div>
@@ -165,7 +166,7 @@
 			<div class="row">
 				<div class="col-md-12 order-md-last">
 					<div class="p-4 p-md-5" id="sign_up_wrap">
-						<h3 class="mb-4">Create your account</h3>
+						<h3 class="mb-4">회원가입 해라 얍</h3>
 
 						<form action="member/addMember.do" class="signup-form"
 							method="post" enctype="multipart/form-data">
