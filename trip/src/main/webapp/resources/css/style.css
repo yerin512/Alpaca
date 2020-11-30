@@ -11163,7 +11163,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 	background: #4986fc;
 	border: 1px solid #4986fc !important;
 	color: #fff !important;
-	padding: 20px
+	padding: 20px;	
 }
 
 .btn.btn-primary:hover {
@@ -12736,8 +12736,7 @@ max-width
 	background: #FFA648 !important
 }
 
-
-/*책판매작성 articleForm*/
+/*梨낇뙋留ㅼ옉�꽦 articleForm*/
 #articleForm{width:60%;margin:90px auto;border:1px solid #ddd}
 #articleForm #preview1, #articleForm #preview2, #articleForm #preview3{background:#ddd}
 #articleForm .staff-2 .img-wrap{width:250px!imporant;height:250px!important}
@@ -12750,7 +12749,7 @@ max-width
 #articleForm .div_input>input:last-child{margin-right:0}
 #articleForm input.title_input{width:30%;height:40px;border:1px solid #ddd}
 #articleForm .td_title{font-size:16px;color:#666;font-weight:bold}
-/*커뮤니티*/
+/*而ㅻ�ㅻ땲�떚*/
 
 .communityList .content_wrap {
 	margin: 95px auto
@@ -12803,7 +12802,7 @@ max-width
 	display: none
 }
 
-/*커뮤니티 글쓰기*/
+/*而ㅻ�ㅻ땲�떚 湲��벐湲�*/
 #communityFrom {
 	width: 60%;
 	margin: 90px auto
@@ -12847,7 +12846,7 @@ max-width
 #communityFrom .td_btn input:first-child {
 	margin-left: 43%
 }
-/*커뮤니티 글목록*/
+/*而ㅻ�ㅻ땲�떚 湲�紐⑸줉*/
 .communityList {
 	padding: margin auto;
 	padding: 130px 0;
@@ -13419,9 +13418,9 @@ alret
 	stroke-linecap: round;
 }
 
-/*占쏙옙占쏙옙찾占쏙옙 占쌉쏙옙占쏙옙 占쌜몌옙占�*/
+/*�뜝�룞�삕�뜝�룞�삕李얍뜝�룞�삕 �뜝�뙃�룞�삕�뜝�룞�삕 �뜝�뙗紐뚯삕�뜝占�*/
 
-/*占쏙옙占쏙옙찾占쏙옙 占쌜억옙占쏙옙*/
+/*�뜝�룞�삕�뜝�룞�삕李얍뜝�룞�삕 �뜝�뙗�뼲�삕�뜝�룞�삕*/
 @
 -webkit-keyframes loader-rotate { 100% {
 	-webkit-transform: rotate(360deg);

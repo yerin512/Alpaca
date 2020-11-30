@@ -29,7 +29,7 @@
 	    #login-form > div {margin: 15px 0;}	    
 	    #chatLogin{position:relative;width:500px;height:300px;background: #f8f8f8;}
 	    #chatLogin .userBox{position:absolute;bottom:0;left:0;width:100%}
-	    #chatLogin .btn-primary{position:absolute;}	
+	    #chatLogin .btn-primary{position:absolute;line-height:8px;}	
 	</style>
 </head>
 <body>
