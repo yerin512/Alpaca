@@ -148,7 +148,7 @@
                      <div class="login-wrap p-4 p-md-5">
                         <h3 class="form-group">알파카에 오신걸 환영합니다!!</h3>
                         <div class="form-group">
-                           <img src="resources/images/trip_2.jpg" width="200"
+                           <img src="resources/images/alpaca_2.jpg" width="200"
                               height="200" /><br>
                            <hr>
                         </div>

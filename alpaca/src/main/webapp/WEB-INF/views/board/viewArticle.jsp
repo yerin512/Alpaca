@@ -82,9 +82,9 @@
 				class="row no-gutters slider-text align-items-end justify-content-center">
 				<div class="col-md-9 ftco-animate pb-5 text-center">
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i
-								class="fa fa-chevron-right"></i></a></span> <span>책거래 <i
-							class="fa fa-chevron-right"></i></span>
+						<span class="mr-2"><a href="${contextPath}index.do">Home
+								<i class="fa fa-chevron-right"></i>
+						</a></span> <span>책거래 <i class="fa fa-chevron-right"></i></span>
 					</p>
 					<h1 class="mb-0 bread">책 판매 작성</h1>
 				</div>
@@ -106,39 +106,81 @@
 						<td><section class="ftco-section-kis">
 								<div class="container">
 									<div class="row">
+										<div
+											class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
+											<div class="staff-2 w-100">
+												<input type="hidden" name="originalFileName"
+													value="${imageFileList[0].imageFileName }" />
+												<div class="img-wrap d-flex align-items-stretch">
+													<img id="preview1"
+														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${imageFileList[0].imageFileName}"
+														width="100%" />
 
-										<c:forEach var="item" items="${imageFileList}"
-											varStatus="status">
-											<div
-												class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
-												<div class="staff-2 w-100">
-													<input type="hidden" name="originalFileName"
-														value="${item.imageFileName }" />
-													<div class="img-wrap d-flex align-items-stretch">
-														<img id="preview"
-															src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${item.imageFileName}"
-															width="100%" />
+												
+												</div>
+												
+													<div id="tr_file_upload">
+														<input type="file" name="file1" 
+															id="i_imageFileName1" disabled onchange="readURL1(this);" />
+													</div>
+											</div>
+										</div>
 
-														<div id="tr_file_upload">
-															<input type="file" name="imageFileName "
-																id="i_imageFileName" disabled onchange="readURL(this);" />
-														</div>
+										<div
+											class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
+											<div class="staff-2 w-100">
+												<input type="hidden" name="originalFileName"
+													value="${imageFileList[1].imageFileName }" />
+												<div class="img-wrap d-flex align-items-stretch">
+													<img id="preview2"
+														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${imageFileList[1].imageFileName }"
+														width="100%" />
+
+													<div id="tr_file_upload">
+														<input type="file" name="file2"
+															id="i_imageFileName2" disabled onchange="readURL2(this);" />
 													</div>
 												</div>
 											</div>
-										</c:forEach>
+										</div>
+
+
+										<div
+											class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
+											<div class="staff-2 w-100">
+												<input type="hidden" name="originalFileName"
+													value="${imageFileList[2].imageFileName }" />
+												<div class="img-wrap d-flex align-items-stretch">
+													<img id="preview3"
+														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${imageFileList[2].imageFileName }"
+														width="100%" />
+
+													<div id="tr_file_upload">
+														<input type="file" name="file3"
+															id="i_imageFileName3" disabled onchange="readURL3(this);" />
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+
+
+
 									</div>
 								</div></td>
 					</tr>
 					<tr>
 						<td class="td_title" align="left" width="10%">책 제목</td>
 						<td colspan="2"><input type="text" size="67" maxlength="500"
-							name="title" value="${article.title}" class="title_input" disabled/></td>
+							id="i_title" name="title" value="${article.title}"
+							class="title_input" disabled /></td>
 					</tr>
 					<tr>
 						<td class="td_title" align="left">책 가격</td>
 						<td colspan=2><input type="text" size="20" maxlength="100"
-							value="${article.price}" class="title_input" disabled/>원</td>
+							name="price" id="i_price" value="${article.price}"
+							class="title_input" disabled />원</td>
 					</tr>
 					<tr>
 
@@ -150,11 +192,10 @@
 					<tr>
 						<td class="td_title" align="left">책 설명</td>
 						<td colspan=2><textarea id="i_content" name="content"
-								rows="10" cols="65"  maxlength="4000" disabled>${article.content }</textarea>
+								rows="10" cols="65" maxlength="4000" disabled>${article.content }</textarea>
 							<script src="${contextPath}/resources/ckeditor/ckeditor.js"></script>
 							<script type="text/javascript">
-								CKEDITOR
-										.replace(
+								CKEDITOR.replace(
 												'i_content',
 												{
 													filebrowserUploadUrl : '${pageContext.request.contextPath }/community/fileupload.do'
@@ -165,7 +206,7 @@
 					</tr>
 					<tr>
 						<td align="left" class="td_title">판매 위치</td>
-						<td><div id="map" ></div>
+						<td><div id="map"></div>
 							<div id="clickLatlng"></div></td>
 						<td><div id="loc_x"></div>
 							<div id="loc_y"></div></td>
@@ -179,14 +220,19 @@
 						class="write_btn btn btn-outline btn-primary" /> <input
 						type=button value="목록" onClick="backToList(this.form)"
 						class="write_btn btn btn-outline btn-primary" />
-					<div id="tr_btn">
-						<c:if test="${member.id == article.id }">
 
+					<div id="tr_btn">
+						<c:if test="${member.id == article.id}">
 							<input type=button value="수정하기" onClick="fn_enable(this.form)">
 							<input type=button value="삭제하기"
 								onClick="fn_remove_article('${contextPath}/board/removeArticle.do', ${article.articleNO})">
-
 						</c:if>
+						<div id="tr_btn_modify" align="center">
+								<input type=button value="수정반영하기"
+									onClick="fn_modify_article(frmArticle)"> <input
+									type=button value="취소" onClick="backToList(frmArticle)">
+
+							</div>
 					</div>
 				</div>
 
@@ -213,10 +259,11 @@
 		 document.getElementById("i_title").disabled=false;
 		 document.getElementById("i_content").disabled=false;
 		 document.getElementById("i_price").disabled=false;
-		 document.getElementById("i_imageFileName").disabled=false;
+		 document.getElementById("i_imageFileName1").disabled=false;
+		 document.getElementById("i_imageFileName2").disabled=false;
+		 document.getElementById("i_imageFileName3").disabled=false;
 		 document.getElementById("tr_btn_modify").style.display="block";
 		 document.getElementById("tr_file_upload").style.display="block";
-		 document.getElementById("map").style.display="block";
 		 document.getElementById("tr_btn").style.display="none";
 	 }
 	 
@@ -243,11 +290,31 @@
 	
 	
 	
-		function readURL(input) {
+		function readURL1(input) {
 			if (input.files && input.files[0]) {
 				var reader = new FileReader();
 				reader.onload = function(e) {
-					$('#preview').attr('src', e.target.result);
+					$('#i_imageFileName1').attr('src', e.target.result);
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+		
+		function readURL2(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$('#i_imageFileName2').attr('src', e.target.result);
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+		
+		function readURL3(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$('#i_imageFileName3').attr('src', e.target.result);
 				}
 				reader.readAsDataURL(input.files[0]);
 			}
@@ -261,7 +328,7 @@
 		
 		var mapContainer = document.getElementById('map');
 	    var mapOption = {
-	        center: new kakao.maps.LatLng(${article.loc_x}, ${article.loc_y}),
+	        center: new kakao.maps.LatLng('${article.loc_x}', '${article.loc_y}'),
 	        level: 4
 	    };
 	
@@ -278,8 +345,8 @@
 	        marker.setPosition(latlng);
 	        
 
-	        var locx ='<input type="number" name="loc_x" value="'+latlng.getLat()+'"/>';
-	        var locy ='<input type="number" name="loc_y" value="'+latlng.getLng()+'"/>';
+	        var locx ='<input type="hidden" name="loc_x" value="'+latlng.getLat()+'"/>';
+	        var locy ='<input type="hidden" name="loc_y" value="'+latlng.getLng()+'"/>';
 	        var resultx = document.getElementById('loc_x');
 	        resultx.innerHTML = locx;
 	        var resulty = document.getElementById('loc_y');
