@@ -45,8 +45,8 @@
 					<li class="nav-item"><a href="${contextPath}/index.do" class="nav-link">Home</a></li>
 					<li class="nav-item"><a href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
 					<li class="nav-item"><a href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
-					<li class="nav-item"><a href="${contextPath}/chat/login.do" class="nav-link">채팅하기</a></li>
-					<li class="nav-item active"><a href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
+					<li class="nav-item active"><a href="${contextPath}/chat/login.do" class="nav-link">채팅하기</a></li>
+					<li class="nav-item"><a href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
 				</ul>
 			</div>
 		</div>
@@ -76,7 +76,7 @@
 	                <div class="panel-title"></div>
 	            </div>
 	            <div class="panel-body">
-	                <form id="login-form" method="post" action="/trip/chat/loginProcess.do">
+	                <form id="login-form" method="post" action="/alpaca/chat/loginProcess.do">
 	                    <div>
 	                        <input type="text" name="id" class="form-control" name="아이디 입력" placeholder="대화명을 입력하세요" autofocus>
 	                    </div>

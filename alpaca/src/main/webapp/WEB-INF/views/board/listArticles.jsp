@@ -10,88 +10,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>StudyLab - Free Bootstrap 4 Template by Colorlib</title>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
-	rel="stylesheet">
-
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<link rel="stylesheet" href="${contextPath}/resources/css/animate.css">
-
-<link rel="stylesheet"
-	href="${contextPath}/resources/css/owl.carousel.min.css">
-<link rel="stylesheet"
-	href="${contextPath}/resources/css/owl.theme.default.min.css">
-<link rel="stylesheet"
-	href="${contextPath}/resources/css/magnific-popup.css">
-
-<link rel="stylesheet"
-	href="${contextPath}/resources/css/bootstrap-datepicker.css">
-<link rel="stylesheet"
-	href="${contextPath}/resources/css/jquery.timepicker.css">
-
-
-<link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
-<link rel="stylesheet" href="${contextPath}/resources/css/style.css">
+	<meta charset="utf-8">
+	<title>알파카 - 헌 책 알고 팔자! 중고책거래 사이트</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+	
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" rel="stylesheet">
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="${contextPath}/resources/css/animate.css">
+	<link rel="stylesheet" href="${contextPath}/resources/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="${contextPath}/resources/css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="${contextPath}/resources/css/magnific-popup.css">
+	<link rel="stylesheet" href="${contextPath}/resources/css/bootstrap-datepicker.css">
+	<link rel="stylesheet" href="${contextPath}/resources/css/jquery.timepicker.css">	
+	<link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
+	<link rel="stylesheet" href="${contextPath}/resources/css/style.css">
 </head>
 <body>
-	<nav
-		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
-		id="ftco-navbar">
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="${contextPath}/index.do"><span>TRAVEL
-			</span>MAKER</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#ftco-nav" aria-controls="ftco-nav"
-				aria-expanded="false" aria-label="Toggle navigation">
+			<a class="navbar-brand" href="${contextPath}/index.do" style="background-image: url('${contextPath}/resources/images/logo.png');"><span class="navbar-brandsp"></span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span> Menu
 			</button>
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a href="${contextPath}/index.do"
-						class="nav-link">Home</a></li>
-					<li class="nav-item"><a
-						href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
-					<li class="nav-item"><a
-						href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
-					<li class="nav-item"><a href="${contextPath}/chat/login.do"
-						class="nav-link">채팅하기</a></li>
-					<li class="nav-item"><a
-						href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
+					<li class="nav-item"><a href="${contextPath}/index.do" class="nav-link">Home</a></li>
+					<li class="nav-item active"><a href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
+					<li class="nav-item"><a href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
+					<li class="nav-item"><a href="${contextPath}/chat/login.do" class="nav-link">채팅하기</a></li>
+					<li class="nav-item"><a href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-	<!-- END nav -->
 
-	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('${contextPath}/resources/images/bg_2.jpg');">
+	<section class="hero-wrap hero-wrap-2"style="background-image: url('${contextPath}/resources/images/bg_2.png');">
 		<div class="overlay"></div>
 		<div class="container">
-			<div
-				class="row no-gutters slider-text align-items-end justify-content-center">
+			<div class="row no-gutters slider-text align-items-end justify-content-center">
 				<div class="col-md-9 ftco-animate pb-5 text-center">
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i
-								class="fa fa-chevron-right"></i></a></span> <span>맞춤테마 <i
-							class="fa fa-chevron-right"></i></span>
+						<span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> 
+						<span>책 거래<i class="fa fa-chevron-right"></i></span>
 					</p>
-					<h1 class="mb-0 bread">맞춤테마</h1>
+					<h1 class="mb-0 bread">책 거래</h1>
 				</div>
 			</div>
 		</div>
 	</section>
+	<!-- END nav -->
+
 
 
 	<!-- 게시물 부분은 여기서부터 -->
-
 	<c:choose>
 		<c:when test="${thumbnailsList ==null }">
 			<tr height="10">
