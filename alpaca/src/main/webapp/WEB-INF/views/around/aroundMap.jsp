@@ -66,13 +66,8 @@
 			</c:forEach>
 
 			var imageFileName = [];
-			<c:forEach var = "loc" items="${imageFileName}" varStatus="status">
+			<c:forEach var = "loc" items="${imageFile1}" varStatus="status">
 			imageFileName[<c:out value='${status.index}'/>] = "<c:out value='${loc}'/>";
-			</c:forEach>
-
-			var imageFileNO = [];
-			<c:forEach var = "loc" items="${imageFileNO}" varStatus="status">
-			imageFileNO[<c:out value='${status.index}'/>] = "<c:out value='${loc}'/>";
 			</c:forEach>
 
 			var articleNO = [];

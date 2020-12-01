@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class FileDownloadController {
 	private static final String ARTICLE_IMAGE_REPO = "C:\\board\\article_image";
-	private static final String COMMUNITY_IMAGE_REPO = "C:\\community\\community_image";
 	
 	
 	@RequestMapping("/board/download.do")
@@ -43,3 +42,4 @@ public class FileDownloadController {
 	}
 	
 }
+

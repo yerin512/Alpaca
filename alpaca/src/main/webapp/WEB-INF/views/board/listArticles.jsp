@@ -55,7 +55,7 @@
 			<div class="row no-gutters slider-text align-items-end justify-content-center">
 				<div class="col-md-9 ftco-animate pb-5 text-center">
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> 
+						<span class="mr-2"><a href="${contextPath}/index.do">Home <i class="fa fa-chevron-right"></i></a></span> 
 						<span>책 거래<i class="fa fa-chevron-right"></i></span>
 					</p>
 					<h1 class="mb-0 bread">책 거래</h1>
@@ -69,7 +69,7 @@
 
 	<!-- 게시물 부분은 여기서부터 -->
 	<c:choose>
-		<c:when test="${thumbnailsList ==null }">
+		<c:when test="${articlesList ==null }">
 			<tr height="10">
 				<td colspan="4">
 					<p align="center">
@@ -78,11 +78,11 @@
 				</td>
 			</tr>
 		</c:when>
-		<c:when test="${thumbnailsList !=null }">
+		<c:when test="${articlesList !=null }">
 			<section class="ftco-section bg-light">
 				<div class="container">
 					<div class="row">
-						<c:forEach var="item" items="${thumbnailsList }"
+						<c:forEach var="item" items="${articlesList}"
 							varStatus="articleNum">
 							<div
 								class="col-md-6 col-lg-3 ftco-animate d-flex align-items-stretch">
@@ -93,9 +93,9 @@
 											<a class='cls1'
 												href="${contextPath}/board/viewArticle.do?articleNO=${item.articleNO}">
 												<input type="hidden" name="originalFileName"
-												value="${item.imageFileName }" /> <img
-												src="${contextPath}/board/download.do?articleNO=${item.articleNO}&imageFileName=${item.imageFileName}"
-												id="preview" height="100%" width="100%"/><br>
+												value="${item.imageFile1}" /> <img
+												src="${contextPath}/board/download.do?articleNO=${item.articleNO}&imageFileName=${item.imageFile1}"
+												id="preview" height="100%" width="100%" /><br>
 											</a>
 										</div>
 									</div>
@@ -103,7 +103,7 @@
 										<h3>
 											<a href="${contextPath}/board/viewArticle.do">${item.title}</a>
 										</h3>
-									   <span class="position mb-2">${item.writeDate }</span>
+										<span class="position mb-2">${item.writeDate }</span>
 										<div class="faded">
 											<p>${item.price}원</p>
 										</div>
@@ -118,7 +118,7 @@
 		                      </button></div>
 					
 		</c:when>
-		</c:choose>
+	</c:choose>
 
 
 
@@ -170,53 +170,51 @@
 
 
 
-		<!-- loader -->
-		<div id="ftco-loader" class="show fullscreen">
-			<svg class="circular" width="48px" height="48px">
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen">
+		<svg class="circular" width="48px" height="48px">
 					<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
-					stroke-width="4" stroke="#eeeeee" />
+				stroke-width="4" stroke="#eeeeee" />
 					<circle class="path" cx="24" cy="24" r="22" fill="none"
-					stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
-		</div>
+				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
+	</div>
 
 
-		<script src="${contextPath}/resources/js/jquery.min.js"></script>
-		<script src="${contextPath}/resources/js/jquery-migrate-3.0.1.min.js"></script>
-		<script src="${contextPath}/resources/js/popper.min.js"></script>
-		<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
-		<script src="${contextPath}/resources/js/jquery.easing.1.3.js"></script>
-		<script src="${contextPath}/resources/js/jquery.waypoints.min.js"></script>
-		<script src="${contextPath}/resources/js/jquery.stellar.min.js"></script>
-		<script src="${contextPath}/resources/js/owl.carousel.min.js"></script>
-		<script src="${contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
-		<script src="${contextPath}/resources/js/jquery.animateNumber.min.js"></script>
-		<script src="${contextPath}/resources/js/bootstrap-datepicker.js"></script>
-		<script src="${contextPath}/resources/js/scrollax.min.js"></script>
-		<script
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-		<script src="${contextPath}/resources/js/google-map.js"></script>
-		<script src="${contextPath}/resources/js/main.js"></script>
-		<script>
-			function fn_articleForm(isLogOn, articleForm, loginForm) {
-				if (isLogOn != '' && isLogOn != 'false') {
-					location.href = articleForm;
-				} else {
-					alert("로그인 후 글쓰기가 가능합니다.")
-					location.href = loginForm + '?action=/board/articleForm.do';
-				}
+	<script src="${contextPath}/resources/js/jquery.min.js"></script>
+	<script src="${contextPath}/resources/js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="${contextPath}/resources/js/popper.min.js"></script>
+	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+	<script src="${contextPath}/resources/js/jquery.easing.1.3.js"></script>
+	<script src="${contextPath}/resources/js/jquery.waypoints.min.js"></script>
+	<script src="${contextPath}/resources/js/jquery.stellar.min.js"></script>
+	<script src="${contextPath}/resources/js/owl.carousel.min.js"></script>
+	<script src="${contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
+	<script src="${contextPath}/resources/js/jquery.animateNumber.min.js"></script>
+	<script src="${contextPath}/resources/js/bootstrap-datepicker.js"></script>
+	<script src="${contextPath}/resources/js/scrollax.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="${contextPath}/resources/js/google-map.js"></script>
+	<script src="${contextPath}/resources/js/main.js"></script>
+	<script>
+		function fn_articleForm(isLogOn, articleForm, loginForm) {
+			if (isLogOn != '' && isLogOn != 'false') {
+				location.href = articleForm;
+			} else {
+				alert("로그인 후 글쓰기가 가능합니다.")
+				location.href = loginForm + '?action=/board/articleForm.do';
 			}
+		}
 
-			function readURL(input) {
-				if (input.files && input.files[0]) {
-					var reader = new FileReader();
-					reader.onload = function(e) {
-						$('#preview').attr('src', e.target.result);
-					}
-					reader.readAsDataURL(input.files[0]);
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$('#preview').attr('src', e.target.result);
 				}
+				reader.readAsDataURL(input.files[0]);
 			}
-			
-			
-		</script>
+		}
+	</script>
 </body>
 </html>

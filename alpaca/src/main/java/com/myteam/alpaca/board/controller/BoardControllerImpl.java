@@ -28,9 +28,9 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.myteam.alpaca.board.service.BoardService;
-import com.myteam.alpaca.board.vo.AImageVO;
+
 import com.myteam.alpaca.board.vo.ArticleVO;
-import com.myteam.alpaca.board.vo.ThumbnailVO;
+
 import com.myteam.alpaca.member.vo.MemberVO;
 
 @Controller("boardController")
@@ -40,15 +40,13 @@ public class BoardControllerImpl implements BoardController {
 	private BoardService boardService;
 	@Autowired
 	private ArticleVO articleVO;
-	@Autowired
-	private ThumbnailVO thumbnailVO;
 
 	@RequestMapping(value = "/board/listArticles.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView listArticles(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String) request.getAttribute("viewName");
-		List<ThumbnailVO> thumbnailsList = boardService.listThumbnails();
+		List<ArticleVO> articlesList = boardService.listArticles();
 		ModelAndView mav = new ModelAndView(viewName);
-		mav.addObject("thumbnailsList", thumbnailsList);
+		mav.addObject("articlesList", articlesList);
 		return mav;
 
 	}
@@ -57,12 +55,10 @@ public class BoardControllerImpl implements BoardController {
 	public ModelAndView viewArticle(@RequestParam("articleNO") int articleNO, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String viewName = (String) request.getAttribute("viewName");
-		Map articleMap = boardService.viewArticle(articleNO);
+		ArticleVO articleVO = boardService.viewArticle(articleNO);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
-		String a = articleMap.toString();
-		System.out.println(a); // 위도 경도 값 잘 들어있다
-		mav.addObject("articleMap", articleMap);
+		mav.addObject("article", articleVO);
 		return mav;
 	}
 
@@ -72,85 +68,48 @@ public class BoardControllerImpl implements BoardController {
 	public ResponseEntity modArticle(MultipartHttpServletRequest multipartRequest, HttpServletResponse response)
 			throws Exception {
 		multipartRequest.setCharacterEncoding("utf-8");
-		String imageFileName = null;
 		Map<String, Object> articleMap = new HashMap<String, Object>();
 		Enumeration enu = multipartRequest.getParameterNames();
 		while (enu.hasMoreElements()) {
 			String name = (String) enu.nextElement();
 			String value = multipartRequest.getParameter(name);
-			articleMap.put(name, value); 
-		}
-		
-		String mapString = articleMap.toString();
-		System.out.println("수정전에서 가져온 name속성들: " + mapString);
-		int articleNO = Integer.parseInt((String) articleMap.get("articleNO"));
-
-		boardService.removeImageFile(articleNO); 
-		List<AImageVO> imageFileList = new ArrayList<AImageVO>();
-		try {
-			List<String> fileList = modUpload(multipartRequest, response, articleMap);
-			if (fileList != null && fileList.size() != 0) {
-				for (String fileName : fileList) {
-					AImageVO imageVO = new AImageVO(); 									
-					imageVO.setImageFileName(fileName);
-					imageFileList.add(imageVO);
-				}
-				articleMap.put("imageFileList", imageFileList);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
+			articleMap.put(name, value);
 		}
 
+		List<String> imageFileName = upload(multipartRequest, response);
+		articleMap.put("imageFileName", imageFileName);
+
+		String articleNO = (String) articleMap.get("articleNO");
 		String message;
 		ResponseEntity resEnt = null;
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
-
-		String a = articleMap.toString();
-		System.out.println("수정 후 :" + a);
-		articleMap.remove("articleNO");
-		articleMap.put("articleNO", articleNO);
 		try {
 			boardService.modArticle(articleMap);
-			if (imageFileList != null && imageFileList.size() != 0) {
-				for (AImageVO imageVO : imageFileList) {
-					imageFileName = imageVO.getImageFileName();
-					if (!(imageFileName == null || imageFileName.equals("null"))) {
-						File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName);
-						File destDir = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO);
-						// destDir.mkdirs();
-						try {
-							FileUtils.moveFileToDirectory(srcFile, destDir, true);
-						} catch (FileNotFoundException e) {
+			if (imageFileName != null && imageFileName.size() != 0) {
+				File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName);
+				File destDir = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO);
+				FileUtils.moveFileToDirectory(srcFile, destDir, true);
 
-							e.printStackTrace();
-						}
-					}
-
-				}
+				String originalFileName = (String) articleMap.get("originalFileName");
+				File oldFile = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO + "\\" + originalFileName);
+				oldFile.delete();
 			}
-
 			message = "<script>";
-			message += " alert('게시글  수정 성공');";
-			message += " location.href='" + multipartRequest.getContextPath() + "/board/listArticles.do'; ";
+			message += " alert('수정 성공');";
+			message += " location.href='" + multipartRequest.getContextPath() + "/board/viewArticle.do?articleNO="
+					+ articleNO + "';";
 			message += " </script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
-
 		} catch (Exception e) {
-			if (imageFileList != null && imageFileList.size() != 0) {
-				for (AImageVO imageVO : imageFileList) {
-					imageFileName = imageVO.getImageFileName();
-					File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName);
-					srcFile.delete();
-				}
-			}
-
-			message = " <script>";
+			File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName);
+			srcFile.delete();
+			message = "<script>";
 			message += " alert('수정 실패');";
-			message += " location.href='" + multipartRequest.getContextPath() + "/board/listArticles.do'; ";
+			message += " location.href='" + multipartRequest.getContextPath() + "/board/viewArticle.do?articleNO="
+					+ articleNO + "';";
 			message += " </script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
-			e.printStackTrace();
 		}
 		return resEnt;
 	}
@@ -193,78 +152,50 @@ public class BoardControllerImpl implements BoardController {
 	public ResponseEntity addNewArticle(MultipartHttpServletRequest multipartRequest, HttpServletResponse response)
 			throws Exception {
 		multipartRequest.setCharacterEncoding("utf-8");
-		String imageFileName = null;
-
-		Map articleMap = new HashMap();
+		Map<String, Object> articleMap = new HashMap<String, Object>();
 		Enumeration enu = multipartRequest.getParameterNames();
 		while (enu.hasMoreElements()) {
 			String name = (String) enu.nextElement();
 			String value = multipartRequest.getParameter(name);
 			articleMap.put(name, value);
 		}
-
+		
+		List<String> imageFileName = upload(multipartRequest, response);
 		HttpSession session = multipartRequest.getSession();
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		String id = memberVO.getId();
 		articleMap.put("id", id);
-
-		List<String> fileList = upload(multipartRequest, response);
-		List<AImageVO> imageFileList = new ArrayList<AImageVO>();
-		if (fileList != null && fileList.size() != 0) {
-			for (String fileName : fileList) {
-				AImageVO imageVO = new AImageVO();
-				imageVO.setImageFileName(fileName);
-				imageFileList.add(imageVO);
-			}
-			articleMap.put("imageFileList", imageFileList);
-		}
+		String imageFile1 = imageFileName.get(0);
+		String imageFile2 = imageFileName.get(1);
+		String imageFile3 = imageFileName.get(2); 
+		
+		articleMap.put("imageFile1", imageFile1);
+		articleMap.put("imageFile2", imageFile2);
+		articleMap.put("imageFile3", imageFile3);
+		
+		System.out.println("게시글 작성 아티클 맵  : " + articleMap.toString());
 		String message;
 		ResponseEntity resEnt = null;
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
-
-		String a = articleMap.toString();
-		System.out.println(a);
-
 		try {
 			int articleNO = boardService.addNewArticle(articleMap);
-			if (imageFileList != null && imageFileList.size() != 0) {
-				for (AImageVO imageVO : imageFileList) {
-					imageFileName = imageVO.getImageFileName();
-					if (!(imageFileName == null || imageFileName.equals("null"))) {
-						File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName);
-						File destDir = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO);
-						// destDir.mkdirs();
-						try {
-							FileUtils.moveFileToDirectory(srcFile, destDir, true);
-						} catch (FileNotFoundException e) {
-							message = " <script>";
-							message += " alert('중복된 파일이 있습니다.');";
-							message += " location.href='" + multipartRequest.getContextPath()
-									+ "/board/articleForm.do'; ";
-							message += " </script>";
-							resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
-							e.printStackTrace();
-						}
-					}
+			if (imageFileName != null && imageFileName.size() != 0) {
+				for (String imageFile : imageFileName) {
 
+					File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFile);
+					File destDir = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO);
+					FileUtils.moveFileToDirectory(srcFile, destDir, true);
 				}
 			}
-
 			message = "<script>";
-			message += " alert('게시글 작성 성공');";
+			message += " alert('작성 성공');";
 			message += " location.href='" + multipartRequest.getContextPath() + "/board/listArticles.do'; ";
 			message += " </script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
-
 		} catch (Exception e) {
-			if (imageFileList != null && imageFileList.size() != 0) {
-				for (AImageVO imageVO : imageFileList) {
-					imageFileName = imageVO.getImageFileName();
-					File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName);
-					srcFile.delete();
-				}
-			}
+			File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName);
+			srcFile.delete();
 
 			message = " <script>";
 			message += " alert('작성 실패');";
@@ -286,43 +217,6 @@ public class BoardControllerImpl implements BoardController {
 
 	private List<String> upload(MultipartHttpServletRequest multipartRequest, HttpServletResponse response)
 			throws Exception {
-		List<String> fileList = new ArrayList<String>();
-		Iterator<String> fileNames = multipartRequest.getFileNames();
-
-		try {
-
-			while (fileNames.hasNext()) {
-				String fileName = fileNames.next();
-				MultipartFile mFile = multipartRequest.getFile(fileName);
-				String originalFileName = mFile.getOriginalFilename();
-				fileList.add(originalFileName);
-				File file = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + fileName);
-				if (mFile.getSize() != 0) { // File Null Check
-					if (!file.exists()) {
-						file.getParentFile().mkdirs();
-						mFile.transferTo(new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + originalFileName));
-					}
-				}
-			}
-
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			String message;
-			ResponseEntity resEnt = null;
-			HttpHeaders responseHeaders = new HttpHeaders();
-			responseHeaders.add("Content-Type", "text/html; charset=utf-8");
-
-			message = " <script>";
-			message += " alert('중복된 파일이 있습니다.');";
-			message += " location.href='" + multipartRequest.getContextPath() + "/board/articleForm.do'; ";
-			message += " </script>";
-			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
-		}
-		return fileList;
-	}
-
-	private List<String> modUpload(MultipartHttpServletRequest multipartRequest, HttpServletResponse response,
-			Map articleMap) throws Exception {
 		List<String> fileList = new ArrayList<String>();
 		Iterator<String> fileNames = multipartRequest.getFileNames();
 
