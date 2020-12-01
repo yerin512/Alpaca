@@ -190,10 +190,6 @@
 									placeholder="hong@gmail.com">
 
 							</div>
-
-
-
-
 							<div class="form-group d-flex justify-content-end mt-4">
 
 								<button type="submit" id="submit" class="btn btn-primary submit"
