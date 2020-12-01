@@ -6,5 +6,8 @@
 /.settings/
 *.class
 trip/target/
+<<<<<<< HEAD
+trip/.springBeans
+=======
 *.MF
-*.properties
+>>>>>>> origin/isaac

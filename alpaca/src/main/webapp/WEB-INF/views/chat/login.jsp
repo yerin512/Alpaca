@@ -29,7 +29,9 @@
 	    #login-form > div {margin: 15px 0;}	    
 	    #chatLogin{position:relative;width:500px;height:300px;background: #f8f8f8;}
 	    #chatLogin .userBox{position:absolute;bottom:0;left:0;width:100%}
-	    #chatLogin .btn-primary{position:absolute;}	
+	    #chatLogin .btn-primary{position:absolute;line-height:8px;}	
+	    .chat_footer{position:absolute}
+	    
 	</style>
 </head>
 <body>
@@ -45,8 +47,8 @@
 					<li class="nav-item"><a href="${contextPath}/index.do" class="nav-link">Home</a></li>
 					<li class="nav-item"><a href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
 					<li class="nav-item"><a href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
-					<li class="nav-item"><a href="${contextPath}/chat/login.do" class="nav-link">채팅하기</a></li>
-					<li class="nav-item active"><a href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
+					<li class="nav-item active"><a href="${contextPath}/chat/login.do" class="nav-link">채팅하기</a></li>
+					<li class="nav-item"><a href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
 				</ul>
 			</div>
 		</div>
@@ -76,7 +78,7 @@
 	                <div class="panel-title"></div>
 	            </div>
 	            <div class="panel-body">
-	                <form id="login-form" method="post" action="/trip/chat/loginProcess.do">
+	                <form id="login-form" method="post" action="/alpaca/chat/loginProcess.do">
 	                    <div>
 	                        <input type="text" name="id" class="form-control" name="아이디 입력" placeholder="대화명을 입력하세요" autofocus>
 	                    </div>
@@ -88,5 +90,21 @@
 	        </div>
 	    </div>
 	</div>
+	<footer class="chat_footer ftco-footer ftco-no-pt">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p>
+						Copyright &copy;
+						<script>
+							document.write(new Date().getFullYear());
+						</script>
+						All rights reserved by Alpaca
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>알파카 - 믿을 수 있는 중고 책 거래사이트</title>
+	<title>알파카 - 헌 책 알고 팔자! 중고책거래 사이트</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
@@ -183,6 +183,22 @@
 		</div>
 	</section>
 </form>
+<footer class="ftco-footer ftco-no-pt">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p>
+						Copyright &copy;
+						<script>
+							document.write(new Date().getFullYear());
+						</script>
+						All rights reserved by Alpaca
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 
 	<script src="${contextPath}/resources/js/jquery.min.js"></script>
@@ -237,8 +253,8 @@
 
 		var mapContainer = document.getElementById('map');
 		var mapOption = {
-			center : new kakao.maps.LatLng(37.50324897169478,
-					127.02453020156122),
+			center : new kakao.maps.LatLng(37.56651203645214,
+					126.97785926709967),
 			level : 4
 		};
 

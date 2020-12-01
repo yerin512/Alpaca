@@ -20,14 +20,15 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
 
-	<style>
+	<style>	
+		#aroundMap .ftco-navbar-light {background:#007bff!important;opacity:.8}
 		#map {width: 100vw; height: 100vh;}
 		.wrap {width: 200px;}
 		.text-box {text-align: center;}	
 		h3 {margin: 10px auto 0;}
 		.img-box {max-height: 80px;overflow: hidden;float: left;}	
 		img {width: 70px;height: 70px;margin: -20px auto 0;}	
-		a {color: blue;}
+		a {color: #fff;}
 		.gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}
 	</style>
 	
@@ -111,7 +112,8 @@
 	</script>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"id="ftco-navbar">
+	<section id="aroundMap">
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"id="ftco-navbar map-navbar">
 		<div class="container">
 			<a class="navbar-brand" href="${contextPath}/index.do" style="background-image: url('${contextPath}/resources/images/logo.png');"><span class="navbar-brandsp"></span></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -120,17 +122,33 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a href="${contextPath}/index.do" class="nav-link">Home</a></li>
-					<li class="nav-item active"><a href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
+					<li class="nav-item "><a href="${contextPath}/index.do" class="nav-link">Home</a></li>
+					<li class="nav-item "><a href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
 					<li class="nav-item active"><a href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
-					<li class="nav-item active"><a href="${contextPath}/chat/login.do"class="nav-link">채팅하기</a></li>
-					<li class="nav-item active"><a href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
+					<li class="nav-item "><a href="${contextPath}/chat/login.do"class="nav-link">채팅하기</a></li>
+					<li class="nav-item "><a href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
 	<div id="map" style="width: 100%; height: 100vh;"></div>
+	</section>
+	<footer class="ftco-footer ftco-no-pt">
+		<div class="container">
 
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p>
+						Copyright &copy;
+						<script>
+							document.write(new Date().getFullYear());
+						</script>
+						All rights reserved by Alpaca
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>
 </html>

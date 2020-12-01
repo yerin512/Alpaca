@@ -42,7 +42,6 @@
 *, *::before, *::after {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-	text-align: center;
 }
 
 html {
@@ -2345,7 +2344,7 @@ textarea.form-control {
 }
 
 .form-check-input[disabled] ~ .form-check-label, .form-check-input:disabled 
-	 ~ .form-check-label {
+	~ .form-check-label {
 	color: #6c757d;
 }
 
@@ -2447,7 +2446,7 @@ textarea.form-control {
 }
 
 .was-validated .form-check-input:valid ~ .valid-feedback, .was-validated .form-check-input:valid 
-	 ~ .valid-tooltip, .form-check-input.is-valid ~ .valid-feedback,
+	~ .valid-tooltip, .form-check-input.is-valid ~ .valid-feedback,
 	.form-check-input.is-valid ~ .valid-tooltip {
 	display: block;
 }
@@ -2464,7 +2463,7 @@ textarea.form-control {
 
 .was-validated .custom-control-input:valid:checked ~
 	.custom-control-label::before, .custom-control-input.is-valid:checked 
-	 ~ .custom-control-label::before {
+	~ .custom-control-label::before {
 	border-color: #34ce57;
 	background-color: #34ce57;
 }
@@ -2477,7 +2476,7 @@ textarea.form-control {
 
 .was-validated .custom-control-input:valid:focus:not(:checked) ~
 	.custom-control-label::before, .custom-control-input.is-valid:focus:not(:checked) 
-	 ~ .custom-control-label::before {
+	~ .custom-control-label::before {
 	border-color: #28a745;
 }
 
@@ -2572,7 +2571,7 @@ textarea.form-control {
 .was-validated .form-check-input:invalid ~ .invalid-feedback,
 	.was-validated .form-check-input:invalid ~ .invalid-tooltip,
 	.form-check-input.is-invalid ~ .invalid-feedback, .form-check-input.is-invalid 
-	 ~ .invalid-tooltip {
+	~ .invalid-tooltip {
 	display: block;
 }
 
@@ -2588,21 +2587,21 @@ textarea.form-control {
 
 .was-validated .custom-control-input:invalid:checked ~
 	.custom-control-label::before, .custom-control-input.is-invalid:checked 
-	 ~ .custom-control-label::before {
+	~ .custom-control-label::before {
 	border-color: #e4606d;
 	background-color: #e4606d;
 }
 
 .was-validated .custom-control-input:invalid:focus ~
 	.custom-control-label::before, .custom-control-input.is-invalid:focus 
-	 ~ .custom-control-label::before {
+	~ .custom-control-label::before {
 	-webkit-box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 	box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 
 .was-validated .custom-control-input:invalid:focus:not(:checked) ~
 	.custom-control-label::before, .custom-control-input.is-invalid:focus:not(:checked) 
-	 ~ .custom-control-label::before {
+	~ .custom-control-label::before {
 	border-color: #dc3545;
 }
 
@@ -4305,7 +4304,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 }
 
 .custom-file-input[disabled] ~ .custom-file-label, .custom-file-input:disabled 
-	 ~ .custom-file-label {
+	~ .custom-file-label {
 	background-color: #e9ecef;
 }
 
@@ -7192,54 +7191,17 @@ keyframes spinner-border {to { -webkit-transform:rotate(360deg);
 }
 
 50
-
-
-
-
 %
 {
 opacity
-
-
-
-
 :
-
-
-
-
-1
-
-
-;
+1;
 -webkit-transform
-
-
-
-
 :
-
-
-
-
-none
-
-
-;
+none;
 transform
-
-
-
-
 :
-
-
-
-
-none
-
-
-;
+none;
 }
 }
 @
@@ -7249,54 +7211,17 @@ keyframes spinner-grow { 0% {
 }
 
 50
-
-
-
-
 %
 {
 opacity
-
-
-
-
 :
-
-
-
-
-1
-
-
-;
+1;
 -webkit-transform
-
-
-
-
 :
-
-
-
-
-none
-
-
-;
+none;
 transform
-
-
-
-
 :
-
-
-
-
-none
-
-
-;
+none;
 }
 }
 .spinner-grow {
@@ -10726,7 +10651,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 		background: transparent;
 		padding-left: 0;
 		padding-right: 0;
-		background-size: cover
+		background-size:cover
 	}
 }
 
@@ -10839,10 +10764,10 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 	color: #B2CCFF;
 }
 
-@media ( max-width : 991. 98px) {
+@media ( max-width : 991.	98px) {
 	.ftco-navbar-light .navbar-nav>.nav-item.active>a {
 		color: #B2CCFF;
-	}
+	}	
 }
 
 .ftco-navbar-light .navbar-toggler {
@@ -11024,6 +10949,8 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 	line-height: 1.5;
 	font-weight: 300;
 	color: rgba(255, 255, 255, 0.9);
+	z-index:9999;
+	position:relative
 }
 
 .slider-text p strong {
@@ -11042,7 +10969,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 .slider-text .breadcrumbs {
 	font-size: 16px;
 	margin-bottom: 20px;
-	padding-top: 100px;
+	margin-top: 100px;
 	z-index: 99;
 	font-weight: 400;
 }
@@ -11122,41 +11049,36 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 #sign_up_wrap .form-control {
 	height: 43px
 }
-
 .login-wrap {
-	position: relative;
-	background: #fff;
-	border-radius: 10px;
-	-webkit-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
-	-moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
-	box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
-	z-index: 0;
-	margin: -720px -59px -4px 68px;
-}
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+  box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+  z-index: 0;
+  top:47%;
+  overflow:hidden
+   }
+  @media (max-width: 767.98px) {
+    .login-wrap {
+      margin-top: 3em; } }
+  .login-wrap:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 145px;
+    content: '';
+    background: rgba(0, 0, 0, 0.05);
+    z-index: -1;
+    border-radius: 50% 0 0 0; }
+  .login-wrap h3 {
+    font-weight: 300;
+    font-size: 22px;
+    color: #fff; }
 
-@media ( max-width : 767.98px) {
-	.login-wrap {
-		margin-top: 3em;
-	}
-}
-
-.login-wrap:after {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	height: 145px;
-	content: '';
-	background: rgba(0, 0, 0, 0.05);
-	z-index: -1;
-	border-radius: 50% 0 0 0;
-}
-
-.login-wrap h3 {
-	font-weight: 500;
-	font-size: 20px;
-	color: #4986fc;
-}
+  .login-wrap h3 span{font-weight:500;}
 
 .login-wrap .form-group {
 	position: relative;
@@ -11218,7 +11140,23 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 
 .login-wrap textarea.form-control {
 	height: inherit !important;
+	
 }
+
+.login-wrap .btn {
+	border: 1px solid transparent;
+	background: #ff9d1d;
+	color: #fff;
+}
+
+.login-wrap .btn:hover {
+	border: 1px solid #ff9d1d;
+	background: transparent;
+	color: #ff9d1d;
+	
+}
+
+
 
 .bg-light {
 	background: #f9faff !important;
@@ -11247,7 +11185,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 	background: #4986fc;
 	border: 1px solid #4986fc !important;
 	color: #fff !important;
-	padding: 20px
+	padding: 20px;	
 }
 
 .btn.btn-primary:hover {
@@ -11590,7 +11528,6 @@ textarea.form-control {
 	opacity: 0;
 	visibility: hidden;
 	*/
-	
 }
 
 .bg-primary {
@@ -11924,7 +11861,8 @@ textarea.form-control {
 
 .ftco-no-pb {
 	padding-bottom: 0 !important;
-	position: absolute;
+	position:absolute;
+	top:0;
 }
 
 .ftco-bg-dark {
@@ -12093,50 +12031,15 @@ textarea.form-control {
 }
 
 70
-
-
-
-
 %
 {
 -webkit-box-shadow
-
-
-
-
 :
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
 30px
-
-
-
-
-rgba
-
-
-(
-
-
-
-
+rgba(
 73
 ,
 134
@@ -12144,60 +12047,18 @@ rgba
 252
 ,
 0
-
-
-
-
-)
-
-
-;
+);
 }
 100
-
-
-
-
 %
 {
 -webkit-box-shadow
-
-
-
-
 :
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
-rgba
-
-
-(
-
-
-
-
+rgba(
 73
 ,
 134
@@ -12205,14 +12066,7 @@ rgba
 252
 ,
 0
-
-
-
-
-)
-
-
-;
+);
 }
 }
 @
@@ -12223,50 +12077,15 @@ keyframes pulse { 0% {
 }
 
 70
-
-
-
-
 %
 {
 -moz-box-shadow
-
-
-
-
 :
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
 30px
-
-
-
-
-rgba
-
-
-(
-
-
-
-
+rgba(
 73
 ,
 134
@@ -12274,52 +12093,14 @@ rgba
 252
 ,
 0
-
-
-
-
-)
-
-
-;
+);
 -webkit-box-shadow
-
-
-
-
 :
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
 30px
-
-
-
-
-rgba
-
-
-(
-
-
-
-
+rgba(
 73
 ,
 134
@@ -12327,52 +12108,14 @@ rgba
 252
 ,
 0
-
-
-
-
-)
-
-
-;
+);
 box-shadow
-
-
-
-
 :
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
 30px
-
-
-
-
-rgba
-
-
-(
-
-
-
-
+rgba(
 73
 ,
 134
@@ -12380,60 +12123,18 @@ rgba
 252
 ,
 0
-
-
-
-
-)
-
-
-;
+);
 }
 100
-
-
-
-
 %
 {
 -moz-box-shadow
-
-
-
-
 :
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
-rgba
-
-
-(
-
-
-
-
+rgba(
 73
 ,
 134
@@ -12441,52 +12142,14 @@ rgba
 252
 ,
 0
-
-
-
-
-)
-
-
-;
+);
 -webkit-box-shadow
-
-
-
-
 :
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
-rgba
-
-
-(
-
-
-
-
+rgba(
 73
 ,
 134
@@ -12494,52 +12157,14 @@ rgba
 252
 ,
 0
-
-
-
-
-)
-
-
-;
+);
 box-shadow
-
-
-
-
 :
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
 0
-
-
-
-
-rgba
-
-
-(
-
-
-
-
+rgba(
 73
 ,
 134
@@ -12547,14 +12172,7 @@ rgba
 252
 ,
 0
-
-
-
-
-)
-
-
-;
+);
 }
 }
 .heading-section .subheading {
@@ -12613,64 +12231,27 @@ rgba
 
 {
 margin
-
-
-
-
 :
-
-
  
-
-
 0
-
-
  
-
-
 0
-
-
  
-
-
 0
-
-
  
-
-
 auto
-
-
  
-
-
 !
 important
-
-
-
-
 ;
+
+    
 max-width
-
-
-
-
 :
-
-
  
-
-
 1350px
-
-
-
-
 ;
+ 
 }
 .testimony-section .overlay {
 	display: none;
@@ -13176,70 +12757,44 @@ max-width
 .main_btn {
 	background: #FFA648 !important
 }
+/*회원가입창*/
+#signUp_footer{position:unset}
+/*로그인 화면*/
+.bg-color-box{position:absolute;top:0;left:0;width:100%;height:215px;
+	background: #00c6ff;
+	background: #0072ff;
+	background: -moz-linear-gradient(-45deg, #00c6ff 0%, #0072ff 100%);
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, #00c6ff),
+		color-stop(100%, #0072ff));
+	background: -webkit-linear-gradient(-45deg, #00c6ff 0%, #0072ff 100%);
+	background: -o-linear-gradient(-45deg, #00c6ff 0%, #0072ff 100%);
+	background: -ms-linear-gradient(-45deg, #00c6ff 0%, #0072ff 100%);
+	background: -webkit-linear-gradient(315deg, #00c6ff 0%, #0072ff 100%);
+	background: -o-linear-gradient(315deg, #00c6ff 0%, #0072ff 100%);
+	background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c6ff',
+		endColorstr='#0072ff', GradientType=1);}
 
-/*책판매작성 articleForm*/
-#articleForm {
-	width: 60%;
-	margin: 90px auto;
-	border: 1px solid #ddd
-}
+/*梨낇뙋留ㅼ옉�꽦 articleForm*/
+#articleForm{width:60%;margin:90px auto;border:1px solid #ddd}
+#articleForm #preview1, #articleForm #preview2, #articleForm #preview3{background:#ddd}
+#articleForm .staff-2 .img-wrap{width:250px!imporant;height:250px!important}
+#articleForm #map {width:100%!important; height: 300px;margin:15px 0}
+#articleForm .gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}
+#articleForm  table{width:95%}
+#articleForm .btn.btn-primary{padding:4px 38px!important;}
+#articleForm .div_input{width:250px;margin:20px auto;}
+#articleForm .div_input>input{margin-right:10px}
+#articleForm input.title_input{width:30%;height:40px;border:1px solid #ddd}
+#articleForm .td_title{font-size:16px;color:#666;font-weight:bold}
+#articleForm #tr_btn{width:250px}
+#articleForm #tr_btn>input{margin-right:10px}
+/*articleList*/
+#listArticle_btn{margin-top:10px;padding:3px;color:#fff!important}
+#listArticle_btn a{color:#fff}
+#listArticle_btn a:hover{color:#444}
+#listA_paging{margin-top:115px!important}
 
-#articleForm #preview1, #articleForm #preview2, #articleForm #preview3 {
-	background: #ddd
-}
-
-#articleForm .staff-2 .img-wrap {
-	width: 250px!imporant;
-	height: 250px !important
-}
-
-#articleForm #map {
-	width: 100% !important;
-	height: 300px;
-	margin: 15px 0
-}
-
-#articleForm .gmnoprint, .gm-control-active.gm-fullscreen-control {
-	display: none;
-}
-
-#articleForm  table {
-	width: 95%
-}
-
-#articleForm .btn.btn-primary {
-	padding: 4px 38px !important;
-}
-
-#articleForm .div_input {
-	width: 235px;
-	margin: 20px auto;
-}
-
-#articleForm .div_input>input {
-	margin-right: 10px
-}
-
-#articleForm .div_input>input:last-child {
-	margin-right: 0
-}
-
-#articleForm input.title_input {
-	width: 30%;
-	height: 40px;
-	border: 1px solid #ddd
-}
-
-#articleForm .td_title {
-	font-size: 16px;
-	color: #666;
-	font-weight: bold
-}
-/*회원가입*/
-#signUp_footer {
-	position: unset !important
-}
-/*커뮤니티*/
 .communityList .content_wrap {
 	margin: 95px auto
 }
@@ -13291,7 +12846,7 @@ max-width
 	display: none
 }
 
-/*커뮤니티 글쓰기*/
+/*而ㅻ�ㅻ땲�떚 湲��벐湲�*/
 #communityFrom {
 	width: 60%;
 	margin: 90px auto
@@ -13335,7 +12890,7 @@ max-width
 #communityFrom .td_btn input:first-child {
 	margin-left: 43%
 }
-/*커뮤니티 글목록*/
+/*而ㅻ�ㅻ땲�떚 湲�紐⑸줉*/
 .communityList {
 	padding: margin auto;
 	padding: 130px 0;
@@ -13907,9 +13462,9 @@ alret
 	stroke-linecap: round;
 }
 
-/*占쏙옙占쏙옙찾占쏙옙 占쌉쏙옙占쏙옙 占쌜몌옙占�*/
+/*�뜝�룞�삕�뜝�룞�삕李얍뜝�룞�삕 �뜝�뙃�룞�삕�뜝�룞�삕 �뜝�뙗紐뚯삕�뜝占�*/
 
-/*占쏙옙占쏙옙찾占쏙옙 占쌜억옙占쏙옙*/
+/*�뜝�룞�삕�뜝�룞�삕李얍뜝�룞�삕 �뜝�뙗�뼲�삕�뜝�룞�삕*/
 @
 -webkit-keyframes loader-rotate { 100% {
 	-webkit-transform: rotate(360deg);
@@ -13931,80 +13486,28 @@ keyframes loader-rotate { 100% {
 }
 
 50
-
-
-
-
 %
 {
 stroke-dasharray
-
-
-
-
 :
-
-
-
-
 89
 ,
-200
-
-
-;
+200;
 stroke-dashoffset
-
-
-
-
 :
-
-
-
-
--35px
-
-
-;
+-35px;
 }
 100
-
-
-
-
 %
 {
 stroke-dasharray
-
-
-
-
 :
-
-
-
-
 89
 ,
-200
-
-
-;
+200;
 stroke-dashoffset
-
-
-
-
 :
-
-
-
-
--136px
-
-
-;
+-136px;
 }
 }
 @
@@ -14013,79 +13516,27 @@ keyframes loader-dash { 0% {
 	stroke-dashoffset: 0;
 }
 50
-
-
-
-
 %
 {
 stroke-dasharray
-
-
-
-
 :
-
-
-
-
 89
 ,
-200
-
-
-;
+200;
 stroke-dashoffset
-
-
-
-
 :
-
-
-
-
--35px
-
-
-;
+-35px;
 }
 100
-
-
-
-
 %
 {
 stroke-dasharray
-
-
-
-
 :
-
-
-
-
 89
 ,
-200
-
-
-;
+200;
 stroke-dashoffset
-
-
-
-
 :
-
-
-
-
--136px
-
-
-;
+-136px;
 }
 }
