@@ -12795,7 +12795,7 @@ max-width
 #listArticle_btn a{color:#fff}
 #listArticle_btn a:hover{color:#444}
 #listA_paging{margin-top:115px!important}
-
+.communityList .table thead th{text-align:center}
 .communityList .content_wrap {
 	margin: 95px auto
 }
