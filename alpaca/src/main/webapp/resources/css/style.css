@@ -10949,6 +10949,8 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 	line-height: 1.5;
 	font-weight: 300;
 	color: rgba(255, 255, 255, 0.9);
+	z-index:9999;
+	position:relative
 }
 
 .slider-text p strong {
@@ -10967,7 +10969,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 .slider-text .breadcrumbs {
 	font-size: 16px;
 	margin-bottom: 20px;
-	padding-top: 100px;
+	margin-top: 100px;
 	z-index: 99;
 	font-weight: 400;
 }
@@ -11055,7 +11057,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
   -moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
   box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
   z-index: 0;
-  margin:-720px -59px -4px 68px; }
+  top:47%; }
   @media (max-width: 767.98px) {
     .login-wrap {
       margin-top: 3em; } }
@@ -11134,6 +11136,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 
 .login-wrap textarea.form-control {
 	height: inherit !important;
+	
 }
 
 .bg-light {
@@ -11840,7 +11843,7 @@ textarea.form-control {
 .ftco-no-pb {
 	padding-bottom: 0 !important;
 	position:absolute;
-
+	top:0;
 }
 
 .ftco-bg-dark {
@@ -12750,7 +12753,11 @@ max-width
 #articleForm .td_title{font-size:16px;color:#666;font-weight:bold}
 #articleForm #tr_btn{width:250px}
 #articleForm #tr_btn>input{margin-right:10px}
-/*而ㅻ�ㅻ땲�떚*/
+/*articleList*/
+#listArticle_btn{margin-top:10px;padding:3px;color:#fff!important}
+#listArticle_btn a{color:#fff}
+#listArticle_btn a:hover{color:#444}
+#listA_paging{margin-top:115px!important}
 
 .communityList .content_wrap {
 	margin: 95px auto

@@ -112,8 +112,10 @@
 							</div>
 						</c:forEach>
 					</div>
-					<div class="col text-center"><a  class="btn btn-primary" href="javascript:fn_articleForm('${isLogOn}','${contextPath}/board/articleForm.do', 
-                                                    '${contextPath}/index.do')">글쓰기</a></div>
+					<div class="col text-center"> <button type="button" id="listArticle_btn" class="btn btn-outline btn-primary pull-right">
+		                      <a href="javascript:fn_articleForm('${isLogOn}','${contextPath}/board/articleForm.do', 
+		                                                    '${contextPath}/index.do')" class="btn"><i class="fa fa-edit fa-fw"></i>글  작성</a>
+		                      </button></div>
 					
 		</c:when>
 		</c:choose>
@@ -125,9 +127,8 @@
 
 
 
-
 		<!-- 	여기가 페이징 -->
-		<div class="row mt-5">
+		<div class="row mt-5" id="listA_paging">
 			<div class="col text-center">
 				
 				<div class="block-27">
