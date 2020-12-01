@@ -75,25 +75,59 @@ public class BoardControllerImpl implements BoardController {
 			String value = multipartRequest.getParameter(name);
 			articleMap.put(name, value);
 		}
-
+		
 		List<String> imageFileName = upload(multipartRequest, response);
-		articleMap.put("imageFileName", imageFileName);
-
+		articleMap.put("imageFile1", imageFileName.get(0));
+		articleMap.put("imageFile2", imageFileName.get(1));
+		articleMap.put("imageFile3", imageFileName.get(2));
+		
 		String articleNO = (String) articleMap.get("articleNO");
 		String message;
 		ResponseEntity resEnt = null;
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+		
+		String originalFile1 = (String) articleMap.get("originalFile1");
+		String originalFile2 = (String) articleMap.get("originalFile2");
+		String originalFile3 = (String) articleMap.get("originalFile3");
+		
+		String imageFile1 = imageFileName.get(0);
+		String imageFile2 = imageFileName.get(1);
+		String imageFile3 = imageFileName.get(2);
+		
+		if(imageFile1 == null || imageFile1.equals("")) {
+			imageFile1 = originalFile1;
+		}
+		
+		if(imageFile2 == null || imageFile2.equals("")) {
+			imageFile2 = originalFile2;
+		}
+		
+		if(imageFile3 == null || imageFile3.equals("")) {
+			imageFile3 = originalFile3;
+		}
+		
+		
+		System.out.println("articleMap 수정전 확인 :" +articleMap.toString());
+		
 		try {
 			boardService.modArticle(articleMap);
 			if (imageFileName != null && imageFileName.size() != 0) {
-				File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName);
-				File destDir = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO);
-				FileUtils.moveFileToDirectory(srcFile, destDir, true);
+				for (String imageFile : imageFileName) {
+					if(imageFile != null && !imageFile.equals(originalFile1) && !imageFile.equals(originalFile2) && !imageFile.equals(originalFile3)) {
+					File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFile);
+					File destDir = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO);
+					FileUtils.moveFileToDirectory(srcFile, destDir, true);
+				}}
+			
+				
 
-				String originalFileName = (String) articleMap.get("originalFileName");
-				File oldFile = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO + "\\" + originalFileName);
-				oldFile.delete();
+//				File oldFile1 = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO + "\\" + originalFile1);
+//				oldFile1.delete();
+//				File oldFile2 = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO + "\\" + originalFile2);
+//				oldFile2.delete();
+//				File oldFile3 = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO + "\\" + originalFile3);
+//				oldFile3.delete();
 			}
 			message = "<script>";
 			message += " alert('수정 성공');";
@@ -105,7 +139,7 @@ public class BoardControllerImpl implements BoardController {
 			File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName);
 			srcFile.delete();
 			message = "<script>";
-			message += " alert('수정 실패');";
+			message += " alert('수정 실패란 없다');";
 			message += " location.href='" + multipartRequest.getContextPath() + "/board/viewArticle.do?articleNO="
 					+ articleNO + "';";
 			message += " </script>";
@@ -251,5 +285,8 @@ public class BoardControllerImpl implements BoardController {
 		}
 		return fileList;
 	}
+	
+	
+
 
 }
