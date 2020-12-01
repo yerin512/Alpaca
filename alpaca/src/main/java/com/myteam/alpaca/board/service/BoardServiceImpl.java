@@ -63,6 +63,7 @@ public class BoardServiceImpl  implements BoardService{
 	@Override
 	public void modArticle(Map articleMap) throws Exception {
 		boardDAO.updateArticle(articleMap);
+		boardDAO.insertNewImage(articleMap);
 	}
 	
 	@Override

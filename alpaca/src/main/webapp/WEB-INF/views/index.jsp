@@ -148,7 +148,7 @@
                      <div class="login-wrap p-4 p-md-5">
                         <h3 class="form-group">알파카에 오신걸 환영합니다!!</h3>
                         <div class="form-group">
-                           <img src="resources/images/alpaca_1.jpg" width="200"
+                           <img src="resources/images/alpaca_2.jpg" width="200"
                               height="200" /><br>
                            <hr>
                         </div>
@@ -233,24 +233,31 @@
          </section>
       </c:otherwise>
    </c:choose>
-   <!---->
-	<footer class="ftco-footer ftco-no-pt">
-		<div class="container">
 
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<p>
-						Copyright &copy;
-						<script>
-							document.write(new Date().getFullYear());
-						</script>
-						All rights reserved by Alpaca
-					</p>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- loader -->
+   <!---->
+
+   <footer class="ftco-footer ftco-no-pt">
+      <div class="container">
+
+         <div class="row">
+            <div class="col-md-12 text-center">
+
+               <p>
+                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                  Copyright &copy;
+                  <script>
+                     document.write(new Date().getFullYear());
+                  </script>
+                  All rights reserved | This template is made with <i
+                     class="fa fa-heart" aria-hidden="true"></i> by <a
+                     href="https://colorlib.com" target="_blank">Colorlib</a>
+                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+               </p>
+            </div>
+         </div>
+      </div>
+   </footer>
+   <!-- loader -->
    <div id="ftco-loader" class="show fullscreen">
       <svg class="circular" width="48px" height="48px">
          <circle class="path-bg" cx="24" cy="24" r="22" fill="none"
