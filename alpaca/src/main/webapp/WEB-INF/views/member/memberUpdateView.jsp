@@ -30,6 +30,7 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/animate.css">
+<link rel="shortcut icon" href="${contextPath}/resources/images/favicon.ico"/>
 <link rel="stylesheet"
 	href="${contextPath}/resources/css/owl.carousel.min.css">
 <link rel="stylesheet"

@@ -8,7 +8,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>알파카 - 헌 책 알고 팔자! 중고책거래 사이트</title>
-		
+	<link rel="shortcut icon" href="${contextPath}/resources/images/favicon.ico"/>	
 	<link rel="stylesheet" href="${contextPath}/resources/css/bootstrap.css">
 	<link rel="stylesheet" href="${contextPath}/resources/css/custom.css">
 

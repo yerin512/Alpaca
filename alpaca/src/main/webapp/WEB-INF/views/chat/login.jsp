@@ -9,7 +9,7 @@
 	<meta charset="utf-8">
 	<title>알파카 - 헌 책 알고 팔자! 중고책거래 사이트</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
+	<link rel="shortcut icon" href="${contextPath}/resources/images/favicon.ico"/>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 	
