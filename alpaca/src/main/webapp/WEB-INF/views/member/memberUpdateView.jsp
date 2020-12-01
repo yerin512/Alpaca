@@ -10,14 +10,37 @@
 
 <style type="text/css">
 .update {
-
-	text-align: center;
 	margin: 70px auto;
-	padding :0;
-	width : 700px;
+	padding: 0;
+	width: 700px;
 }
 
+#alpaca {
+	text-align: center;
+}
 
+#footer {
+	position: absolute;
+}
+
+.gmd {
+
+  background: #fff;
+  border-radius: 2px;
+  display: inline-table;
+  float: left;
+  height: 150px;
+  margin: 1rem;
+  position: relative;
+  width: 150px;
+}
+.gmd-2 {
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  -ms-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  -o-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+} 
 </style>
 <meta charset="UTF-8">
 <title>알파카 - 헌 책 알고 팔자! 중고책거래 사이트</title>
@@ -48,37 +71,37 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-	// 취소
-	$(".cancle").on("click", function() {
+	$(document).ready(function() {
+		// 취소
+		$(".cancle").on("click", function() {
 
-		location.href = "/alpaca/index.do";
+			location.href = "/alpaca/index.do";
+
+		})
+		// 필수입력칸 
+		$("#submit").on("click", function() {
+			if ($("#pwd").val() == "") {
+				alert("비밀번호 를 입력해주세요.");
+				$("#pwd").focus();
+				return false;
+			}
+			if ($("#name").val() == "") {
+				alert("이름 을 입력해주세요.");
+				$("#name").focus();
+				return false;
+			}
+			if ($("#email").val() == "") {
+				alert("Email 을 입력해주세요.");
+				$("#email").focus();
+				return false;
+			} else {
+				alert("회원정보 수정 완료 !!! 다시 로그인 바랍니다.")
+				location.href = "/alpaca/index.do";
+			}
+
+		});
 
 	})
-	// 필수입력칸 
-	$("#submit").on("click", function() {
-		if ($("#pwd").val() == "") {
-			alert("비밀번호 를 입력해주세요.");
-			$("#pwd").focus();
-			return false;
-		}
-		if ($("#name").val() == "") {
-			alert("이름 을 입력해주세요.");
-			$("#name").focus();
-			return false;
-		}
-		if ($("#email").val() == "") {
-			alert("Email 을 입력해주세요.");
-			$("#email").focus();
-			return false;
-		}else {
-			alert("회원정보 수정 완료 !!! 다시 로그인 바랍니다.")
-			location.href = "/alpaca/index.do";
-		}
-
-	});
-
-})
 </script>
 <body>
 	<nav
@@ -109,55 +132,54 @@ $(document).ready(function() {
 							class="fa fa-chevron-right"></i></span>
 					</p>
 					<h1 class="mb-0 bread">회원정보 수정</h1>
-					<p>어이 젊은 친구, 신사답게 '수정'해 안그러면 그땐 내가 깡패가 되는거야 !!! 
 				</div>
 			</div>
 		</div>
 	</section>
 
-<section id="container">
-		<form action="/alpaca/memberUpdate" method="post" class = "update">
-			<div class="form-group has-feedback">
-				<label class="control-label" for="id"><strong><h4>ID</h4></strong></label> <input
-					class="form-control" type="text" id="id" name="id"
-					value="${member.id}" readonly="readonly" />
-			</div>
-			<div class="form-group has-feedback">
-				<label class="control-label" for="pwd"><strong><h4>PASSWORD</h4></strong></label> <input
-					class="form-control" type="password" id="pwd" name="pwd" />
-			</div>
-			<div class="form-group has-feedback">
-				<label class="control-label" for="name"><strong><h4>NAME</h4></strong></label> <input
-					class="form-control" type="text" id="name" name="name"
-					value="${member.name}" />
-			</div>
-			<div class="form-group has-feedback">
-				<label class="control-label" for="email"><strong><h4>EMAIL</h4></strong></label> <input
-					class="form-control" type="text" id="email" name="email"
-					value="${member.email}" />
-			</div>
-			<div class="form-group has-feedback">
-				<button class="btn btn-success" type="submit" id="submit">회원
-					정보 수정</button>
-				<button class="cancle btn btn-danger" type="button">취소</button>
-			</div>
-		</form>
-	</section>
-
-	<footer class="ftco-footer ftco-no-pt">
+	<div class="gmd gmd-2">
+		<section id="container">
+			<form action="/alpaca/memberUpdate" method="post" class="update">
+				<div class="form-group has-feedback">
+					<label class="control-label" for="id">ID</label> <input
+						class="form-control" type="text" id="id" name="id"
+						value="${member.id}" readonly="readonly" />
+				</div>
+				<div class="form-group has-feedback">
+					<label class="control-label" for="pwd">PASSWORD</label> <input
+						class="form-control" type="password" id="pwd" name="pwd" />
+				</div>
+				<div class="form-group has-feedback">
+					<label class="control-label" for="name">NAME</label> <input
+						class="form-control" type="text" id="name" name="name"
+						value="${member.name}" />
+				</div>
+				<div class="form-group has-feedback">
+					<label class="control-label" for="email">EMAIL</label> <input
+						class="form-control" type="text" id="email" name="email"
+						value="${member.email}" />
+				</div>
+				<div class="form-group has-feedback" id="alpaca">
+					<button class="btn btn-success" type="submit" id="submit">회원정보
+						수정</button>
+					<button type="button" class="btn btn-success"
+						onclick="location.href='memberDeleteView'">회원 탈퇴</button>
+					<button class="cancle btn btn-danger" type="button">취소</button>
+				</div>
+			</form>
+		</section>
+	</div>
+	<footer class="ftco-footer ftco-no-pt" id="footer">
 		<div class="container">
+
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<p>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						Copyright &copy;
 						<script>
 							document.write(new Date().getFullYear());
 						</script>
-						All rights reserved | This template is made with <i
-							class="fa fa-heart" aria-hidden="true"></i> by <a
-							href="https://colorlib.com" target="_blank">Colorlib</a>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						All rights reserved by Alpaca
 					</p>
 				</div>
 			</div>
