@@ -40,6 +40,19 @@
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c8f1e98d3b42f208e812d6c641c3952e"></script>
 <style>
+#tr_file_upload1 {
+	display: none;
+}
+#tr_file_upload2 {
+	display: none;
+}
+#tr_file_upload3 {
+	display: none;
+}
+
+#tr_btn_modify {
+	display: none;
+}
 </style>
 </head>
 <body>
@@ -109,57 +122,54 @@
 										<div
 											class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
 											<div class="staff-2 w-100">
-												<input type="hidden" name="originalFileName"
+												<input type="hidden" name="originalFile1"
 													value="${imageFileList[0].imageFileName }" />
 												<div class="img-wrap d-flex align-items-stretch">
 													<img id="preview1"
 														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${imageFileList[0].imageFileName}"
 														width="100%" />
-
-												
 												</div>
-												
-													<div id="tr_file_upload">
-														<input type="file" name="file1" 
-															id="i_imageFileName1" disabled onchange="readURL1(this);" />
-													</div>
+												<div id="tr_file_upload1">
+													<input type="file" name="file1" id="i_imageFile1" disabled 
+														onchange="readURL1(this);" />
+												</div>
+
 											</div>
 										</div>
 
 										<div
 											class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
 											<div class="staff-2 w-100">
-												<input type="hidden" name="originalFileName"
+												<input type="hidden" name="originalFile2"
 													value="${imageFileList[1].imageFileName }" />
 												<div class="img-wrap d-flex align-items-stretch">
 													<img id="preview2"
-														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${imageFileList[1].imageFileName }"
+														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${imageFileList[1].imageFileName}"
 														width="100%" />
-
-													<div id="tr_file_upload">
-														<input type="file" name="file2"
-															id="i_imageFileName2" disabled onchange="readURL2(this);" />
-													</div>
 												</div>
+												<div id="tr_file_upload2">
+													<input type="file" name="file2" id="i_imageFile2" disabled 
+														onchange="readURL2(this);" />
+												</div>
+
 											</div>
 										</div>
-
 
 										<div
 											class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
 											<div class="staff-2 w-100">
-												<input type="hidden" name="originalFileName"
+												<input type="hidden" name="originalFile3"
 													value="${imageFileList[2].imageFileName }" />
 												<div class="img-wrap d-flex align-items-stretch">
 													<img id="preview3"
-														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${imageFileList[2].imageFileName }"
+														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${imageFileList[2].imageFileName}"
 														width="100%" />
-
-													<div id="tr_file_upload">
-														<input type="file" name="file3"
-															id="i_imageFileName3" disabled onchange="readURL3(this);" />
-													</div>
 												</div>
+												<div id="tr_file_upload3">
+													<input type="file" name="file3" id="i_imageFile3" disabled 
+														onchange="readURL3(this);" />
+												</div>
+
 											</div>
 										</div>
 
@@ -187,6 +197,7 @@
 						<td class="td_title" colspan=2 align="left"><input
 							type="hidden" size="20" maxlength="100" value="${member.name }"
 							readonly /></td>
+							<td> <input type="hidden" name = "articleNO" value="${article.articleNO}"/>
 						<td colspan=6></td>
 					</tr>
 					<tr>
@@ -208,8 +219,8 @@
 						<td align="left" class="td_title">판매 위치</td>
 						<td><div id="map"></div>
 							<div id="clickLatlng"></div></td>
-						<td><div id="loc_x"></div>
-							<div id="loc_y"></div></td>
+						<td><div id="loc_x"><input type="hidden" name="loc_x" value="${article.loc_x}"/></div>
+							<div id="loc_y"><input type="hidden" name="loc_y" value="${article.loc_y}"/></div></td>
 					</tr>
 
 				</table>
@@ -227,12 +238,12 @@
 							<input type=button value="삭제하기"
 								onClick="fn_remove_article('${contextPath}/board/removeArticle.do', ${article.articleNO})">
 						</c:if>
-						<div id="tr_btn_modify" align="center">
-								<input type=button value="수정반영하기"
-									onClick="fn_modify_article(frmArticle)"> <input
-									type=button value="취소" onClick="backToList(frmArticle)">
 
-							</div>
+					</div>
+					<div id="tr_btn_modify" align="center">
+<input
+							type=button value="취소" onClick="backToList(frmArticle)">
+
 					</div>
 				</div>
 
@@ -259,11 +270,13 @@
 		 document.getElementById("i_title").disabled=false;
 		 document.getElementById("i_content").disabled=false;
 		 document.getElementById("i_price").disabled=false;
-		 document.getElementById("i_imageFileName1").disabled=false;
-		 document.getElementById("i_imageFileName2").disabled=false;
-		 document.getElementById("i_imageFileName3").disabled=false;
+		 document.getElementById("i_imageFile1").disabled=false;
+		 document.getElementById("i_imageFile2").disabled=false;
+		 document.getElementById("i_imageFile3").disabled=false;
 		 document.getElementById("tr_btn_modify").style.display="block";
-		 document.getElementById("tr_file_upload").style.display="block";
+		 document.getElementById("tr_file_upload1").style.display="block";
+		 document.getElementById("tr_file_upload2").style.display="block";
+		 document.getElementById("tr_file_upload3").style.display="block";
 		 document.getElementById("tr_btn").style.display="none";
 	 }
 	 
@@ -294,7 +307,7 @@
 			if (input.files && input.files[0]) {
 				var reader = new FileReader();
 				reader.onload = function(e) {
-					$('#i_imageFileName1').attr('src', e.target.result);
+					$('#preview1').attr('src', e.target.result);
 				}
 				reader.readAsDataURL(input.files[0]);
 			}
@@ -304,7 +317,7 @@
 			if (input.files && input.files[0]) {
 				var reader = new FileReader();
 				reader.onload = function(e) {
-					$('#i_imageFileName2').attr('src', e.target.result);
+					$('#preview2').attr('src', e.target.result);
 				}
 				reader.readAsDataURL(input.files[0]);
 			}
@@ -314,7 +327,7 @@
 			if (input.files && input.files[0]) {
 				var reader = new FileReader();
 				reader.onload = function(e) {
-					$('#i_imageFileName3').attr('src', e.target.result);
+					$('#preview3').attr('src', e.target.result);
 				}
 				reader.readAsDataURL(input.files[0]);
 			}
