@@ -1,42 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	isELIgnored="false" pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	request.setCharacterEncoding("UTF-8");
+%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
-<!DOCTYPE html>
-<html lang="en">
 <head>
-<title>알파카 - 믿을 수 있는 중고 책 거래사이트</title>
+
+<style type="text/css">
+.update {
+	text-align: center;
+	margin: 70px auto;
+	padding: 0;
+	width: 700px;
+}
+</style>
+<meta charset="UTF-8">
+<title>알파카 - 헌 책 알고 팔자! 중고책거래 사이트</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
 	rel="stylesheet">
-
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <link rel="stylesheet" href="${contextPath}/resources/css/animate.css">
-
 <link rel="stylesheet"
 	href="${contextPath}/resources/css/owl.carousel.min.css">
 <link rel="stylesheet"
 	href="${contextPath}/resources/css/owl.theme.default.min.css">
 <link rel="stylesheet"
-	href="${contextPath}/resources/css/magnif.testimony-section .container-2ic-popup.css">
-
+	href="${contextPath}/resources/css/magnific-popup.css">
 <link rel="stylesheet"
 	href="${contextPath}/resources/css/bootstrap-datepicker.css">
 <link rel="stylesheet"
 	href="${contextPath}/resources/css/jquery.timepicker.css">
-
-
 <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
-
 
 <script src="/resources/js/jquery-3.2.1.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -109,41 +111,26 @@
 		})
 	})
 </script>
-
 </head>
 <body>
+	
 	<nav
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="index.do"><span>TRAVEL </span>MAKER</a>
+			<a class="navbar-brand" href="${contextPath}/index.do"
+				style="background-image: url('${contextPath}/resources/images/logo.png');"><span
+				class="navbar-brandsp"></span></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#ftco-nav" aria-controls="ftco-nav"
 				aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span> Menu
 			</button>
-
-			<div class="collapse navbar-collapse" id="ftco-nav">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a href="${contextPath}/index.do"
-						class="nav-link">Home</a></li>
-					<li class="nav-item"><a
-						href="${contextPath}/board/listArticles.do" class="nav-link">책거래</a></li>
-					<li class="nav-item"><a
-						href="${contextPath}/around/aroundMap.do" class="nav-link">주변거래</a></li>
-					<li class="nav-item"><a href="${contextPath}/themaTour.do"
-						class="nav-link">채팅</a></li>
-					<li class="nav-item"><a
-						href="${contextPath}/community/listCommunity.do" class="nav-link">커뮤니티</a></li>
-
-				</ul>
-			</div>
 		</div>
 	</nav>
 	<!-- END nav -->
-
 	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('${contextPath}/resources/images/bg_2.jpg');">
+		style="background-image: url('${contextPath}/resources/images/bg_2.png');">
 		<div class="overlay"></div>
 		<div class="container">
 			<div
@@ -151,22 +138,21 @@
 				<div class="col-md-9 ftco-animate pb-5 text-center">
 					<p class="breadcrumbs">
 						<span class="mr-2"><a href="index.do">Home <i
-								class="fa fa-chevron-right"></i></a></span> <span>일정짜기 <i
+								class="fa fa-chevron-right"></i></a></span> <span>로그인 <i
 							class="fa fa-chevron-right"></i></span>
 					</p>
-					<h1 class="mb-0 bread">회원가입</h1><br>
-            <p class="lead">회원가입하세요. 가입하면 게시판을 열람할 수 있습니다.</p>
+					<h1 class="mb-0 bread">회원 가입</h1>
+					<p>너가 '회원가입' 한다는것에 내 모든것을 건다. 쫄리면 뒈지시던가
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="ftco-section ftco-no-pb ftco-no-pt">
+	<section id="signUp_footer" class="ftco-section ftco-no-pb ftco-no-pt">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 order-md-last">
 					<div class="p-4 p-md-5" id="sign_up_wrap">
-						<h3 class="mb-4">회원가입 해라 얍</h3>
 
 						<form action="member/addMember.do" class="signup-form"
 							method="post" enctype="multipart/form-data">
@@ -205,16 +191,16 @@
 
 							</div>
 
-						
 
 
-								<div class="form-group d-flex justify-content-end mt-4">
 
-									<button type="submit" id="submit"
-										class="btn btn-primary submit" disabled>
-										<span class="fa fa-paper-plane"> 가입하기</span>
-									</button>
-								</div>
+							<div class="form-group d-flex justify-content-end mt-4">
+
+								<button type="submit" id="submit" class="btn btn-primary submit"
+									disabled>
+									<span class="fa fa-paper-plane"> 가입하기</span>
+								</button>
+							</div>
 						</form>
 					</div>
 				</div>
@@ -224,10 +210,8 @@
 
 	<footer class="ftco-footer ftco-no-pt">
 		<div class="container">
-
 			<div class="row">
 				<div class="col-md-12 text-center">
-
 					<p>
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						Copyright &copy;
@@ -243,35 +227,5 @@
 			</div>
 		</div>
 	</footer>
-
-
-
-	<!-- loader -->
-	<div id="ftco-loader" class="show fullscreen">
-		<svg class="circular" width="48px" height="48px">
-			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
-				stroke-width="4" stroke="#eeeeee" />
-			<circle class="path" cx="24" cy="24" r="22" fill="none"
-				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
-	</div>
-
-
-	<script src="resources/js/jquery.min.js"></script>
-	<script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
-	<script src="resources/js/popper.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="resources/js/jquery.easing.1.3.js"></script>
-	<script src="resources/js/jquery.waypoints.min.js"></script>
-	<script src="resources/js/jquery.stellar.min.js"></script>
-	<script src="resources/js/owl.carousel.min.js"></script>
-	<script src="resources/js/jquery.magnific-popup.min.js"></script>
-	<script src="resources/js/jquery.animateNumber.min.js"></script>
-	<script src="resources/js/bootstrap-datepicker.js"></script>
-	<script src="resources/js/scrollax.min.js"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-	<script src="resources/js/google-map.js"></script>
-	<script src="resources/js/main.js"></script>
-
 </body>
 </html>
