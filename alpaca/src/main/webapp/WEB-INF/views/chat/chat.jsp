@@ -61,7 +61,22 @@
 			</div>
 		</div>
 	</div>
-    
+	<footer class="ftco-footer ftco-no-pt">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p>
+						Copyright &copy;
+						<script>
+							document.write(new Date().getFullYear());
+						</script>
+						All rights reserved by Alpaca
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
     <!-- websocket javascript -->
     <script type="text/javascript">
         var ws;

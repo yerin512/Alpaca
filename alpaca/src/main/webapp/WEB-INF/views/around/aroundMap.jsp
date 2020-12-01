@@ -134,5 +134,21 @@
 
 	<div id="map" style="width: 100%; height: 100vh;"></div>
 	</section>
+	<footer class="ftco-footer ftco-no-pt">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p>
+						Copyright &copy;
+						<script>
+							document.write(new Date().getFullYear());
+						</script>
+						All rights reserved by Alpaca
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>
 </html>

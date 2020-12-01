@@ -30,6 +30,8 @@
 	    #chatLogin{position:relative;width:500px;height:300px;background: #f8f8f8;}
 	    #chatLogin .userBox{position:absolute;bottom:0;left:0;width:100%}
 	    #chatLogin .btn-primary{position:absolute;line-height:8px;}	
+	    .chat_footer{position:absolute}
+	    
 	</style>
 </head>
 <body>
@@ -88,5 +90,21 @@
 	        </div>
 	    </div>
 	</div>
+	<footer class="chat_footer ftco-footer ftco-no-pt">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p>
+						Copyright &copy;
+						<script>
+							document.write(new Date().getFullYear());
+						</script>
+						All rights reserved by Alpaca
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>
 </html>
