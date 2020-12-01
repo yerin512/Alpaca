@@ -73,7 +73,7 @@
                 return;
             }
             //웹소켓 객체 만드는 코드
-            ws = new WebSocket("ws://localhost:8090/trip/chat/echo.do");
+            ws = new WebSocket("ws://localhost:8090/alpaca/chat/echo.do");
             
             ws.onopen = function(event){
                 if(event.data === undefined){
