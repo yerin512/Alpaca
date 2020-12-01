@@ -84,6 +84,7 @@ public class BoardControllerImpl implements BoardController {
 		String mapString = articleMap.toString();
 		System.out.println("수정전에서 가져온 name속성들: " + mapString);
 		int articleNO = Integer.parseInt((String) articleMap.get("articleNO"));
+
 		boardService.removeImageFile(articleNO); 
 		List<AImageVO> imageFileList = new ArrayList<AImageVO>();
 		try {
@@ -107,7 +108,8 @@ public class BoardControllerImpl implements BoardController {
 
 		String a = articleMap.toString();
 		System.out.println("수정 후 :" + a);
-
+		articleMap.remove("articleNO");
+		articleMap.put("articleNO", articleNO);
 		try {
 			boardService.modArticle(articleMap);
 			if (imageFileList != null && imageFileList.size() != 0) {
@@ -324,21 +326,10 @@ public class BoardControllerImpl implements BoardController {
 		List<String> fileList = new ArrayList<String>();
 		Iterator<String> fileNames = multipartRequest.getFileNames();
 
-		ArrayList<String> fileNamesList = new ArrayList<String>();
-		while (fileNames.hasNext()) {
-			String fileName = fileNames.next();
-			fileNamesList.add(fileName);
-		}
-		
-		System.out.println(fileNamesList.toString());
-
 		try {
-			for(int i=0; i<fileNamesList.size(); i++) {
-				String imageFile = "originalFile"+i;
-				String fileName = fileNamesList.get(i);
-				if(fileName == null || fileName.equals("")) {
-					fileName = (String) articleMap.get(imageFile);  //file이름이 null이면 originalfile이름 넣어버리기
-				}
+
+			while (fileNames.hasNext()) {
+				String fileName = fileNames.next();
 				MultipartFile mFile = multipartRequest.getFile(fileName);
 				String originalFileName = mFile.getOriginalFilename();
 				fileList.add(originalFileName);
