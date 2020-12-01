@@ -10611,7 +10611,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 .ftco-navbar-light {
 	background: transparent !important;
 	position: absolute;
-	top: -8px;
+	top: -1px;
 	left: 0;
 	right: 0;
 	z-index: 3;
@@ -10667,7 +10667,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 }
 
 .ftco-navbar-light .navbar-nav>.nav-item>.nav-link {
-	font-size: 15px;
+	font-size: 18px;
 	padding-top: 1.5rem;
 	padding-bottom: 1.5rem;
 	padding-left: 20px;
@@ -10865,6 +10865,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 }
 
 .ftco-navbar-light.scrolled.awake {
+	display:none;/*책거래스크롤*/
 	margin-top: 0px;
 	-webkit-transition: .3s all ease-out;
 	-o-transition: .3s all ease-out;
@@ -10891,7 +10892,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 }
 
 .navbar-brand {
-	width: 200px;
+	width: 230px;
 	height: 80px;
 	font-weight: 700;
 	font-size: 24px;
@@ -10949,6 +10950,8 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 	line-height: 1.5;
 	font-weight: 300;
 	color: rgba(255, 255, 255, 0.9);
+	z-index:9999;
+	position:relative
 }
 
 .slider-text p strong {
@@ -10967,7 +10970,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 .slider-text .breadcrumbs {
 	font-size: 16px;
 	margin-bottom: 20px;
-	padding-top: 100px;
+	margin-top: 100px;
 	z-index: 99;
 	font-weight: 400;
 }
@@ -11055,7 +11058,9 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
   -moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
   box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
   z-index: 0;
-  margin:-720px -59px -4px 68px; }
+  top:47%;
+  overflow:hidden
+   }
   @media (max-width: 767.98px) {
     .login-wrap {
       margin-top: 3em; } }
@@ -11070,9 +11075,11 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
     z-index: -1;
     border-radius: 50% 0 0 0; }
   .login-wrap h3 {
-    font-weight: 500;
-    font-size: 20px;
-    color: #4986fc; }
+    font-weight: 300;
+    font-size: 22px;
+    color: #fff; }
+
+  .login-wrap h3 span{font-weight:500;}
 
 .login-wrap .form-group {
 	position: relative;
@@ -11134,7 +11141,23 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 
 .login-wrap textarea.form-control {
 	height: inherit !important;
+	
 }
+
+.login-wrap .btn {
+	border: 1px solid transparent;
+	background: #ff9d1d;
+	color: #fff;
+}
+
+.login-wrap .btn:hover {
+	border: 1px solid #ff9d1d;
+	background: transparent;
+	color: #ff9d1d;
+	
+}
+
+
 
 .bg-light {
 	background: #f9faff !important;
@@ -11163,7 +11186,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 	background: #4986fc;
 	border: 1px solid #4986fc !important;
 	color: #fff !important;
-	padding: 20px
+	padding: 20px;	
 }
 
 .btn.btn-primary:hover {
@@ -11840,7 +11863,7 @@ textarea.form-control {
 .ftco-no-pb {
 	padding-bottom: 0 !important;
 	position:absolute;
-
+	top:0;
 }
 
 .ftco-bg-dark {
@@ -12735,9 +12758,25 @@ max-width
 .main_btn {
 	background: #FFA648 !important
 }
+/*회원가입창*/
+#signUp_footer{position:unset}
+/*로그인 화면*/
+.bg-color-box{position:absolute;top:0;left:0;width:100%;height:215px;
+	background: #00c6ff;
+	background: #0072ff;
+	background: -moz-linear-gradient(-45deg, #00c6ff 0%, #0072ff 100%);
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, #00c6ff),
+		color-stop(100%, #0072ff));
+	background: -webkit-linear-gradient(-45deg, #00c6ff 0%, #0072ff 100%);
+	background: -o-linear-gradient(-45deg, #00c6ff 0%, #0072ff 100%);
+	background: -ms-linear-gradient(-45deg, #00c6ff 0%, #0072ff 100%);
+	background: -webkit-linear-gradient(315deg, #00c6ff 0%, #0072ff 100%);
+	background: -o-linear-gradient(315deg, #00c6ff 0%, #0072ff 100%);
+	background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c6ff',
+		endColorstr='#0072ff', GradientType=1);}
 
-
-/*책판매작성 articleForm*/
+/*梨낇뙋留ㅼ옉�꽦 articleForm*/
 #articleForm{width:60%;margin:90px auto;border:1px solid #ddd}
 #articleForm #preview1, #articleForm #preview2, #articleForm #preview3{background:#ddd}
 #articleForm .staff-2 .img-wrap{width:250px!imporant;height:250px!important}
@@ -12745,13 +12784,18 @@ max-width
 #articleForm .gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}
 #articleForm  table{width:95%}
 #articleForm .btn.btn-primary{padding:4px 38px!important;}
-#articleForm .div_input{width:235px;margin:20px auto;}
+#articleForm .div_input{width:250px;margin:20px auto;}
 #articleForm .div_input>input{margin-right:10px}
-#articleForm .div_input>input:last-child{margin-right:0}
 #articleForm input.title_input{width:30%;height:40px;border:1px solid #ddd}
 #articleForm .td_title{font-size:16px;color:#666;font-weight:bold}
-/*커뮤니티*/
-
+#articleForm #tr_btn{width:250px}
+#articleForm #tr_btn>input{margin-right:10px}
+/*articleList*/
+#listArticle_btn{margin-top:10px;padding:3px;color:#fff!important}
+#listArticle_btn a{color:#fff}
+#listArticle_btn a:hover{color:#444}
+#listA_paging{margin-top:115px!important}
+.communityList .table thead th{text-align:center}
 .communityList .content_wrap {
 	margin: 95px auto
 }
@@ -12803,7 +12847,7 @@ max-width
 	display: none
 }
 
-/*커뮤니티 글쓰기*/
+/*而ㅻ�ㅻ땲�떚 湲��벐湲�*/
 #communityFrom {
 	width: 60%;
 	margin: 90px auto
@@ -12847,7 +12891,7 @@ max-width
 #communityFrom .td_btn input:first-child {
 	margin-left: 43%
 }
-/*커뮤니티 글목록*/
+/*而ㅻ�ㅻ땲�떚 湲�紐⑸줉*/
 .communityList {
 	padding: margin auto;
 	padding: 130px 0;
@@ -13419,9 +13463,9 @@ alret
 	stroke-linecap: round;
 }
 
-/*占쏙옙占쏙옙찾占쏙옙 占쌉쏙옙占쏙옙 占쌜몌옙占�*/
+/*�뜝�룞�삕�뜝�룞�삕李얍뜝�룞�삕 �뜝�뙃�룞�삕�뜝�룞�삕 �뜝�뙗紐뚯삕�뜝占�*/
 
-/*占쏙옙占쏙옙찾占쏙옙 占쌜억옙占쏙옙*/
+/*�뜝�룞�삕�뜝�룞�삕李얍뜝�룞�삕 �뜝�뙗�뼲�삕�뜝�룞�삕*/
 @
 -webkit-keyframes loader-rotate { 100% {
 	-webkit-transform: rotate(360deg);

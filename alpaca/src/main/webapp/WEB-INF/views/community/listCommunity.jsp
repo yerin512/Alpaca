@@ -19,7 +19,7 @@
 	<title>알파카 - 헌 책 알고 팔자! 중고책거래 사이트</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
+	<link rel="shortcut icon" href="${contextPath}/resources/images/favicon.ico"/>
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -106,10 +106,10 @@
 		                    <table class="table table-hover">
 		                        <thead>
 		                            <tr>
-		                                <th>No.1</th>
+		                                <th></th>
 		                                <th>제목</th>
-		                                <th>작성자</th>
 		                                <th>작성일</th>
+		                                <th>작성자</th>
 		                            </tr>
 		                        </thead>
 		                        <tbody>
@@ -171,15 +171,20 @@
  	</section>
  	
 <footer class="ftco-footer ftco-no-pt">
-  <div class="container">
-<div class="row">
-  <div class="col-md-12 text-center">
-    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-      Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-  </div>
-</div>
-</div>
-</footer>
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p>
+						Copyright &copy;
+						<script>
+							document.write(new Date().getFullYear());
+						</script>
+						All rights reserved by Alpaca
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 		</body>
 		</html>
