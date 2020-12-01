@@ -49,19 +49,13 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-	
-	$(".btn").on("click", function() {
-		alert("회원정보 수정 완료 !!! 다시 로그인 바랍니다.")
-		location.href = "/alpaca/index.do";
-	})
-	
 	// 취소
 	$(".cancle").on("click", function() {
 
 		location.href = "/alpaca/index.do";
 
 	})
-
+	// 필수입력칸 
 	$("#submit").on("click", function() {
 		if ($("#pwd").val() == "") {
 			alert("비밀번호 를 입력해주세요.");
@@ -77,6 +71,9 @@ $(document).ready(function() {
 			alert("Email 을 입력해주세요.");
 			$("#email").focus();
 			return false;
+		}else {
+			alert("회원정보 수정 완료 !!! 다시 로그인 바랍니다.")
+			location.href = "/alpaca/index.do";
 		}
 
 	});

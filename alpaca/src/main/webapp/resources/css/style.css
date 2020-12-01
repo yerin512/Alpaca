@@ -42,6 +42,7 @@
 *, *::before, *::after {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+	text-align: center;
 }
 
 html {
@@ -2344,7 +2345,7 @@ textarea.form-control {
 }
 
 .form-check-input[disabled] ~ .form-check-label, .form-check-input:disabled 
-	~ .form-check-label {
+	 ~ .form-check-label {
 	color: #6c757d;
 }
 
@@ -2446,7 +2447,7 @@ textarea.form-control {
 }
 
 .was-validated .form-check-input:valid ~ .valid-feedback, .was-validated .form-check-input:valid 
-	~ .valid-tooltip, .form-check-input.is-valid ~ .valid-feedback,
+	 ~ .valid-tooltip, .form-check-input.is-valid ~ .valid-feedback,
 	.form-check-input.is-valid ~ .valid-tooltip {
 	display: block;
 }
@@ -2463,7 +2464,7 @@ textarea.form-control {
 
 .was-validated .custom-control-input:valid:checked ~
 	.custom-control-label::before, .custom-control-input.is-valid:checked 
-	~ .custom-control-label::before {
+	 ~ .custom-control-label::before {
 	border-color: #34ce57;
 	background-color: #34ce57;
 }
@@ -2476,7 +2477,7 @@ textarea.form-control {
 
 .was-validated .custom-control-input:valid:focus:not(:checked) ~
 	.custom-control-label::before, .custom-control-input.is-valid:focus:not(:checked) 
-	~ .custom-control-label::before {
+	 ~ .custom-control-label::before {
 	border-color: #28a745;
 }
 
@@ -2571,7 +2572,7 @@ textarea.form-control {
 .was-validated .form-check-input:invalid ~ .invalid-feedback,
 	.was-validated .form-check-input:invalid ~ .invalid-tooltip,
 	.form-check-input.is-invalid ~ .invalid-feedback, .form-check-input.is-invalid 
-	~ .invalid-tooltip {
+	 ~ .invalid-tooltip {
 	display: block;
 }
 
@@ -2587,21 +2588,21 @@ textarea.form-control {
 
 .was-validated .custom-control-input:invalid:checked ~
 	.custom-control-label::before, .custom-control-input.is-invalid:checked 
-	~ .custom-control-label::before {
+	 ~ .custom-control-label::before {
 	border-color: #e4606d;
 	background-color: #e4606d;
 }
 
 .was-validated .custom-control-input:invalid:focus ~
 	.custom-control-label::before, .custom-control-input.is-invalid:focus 
-	~ .custom-control-label::before {
+	 ~ .custom-control-label::before {
 	-webkit-box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 	box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 
 .was-validated .custom-control-input:invalid:focus:not(:checked) ~
 	.custom-control-label::before, .custom-control-input.is-invalid:focus:not(:checked) 
-	~ .custom-control-label::before {
+	 ~ .custom-control-label::before {
 	border-color: #dc3545;
 }
 
@@ -4304,7 +4305,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 }
 
 .custom-file-input[disabled] ~ .custom-file-label, .custom-file-input:disabled 
-	~ .custom-file-label {
+	 ~ .custom-file-label {
 	background-color: #e9ecef;
 }
 
@@ -7191,17 +7192,54 @@ keyframes spinner-border {to { -webkit-transform:rotate(360deg);
 }
 
 50
+
+
+
+
 %
 {
 opacity
+
+
+
+
 :
-1;
+
+
+
+
+1
+
+
+;
 -webkit-transform
+
+
+
+
 :
-none;
+
+
+
+
+none
+
+
+;
 transform
+
+
+
+
 :
-none;
+
+
+
+
+none
+
+
+;
 }
 }
 @
@@ -7211,17 +7249,54 @@ keyframes spinner-grow { 0% {
 }
 
 50
+
+
+
+
 %
 {
 opacity
+
+
+
+
 :
-1;
+
+
+
+
+1
+
+
+;
 -webkit-transform
+
+
+
+
 :
-none;
+
+
+
+
+none
+
+
+;
 transform
+
+
+
+
 :
-none;
+
+
+
+
+none
+
+
+;
 }
 }
 .spinner-grow {
@@ -10651,7 +10726,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 		background: transparent;
 		padding-left: 0;
 		padding-right: 0;
-		background-size:cover
+		background-size: cover
 	}
 }
 
@@ -10764,10 +10839,10 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 	color: #B2CCFF;
 }
 
-@media ( max-width : 991.	98px) {
+@media ( max-width : 991. 98px) {
 	.ftco-navbar-light .navbar-nav>.nav-item.active>a {
 		color: #B2CCFF;
-	}	
+	}
 }
 
 .ftco-navbar-light .navbar-toggler {
@@ -11047,32 +11122,41 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 #sign_up_wrap .form-control {
 	height: 43px
 }
+
 .login-wrap {
-  position: relative;
-  background: #fff;
-  border-radius: 10px;
-  -webkit-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
-  -moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
-  box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
-  z-index: 0;
-  margin:-720px -59px -4px 68px; }
-  @media (max-width: 767.98px) {
-    .login-wrap {
-      margin-top: 3em; } }
-  .login-wrap:after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 145px;
-    content: '';
-    background: rgba(0, 0, 0, 0.05);
-    z-index: -1;
-    border-radius: 50% 0 0 0; }
-  .login-wrap h3 {
-    font-weight: 500;
-    font-size: 20px;
-    color: #4986fc; }
+	position: relative;
+	background: #fff;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+	-moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+	box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+	z-index: 0;
+	margin: -720px -59px -4px 68px;
+}
+
+@media ( max-width : 767.98px) {
+	.login-wrap {
+		margin-top: 3em;
+	}
+}
+
+.login-wrap:after {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 145px;
+	content: '';
+	background: rgba(0, 0, 0, 0.05);
+	z-index: -1;
+	border-radius: 50% 0 0 0;
+}
+
+.login-wrap h3 {
+	font-weight: 500;
+	font-size: 20px;
+	color: #4986fc;
+}
 
 .login-wrap .form-group {
 	position: relative;
@@ -11506,6 +11590,7 @@ textarea.form-control {
 	opacity: 0;
 	visibility: hidden;
 	*/
+	
 }
 
 .bg-primary {
@@ -11839,8 +11924,7 @@ textarea.form-control {
 
 .ftco-no-pb {
 	padding-bottom: 0 !important;
-	position:absolute;
-
+	position: absolute;
 }
 
 .ftco-bg-dark {
@@ -12009,15 +12093,50 @@ textarea.form-control {
 }
 
 70
+
+
+
+
 %
 {
 -webkit-box-shadow
+
+
+
+
 :
+
+
+
+
 0
+
+
+
+
 0
+
+
+
+
 0
+
+
+
+
 30px
-rgba(
+
+
+
+
+rgba
+
+
+(
+
+
+
+
 73
 ,
 134
@@ -12025,18 +12144,60 @@ rgba(
 252
 ,
 0
-);
+
+
+
+
+)
+
+
+;
 }
 100
+
+
+
+
 %
 {
 -webkit-box-shadow
+
+
+
+
 :
+
+
+
+
 0
+
+
+
+
 0
+
+
+
+
 0
+
+
+
+
 0
-rgba(
+
+
+
+
+rgba
+
+
+(
+
+
+
+
 73
 ,
 134
@@ -12044,7 +12205,14 @@ rgba(
 252
 ,
 0
-);
+
+
+
+
+)
+
+
+;
 }
 }
 @
@@ -12055,15 +12223,50 @@ keyframes pulse { 0% {
 }
 
 70
+
+
+
+
 %
 {
 -moz-box-shadow
+
+
+
+
 :
+
+
+
+
 0
+
+
+
+
 0
+
+
+
+
 0
+
+
+
+
 30px
-rgba(
+
+
+
+
+rgba
+
+
+(
+
+
+
+
 73
 ,
 134
@@ -12071,14 +12274,52 @@ rgba(
 252
 ,
 0
-);
+
+
+
+
+)
+
+
+;
 -webkit-box-shadow
+
+
+
+
 :
+
+
+
+
 0
+
+
+
+
 0
+
+
+
+
 0
+
+
+
+
 30px
-rgba(
+
+
+
+
+rgba
+
+
+(
+
+
+
+
 73
 ,
 134
@@ -12086,14 +12327,52 @@ rgba(
 252
 ,
 0
-);
+
+
+
+
+)
+
+
+;
 box-shadow
+
+
+
+
 :
+
+
+
+
 0
+
+
+
+
 0
+
+
+
+
 0
+
+
+
+
 30px
-rgba(
+
+
+
+
+rgba
+
+
+(
+
+
+
+
 73
 ,
 134
@@ -12101,18 +12380,60 @@ rgba(
 252
 ,
 0
-);
+
+
+
+
+)
+
+
+;
 }
 100
+
+
+
+
 %
 {
 -moz-box-shadow
+
+
+
+
 :
+
+
+
+
 0
+
+
+
+
 0
+
+
+
+
 0
+
+
+
+
 0
-rgba(
+
+
+
+
+rgba
+
+
+(
+
+
+
+
 73
 ,
 134
@@ -12120,14 +12441,52 @@ rgba(
 252
 ,
 0
-);
+
+
+
+
+)
+
+
+;
 -webkit-box-shadow
+
+
+
+
 :
+
+
+
+
 0
+
+
+
+
 0
+
+
+
+
 0
+
+
+
+
 0
-rgba(
+
+
+
+
+rgba
+
+
+(
+
+
+
+
 73
 ,
 134
@@ -12135,14 +12494,52 @@ rgba(
 252
 ,
 0
-);
+
+
+
+
+)
+
+
+;
 box-shadow
+
+
+
+
 :
+
+
+
+
 0
+
+
+
+
 0
+
+
+
+
 0
+
+
+
+
 0
-rgba(
+
+
+
+
+rgba
+
+
+(
+
+
+
+
 73
 ,
 134
@@ -12150,7 +12547,14 @@ rgba(
 252
 ,
 0
-);
+
+
+
+
+)
+
+
+;
 }
 }
 .heading-section .subheading {
@@ -12209,27 +12613,64 @@ rgba(
 
 {
 margin
+
+
+
+
 :
+
+
  
+
+
 0
+
+
  
+
+
 0
+
+
  
+
+
 0
+
+
  
+
+
 auto
+
+
  
+
+
 !
 important
-;
 
-    
-max-width
-:
- 
-1350px
+
+
+
 ;
+max-width
+
+
+
+
+:
+
+
  
+
+
+1350px
+
+
+
+
+;
 }
 .testimony-section .overlay {
 	display: none;
@@ -12736,24 +13177,69 @@ max-width
 	background: #FFA648 !important
 }
 
-
 /*책판매작성 articleForm*/
-#articleForm{width:60%;margin:90px auto;border:1px solid #ddd}
-#articleForm #preview1, #articleForm #preview2, #articleForm #preview3{background:#ddd}
-#articleForm .staff-2 .img-wrap{width:250px!imporant;height:250px!important}
-#articleForm #map {width:100%!important; height: 300px;margin:15px 0}
-#articleForm .gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}
-#articleForm  table{width:95%}
-#articleForm .btn.btn-primary{padding:4px 38px!important;}
-#articleForm .div_input{width:235px;margin:20px auto;}
-#articleForm .div_input>input{margin-right:10px}
-#articleForm .div_input>input:last-child{margin-right:0}
-#articleForm input.title_input{width:30%;height:40px;border:1px solid #ddd}
-#articleForm .td_title{font-size:16px;color:#666;font-weight:bold}
-/*회원가입*/
-#signUp_footer{position:unset!important}
-/*커뮤니티*/
+#articleForm {
+	width: 60%;
+	margin: 90px auto;
+	border: 1px solid #ddd
+}
 
+#articleForm #preview1, #articleForm #preview2, #articleForm #preview3 {
+	background: #ddd
+}
+
+#articleForm .staff-2 .img-wrap {
+	width: 250px!imporant;
+	height: 250px !important
+}
+
+#articleForm #map {
+	width: 100% !important;
+	height: 300px;
+	margin: 15px 0
+}
+
+#articleForm .gmnoprint, .gm-control-active.gm-fullscreen-control {
+	display: none;
+}
+
+#articleForm  table {
+	width: 95%
+}
+
+#articleForm .btn.btn-primary {
+	padding: 4px 38px !important;
+}
+
+#articleForm .div_input {
+	width: 235px;
+	margin: 20px auto;
+}
+
+#articleForm .div_input>input {
+	margin-right: 10px
+}
+
+#articleForm .div_input>input:last-child {
+	margin-right: 0
+}
+
+#articleForm input.title_input {
+	width: 30%;
+	height: 40px;
+	border: 1px solid #ddd
+}
+
+#articleForm .td_title {
+	font-size: 16px;
+	color: #666;
+	font-weight: bold
+}
+/*회원가입*/
+#signUp_footer {
+	position: unset !important
+}
+/*커뮤니티*/
 .communityList .content_wrap {
 	margin: 95px auto
 }
@@ -13445,28 +13931,80 @@ keyframes loader-rotate { 100% {
 }
 
 50
+
+
+
+
 %
 {
 stroke-dasharray
+
+
+
+
 :
+
+
+
+
 89
 ,
-200;
+200
+
+
+;
 stroke-dashoffset
+
+
+
+
 :
--35px;
+
+
+
+
+-35px
+
+
+;
 }
 100
+
+
+
+
 %
 {
 stroke-dasharray
+
+
+
+
 :
+
+
+
+
 89
 ,
-200;
+200
+
+
+;
 stroke-dashoffset
+
+
+
+
 :
--136px;
+
+
+
+
+-136px
+
+
+;
 }
 }
 @
@@ -13475,27 +14013,79 @@ keyframes loader-dash { 0% {
 	stroke-dashoffset: 0;
 }
 50
+
+
+
+
 %
 {
 stroke-dasharray
+
+
+
+
 :
+
+
+
+
 89
 ,
-200;
+200
+
+
+;
 stroke-dashoffset
+
+
+
+
 :
--35px;
+
+
+
+
+-35px
+
+
+;
 }
 100
+
+
+
+
 %
 {
 stroke-dasharray
+
+
+
+
 :
+
+
+
+
 89
 ,
-200;
+200
+
+
+;
 stroke-dashoffset
+
+
+
+
 :
--136px;
+
+
+
+
+-136px
+
+
+;
 }
 }
