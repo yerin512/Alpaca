@@ -2,8 +2,6 @@
 	isELIgnored="false" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
-<c:set var="article" value="${articleMap.article}" />
-<c:set var="imageFileList" value="${articleMap.imageFileList}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -123,10 +121,10 @@
 											class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
 											<div class="staff-2 w-100">
 												<input type="hidden" name="originalFile1"
-													value="${imageFileList[0].imageFileName }" />
+													value="${article.imageFile1}" />
 												<div class="img-wrap d-flex align-items-stretch">
 													<img id="preview1"
-														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${imageFileList[0].imageFileName}"
+														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${article.imageFile1}"
 														width="100%" />
 												</div>
 												<div id="tr_file_upload1">
@@ -141,10 +139,10 @@
 											class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
 											<div class="staff-2 w-100">
 												<input type="hidden" name="originalFile2"
-													value="${imageFileList[1].imageFileName }" />
+													value="${article.imageFile2}" />
 												<div class="img-wrap d-flex align-items-stretch">
 													<img id="preview2"
-														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${imageFileList[1].imageFileName}"
+														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${article.imageFile2}"
 														width="100%" />
 												</div>
 												<div id="tr_file_upload2">
@@ -159,10 +157,10 @@
 											class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
 											<div class="staff-2 w-100">
 												<input type="hidden" name="originalFile3"
-													value="${imageFileList[2].imageFileName }" />
+													value="${article.imageFile3}" />
 												<div class="img-wrap d-flex align-items-stretch">
 													<img id="preview3"
-														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${imageFileList[2].imageFileName}"
+														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${article.imageFile3}"
 														width="100%" />
 												</div>
 												<div id="tr_file_upload3">
