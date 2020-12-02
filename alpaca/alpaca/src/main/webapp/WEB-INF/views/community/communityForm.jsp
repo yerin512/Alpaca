@@ -142,8 +142,7 @@
 							title="내용을 입력해주세요."></textarea> <script
 							src="${contextPath}/resources/ckeditor/ckeditor.js"></script> <script
 							type="text/javascript">
-								CKEDITOR
-										.replace(
+								CKEDITOR.replace(
 												'c_content',
 												{
 													filebrowserUploadUrl : '${pageContext.request.contextPath }/community/fileupload.do'

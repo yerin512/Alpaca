@@ -111,6 +111,22 @@ public class CommunityController  {
 		
 		
 	}
+	
+	
+	// 한개의 이미지 수정 new
+		@RequestMapping(value = "/community/modmodCommunity.do", method = RequestMethod.GET)
+		public ModelAndView modmodCommunity(@RequestParam("c_no") int c_no, HttpServletRequest request,
+				HttpServletResponse response) throws Exception {
+			String viewName = (String) request.getAttribute("viewName");
+			communityVO = communityService.viewCommunity(c_no);
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName(viewName);
+			mav.addObject("community", communityVO);
+			return mav;
+			
+			
+		}
+		
 
 	 //수정
 	  @RequestMapping(value="/community/modCommunity.do" ,method = RequestMethod.POST)

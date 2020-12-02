@@ -3,6 +3,13 @@
  * For licensing, see https://ckeditor.com/legal/ckeditor-oss-license
  */
 
+CKEDITOR.on( 'instanceReady', function( ev ) {
+  ev.editor.dataProcessor.writer.selfClosingEnd = '>';
+});
+
+
+
+
 CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here.
 	// For complete reference see:
@@ -39,3 +46,5 @@ CKEDITOR.editorConfig = function( config ) {
 	config.enterMode = CKEDITOR.ENTER_BR
 	
 };
+
+
