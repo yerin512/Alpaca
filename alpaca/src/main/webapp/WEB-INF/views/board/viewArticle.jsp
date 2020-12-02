@@ -51,6 +51,8 @@
 #tr_btn_modify {
 	display: none;
 }
+
+
 </style>
 </head>
 <body>
@@ -93,7 +95,7 @@
 				class="row no-gutters slider-text align-items-end justify-content-center">
 				<div class="col-md-9 ftco-animate pb-5 text-center">
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="${contextPath}index.do">Home
+						<span class="mr-2"><a href="${contextPath}/index.do">Home
 								<i class="fa fa-chevron-right"></i>
 						</a></span> <span>책거래 <i class="fa fa-chevron-right"></i></span>
 					</p>
@@ -200,18 +202,9 @@
 					</tr>
 					<tr>
 						<td class="td_title" align="left">책 설명</td>
-						<td colspan=2><textarea id="i_content" name="content"
-								rows="10" cols="65" maxlength="4000" disabled>${article.content }</textarea>
-							<script src="${contextPath}/resources/ckeditor/ckeditor.js"></script>
-							<script type="text/javascript">
-								CKEDITOR.replace(
-												'i_content',
-												{
-													filebrowserUploadUrl : '${pageContext.request.contextPath }/community/fileupload.do'
-												});
-								window.parent.CKEDITOR.tools.callFunction(1,
-										"${url}", "전송완료");
-							</script></td>
+						<td colspan=2 width="100%"><textarea id="i_content" name="content" 
+								rows="10" cols="110" maxlength="4000" disabled>${article.content}</textarea>
+						</td>
 					</tr>
 					<tr>
 						<td align="left" class="td_title">판매 위치</td>

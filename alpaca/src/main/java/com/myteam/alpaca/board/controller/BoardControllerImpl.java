@@ -76,20 +76,11 @@ public class BoardControllerImpl implements BoardController {
 			articleMap.put(name, value);
 		}
 		
-		List<String> imageFileName = upload(multipartRequest, response);
-		articleMap.put("imageFile1", imageFileName.get(0));
-		articleMap.put("imageFile2", imageFileName.get(1));
-		articleMap.put("imageFile3", imageFileName.get(2));
-		
-		String articleNO = (String) articleMap.get("articleNO");
-		String message;
-		ResponseEntity resEnt = null;
-		HttpHeaders responseHeaders = new HttpHeaders();
-		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
-		
 		String originalFile1 = (String) articleMap.get("originalFile1");
 		String originalFile2 = (String) articleMap.get("originalFile2");
 		String originalFile3 = (String) articleMap.get("originalFile3");
+		
+		List<String> imageFileName = upload(multipartRequest, response);
 		
 		String imageFile1 = imageFileName.get(0);
 		String imageFile2 = imageFileName.get(1);
@@ -108,17 +99,32 @@ public class BoardControllerImpl implements BoardController {
 		}
 		
 		
+		
+		articleMap.put("imageFile1", imageFile1);
+		articleMap.put("imageFile2", imageFile2);
+		articleMap.put("imageFile3", imageFile3);
+		
+		String articleNO = (String) articleMap.get("articleNO");
+		String message;
+		ResponseEntity resEnt = null;
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+		
+
+		
+
+		
+		
 		System.out.println("articleMap 수정전 확인 :" +articleMap.toString());
 		
 		try {
 			boardService.modArticle(articleMap);
 			if (imageFileName != null && imageFileName.size() != 0) {
 				for (String imageFile : imageFileName) {
-					if(imageFile != null && !imageFile.equals(originalFile1) && !imageFile.equals(originalFile2) && !imageFile.equals(originalFile3)) {
 					File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFile);
 					File destDir = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO);
 					FileUtils.moveFileToDirectory(srcFile, destDir, true);
-				}}
+				}
 			
 				
 

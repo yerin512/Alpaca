@@ -43,9 +43,9 @@
   	<update id="updateArticle"  parameterType="java.util.Map">
 					update article
 			set 
-			imageFile1=#{imageFile1},
-			imageFile2=#{imageFile2},
-			imageFile3=#{imageFile3},
+			<if test='#{imageFile1} != null'>imageFile1=#{imageFile1},</if>
+			<if test='#{imageFile2} != null'>imageFile2=#{imageFile2},</if>
+			<if test='#{imageFile3} != null'>imageFile3=#{imageFile3},</if>
 			title=#{title},	 
 			content=#{content},
 			price=#{price},
