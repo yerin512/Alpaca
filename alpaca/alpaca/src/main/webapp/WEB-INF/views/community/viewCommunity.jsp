@@ -149,7 +149,7 @@
 									value="<fmt:formatDate value="${community.c_date}" />" disabled />
 								</td>
 							</tr>
-
+							<div class="line_hr"></div>
 							<tr>
 								<td><textarea rows="20" cols="120" name="c_content"
 										id="i_content" disabled />${community.c_content }</textarea>
