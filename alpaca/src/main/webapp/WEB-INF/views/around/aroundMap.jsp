@@ -28,7 +28,7 @@
 		h3 {margin: 10px auto 0;}
 		.img-box {max-height: 80px;overflow: hidden;float: left;}	
 		img {width: 70px;height: 70px;margin: -20px auto 0;}	
-		a {color: #fff;}
+		
 		.gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}
 	</style>
 	
