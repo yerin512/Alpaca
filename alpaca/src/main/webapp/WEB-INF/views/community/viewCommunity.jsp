@@ -158,7 +158,7 @@
 							<tr id="tr_btn_modify" align="center">
 								<td colspan="2"><input type=button value="수정"
 									onClick="fn_modify_community(frmCommunity)"
-									class="btn btn-outline btn-primary pull-right"> <input
+									class="btn btn-outline btn-primary pull-right btn_cancel"> <input
 									type=button value="취소" onClick="backToList(frmCommunity)"
 									class="btn btn-outline btn-primary pull-right"></td>
 							</tr>

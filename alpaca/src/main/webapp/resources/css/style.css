@@ -13113,12 +13113,15 @@ alret
 }
 
 .viewCommunity #i_content {
+	width:100%;
 	border: none;
 	background: #f8f8f8
 }
 
 .viewCommunity #tr_btn {
-	text-align: center
+	display: block;
+	text-align: center;
+	float:right;
 }
 
 .viewCommunity #tr_btn input {
@@ -13131,11 +13134,14 @@ alret
 
 .viewCommunity  #tr_btn_modify {
 	display: none;
+	float:right
+}
+.viewCommunity btn_cancel{
+	margin-left:15px
+	
+	
 }
 
-.viewCommunity  #tr_btn {
-	display: block;
-}
 
 /* Blog*/
 .post-info {
