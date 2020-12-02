@@ -19,17 +19,25 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/jquery.timepicker.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/flaticon.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 
 	<style>	
+		#aroundMap a{color:#666!important}
 		#aroundMap .ftco-navbar-light {background:#007bff!important;opacity:.8}
 		#map {width: 100vw; height: 100vh;}
-		.wrap {width: 200px;}
-		.text-box {text-align: center;}	
-		h3 {margin: 10px auto 0;}
-		.img-box {max-height: 80px;overflow: hidden;float: left;}	
-		img {width: 70px;height: 70px;margin: -20px auto 0;}	
-		
-		.gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}
+		#aroundMap .wrap {width: 200px;}
+		#aroundMap .text-box {padding-left:10px}	
+		#aroundMap h3 {font-size:16px;line-height:10px!important;font-weight:600;color:#007bff;letter-spacing:-.3px;font-family: 'Noto Sans KR', sans-serif;}
+		#aroundMap .img-box {max-height:200px;overflow:hidden;margin-bottom:20px}	
+		#aroundMap img {width: 270px;height: 270px;margin: -20px auto 0;}	
+		#aroundMap .gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}
+		#aroundMap .gm-style-iw{min-height:300px;max-width:270px!important]}
+		#aroundMap .gm-style .gm-style-iw-c{padding:0!important}
+		#aroundMap .gm-style-iw-d>div{width:100%;margin-top:-10px;}
+		#aroundMap .gm-style-iw-d{overflow:unset!important}
+		#aroundMap .gm-ui-hover-effect{background:#fff!important;right:0!important;top:0!important}
+		#aroundMap .price{padding-bottom:10px;font-size:20px;font-weight:600;letter-spacing:-.3px;color:#555;font-family: 'Noto Sans KR', sans-serif;}
 	</style>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -87,10 +95,10 @@
 				});
 
 				google.maps.event.addListener(marker, 'click', (function(marker, i) {
-					return function() {
-						infowindow.setContent('<div class="wrap"><div class="text-box"><h3>'+title[i]+'</h3>'
-							+ '<div class="img-box"><img src="${contextPath}/board/download.do?articleNO='+articleNO[i]+'&imageFileName='+imageFileName[i]+'"></div>'
-							+ '<div class="price">가격: '+price[i]+'원</div>'
+					return function() { 
+						infowindow.setContent('<div class="img-box"><img src="${contextPath}/board/download.do?articleNO='+articleNO[i]+'&imageFileName='+imageFileName[i]+'"></div>'
+							+ '<div class="wrap"><div class="text-box"><h3>'+title[i]+'</h3>'
+							+ '<div class="price">'+price[i]+'원</div>'
 							+ '<a href="${contextPath}/board/viewArticle.do?articleNO='+articleNO[i]+'" class="link">상세보기</a></div>'); // html로 표시될 인포윈도우의 내용
 						infowindow.open(map, marker); // 인포윈도우가 표시될 위치
 					}
@@ -99,7 +107,7 @@
 				if (marker) {
 					marker.addListener('click', function() {
 						map.setCenter(this.getPosition()); // 중심 위치를 클릭된 마커의 위치로 변경
-						map.setZoom(17);
+						map.setZoom(18);
 					});
 				}
 			}
