@@ -38,11 +38,14 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/*/*.do" />
 			<beans:bean
-				class="com.myteam.alpaca.common.interceptor.ViewNameInterceptor" /> 
+				class="com.myteam.alpaca.common.interceptor.ViewNameInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
 	
-	
+	<!-- NaverLoginBO Class에 대한 Bean설정 추가 -->
+	<beans:bean id="naverLoginBO"
+		class="com.myteam.alpaca.member.service.NaverLoginBO" />
+
 
 
 	<!-- 멀티파트 리졸버 -->

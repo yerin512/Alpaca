@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,7 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.myteam.alpaca.member.service.KakaoAPI;
 import com.myteam.alpaca.member.service.MemberService;
-
+import com.myteam.alpaca.member.service.NaverLoginBO;
 import com.myteam.alpaca.member.vo.MemberVO;
 
 
@@ -33,8 +34,6 @@ import com.myteam.alpaca.member.vo.MemberVO;
 @Controller("memberController")
 public class MemberControllerImpl implements MemberController {
 
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
-	private static final String ARTICLE_IMAGE_REPO = "C:\\member\\profile_image";
 	@Autowired
 	private MemberService memberService;
 	@Autowired
@@ -56,6 +55,8 @@ public class MemberControllerImpl implements MemberController {
 		mav.setViewName(viewName);
 		return mav;
 	}
+	
+
 
 	// 카카오 로그인
 	@RequestMapping(value = "/login")
@@ -107,27 +108,6 @@ public class MemberControllerImpl implements MemberController {
 
 	}
 
-	// 회원가입 프로필 이미지 업로드
-	private String upload(MultipartHttpServletRequest multipartRequest) throws Exception {
-		String imageFileName = null;
-		Iterator<String> fileNames = multipartRequest.getFileNames();
-		System.out.println("fileNames");
-		while (fileNames.hasNext()) {
-			String fileName = fileNames.next();
-			MultipartFile mFile = multipartRequest.getFile(fileName);
-			imageFileName = mFile.getOriginalFilename();
-			File file = new File(ARTICLE_IMAGE_REPO + "\\" + fileName);
-			if (mFile.getSize() != 0) {
-				if (!file.exists()) {
-					if (file.getParentFile().mkdirs()) {
-						file.createNewFile();
-					}
-				}
-				mFile.transferTo(new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName));
-			}
-		}
-		return imageFileName;
-	}
 
 	@RequestMapping(value = "signUp.do", method = RequestMethod.GET)
 	private ModelAndView loginMain(HttpServletRequest request, HttpServletResponse response) {

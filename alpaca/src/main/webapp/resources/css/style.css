@@ -216,7 +216,6 @@ th {
 
 label {
 	display: inline-block;
-	margin-bottom: 0.5rem;
 }
 
 button {
@@ -2309,6 +2308,8 @@ textarea.form-control {
 
 .form-group {
 	margin-bottom: 1rem;
+	margin: 10px auto;
+	padding: 10px;
 }
 
 .form-text {
@@ -11083,7 +11084,6 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 
 .login-wrap .form-group {
 	position: relative;
-	margin-bottom: 30px;
 }
 
 .login-wrap .form-group label {
