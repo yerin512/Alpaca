@@ -126,8 +126,8 @@
 								  <c:when test="${communityList !=null }" >
 								    <c:forEach  var="community" items="${communityList }" varStatus="communityNum" >
 								     <tr align="center">
-									 <td width="5%">${communityNum.count}</td>
-									<!--  <td>${community.c_no }</td>-->
+									<!--  <td width="5%">${communityNum.count}</td> -->
+									 <td>${community.c_no }</td>
 									<td align='left'  width="35%">
 									  <span style="padding-right:30px"></span>
 									            <a class='cls1' href="${contextPath}/community/viewCommunity.do?c_no=${community.c_no}">${community.c_title }</a>

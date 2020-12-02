@@ -20,38 +20,38 @@
 	</resultMap>
 	
  
-<select id="selectAllArticlesList" resultMap="articlesResult"   >
+	<select id="selectAllArticlesList" resultMap="articlesResult">
     <![CDATA[
       SELECT id, articleNO, title, content, writeDate, imageFile1,loc_x, loc_y, price
-      from article
+      from article ORDER BY articleNO DESC
     ]]>
-  </select>
+    </select>
  			
-  	<select id="selectNewArticleNO" resultType="int"  >
+  	<select id="selectNewArticleNO" resultType="int">
 		<![CDATA[
-			SELECT  nvl(max(articleNO), 0) + 1 from article		
+			SELECT nvl(max(articleNO), 0) + 1 from article		
 		]]>
 	</select>
 	
- 	 <select id="selectArticle" resultType="articleVO"   parameterType="int">
-    <![CDATA[
-      SELECT * from article
-      where articleNO = #{articleNO}		
-    ]]>
- 	 </select>
+ 	<select id="selectArticle" resultType="articleVO" parameterType="int">
+	    <![CDATA[
+	      SELECT * from article
+	      where articleNO = #{articleNO}		
+	    ]]>
+ 	</select>
   
   	<update id="updateArticle"  parameterType="java.util.Map">
-					update article
-			set 
-			<if test='#{imageFile1} != null'>imageFile1=#{imageFile1},</if>
-			<if test='#{imageFile2} != null'>imageFile2=#{imageFile2},</if>
-			<if test='#{imageFile3} != null'>imageFile3=#{imageFile3},</if>
-			title=#{title},	 
-			content=#{content},
-			price=#{price},
-			loc_x=#{loc_x},
-			loc_y=#{loc_y}
-			where articleNO=#{articleNO}
+	update article
+		set 
+		<if test='#{imageFile1} != null'>imageFile1=#{imageFile1},</if>
+		<if test='#{imageFile2} != null'>imageFile2=#{imageFile2},</if>
+		<if test='#{imageFile3} != null'>imageFile3=#{imageFile3},</if>
+		title=#{title},	 
+		content=#{content},
+		price=#{price},
+		loc_x=#{loc_x},
+		loc_y=#{loc_y}
+		where articleNO=#{articleNO}
 	</update>
 		
 	
@@ -59,15 +59,13 @@
       delete from article
       where articleNO=#{articleNO}
    	</delete>  
-  
-  	 <!--  , genre, way, condition --> <!-- , #{genre}, #{way}, #{condition} -->
   	 
-  	  <insert id="insertNewArticle"  parameterType="java.util.Map">
+  	<insert id="insertNewArticle"  parameterType="java.util.Map">
     <![CDATA[
     INSERT into article( id, articleNO, title, content, loc_x, loc_y, price, imageFile1, imageFile2, imageFile3)         
 			VALUES(#{id}, #{articleNO}, #{title}, #{content}, #{loc_x}, #{loc_y}, #{price}, #{imageFile1}, #{imageFile2}, #{imageFile3})  
     ]]>      
-  </insert>
+    </insert>
   	
 
 </mapper>
