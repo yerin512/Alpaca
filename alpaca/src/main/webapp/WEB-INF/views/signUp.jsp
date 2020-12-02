@@ -114,7 +114,6 @@
 </script>
 </head>
 <body>
-	
 	<nav
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
@@ -143,7 +142,7 @@
 							class="fa fa-chevron-right"></i></span>
 					</p>
 					<h1 class="mb-0 bread">회원 가입</h1>
-					<p>너가 '회원가입' 한다는것에 내 모든것을 건다. 쫄리면 뒈지시던가
+					
 				</div>
 			</div>
 		</div>

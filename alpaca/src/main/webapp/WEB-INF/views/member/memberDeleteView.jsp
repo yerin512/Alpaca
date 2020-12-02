@@ -10,21 +10,45 @@
 
 <style type="text/css">
 .delete {
-	
-	text-align: center;
 	margin: 70px auto;
-	padding :0;
-	width : 700px;
+	padding: 0;
+	width: 500px;
 }
+
 #delete {
 	text-align: center;
 	margin: 70px auto;
-	padding :0;
-	width : 700px;
-
+	padding: 0;
+	width: 500px;
 }
 
+#footer {
+	position: absolute;
+}
 
+.gmd {
+	background: #fff;
+	border-radius: 30px;
+	display: inline-table;
+	float: left;
+	height: 150px;
+	position: relative;
+	width: 150px;
+	padding: 0 35px 0;
+	margin: 100px 0 43px 30%;
+	left: 110px;
+	color: #444
+}
+
+.gmd-2 {
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.memberDelete_box {
+	display: block;
+	width: 500px;
+	padding: 10px;
+}
 </style>
 <meta charset="UTF-8">
 <title>알파카 - 헌 책 알고 팔자! 중고책거래 사이트</title>
@@ -58,7 +82,6 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 
-		
 		// 취소
 		$(".cancle").on("click", function() {
 			alert("메인 화면으로 돌아갑니다.")
@@ -124,37 +147,41 @@
 							class="fa fa-chevron-right"></i></span>
 					</p>
 					<h1 class="mb-0 bread">회원 탈퇴</h1>
-					<p>꼭 ... 이렇게 떠나야만 속이 후련했냐!!!
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section id="container">
-		<form action="/alpaca/memberDelete" method="post" class = "delete" id = "delForm" >
-			<div class="form-group has-feedback">
-				<label class="control-label" for="id"><strong><h4>ID</h4></strong></label> <input
-					class="form-control" type="text" id="id" name="id"
-					value="${member.id}" readonly="readonly" />
+	<div class="gmd gmd-2">
+		<section id="container" class="memberDelete_box">
+			<form action="/alpaca/memberDelete" method="post" class="delete"
+				id="delForm">
+				<div class="form-group has-feedback">
+					<label class="control-label" for="id">ID</label> <input
+						class="form-control" type="text" id="id" name="id"
+						value="${member.id}" readonly="readonly" />
+				</div>
+				<div class="form-group has-feedback">
+					<label class="control-label" for="pwd">PASSWORD</label> <input
+						class="form-control" type="password" id="pwd" name="pwd" />
+				</div>
+			</form>
+			<div class="form-group has-feedback" id="delete">
+				<button class="btn btn-success" type="button" id="submit">회원탈퇴</button>
+				<button class="cancle btn btn-danger" type="button">취소</button>
 			</div>
-			<div class="form-group has-feedback">
-				<label class="control-label" for="pwd"><strong><h4>PASSWORD</h4></strong></label> <input
-					class="form-control" type="password" id="pwd" name="pwd" />
-			</div>
-		</form>
-		<div class="form-group has-feedback" id = "delete">
-			<button class="btn btn-success" type="button" id="submit">회원탈퇴</button>
-			<button class="cancle btn btn-danger" type="button">취소</button>
-		</div>
-		
+
+			<!--  
 		<div>
 			<c:if test="${msg == false}">
 					비밀번호가 맞지 않습니다.
 				</c:if>
 		</div>
-	</section>
-
-	<footer class="ftco-footer ftco-no-pt">
+		
+		-->
+		</section>
+	</div>
+	<footer class="ftco-footer ftco-no-pt" id="footer">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 text-center">
@@ -164,10 +191,7 @@
 						<script>
 							document.write(new Date().getFullYear());
 						</script>
-						All rights reserved | This template is made with <i
-							class="fa fa-heart" aria-hidden="true"></i> by <a
-							href="https://colorlib.com" target="_blank">Colorlib</a>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						All rights reserved by Alpaca
 					</p>
 				</div>
 			</div>
