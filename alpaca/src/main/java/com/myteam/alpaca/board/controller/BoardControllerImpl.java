@@ -51,7 +51,7 @@ public class BoardControllerImpl implements BoardController {
 
 	}
 
-	@RequestMapping(value = "/board/viewArticle.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/board/viewArticle.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView viewArticle(@RequestParam("articleNO") int articleNO, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String viewName = (String) request.getAttribute("viewName");

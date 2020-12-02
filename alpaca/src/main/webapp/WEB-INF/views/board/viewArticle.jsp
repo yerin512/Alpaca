@@ -203,6 +203,7 @@
 					<tr>
 						<td class="td_title" align="left">책 설명</td>
 						<td colspan=2 width="100%"><textarea id="i_content" name="content" 
+						
 								rows="10" cols="110" maxlength="4000" disabled>${article.content}</textarea>
 						</td>
 					</tr>
@@ -233,7 +234,7 @@
 					</div>
 					<div id="tr_btn_modify" align="center">
 <input
-							type=button value="취소" onClick="backToList(frmArticle)">
+							type=button value="취소" onClick="backToForm(articleForm)">
 
 					</div>
 				</div>
@@ -327,6 +328,11 @@
 		
 		function backToList(obj) {
 			obj.action = "${contextPath}/board/listArticles.do";
+			obj.submit();
+		}
+		
+		function backToForm(obj) {
+			obj.action = "${contextPath}/board/viewArticle.do?articleNO=${article.articleNO}";
 			obj.submit();
 		}
 		
