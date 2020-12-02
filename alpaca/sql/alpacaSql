@@ -1,45 +1,32 @@
 drop table trip_member;
-drop table kakao_profile;
-drop table aImageFile;
 drop table article;
 drop table c_board;
 
 commit;
 
+
 create table trip_member(
 	id varchar2(20)  primary key,
 	name varchar2(20), 
 	email varchar2(40), 
-	pwd varchar2(20),
+	pwd varchar2(20)
 );
 
-alter table trip_member drop column profile_img;
-
-create table kakao_profile (id varchar2(20) , profileImage varchar2(100), jagisogae varchar2(200));
-
-create table aImageFile(
-	imageFileNO number(10) primary key,
-	imageFileName varchar2(50),
-	regDate date default sysdate,
-	articleNO number(10),
-	constraint fk_articleNO foreign key(articleNO) references article(articleNO) on delete cascade
+create table article(
+    id varchar(20),
+    articleNO number primary key,
+    title varchar2(100),
+    content varchar2(2000),
+    price number,
+    imageFile1 varchar2(1000), 
+    imageFile2 varchar2(1000), 
+    imageFile3 varchar2(1000), 
+    writeDate date DEFAULT sysdate,
+    location varchar2(1000),
+    loc_x number,
+    loc_y number,
+    constraint fk_articleID foreign key(id) references trip_member(id) on delete cascade
 );
-
- create table article(
-   id varchar(20),
-   articleNO number primary key,
-   title varchar2(100),
-   content varchar2(2000),
-   price number,
-   imageFile1 varchar2(1000), 
-   imageFile2 varchar2(1000), 
-   imageFile3 varchar2(1000), 
-   writeDate date DEFAULT sysdate,
-   location varchar2(1000),
-   loc_x number,
-   loc_y number,
-   constraint fk_articleID foreign key(id) references trip_member(id) on delete cascade
- );
               
 create table c_board(
 	c_no number(10) primary key,
@@ -49,12 +36,6 @@ create table c_board(
 	id varchar2(20),
 	CONSTRAINT FK_ID FOREIGN KEY(id)
 	REFERENCES trip_member(id)
-);
-
-create table chat (
-    chatName VARCHAR2(20),
-    chatContent VARCHAR2(100),
-    chatTime DATE
 );
 
 commit;
