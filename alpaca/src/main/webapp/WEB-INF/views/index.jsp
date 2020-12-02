@@ -45,16 +45,23 @@
 .kakao {
 	text-align: center;
 	background: #FEE500;
-	padding: 10px;
+	padding: 20px 0 15px 0px;
 	border-radius: 20px;
 	margin: -23px 0 27px 0px;
 }
+
 #function {
 	text-align: center;
 }
-#login{
-text-align: center;
+
+#login {
+	text-align: center;
+	padding: 20px 0 15px 0px;
 	border-radius: 20px;
+	margin: -23px 0 27px 0px;
+}
+.index_box{
+	padding : 0;
 }
 </style>
 
@@ -210,12 +217,12 @@ text-align: center;
 											비밀번호를 확인해주세요</div>
 									</c:if>
 
-									<div class="form-group d-flex justify-content-end mt-4" >
-										<button type="submit" id = "login"
-											class="btn btn-primary submit btn-primary_submit">
-											로그인<span class="fa fa-paper-plane"></span>
-										</button>
-									</div>
+										<div class="form-group d-flex justify-content-end mt-4" id="index_box">
+											<button type="submit" id="login"
+												class="btn btn-primary submit btn-primary_submit">
+												로그인<span class="fa fa-paper-plane"></span>
+											</button>
+										</div>
 								</form>
 
 								<c:if test="${kakaoID eq null}">

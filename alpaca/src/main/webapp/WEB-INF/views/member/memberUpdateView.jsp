@@ -10,13 +10,15 @@
 
 <style type="text/css">
 .update {
-	margin: 70px auto;
+	margin: 30px auto;
 	padding: 0;
-	width: 700px;
+	width: 500px;
 }
 
 #alpaca {
 	text-align: center;
+	padding-top: 75px;
+	//
 }
 
 #footer {
@@ -24,23 +26,23 @@
 }
 
 .gmd {
-
-  background: #fff;
-  border-radius: 2px;
-  display: inline-table;
-  float: left;
-  height: 150px;
-  margin: 1rem;
-  position: relative;
-  width: 150px;
+	background: #fff;
+	border-radius: 30px;
+	display: inline-table;
+	float: left;
+	left: 85px;
+	height: 150px;
+	position: relative;
+	width: 150px;
+	padding: 0 35px 0;
+	margin: 40px 0 43px 30%;
+	left: 93px;
+	color: #444
 }
+
 .gmd-2 {
-  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  -ms-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  -o-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-} 
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
 </style>
 <meta charset="UTF-8">
 <title>알파카 - 헌 책 알고 팔자! 중고책거래 사이트</title>
@@ -159,6 +161,7 @@
 						class="form-control" type="text" id="email" name="email"
 						value="${member.email}" />
 				</div>
+
 				<div class="form-group has-feedback" id="alpaca">
 					<button class="btn btn-success" type="submit" id="submit">회원정보
 						수정</button>
@@ -167,8 +170,9 @@
 					<button class="cancle btn btn-danger" type="button">취소</button>
 				</div>
 			</form>
-		</section>
 	</div>
+	</section>
+
 	<footer class="ftco-footer ftco-no-pt" id="footer">
 		<div class="container">
 
