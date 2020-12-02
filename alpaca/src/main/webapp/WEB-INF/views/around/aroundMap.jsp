@@ -10,6 +10,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="shortcut icon" href="${contextPath}/resources/images/favicon.ico"/>
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+   
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/animate.css">    
     <link rel="stylesheet" href="${contextPath}/resources/css/owl.carousel.min.css">
@@ -23,16 +24,16 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 
 	<style>	
-		#aroundMap a{color:#666!important}
-		#aroundMap .ftco-navbar-light {background:#007bff!important;opacity:.8}
+		#aroundMap .link{color:#666!important}
+		#aroundMap .ftco-navbar-light {background:#4986fc!important;}
 		#map {width: 100vw;height: 100vh;position: fixed; top: 70px;}
-		#aroundMap .wrap {width: 200px;}
-		#aroundMap .text-box {padding-left:10px}	
-		#aroundMap h3 {font-size:16px;line-height:10px!important;font-weight:600;color:#007bff;letter-spacing:-.3px;font-family: 'Noto Sans KR', sans-serif;}
-		#aroundMap .img-box {max-height:200px;overflow:hidden;margin-bottom:20px}	
-		#aroundMap img {width: 270px;height: 270px;margin: -20px auto 0;}	
-		#aroundMap .gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}
-		#aroundMap .gm-style-iw{min-height:300px;max-width:270px!important]}
+		#aroundMap .wrap {width: 250px;}
+		#aroundMap .text-box {padding-left:10px; padding-bottom:10px}	
+		#aroundMap h3 {font-size:16px;line-height:23px!important;font-weight:600;color:#007bff;letter-spacing:-.3px;font-family: 'Noto Sans KR', sans-serif;}
+		#aroundMap .img-box {max-height:200px;overflow:hidden;margin-bottom:10px}	
+		#aroundMap img {width: 270px;height: 270px;margin: -20px auto 0}	
+		#aroundMap .gmnoprint, .gm-control-active.gm-fullscreen-control {display: none}
+		#aroundMap .gm-style-iw{min-height:300px;max-width:270px!important; min-height:240px}
 		#aroundMap .gm-style .gm-style-iw-c{padding:0!important}
 		#aroundMap .gm-style-iw-d>div{width:100%;margin-top:-10px;}
 		#aroundMap .gm-style-iw-d{overflow:unset!important}
