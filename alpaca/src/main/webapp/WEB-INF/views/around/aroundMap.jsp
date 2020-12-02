@@ -106,8 +106,8 @@
 
 				if (marker) {
 					marker.addListener('click', function() {
-						map.setCenter(this.getPosition()); // 중심 위치를 클릭된 마커의 위치로 변경
-						map.setZoom(18);
+						map.setCenter(this.getPosition()-1);
+						map.setZoom(17);
 					});
 				}
 			}
