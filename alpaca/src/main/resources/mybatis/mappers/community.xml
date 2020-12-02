@@ -15,7 +15,7 @@
 	<select id="selectAllCommunityList" resultMap="communityResult"   >
     <![CDATA[
    		  SELECT c_no, c_title, c_content, c_date, id
-          from c_board	
+          from c_board ORDER BY c_no DESC
     ]]>
   </select>
   
