@@ -4,6 +4,9 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+ 
+ @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+ 
 :root { -
 	-blue: #007bff; -
 	-indigo: #6610f2; -
@@ -12776,7 +12779,7 @@ max-width
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c6ff',
 		endColorstr='#0072ff', GradientType=1);}
 
-/*梨낇뙋留ㅼ옉�꽦 articleForm*/
+/*책거래게시판 상세보기 articleForm*/
 #articleForm{width:60%;margin:90px auto;border:1px solid #ddd}
 #articleForm #preview1, #articleForm #preview2, #articleForm #preview3{background:#ddd}
 #articleForm .staff-2 .img-wrap{width:250px!imporant;height:250px!important}
@@ -12847,7 +12850,7 @@ max-width
 	display: none
 }
 
-/*而ㅻ�ㅻ땲�떚 湲��벐湲�*/
+/*커뮤니티 글 상세보기*/
 #communityFrom {
 	width: 60%;
 	margin: 90px auto
@@ -12891,7 +12894,9 @@ max-width
 #communityFrom .td_btn input:first-child {
 	margin-left: 43%
 }
-/*而ㅻ�ㅻ땲�떚 湲�紐⑸줉*/
+
+
+/*커뮤니티 글목록*/
 .communityList {
 	padding: margin auto;
 	padding: 130px 0;
@@ -13096,7 +13101,10 @@ alret
 }
 
 .viewCommunity #i_title {
-	font-size: 40px
+	padding:0;
+	margin-left:-8px;
+	font-size: 24px;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 .viewCommunity .flot_tr {
@@ -13132,17 +13140,20 @@ alret
 	display: none;
 }
 
-.viewCommunity  #tr_btn_modify {
+.viewCommunity #tr_btn_modify {
 	display: none;
 	float:right
 }
-.viewCommunity btn_cancel{
-	margin-left:15px
+.viewCommunity  #tr_btn_modify .btn{
+	margin-left:5px
 	
 	
 }
 
+.viewCommunity .viewCo_h{margin-bottom:0!important;font-size:16px;color:#4986fc;font-weight:600;}
 
+#realView #cke_1_top{display:none}
+#realView .cke_bottom{display:none}
 /* Blog*/
 .post-info {
 	font-size: 12px;

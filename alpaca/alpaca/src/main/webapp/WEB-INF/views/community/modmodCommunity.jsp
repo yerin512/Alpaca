@@ -38,12 +38,6 @@
 	    obj.submit();
      }
  
-	 function fn_enable(obj){
-		 document.getElementById("i_title").disabled=false;
-		 document.getElementById("i_content").disabled=false;
-		 document.getElementById("tr_btn_modify").style.display="block";
-		 document.getElementById("tr_btn").style.display="none";
-	 }
 	 
 	 function fn_modify_community(obj){
 		 document.getElementById("tr_btn").style.display="none";
@@ -115,7 +109,7 @@
 				class="row no-gutters slider-text align-items-end justify-content-center">
 				<div class="col-md-9 ftco-animate pb-5 text-center">
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="${contextPath}/index.do">Home <i
+						<span class="mr-2"><a href="index.do">Home <i
 								class="fa fa-chevron-right"></i></a></span> <span>커뮤니티 <i
 							class="fa fa-chevron-right"></i></span>
 					</p>
@@ -125,7 +119,7 @@
 		</div>
 	</section>
 	<!-- 게시판 -->
-	<section id="realView" class="viewCommunity">
+	<section class="viewCommunity">
 		<div class="page-wrapper">
 			<div class="container-fluid">
 				<div class="col-lg-12 board">
@@ -140,19 +134,19 @@
 							</tr>
 							<tr>
 								<td><input type=text value="${community.c_title }"
-									name="c_title" id="i_title" disabled /></td>
+									name="c_title" id="i_title"   /></td>
 
 							</tr>
 							<tr class="flot_tr">
 								<td><input type=text value="${community.id }" name="id"
-									disabled /> <input type=text
-									value="<fmt:formatDate value="${community.c_date}" />" disabled />
+									  /> <input type=text
+									value="<fmt:formatDate value="${community.c_date}" />"   />
 								</td>
 							</tr>
 
 							<tr>
 								<td><textarea rows="20" cols="120" name="c_content"
-										id="i_content" disabled />${community.c_content }</textarea>
+										id="i_content"   />${community.c_content }</textarea>
 								<script
 							src="${contextPath}/resources/ckeditor/ckeditor.js"></script> <script
 							type="text/javascript">
@@ -164,7 +158,6 @@
 								window.parent.CKEDITOR.tools.callFunction(1,
 										"${url}", "전송완료");
 							</script>		
-										
 										</td>
 							</tr>
 
@@ -178,10 +171,8 @@
 							<tr id="tr_btn">
 								<td colspan="12" align="center"><c:if
 										test="${member.id == community.id }">
-										<a href="${contextPath}/community/modmodCommunity.do?c_no=${community.c_no}"
-											class="btn btn-outline btn-primary pull-right">수정</a>
-											
-											
+										<input type=button value="수정" onClick="fn_modify_community(this.form)"
+											class="btn btn-outline btn-primary pull-right">
 										<input type=button value="삭제"
 											onClick="fn_remove_community('${contextPath}/community/removeCommunity.do', ${community.c_no})"
 											class="delete_btn btn btn-outline btn-primary pull-right">
