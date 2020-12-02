@@ -61,6 +61,21 @@ public class BoardControllerImpl implements BoardController {
 		mav.addObject("article", articleVO);
 		return mav;
 	}
+	
+	@RequestMapping(value = "/board/modMode.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView modMode(@RequestParam("articleNO") int articleNO, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		String viewName = (String) request.getAttribute("viewName");
+		ArticleVO articleVO = boardService.viewArticle(articleNO);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName(viewName);
+		mav.addObject("article", articleVO);
+		return mav;
+	}
+	
+	
+	
+	
 
 	@Override
 	@RequestMapping(value = "/board/modArticle.do", method = RequestMethod.POST)
@@ -239,7 +254,7 @@ public class BoardControllerImpl implements BoardController {
 
 			message = " <script>";
 			message += " alert('작성에 실패란 없다');";
-			message += " location.href='" + multipartRequest.getContextPath() + "/board/articleForm.do'; ";
+			message += " location.href='" + multipartRequest.getContextPath() + "/board/listArticles.do'; ";
 			message += " </script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
 			e.printStackTrace();
