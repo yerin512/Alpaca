@@ -238,7 +238,7 @@ public class BoardControllerImpl implements BoardController {
 			srcFile.delete();
 
 			message = " <script>";
-			message += " alert('작성 실패');";
+			message += " alert('작성에 실패란 없다');";
 			message += " location.href='" + multipartRequest.getContextPath() + "/board/articleForm.do'; ";
 			message += " </script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
