@@ -7,5 +7,4 @@
 *.class
 trip/target/
 trip/.springBeans
-*.MF
 
