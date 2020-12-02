@@ -25,7 +25,7 @@
 	<style>	
 		#aroundMap a{color:#666!important}
 		#aroundMap .ftco-navbar-light {background:#007bff!important;opacity:.8}
-		#map {width: 100vw; height: 100vh;}
+		#map {width: 100vw;height: 100vh;position: fixed; top: 70px;}
 		#aroundMap .wrap {width: 200px;}
 		#aroundMap .text-box {padding-left:10px}	
 		#aroundMap h3 {font-size:16px;line-height:10px!important;font-weight:600;color:#007bff;letter-spacing:-.3px;font-family: 'Noto Sans KR', sans-serif;}
@@ -106,7 +106,7 @@
 
 				if (marker) {
 					marker.addListener('click', function() {
-						map.setCenter(this.getPosition()-1);
+						map.setCenter(this.getPosition());
 						map.setZoom(17);
 					});
 				}
@@ -135,7 +135,7 @@
 		</div>
 	</nav>
 
-	<div id="map" style="width: 100%; height: 100vh;"></div>
+	<div id="map"></div>
 	</section>
 	<footer class="ftco-footer ftco-no-pt">
 		<div class="container">
