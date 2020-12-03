@@ -46,10 +46,11 @@
 .kakao {
 	text-align: center;
 	background: #FEE500;
-	padding: 20px 0 15px 0px;
+	padding: 15px 1px 5px 1px;
 	border-radius: 20px;
-	margin: -23px 0 27px 0px;
+	margin: -20px 9px 70px 9px;
 }
+
 
 #function {
 	text-align: center;
@@ -235,7 +236,6 @@
 										</div>
 									</a>
 								</c:if>
-
 
 
 								<p class="text-center">
