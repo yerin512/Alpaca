@@ -113,6 +113,7 @@
             var text = document.getElementById("messageinput").value+","+document.getElementById("sender").value;
             ws.send(text);
             text = "";
+            $('#messageinput').val('');
         }       
  
         $('#messageinput').keypress(function(event){
