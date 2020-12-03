@@ -113,7 +113,7 @@
             <!-- 게시물 작성 폼 -->
             <table border="0" align="center">
             	<tr>
-            		<td>책거래 > 판매글</td>
+            		<td class="nav_title">책거래 > 판매글</td>
             	</tr>
             	<tr>
                   <td class="va_td va_td_title"><input type="text" size="67" maxlength="500"
@@ -145,9 +145,12 @@
                         <div class="text_box">
                         	<p class="box_title"><span>판매&nbsp; </span>${article.title}</p>
                         	<p class="box_price">${article.price} 원</p>
-                        	 <input type=button value="구매문의"
+                        	<p class="box_p">거래방법 : 어쩌구</p>
+                        	<p class="box_p">물품상태: s급</p>
+                        	<p class="box_p">거래지역: 서울시 서초구</p>
+                        	 <input type=button value="구매 문의 채팅"
                   onClick="location.href='${contextPath}/chat/login.do'"
-                  class="write_btn btn btn-outline btn-primary" /> 
+                  class="chatbt write_btn btn btn-outline btn-primary" /> 
                         </div>
                    </td>
                </tr>
@@ -244,11 +247,11 @@
 
             <c:if test="${member.id == article.id}">
                <div class="div_input">
-                  <input type=button value="수정하기"
+                  <input type=button value="수정"
                      onClick="location.href='${contextPath}/board/modMode.do?articleNO=${article.articleNO}'"
                      class="write_btn btn btn-outline btn-primary" /> 
                      <input
-                     type=button value="삭제하기"
+                     type=button value="삭제"
                      onClick="fn_remove_article('${contextPath}/board/removeArticle.do', ${article.articleNO})"
                      class="write_btn btn btn-outline btn-primary">
                </div>
