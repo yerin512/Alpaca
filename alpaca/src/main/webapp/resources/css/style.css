@@ -12783,7 +12783,7 @@ max-width
 /*책거래게시판 상세보기 articleForm*/
 
 /*articleForm*/
->>>>>>> origin/jieun:alpaca/alpaca/src/main/webapp/resources/css/style.css
+
 #articleForm{width:60%;margin:90px auto;border:1px solid #ddd}
 #articleForm #preview1, #articleForm #preview2, #articleForm #preview3{background:#ddd}
 #articleForm .staff-2 .img-wrap{width:250px!important;height:250px!important}
@@ -12791,7 +12791,7 @@ max-width
 #articleForm .gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}
 #articleForm  table{width:95%}
 #articleForm .btn.btn-primary{padding:5px 30px!important;}
-#articleForm .div_input{width:250px;margin:20px auto;}
+#articleForm .div_input{margin:20px auto; float:right;}
 #articleForm .div_input>input{margin-right:10px}
 #articleForm input.title_input{width:30%;height:40px;border:1px solid #ddd}
 #articleForm .td_title{font-size:16px;color:#666;font-weight:bold}
