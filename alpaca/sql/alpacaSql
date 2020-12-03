@@ -25,8 +25,14 @@ create table article(
     location varchar2(1000),
     loc_x number,
     loc_y number,
+        way varchar2(50),
+       condition varchar2(1000),
     constraint fk_articleID foreign key(id) references trip_member(id) on delete cascade
 );
+
+
+
+
               
 create table c_board(
 	c_no number(10) primary key,

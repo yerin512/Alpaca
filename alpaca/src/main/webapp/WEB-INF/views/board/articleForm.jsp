@@ -69,7 +69,7 @@
 				class="row no-gutters slider-text align-items-end justify-content-center">
 				<div class="col-md-9 ftco-animate pb-5 text-center">
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i
+						<span class="mr-2"><a href="${contextPath}/index.do">Home <i
 								class="fa fa-chevron-right"></i></a></span> <span>책거래 <i
 							class="fa fa-chevron-right"></i></span>
 					</p>
@@ -166,14 +166,37 @@
 								</script></td>
 					</tr>
 					<tr>
+						<td class="td_title" align="left">책 상태</td>
+						<td>
+							<input type="button" value="최상" class="btn-gray write_btn btn btn-outline btn-primary" />
+							<input type="button" value="상" class="btn-gray write_btn btn btn-outline btn-primary" />
+							<input type="button" value="중" class="btn-gray write_btn btn btn-outline btn-primary" />
+							<input type="button" value="하" class="btn-gray write_btn btn btn-outline btn-primary" />
+							
+						</td>
+					</tr>
+					<tr>
+						<td class="td_title" align="left">거래 방법</td>
+						<td id="theway">
+							<input type="button" value="직거래" class="btn-gray write_btn btn btn-outline btn-primary"  />
+							<input type="button" value="택배거래" class="btn-gray write_btn btn btn-outline btn-primary" />
+							<div id="tway"></div>
+						</td>
+					</tr>
+					<tr>
 						<td align="left" class="td_title">판매 위치</td>
 						<td><div id="map"></div>
 							<div id="clickLatlng"></div></td>
 					</tr>
+					<tr>
+						<td align="left" class="td_title">상세 위치</td>
+						<td>
+							<input type="text" size="67" maxlength="500"
+							name="location" placeholder="상세 위치를 입력해주세요" class="title_input" />
+						</td>
+					</tr>
 
 				</table>
-
-
 				<div class="div_input">
 					<input type="submit" value="작성"
 						class="write_btn btn btn-outline btn-primary" /> <input
@@ -215,7 +238,22 @@
 	<script src="${contextPath}/resources/js/scrollax.min.js"></script>
 	<script src="${contextPath}/resources/js/main.js"></script>
 
+<script>
+$("#theway").children().on("click", function() {
+	var qway = $(this).val();
+	
+	var wayvalue = '<input type="text" name="way" value="'+qway+'">';
+	var wayresult = document.getElementById('tway');
+	wayresult.innerHTML = wayvalue;
+})
+
+</script>
+
+
+
 	<script type="text/javascript">
+	
+
 		function readURL1(input) {
 			if (input.files && input.files[0]) {
 				var reader = new FileReader();
