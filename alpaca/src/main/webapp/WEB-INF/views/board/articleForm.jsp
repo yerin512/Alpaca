@@ -168,18 +168,18 @@
 					<tr>
 						<td class="td_title" align="left">책 상태</td>
 						<td>
-							<input type="button" value="최상" class="btn-gray write_btn btn btn-outline btn-primary" />
-							<input type="button" value="상" class="btn-gray write_btn btn btn-outline btn-primary" />
-							<input type="button" value="중" class="btn-gray write_btn btn btn-outline btn-primary" />
-							<input type="button" value="하" class="btn-gray write_btn btn btn-outline btn-primary" />
+							<input type="button" value="최상" class="div1 btnGray write_btn btn btn-outline btn-primary" />
+							<input type="button" value="상" class="div1 btnGray write_btn btn btn-outline btn-primary" />
+							<input type="button" value="중" class="div1 btnGray write_btn btn btn-outline btn-primary" />
+							<input type="button" value="하" class="div1 btnGray write_btn btn btn-outline btn-primary" />
 							
 						</td>
 					</tr>
 					<tr>
 						<td class="td_title" align="left">거래 방법</td>
 						<td>
-							<input type="button" value="직거래" class="btn-gray write_btn btn btn-outline btn-primary" />
-							<input type="button" value="택배거래" class="btn-gray write_btn btn btn-outline btn-primary" />
+							<input type="button" value="직거래"  class="div2 btnGray write_btn btn btn-outline btn-primary" />
+							<input type="button"  value="택배거래" class="div2 btnGray write_btn btn btn-outline btn-primary" />
 						</td>
 					</tr>
 					<!--  버튼 안 되면 옵션-->
@@ -206,6 +206,7 @@
 							</select>
 						</td>
 					</tr> -->
+					
 					<tr>
 						<td align="left" class="td_title">판매 위치</td>
 						<td><div id="map"></div>
@@ -245,7 +246,6 @@
 			</div>
 		</div>
 	</footer>
-
 
 	<script src="${contextPath}/resources/js/jquery.min.js"></script>
 	<script src="${contextPath}/resources/js/jquery-migrate-3.0.1.min.js"></script>
@@ -324,6 +324,65 @@
 			var resulty = document.getElementById('loc_y');
 			resulty.innerHTML = locy;
 		});
+		
+	      
+	      var div2 = document.getElementsByClassName("div2");
+
+	      function handleClick(event) {
+	        console.log(event.target);
+	        // console.log(this);
+	        // 콘솔창을 보면 둘다 동일한 값이 나온다
+
+	        console.log(event.target.classList);
+
+	        if (event.target.classList[1] === "clicked") {
+	          event.target.classList.remove("clicked");
+	        } else {
+	          for (var i = 0; i < div2.length; i++) {
+	            div2[i].classList.remove("clicked");
+	          }
+
+	          event.target.classList.add("clicked");
+	        }
+	      }
+
+	      function init() {
+	        for (var i = 0; i < div2.length; i++) {
+	          div2[i].addEventListener("click", handleClick);
+	        }
+	      }
+
+	      init();
+	      
+	      
+	      var div1 = document.getElementsByClassName("div1");
+
+	      function handleClick1(event1) {
+	        console.log(event1.target);
+	        // console.log(this);
+	        // 콘솔창을 보면 둘다 동일한 값이 나온다
+
+	        console.log(event1.target.classList);
+
+	        if (event1.target.classList[1] === "clicked") {
+	          event1.target.classList.remove("clicked");
+	        } else {
+	          for (var i = 0; i < div1.length; i++) {
+	            div1[i].classList.remove("clicked");
+	          }
+
+	          event1.target.classList.add("clicked");
+	        }
+	      }
+
+	      function init1() {
+	        for (var i = 0; i < div1.length; i++) {
+	          div1[i].addEventListener("click", handleClick1);
+	        }
+	      }
+
+	      init1();
 	</script>
+	
 </body>
 </html> 
