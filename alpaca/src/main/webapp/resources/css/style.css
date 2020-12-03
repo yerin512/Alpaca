@@ -11186,6 +11186,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 	background: #4986fc;
 	border: 1px solid #4986fc !important;
 	color: #fff !important;
+	font-size: 16px;
 	padding: 20px;	
 }
 
@@ -11489,7 +11490,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 	height: 36px;
 	background: #fff;
 	color: rgba(0, 0, 0, 0.8);
-	font-size: 14px;
+	font-size: 16px;
 	border-radius: 2px;
 	-webkit-box-shadow: none !important;
 	box-shadow: none !important;

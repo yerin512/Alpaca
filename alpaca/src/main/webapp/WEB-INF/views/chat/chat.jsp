@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="${contextPath}/resources/css/bootstrap.css">
 	<link rel="stylesheet" href="${contextPath}/resources/css/custom.css">
 
-	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="${contextPath}/resources/js/bootstrap.js"></script>
 </head>
 <body>
@@ -50,7 +50,7 @@
 										<input type="text" id="messageinput">
 									</div>
 									<div>
-										<button type="button" class="chat-submit-btn btn btn-default pull-right" onclick="send();"></button>
+										<input type="button" class="chat-submit-btn btn btn-default pull-right" onclick="send();" />
 										<div class="clearfix"></div>
 									</div>
 								</div>
@@ -104,7 +104,7 @@
             };
             
             ws.onclose = function(event){
-                writeResponse("대화 종료");
+                writeResponse("<br>채팅이 종료되었습니다.");
             }
             
         }
@@ -113,7 +113,14 @@
             var text = document.getElementById("messageinput").value+","+document.getElementById("sender").value;
             ws.send(text);
             text = "";
-        }
+        }       
+ 
+        $('#messageinput').keypress(function(event){
+            if (event.which == 13 ) {
+            	$('.chat-submit-btn').click();
+                return false;
+            }
+        });
         
         function closeSocket(){
             ws.close();
