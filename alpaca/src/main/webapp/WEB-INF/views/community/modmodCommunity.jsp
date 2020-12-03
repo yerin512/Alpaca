@@ -119,7 +119,7 @@
 		</div>
 	</section>
 	<!-- 게시판 -->
-	<section class="viewCommunity">
+	<section id="modmodComnunity" class="viewCommunity">
 		<div class="page-wrapper">
 			<div class="container-fluid">
 				<div class="col-lg-12 board">

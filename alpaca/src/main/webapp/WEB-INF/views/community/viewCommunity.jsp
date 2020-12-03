@@ -176,17 +176,18 @@
 									class="btn btn-outline btn-primary pull-right"></td>
 							</tr>
 							<tr id="tr_btn">
-								<td colspan="12" align="center"><c:if
-										test="${member.id == community.id }">
+								<td colspan="12" align="center">
+								<c:if test="${member.id == community.id }">
 										<a href="${contextPath}/community/modmodCommunity.do?c_no=${community.c_no}"
 											class="btn btn-outline btn-primary pull-right">수정</a>
-											
-											
 										<input type=button value="삭제"
 											onClick="fn_remove_community('${contextPath}/community/removeCommunity.do', ${community.c_no})"
 											class="delete_btn btn btn-outline btn-primary pull-right">
-									</c:if> <input type=button value="목록" onClick="backToList(this.form)"
-									class="btn btn-outline btn-primary pull-right"></td>
+											
+								</c:if> 
+										<input type=button value="목록" onClick="backToList(this.form)"
+									class="btn btn-outline btn-primary pull-right">
+								</td>
 							</tr>
 						</table>
 					</form>

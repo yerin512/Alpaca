@@ -13114,7 +13114,8 @@ alret
 }
 
 .viewCommunity .flot_tr>td {
-	float: left
+	float: left;
+	color:#888
 }
 
 .viewCommunity input {
@@ -13151,15 +13152,23 @@ alret
 	
 	
 }
-
+#realView #tr_btn{margin-top:0px}
+#realView #cke_i_content{border:none}
+#realView{padding:30px 0;border:1px solid #ddd}
+#realView #cke_1_contents{height:350px!important;margin:0}
 #realView .line_hr {
 	position:absolute;
 	top:116px;
-	width: 100%;
+	width: 97%;
 	height: 1px;
 	padding: 0;
 	margin-bottom: 20px;
 	background: #ddd
+}
+#realView .cke_editable{margin:0!important}
+#realView .flot_tr>td>input {
+	font-size:14px;
+	color:#888
 }
 
 
@@ -13167,6 +13176,10 @@ alret
 
 #realView #cke_1_top{display:none}
 #realView .cke_bottom{display:none}
+#modmodComnunity .viewCo_h{margin-left:3px}
+#modmodComnunity #i_title{margin-left:0!important}
+#modmodComnunity #tr_btn{margin-top:30px}
+#modmodComnunity #cke_1_contents{height:300px!important}
 /* Blog*/
 .post-info {
 	font-size: 12px;
