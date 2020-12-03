@@ -221,15 +221,13 @@
 
 
 				<div class="div_input">
-					 <input
-						type=button value="목록" onClick="backToList(this.form)"
-						class="write_btn btn btn-outline btn-primary" />
+					<input type=button value="채팅하기" onClick="location.href='${contextPath}/chat/login.do'" class="write_btn btn btn-outline btn-primary" /> 
+					<input type=button value="목록" onClick="backToList(this.form)" class="write_btn btn btn-outline btn-primary" />
 
 					<div id="tr_btn">
 						<c:if test="${member.id == article.id}">
-							<a href="${contextPath}/board/modMode.do?articleNO=${article.articleNO}" class="write_btn btn btn-outline btn-primary">수정하기</a>
-							<input type=button value="삭제하기"  class="write_btn btn btn-outline btn-primary"
-								onClick="fn_remove_article('${contextPath}/board/removeArticle.do', ${article.articleNO})">
+							<input type=button value="수정하기" onClick="fn_enable(this.form)">
+							<input type=button value="삭제하기" onClick="fn_remove_article('${contextPath}/board/removeArticle.do', ${article.articleNO})">
 						</c:if>
 
 					</div>

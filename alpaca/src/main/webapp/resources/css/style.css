@@ -12779,14 +12779,18 @@ max-width
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c6ff',
 		endColorstr='#0072ff', GradientType=1);}
 
+
 /*책거래게시판 상세보기 articleForm*/
+
+/*articleForm*/
+>>>>>>> origin/jieun:alpaca/alpaca/src/main/webapp/resources/css/style.css
 #articleForm{width:60%;margin:90px auto;border:1px solid #ddd}
 #articleForm #preview1, #articleForm #preview2, #articleForm #preview3{background:#ddd}
-#articleForm .staff-2 .img-wrap{width:250px!imporant;height:250px!important}
+#articleForm .staff-2 .img-wrap{width:250px!important;height:250px!important}
 #articleForm #map {width:100%!important; height: 300px;margin:15px 0}
 #articleForm .gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}
 #articleForm  table{width:95%}
-#articleForm .btn.btn-primary{padding:4px 38px!important;}
+#articleForm .btn.btn-primary{padding:5px 30px!important;}
 #articleForm .div_input{width:250px;margin:20px auto;}
 #articleForm .div_input>input{margin-right:10px}
 #articleForm input.title_input{width:30%;height:40px;border:1px solid #ddd}
