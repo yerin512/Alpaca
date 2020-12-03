@@ -11193,12 +11193,13 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 	padding: 20px;	
 }
 
+/*
 .btn.btn-primary:hover {
 	border: 1px solid #4986fc;
 	background: transparent;
 	color: #4986fc;
 }
-
+*/
 .btn.btn-primary.btn-outline-primary {
 	border: 1px solid #4986fc;
 	background: transparent;
@@ -12781,13 +12782,43 @@ max-width
 		endColorstr='#0072ff', GradientType=1);}
 
 
-/*책거래게시판 상세보기 articleForm*/
+/*책거래게시판 상세보기 viewAricle*/
+.viewArticle .cke_top{display:none}
+.viewArticle .cke_bottom{display:none}
+.viewArticle #cke_1_contents{height:300px!important}
+.viewArticle .td_title{display:none}
+#content_underbox{width:100%;}
+.viewArticle .float_tdbox{border-bottom:1px}
+.viewArticle .float_tdbox>div{float:left;}
+.viewArticle .va_td>input{background:#fff;border:none!important}
+.viewArticle .cke_chrome{border:none}
+.viewArticle .flot_tr{border-bottom:1px solid #ddd}
+.viewArticle .flot_tr>td{float:left}
+.viewArticle .td_id{font-size:15px;font-weight:600;color:#555;font-family: 'Noto Sans KR', sans-serif}
+.viewArticle #i_title{font-size:24px}
+.viewArticle .box_title{font-size:22px;font-weight:400;color:#444;font-family: 'Noto Sans KR', sans-serif}
+.viewArticle .box_price{font-size:26px;font-weight:700;color:#444;font-family: 'Noto Sans KR', sans-serif}
+.viewArticle .line_hr {
+	width: 100%;
+	height: 30px;
+	padding: 0;
+	margin-bottom: 20px;
+	background: #888
+}
 
+/**/
+.img_box{width:50%;margin-right:2%}
+.text_box{width:48%}
+#img_box .staff-2 .img-wrap{width:100%!important}
+.viewArticle .staff-2{overflow:unset}
+.viewArticle .vaimg{width:100%}
+.viewArticle .vaimg .img-wrap{width:unset!important;height:unset!important}
+.viewArticle .box_title>span{color:#fb6400}
+.viewArticle .va_td_title{padding-top:30px;font-size:20px;font-weight:400;font-family: 'Noto Sans KR', sans-serif;}
 /*articleForm*/
-
 #articleForm{width:60%;margin:90px auto;border:1px solid #ddd}
 #articleForm #preview1, #articleForm #preview2, #articleForm #preview3{background:#ddd}
-#articleForm .staff-2 .img-wrap{width:250px!important;height:250px!important}
+#articleForm .staff-2 .img-wrap{width:250px;height:250px}
 #articleForm #map {width:100%!important; height: 300px;margin:15px 0}
 #articleForm .gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}
 #articleForm  table{width:95%}
