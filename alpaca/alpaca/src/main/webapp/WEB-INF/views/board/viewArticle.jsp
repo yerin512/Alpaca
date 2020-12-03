@@ -129,10 +129,7 @@
 														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${article.imageFile1}"
 														width="100%" />
 												</div>
-												<div id="tr_file_upload1">
-													<input type="file" name="file1" id="i_imageFile1" disabled 
-														onchange="readURL1(this);" />
-												</div>
+				
 
 											</div>
 										</div>
@@ -147,10 +144,7 @@
 														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${article.imageFile2}"
 														width="100%" />
 												</div>
-												<div id="tr_file_upload2">
-													<input type="file" name="file2" id="i_imageFile2" disabled 
-														onchange="readURL2(this);" />
-												</div>
+			
 
 											</div>
 										</div>
@@ -165,10 +159,7 @@
 														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${article.imageFile3}"
 														width="100%" />
 												</div>
-												<div id="tr_file_upload3">
-													<input type="file" name="file3" id="i_imageFile3" disabled 
-														onchange="readURL3(this);" />
-												</div>
+	
 
 											</div>
 										</div>
