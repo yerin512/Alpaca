@@ -38,12 +38,6 @@
 	    obj.submit();
      }
  
-	 function fn_enable(obj){
-		 document.getElementById("i_title").disabled=false;
-		 document.getElementById("i_content").disabled=false;
-		 document.getElementById("tr_btn_modify").style.display="block";
-		 document.getElementById("tr_btn").style.display="none";
-	 }
 	 
 	 function fn_modify_community(obj){
 		 document.getElementById("tr_btn").style.display="none";
@@ -164,7 +158,6 @@
 								window.parent.CKEDITOR.tools.callFunction(1,
 										"${url}", "전송완료");
 							</script>		
-										
 										</td>
 							</tr>
 

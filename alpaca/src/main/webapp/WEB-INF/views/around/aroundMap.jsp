@@ -97,11 +97,12 @@
 
 				google.maps.event.addListener(marker, 'click', (function(marker, i) {
 					return function() { 
-						infowindow.setContent('<div class="img-box"><img src="${contextPath}/board/download.do?articleNO='+articleNO[i]+'&imageFileName='+imageFileName[i]+'"></div>'
-							+ '<div class="wrap"><div class="text-box"><h3>'+title[i]+'</h3>'
-							+ '<div class="price">'+price[i]+'원</div>'
-							+ '<a href="${contextPath}/board/viewArticle.do?articleNO='+articleNO[i]+'" class="link">상세보기</a></div>'); // html로 표시될 인포윈도우의 내용
-						infowindow.open(map, marker); // 인포윈도우가 표시될 위치
+						infowindow.setContent('<div class="img-box">'
+							+ '<a href="${contextPath}/board/viewArticle.do?articleNO='+articleNO[i]+'" class="link">'
+							+ '<img src="${contextPath}/board/download.do?articleNO='+articleNO[i]+'&imageFileName='+imageFileName[i]+'"></a></div>'
+							+ '<div class="wrap"><a href="${contextPath}/board/viewArticle.do?articleNO='+articleNO[i]+'" class="link"><div class="text-box"><h3>'+title[i]+'</h3>'
+							+ '<div class="price">'+price[i]+'원</a></div>'); 
+						infowindow.open(map, marker);
 					}
 				})(marker, i));
 
