@@ -61,6 +61,21 @@ public class BoardControllerImpl implements BoardController {
 		mav.addObject("article", articleVO);
 		return mav;
 	}
+	
+	@RequestMapping(value = "/board/modMode.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView modMode(@RequestParam("articleNO") int articleNO, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		String viewName = (String) request.getAttribute("viewName");
+		ArticleVO articleVO = boardService.viewArticle(articleNO);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName(viewName);
+		mav.addObject("article", articleVO);
+		return mav;
+	}
+	
+	
+	
+	
 
 	@Override
 	@RequestMapping(value = "/board/modArticle.do", method = RequestMethod.POST)
@@ -98,7 +113,7 @@ public class BoardControllerImpl implements BoardController {
 			imageFile3 = originalFile3;
 		}
 		
-		
+	
 		
 		articleMap.put("imageFile1", imageFile1);
 		articleMap.put("imageFile2", imageFile2);
@@ -111,23 +126,28 @@ public class BoardControllerImpl implements BoardController {
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
 		
 
-		
+		List<String> ifn = new ArrayList<String>();
+		ifn.add(imageFile1);
+		ifn.add(imageFile2);
+		ifn.add(imageFile3);
 
-		
-		
 		System.out.println("articleMap 수정전 확인 :" +articleMap.toString());
-		
+		System.out.println("IFN: "+ifn.toString());
 		try {
 			boardService.modArticle(articleMap);
-			if (imageFileName != null && imageFileName.size() != 0) {
-				for (String imageFile : imageFileName) {
+			if (ifn != null && ifn.size() != 0) {
+				for (String imageFile : ifn) {
+					System.out.println("이미지 파일 이름 확인:" +imageFile);
 					File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFile);
 					File destDir = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO);
-					FileUtils.moveFileToDirectory(srcFile, destDir, true);
+					try {
+					FileUtils.moveFileToDirectory(srcFile, destDir, true);}catch(Exception e) {
+						e.printStackTrace();
+					}
 				}
-			
 				
-
+					
+				
 //				File oldFile1 = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO + "\\" + originalFile1);
 //				oldFile1.delete();
 //				File oldFile2 = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO + "\\" + originalFile2);

@@ -13,8 +13,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
 	rel="stylesheet">
-<link rel="shortcut icon"
-	href="${contextPath}/resources/images/favicon.ico" />
+<link rel="shortcut icon" href="${contextPath}/resources/images/favicon.ico"/>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -38,23 +37,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c8f1e98d3b42f208e812d6c641c3952e"></script>
-<style>
-#tr_file_upload1 {
-	display: none;
-}
 
-#tr_file_upload2 {
-	display: none;
-}
-
-#tr_file_upload3 {
-	display: none;
-}
-
-#tr_btn_modify {
-	display: none;
-}
-</style>
 </head>
 <body>
 	<nav
@@ -130,7 +113,10 @@
 														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${article.imageFile1}"
 														width="100%" />
 												</div>
-
+												<div id="tr_file_upload1">
+													<input type="file" name="file1" id="i_imageFile1" 
+														onchange="readURL1(this);" />
+												</div>
 
 											</div>
 										</div>
@@ -145,7 +131,10 @@
 														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${article.imageFile2}"
 														width="100%" />
 												</div>
-
+												<div id="tr_file_upload2">
+													<input type="file" name="file2" id="i_imageFile2" 
+														onchange="readURL2(this);" />
+												</div>
 
 											</div>
 										</div>
@@ -160,7 +149,10 @@
 														src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${article.imageFile3}"
 														width="100%" />
 												</div>
-
+												<div id="tr_file_upload3">
+													<input type="file" name="file3" id="i_imageFile3" 
+														onchange="readURL3(this);" />
+												</div>
 
 											</div>
 										</div>
@@ -176,29 +168,31 @@
 						<td class="td_title" align="left" width="10%">책 제목</td>
 						<td colspan="2"><input type="text" size="67" maxlength="500"
 							id="i_title" name="title" value="${article.title}"
-							class="title_input" disabled /></td>
+							class="title_input"  /></td>
 					</tr>
 					<tr>
 						<td class="td_title" align="left">책 가격</td>
 						<td colspan=2><input type="text" size="20" maxlength="100"
 							name="price" id="i_price" value="${article.price}"
-							class="title_input" disabled />원</td>
+							class="title_input"   />원</td>
 					</tr>
 					<tr>
 
 						<td class="td_title" colspan=2 align="left"><input
 							type="hidden" size="20" maxlength="100" value="${member.name }"
 							readonly /></td>
-						<td><input type="hidden" name="articleNO"
-							value="${article.articleNO}" />
+							<td> <input type="hidden" name = "articleNO" value="${article.articleNO}"/>
 						<td colspan=6></td>
 					</tr>
 					<tr>
 						<td class="td_title" align="left">책 설명</td>
-						<td colspan=2 width="100%"><textarea id="i_content"
-								name="content" rows="10" cols="110" maxlength="4000" disabled>${article.content}</textarea>
-							<script src="${contextPath}/resources/ckeditor/ckeditor.js"></script>
-							<script type="text/javascript">
+	
+						<td colspan=2 width="100%"><textarea id="i_content" name="content" 
+						
+								rows="10" cols="110" maxlength="4000" >${article.content}</textarea>
+								<script
+								src="${contextPath}/resources/ckeditor/ckeditor.js"></script> <script
+								type="text/javascript">
 									CKEDITOR
 											.replace(
 													'i_content',
@@ -207,43 +201,26 @@
 													});
 									window.parent.CKEDITOR.tools.callFunction(
 											1, "${url}", "전송완료");
-								</script></td>
+								</script>
+						</td>
 					</tr>
 					<tr>
 						<td align="left" class="td_title">판매 위치</td>
 						<td><div id="map"></div>
 							<div id="clickLatlng"></div></td>
-						<td><div id="loc_x">
-								<input type="hidden" name="loc_x" value="${article.loc_x}" />
-							</div>
-							<div id="loc_y">
-								<input type="hidden" name="loc_y" value="${article.loc_y}" />
-							</div></td>
+						<td><div id="loc_x"><input type="hidden" name="loc_x" value="${article.loc_x}"/></div>
+							<div id="loc_y"><input type="hidden" name="loc_y" value="${article.loc_y}"/></div></td>
 					</tr>
 
 				</table>
 
 
 				<div class="div_input">
-					<input type=button value="채팅하기"
-						onClick="location.href='${contextPath}/chat/login.do'"
-						class="write_btn btn btn-outline btn-primary" /> 
-						<input
-						type=button value="목록" onClick="backToList(this.form)"
-						class="write_btn btn btn-outline btn-primary" />
+					<input type="submit" value="수정반영" class="write_btn btn btn-outline btn-primary" /> 
+                    <input type=button value="삭제하기" class="write_btn btn btn-outline btn-primary" onClick="fn_remove_article('${contextPath}/board/removeArticle.do', ${article.articleNO})">
+					<input type=button value="취소" onClick="backToForm(articleForm)" class="write_btn btn btn-outline btn-primary" />
+					<input type=button value="목록" onClick="backToList(this.form)" class="write_btn btn btn-outline btn-primary" />
 				</div>
-
-				<c:if test="${member.id == article.id}">
-					<div class="div_input">
-						<input type=button value="수정하기"
-							onClick="location.href='${contextPath}/board/modMode.do?articleNO=${article.articleNO}'"
-							class="write_btn btn btn-outline btn-primary" /> 
-							<input
-							type=button value="삭제하기"
-							onClick="fn_remove_article('${contextPath}/board/removeArticle.do', ${article.articleNO})"
-							class="write_btn btn btn-outline btn-primary">
-					</div>
-				</c:if>
 
 			</div>
 		</section>
@@ -264,11 +241,7 @@
 	<script src="${contextPath}/resources/js/main.js"></script>
 
 	<script type="text/javascript">
-	 
-	 function fn_modify_article(obj){
-		 obj.action="${contextPath}/board/modArticle.do";
-		 obj.submit();
-	 }
+
 	 
 	 function fn_remove_article(url,articleNO){
 		 var form = document.createElement("form");
@@ -285,7 +258,7 @@
 	 
 	 }
 
-	
+
 	
 	
 		function readURL1(input) {

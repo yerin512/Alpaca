@@ -4,6 +4,9 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+ 
+ @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+ 
 :root { -
 	-blue: #007bff; -
 	-indigo: #6610f2; -
@@ -12777,7 +12780,11 @@ max-width
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c6ff',
 		endColorstr='#0072ff', GradientType=1);}
 
+
+/*책거래게시판 상세보기 articleForm*/
+
 /*articleForm*/
+
 #articleForm{width:60%;margin:90px auto;border:1px solid #ddd}
 #articleForm #preview1, #articleForm #preview2, #articleForm #preview3{background:#ddd}
 #articleForm .staff-2 .img-wrap{width:250px!important;height:250px!important}
@@ -12785,7 +12792,7 @@ max-width
 #articleForm .gmnoprint, .gm-control-active.gm-fullscreen-control {display: none;}
 #articleForm  table{width:95%}
 #articleForm .btn.btn-primary{padding:5px 30px!important;}
-#articleForm .div_input{width:250px;margin:20px auto;}
+#articleForm .div_input{margin:20px auto; float:right;}
 #articleForm .div_input>input{margin-right:10px}
 #articleForm input.title_input{width:30%;height:40px;border:1px solid #ddd}
 #articleForm .td_title{font-size:16px;color:#666;font-weight:bold}
@@ -12848,7 +12855,7 @@ max-width
 	display: none
 }
 
-/*而ㅻ�ㅻ땲�떚 湲��벐湲�*/
+/*커뮤니티 글 상세보기*/
 #communityFrom {
 	width: 60%;
 	margin: 90px auto
@@ -12892,7 +12899,9 @@ max-width
 #communityFrom .td_btn input:first-child {
 	margin-left: 43%
 }
-/*而ㅻ�ㅻ땲�떚 湲�紐⑸줉*/
+
+
+/*커뮤니티 글목록*/
 .communityList {
 	padding: margin auto;
 	padding: 130px 0;
@@ -13081,6 +13090,7 @@ alret
 
 .viewCommunity {
 	width: 80%;
+	height:600px;
 	margin: 95px auto
 }
 
@@ -13097,15 +13107,20 @@ alret
 }
 
 .viewCommunity #i_title {
-	font-size: 40px
+	padding:0;
+	margin-left:-5px;
+	font-size: 24px;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 .viewCommunity .flot_tr {
-	overflow: hidden
+	overflow: hidden;
+	height:80px
 }
 
 .viewCommunity .flot_tr>td {
-	float: left
+	float: left;
+	color:#888
 }
 
 .viewCommunity input {
@@ -13133,17 +13148,43 @@ alret
 	display: none;
 }
 
-.viewCommunity  #tr_btn_modify {
+.viewCommunity #tr_btn_modify {
 	display: none;
 	float:right
 }
-.viewCommunity btn_cancel{
-	margin-left:15px
+.viewCommunity  #tr_btn_modify .btn{
+	margin-left:5px
 	
 	
 }
+#realView #tr_btn{margin-top:0px}
+#realView #cke_i_content{border:none}
+#realView{padding:30px 0;border:1px solid #ddd}
+#realView #cke_1_contents{height:350px!important;margin:0}
+#realView .line_hr {
+	position:absolute;
+	top:116px;
+	width: 97%;
+	height: 1px;
+	padding: 0;
+	margin-bottom: 20px;
+	background: #ddd
+}
+#realView .cke_editable{margin:0!important}
+#realView .flot_tr>td>input {
+	font-size:14px;
+	color:#888
+}
 
 
+.viewCommunity .viewCo_h{margin-bottom:0!important;font-size:16px;color:#4986fc;font-weight:600;}
+
+#realView #cke_1_top{display:none}
+#realView .cke_bottom{display:none}
+#modmodComnunity .viewCo_h{margin-left:3px}
+#modmodComnunity #i_title{margin-left:0!important}
+#modmodComnunity #tr_btn{margin-top:30px}
+#modmodComnunity #cke_1_contents{height:300px!important}
 /* Blog*/
 .post-info {
 	font-size: 12px;
