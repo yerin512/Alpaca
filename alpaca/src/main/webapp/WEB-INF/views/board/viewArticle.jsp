@@ -87,7 +87,6 @@
       </div>
    </nav>
    <!-- END nav -->
-
    <section class="hero-wrap hero-wrap-2"
       style="background-image: url('${contextPath}/resources/images/bg_2.png');">
       <div class="overlay"></div>
@@ -128,15 +127,15 @@
                   </td>
                </tr>
                <tr class="flot_tr">
-					<td class="flot_tr_td td_id">닉네임 </td>
+					<td class="flot_tr_td td_id"> ${member.id} </td>
 					<td>&nbsp; &nbsp;</td>
-					<td class="flot_tr_td td_date"> 2020.12.03</td>
+					<td class="flot_tr_td td_date"> ${article.writeDate}</td>
 			   </tr>
 			   <tr class="line_hr"></tr>
                <tr>
                   <td class="float_tdbox">
                         <div class="img_box">
-                                    <div class="img-wrap d-flex align-items-stretch">
+                                    <div class="img-wrap d-flex align-items-stretch" height="250px" >
                                        <img id="preview1"
                                           src="${contextPath}/board/download.do?articleNO=${article.articleNO}&imageFileName=${article.imageFile1}"
                                           width="100%" />
@@ -163,20 +162,17 @@
                      value="${article.articleNO}" />
                   <td colspan=6></td>
                </tr>
-               <tr>
-                  <td colspan=2 width="100%"><textarea id="i_content" name="content" rows="10" cols="110" maxlength="4000" disabled>${article.content}</textarea>
-                     <script src="${contextPath}/resources/ckeditor/ckeditor.js"></script>
-                     <script type="text/javascript">
-                           CKEDITOR
-                                 .replace(
-                                       'i_content',
-                                       {
-                                          filebrowserUploadUrl : '${pageContext.request.contextPath }/community/fileupload.do'
-                                       });
-                           window.parent.CKEDITOR.tools.callFunction(
-                                 1, "${url}", "전송완료");
-                        </script></td>
+               <tr class="nbsp"></tr>
+               <tr class="tr_cation">
+               		<td class="caption">
+               			* 거래전 필독 ! 주의 하세요! <br>
+               			* 거래 전 연락처를 사이버캅과 더치트로 조회해 주시기 바랍니다. <br>
+               			* 알파카는 통신판매중개자로 통신판매자의 당사자가 아닙니다.  <br>
+               			* 회원과 구매 회원 간의 상품거래 정보 및 거래에 관여하지 않으며 어떠한 의무와 책임도 부담하지 않습니다. 
+               		</td>
                </tr>
+               <tr class="nbsp"></tr>
+               <!-- 이미지 세개 -->
                 <tr>
                   <td>
                         <div class="container" id="content_underbox">
@@ -226,6 +222,20 @@
                     </td>
                </tr>
                <tr>
+                  <td colspan=2 width="100%"><textarea id="i_content" name="content" rows="10" cols="110" maxlength="4000" disabled>${article.content}</textarea>
+                     <script src="${contextPath}/resources/ckeditor/ckeditor.js"></script>
+                     <script type="text/javascript">
+                           CKEDITOR
+                                 .replace(
+                                       'i_content',
+                                       {
+                                          filebrowserUploadUrl : '${pageContext.request.contextPath }/community/fileupload.do'
+                                       });
+                           window.parent.CKEDITOR.tools.callFunction(
+                                 1, "${url}", "전송완료");
+                        </script></td>
+               </tr>
+               <tr>
                   <td><div id="map"></div>
                      <div id="clickLatlng"></div></td>
                   <td><div id="loc_x">
@@ -235,10 +245,7 @@
                         <input type="hidden" name="loc_y" value="${article.loc_y}" />
                      </div></td>
                </tr>
-
             </table>
-
-
             <div class="div_input">
                   <input
                   type=button value="목록" onClick="backToList(this.form)"
@@ -296,7 +303,6 @@
         form.submit();
     
     }
-
    
    
    

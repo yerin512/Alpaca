@@ -10344,6 +10344,7 @@ supports ((position: -webkit-sticky) or (position: sticky)) { .sticky-top
 }
 
 @media ( min-width : 1200px) {
+	#articleForm{width:50%;margin:90px auto;border:1px solid #ddd}
 	.text-xl-left {
 		text-align: left !important;
 	}
@@ -11062,7 +11063,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
   -moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
   box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
   z-index: 0;
-  top:47%;
+  top:38%;
   overflow:hidden
    }
   @media (max-width: 767.98px) {
@@ -12781,15 +12782,16 @@ max-width
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c6ff',
 		endColorstr='#0072ff', GradientType=1);}
 
-
+#articleForm .btn-gray{background:#fff;border:1px solid #ddd!important;color:#666!important}
 /*책거래게시판 상세보기 viewAricle*/
+.viewArticle{width:55%!important}
 .viewArticle .nav_title{color:#4986fc}
 .viewArticle .cke_top{display:none}
 .viewArticle .cke_bottom{display:none}
 .viewArticle #cke_1_contents{height:300px!important}
 .viewArticle .td_title{display:none}
 #content_underbox{width:100%;}
-.viewArticle .float_tdbox{border-bottom:1px}
+.viewArticle .float_tdbox{overflow:hidden;border-bottom:1px}
 .viewArticle .float_tdbox>div{float:left;}
 .viewArticle .va_td>input{background:#fff;border:none!important}
 .viewArticle .cke_chrome{border:none}
@@ -12808,9 +12810,12 @@ max-width
 }
 .viewArticle .articleFrom_table{padding-top:30px}
 .viewArticle .box_p{margin-bottom:0}
-.viewArticle .chatbt{width:100%;margin-top:20px;padding:15px 30px!important}
+.viewArticle .chatbt{width:100%;margin-top:40px;padding:15px 30px!important}
+.viewArticle .tr_cation{margin:30px}
+.viewArticle .caption{background:#eee;padding:30px;color:#666}
+.nbsp{height:30px}
 /**/
-.img_box{width:50%;margin-right:2%}
+.img_box{width:50%;height:250px;margin-right:2%}
 .text_box{width:48%}
 #img_box .staff-2 .img-wrap{width:100%!important}
 .viewArticle .staff-2{overflow:unset}

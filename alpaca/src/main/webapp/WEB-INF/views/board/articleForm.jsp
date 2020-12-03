@@ -166,14 +166,36 @@
 								</script></td>
 					</tr>
 					<tr>
+						<td class="td_title" align="left">책 상태</td>
+						<td>
+							<input type="button" value="최상" class="btn-gray write_btn btn btn-outline btn-primary" />
+							<input type="button" value="최상" class="btn-gray write_btn btn btn-outline btn-primary" />
+							<input type="button" value="최상" class="btn-gray write_btn btn btn-outline btn-primary" />
+							<input type="button" value="최상" class="btn-gray write_btn btn btn-outline btn-primary" />
+							
+						</td>
+					</tr>
+					<tr>
+						<td class="td_title" align="left">거래 방법</td>
+						<td>
+							<input type="button" value="직거래" class="btn-gray write_btn btn btn-outline btn-primary" />
+							<input type="button" value="택배거래" class="btn-gray write_btn btn btn-outline btn-primary" />
+						</td>
+					</tr>
+					<tr>
 						<td align="left" class="td_title">판매 위치</td>
 						<td><div id="map"></div>
 							<div id="clickLatlng"></div></td>
 					</tr>
+					<tr>
+						<td align="left" class="td_title">상세 위치</td>
+						<td>
+							<input type="text" size="67" maxlength="500"
+							name="title" placeholder="상세 위치를 입력해주세요" class="title_input" />
+						</td>
+					</tr>
 
 				</table>
-
-
 				<div class="div_input">
 					<input type="submit" value="작성"
 						class="write_btn btn btn-outline btn-primary" /> <input
