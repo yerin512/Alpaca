@@ -31,7 +31,7 @@ public class WebSocketChat {
 		logger.info("Open session id:" + session.getId());
 		try {
 			final Basic basic = session.getBasicRemote();
-			basic.sendText("대화 시작");
+			basic.sendText("채팅방에 입장하였습니다.<br>");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
