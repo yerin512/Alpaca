@@ -169,9 +169,9 @@
 						<td class="td_title" align="left">책 상태</td>
 						<td>
 							<input type="button" value="최상" class="btn-gray write_btn btn btn-outline btn-primary" />
-							<input type="button" value="최상" class="btn-gray write_btn btn btn-outline btn-primary" />
-							<input type="button" value="최상" class="btn-gray write_btn btn btn-outline btn-primary" />
-							<input type="button" value="최상" class="btn-gray write_btn btn btn-outline btn-primary" />
+							<input type="button" value="상" class="btn-gray write_btn btn btn-outline btn-primary" />
+							<input type="button" value="중" class="btn-gray write_btn btn btn-outline btn-primary" />
+							<input type="button" value="하" class="btn-gray write_btn btn btn-outline btn-primary" />
 							
 						</td>
 					</tr>
@@ -182,6 +182,30 @@
 							<input type="button" value="택배거래" class="btn-gray write_btn btn btn-outline btn-primary" />
 						</td>
 					</tr>
+					<!--  버튼 안 되면 옵션-->
+					<!-- 
+					<tr>
+						<td class="td_title" align="left">책 상태</td>
+						<td>
+							<select id="condition-select">
+							    <option value="">책 상태</option>
+							    <option value="최상">최상</option>
+							    <option value="상">상</option>
+							    <option value="중">중</option>
+							    <option value="하">하</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td class="td_title" align="left">거래 방법</td>
+						<td>
+							<select id="transaction-select">
+							    <option value="">거래 방법</option>
+							    <option value="직거래">직거래</option>
+							    <option value="택배거래">상</option>
+							</select>
+						</td>
+					</tr> -->
 					<tr>
 						<td align="left" class="td_title">판매 위치</td>
 						<td><div id="map"></div>

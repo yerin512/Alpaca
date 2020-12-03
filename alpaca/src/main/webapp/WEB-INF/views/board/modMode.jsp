@@ -94,9 +94,6 @@
 		<section id="articleForm">
 			<div class="articleFrom_table">
 				<!-- 게시물 작성 폼 -->
-
-				<!-- 이미지 파일 올리는 섹션 -->
-
 				<table border="0" align="center">
 					<tr>
 						<td class="td_title">이미지</td>
@@ -117,10 +114,8 @@
 													<input type="file" name="file1" id="i_imageFile1" 
 														onchange="readURL1(this);" />
 												</div>
-
 											</div>
 										</div>
-
 										<div
 											class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
 											<div class="staff-2 w-100">
@@ -138,7 +133,6 @@
 
 											</div>
 										</div>
-
 										<div
 											class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
 											<div class="staff-2 w-100">
@@ -156,11 +150,6 @@
 
 											</div>
 										</div>
-
-
-
-
-
 									</div>
 								</div></td>
 					</tr>
@@ -205,11 +194,59 @@
 						</td>
 					</tr>
 					<tr>
+						<td class="td_title" align="left">책 상태</td>
+						<td>
+							<input type="button" value="최상" class="btn-gray write_btn btn btn-outline btn-primary" />
+							<input type="button" value="상" class="btn-gray write_btn btn btn-outline btn-primary" />
+							<input type="button" value="중" class="btn-gray write_btn btn btn-outline btn-primary" />
+							<input type="button" value="하" class="btn-gray write_btn btn btn-outline btn-primary" />
+							
+						</td>
+					</tr>
+					<tr>
+						<td class="td_title" align="left">거래 방법</td>
+						<td>
+							<input type="button" value="직거래" class="btn-gray write_btn btn btn-outline btn-primary" />
+							<input type="button" value="택배거래" class="btn-gray write_btn btn btn-outline btn-primary" />
+						</td>
+					</tr>
+					<!--  버튼 안 되면 옵션-->
+					<!-- 
+					<tr>
+						<td class="td_title" align="left">책 상태</td>
+						<td>
+							<select id="condition-select">
+							    <option value="">책 상태</option>
+							    <option value="최상">최상</option>
+							    <option value="상">상</option>
+							    <option value="중">중</option>
+							    <option value="하">하</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td class="td_title" align="left">거래 방법</td>
+						<td>
+							<select id="transaction-select">
+							    <option value="">거래 방법</option>
+							    <option value="직거래">직거래</option>
+							    <option value="택배거래">상</option>
+							</select>
+						</td>
+					</tr> -->
+					<tr>
 						<td align="left" class="td_title">판매 위치</td>
 						<td><div id="map"></div>
 							<div id="clickLatlng"></div></td>
 						<td><div id="loc_x"><input type="hidden" name="loc_x" value="${article.loc_x}"/></div>
 							<div id="loc_y"><input type="hidden" name="loc_y" value="${article.loc_y}"/></div></td>
+					</tr>
+					<tr>
+						<td align="left" class="td_title">상세 위치</td>
+						<td>
+							<input type="text" size="67" maxlength="500"
+							name="title" placeholder="상세 위치를 입력해주세요" class="title_input" />
+						</td>
 					</tr>
 
 				</table>
@@ -217,9 +254,9 @@
 
 				<div class="div_input">
 					<input type="submit" value="수정반영" class="write_btn btn btn-outline btn-primary" /> 
-                    <input type=button value="삭제하기" class="write_btn btn btn-outline btn-primary" onClick="fn_remove_article('${contextPath}/board/removeArticle.do', ${article.articleNO})">
-					<input type=button value="취소" onClick="backToForm(articleForm)" class="write_btn btn btn-outline btn-primary" />
-					<input type=button value="목록" onClick="backToList(this.form)" class="write_btn btn btn-outline btn-primary" />
+                    <input type="button" value="삭제하기" class="write_btn btn btn-outline btn-primary" onClick="fn_remove_article('${contextPath}/board/removeArticle.do', ${article.articleNO})">
+					<input type="button" value="취소" onClick="backToForm(articleForm)" class="write_btn btn btn-outline btn-primary" />
+					<input type="button" value="목록" onClick="backToList(this.form)" class="write_btn btn btn-outline btn-primary" />
 				</div>
 
 			</div>
