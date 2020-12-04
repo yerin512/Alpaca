@@ -14,6 +14,7 @@ public class ArticleVO {
 	private String title;
 	private String content;
 	private int price;
+	private String comPrice;
 	private String imageFile1;
 	private String imageFile2;
 	private String imageFile3;
@@ -30,15 +31,19 @@ public class ArticleVO {
 
 
 
-	public ArticleVO(String id, int articleNO, String title, String content, int price, String imageFile1,
-			String imageFile2, String imageFile3, Date writeDate, String location, double loc_x, double loc_y,
-			String condition, String way) {
+
+
+
+	public ArticleVO(String id, int articleNO, String title, String content, int price, String comPrice,
+			String imageFile1, String imageFile2, String imageFile3, Date writeDate, String location, double loc_x,
+			double loc_y, String condition, String way) {
 		super();
 		this.id = id;
 		this.articleNO = articleNO;
 		this.title = title;
 		this.content = content;
 		this.price = price;
+		this.comPrice = comPrice;
 		this.imageFile1 = imageFile1;
 		this.imageFile2 = imageFile2;
 		this.imageFile3 = imageFile3;
@@ -49,6 +54,27 @@ public class ArticleVO {
 		this.condition = condition;
 		this.way = way;
 	}
+
+
+
+
+
+
+	public String getComPrice() {
+		return comPrice;
+	}
+
+
+
+
+
+
+	public void setComPrice(String comPrice) {
+		this.comPrice = comPrice;
+	}
+
+
+
 
 
 

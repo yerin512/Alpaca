@@ -10,6 +10,7 @@
 		<result property="title" column="title" />
 		<result property="content" column="content" />
 		<result property="price" column="price" />
+		<result property="comPrice" column="comPrice" />
 		<result property="imageFile1" column="imageFile1" />
 		<result property="imageFile2" column="imageFile2" />
 		<result property="imageFile3" column="imageFile3" />
@@ -24,7 +25,7 @@
 
 	<select id="selectAllArticlesList" resultMap="articlesResult">
     <![CDATA[
-      SELECT id, articleNO, title, content, writeDate, imageFile1,loc_x, loc_y, price, location, way, condition
+      SELECT id, articleNO, title, content, writeDate, imageFile1,loc_x, loc_y, price, location, way, condition, comPrice
       from article ORDER BY articleNO DESC
     ]]>
 	</select>
@@ -52,6 +53,7 @@
 		title=#{title},
 		content=#{content},
 		price=#{price},
+		comPrice=#{comPrice},
 		loc_x=#{loc_x},
 		loc_y=#{loc_y},
 		condition=#{condition},
@@ -69,8 +71,8 @@
 
 	<insert id="insertNewArticle" parameterType="java.util.Map">
     <![CDATA[
-    INSERT into article( id, articleNO, title, content, loc_x, loc_y, price, imageFile1, imageFile2, imageFile3, location, condition, way)         
-			VALUES(#{id}, #{articleNO}, #{title}, #{content}, #{loc_x}, #{loc_y}, #{price}, #{imageFile1}, #{imageFile2}, #{imageFile3}, #{location}, #{condition}, #{way})  
+    INSERT into article( id, articleNO, title, content, loc_x, loc_y, price, imageFile1, imageFile2, imageFile3, location, condition, way, comPrice)         
+			VALUES(#{id}, #{articleNO}, #{title}, #{content}, #{loc_x}, #{loc_y}, #{price}, #{imageFile1}, #{imageFile2}, #{imageFile3}, #{location}, #{condition}, #{way}, #{comPrice})  
     ]]>
 	</insert>
 
