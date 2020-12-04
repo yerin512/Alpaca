@@ -167,12 +167,12 @@
 					</tr>
 					<tr>
 						<td class="td_title" align="left">책 상태</td>
-						<td>
+						<td id="thecondition">
 							<input type="button" value="최상" class="btn-gray write_btn btn btn-outline btn-primary" />
 							<input type="button" value="상" class="btn-gray write_btn btn btn-outline btn-primary" />
 							<input type="button" value="중" class="btn-gray write_btn btn btn-outline btn-primary" />
 							<input type="button" value="하" class="btn-gray write_btn btn btn-outline btn-primary" />
-							
+							<div id="bcondition"><input type="hidden" value="중" name="condition"></div>
 						</td>
 					</tr>
 					<tr>
@@ -180,7 +180,7 @@
 						<td id="theway">
 							<input type="button" value="직거래" class="btn-gray write_btn btn btn-outline btn-primary"  />
 							<input type="button" value="택배거래" class="btn-gray write_btn btn btn-outline btn-primary" />
-							<div id="tway"></div>
+							<div id="tway"><input type="hidden" value="직거래" name="way"></div>
 						</td>
 					</tr>
 					<tr>
@@ -242,10 +242,20 @@
 $("#theway").children().on("click", function() {
 	var qway = $(this).val();
 	
-	var wayvalue = '<input type="text" name="way" value="'+qway+'">';
+	var wayvalue = '<input type="hidden" name="way" value="'+qway+'">';
 	var wayresult = document.getElementById('tway');
 	wayresult.innerHTML = wayvalue;
 })
+
+$("#thecondition").children().on("click", function() {
+	var qcondition = $(this).val();
+	
+	var conditionvalue = '<input type="hidden" name="condition" value="'+qcondition+'">';
+	var conditionresult = document.getElementById('bcondition');
+	conditionresult.innerHTML = conditionvalue;
+})
+
+
 
 </script>
 
