@@ -127,31 +127,40 @@
 	<!-- 카카오 로그인 됐을 때 창 -->
 	<c:choose>
 		<c:when test="${kakaoID ne null}">
-			<section class="ftco-section ftco-no-pb ftco-no-pt">
+			<section id="loginbox_kakao" class="ftco-section ftco-no-pb ftco-no-pt">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-7"></div>
 						<div class="col-md-5 order-md-last">
 							<div class="login-wrap p-4 p-md-5">
+								<div class="bg-color-box"></div>
 								<!--                        추가                           -->
-								<h3 class="form-group">알파카에 오신걸 환영합니다!!</h3>
+								<h3 class="form-group">Welcome to <span>Alpaca!</span></h3>
 								<!--  ------------------------------------------- -->
+								<div class="form-group l_imgbox">
+										<!--  <img src="${contextPath}/resources/images/_profile_alpaca.png" width="250px" height="250px" style="border-radius:250px">-->
+								</div>
 								<form class="signup-form">
-									<div class="form-group">
-										<img src="${profileImage}" width="200px" height="200px">
+									<div class="form-group member-id">
+										<span>${nickname} </span> 님
+										
 									</div>
-
-									<hr>
-									<div class="form-group">
-										<span style="font-size: 1.5em; color: #4986fc;">${nickname}</span>
-										님
+									<p class="point">카카오 회원<span> 0p</span></p>
+									<div id="logout">
+									<a
+										href="https://kauth.kakao.com/oauth/logout?client_id=4d6c516eb262829dabdcac45cae9703c&logout_redirect_uri=http://localhost:8090/alpaca/logout">
+										<input
+										type="button" class="logout_btn btn btn-outline-primary" value="로그아웃"></a>
 									</div>
 								</form>
-								<div class="center">
-									<a
-										href="https://kauth.kakao.com/oauth/logout?client_id=4d6c516eb262829dabdcac45cae9703c&logout_redirect_uri=http://localhost:8090/alpaca/logout"><input
-										type="button" class="btn btn-outline-primary" value="로그아웃"></a>
+								<!--  
+								<div id="function">
+									<button type="button" class="gray_p"
+										onclick="location.href='memberUpdateView'">회원 정보 수정</button>
+									<button type="button" class="gray_p gray_p2"
+										onclick="location.href='${contextPath}/around/aroundMap.do'">&nbsp; | &nbsp;주변 거래</button>	
 								</div>
+								-->
 							</div>
 						</div>
 					</div>
@@ -159,9 +168,9 @@
 			</section>
 		</c:when>
 
-
 		<c:when test="${member.id ne null}">
-			<section class="ftco-section ftco-no-pb ftco-no-pt">
+		<!-- 일반 로그인 -->
+			<section id="loginbox_after" class="ftco-section ftco-no-pb ftco-no-pt">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-7"></div>
@@ -171,22 +180,24 @@
 								<h3 class="form-group">
 									Welcome to <span>Alpaca!</span>
 								</h3>
-								<div class="form-group">
-									<img src="resources/images/profile_alpaca.png" width="200"
-										height="200" /><br>
-									<hr>
+								<div class="form-group l_imgbox">
+									<img src="resources/images/profile_alpaca.png" /><br>
 								</div>
 								<form class="signup-form">
-									<div class="form-group">
-										안녕하세요! <span style="font-size: 1.5em; color: #4986fc;">${member.name}</span>님
+									<div class="form-group member-id">
+										<span>${member.name} </span> 님
+									</div>
+									<p class="point">일반 회원<span> 0p</span></p>
+									<div id="logout">
+									<button type="button" class="logout_btn btn btn-outline-primary"
+										onclick="location.href='logout'">로그아웃</button>
 									</div>
 								</form>
-
 								<div id="function">
-									<button type="button" class="btn btn-outline-primary"
+									<button type="button" class="gray_p"
 										onclick="location.href='memberUpdateView'">회원 정보 수정</button>
-									<button type="button" class="btn btn-outline-primary"
-										onclick="location.href='logout'">로그아웃</button>
+									<button type="button" class="gray_p gray_p2"
+										onclick="location.href='${contextPath}/around/aroundMap.do'">&nbsp; | &nbsp;주변 거래</button>	
 								</div>
 							</div>
 						</div>
@@ -197,7 +208,8 @@
 
 
 		<c:otherwise>
-			<section class="ftco-section ftco-no-pb ftco-no-pt">
+			<!-- 로그인 전 -->
+			<section id="loginbox_before" class="ftco-section ftco-no-pb ftco-no-pt">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-7"></div>
