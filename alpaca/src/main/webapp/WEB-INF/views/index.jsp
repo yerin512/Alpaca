@@ -127,7 +127,7 @@
 	<!-- 카카오 로그인 됐을 때 창 -->
 	<c:choose>
 		<c:when test="${kakaoID ne null}">
-			<section class="ftco-section ftco-no-pb ftco-no-pt">
+			<section id="loginbox_kakao" class="ftco-section ftco-no-pb ftco-no-pt">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-7"></div>
@@ -159,9 +159,10 @@
 			</section>
 		</c:when>
 
-
 		<c:when test="${member.id ne null}">
-			<section class="ftco-section ftco-no-pb ftco-no-pt">
+				<!-- 일반 로그인 -->
+		
+			<section id="loginbox_" class="ftco-section ftco-no-pb ftco-no-pt">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-7"></div>
@@ -172,21 +173,22 @@
 									Welcome to <span>Alpaca!</span>
 								</h3>
 								<div class="form-group">
-									<img src="resources/images/profile_alpaca.png" width="200"
-										height="200" /><br>
-									<hr>
+									<img src="resources/images/profile_alpaca.png" /><br>
 								</div>
 								<form class="signup-form">
-									<div class="form-group">
-										안녕하세요! <span style="font-size: 1.5em; color: #4986fc;">${member.name}</span>님
+									<div class="form-group member-id">
+										<span>${member.name}</span>님
+									</div>
+									<div id="logout">
+									<button type="button" class="btn btn-outline-primary"
+										onclick="location.href='logout'">로그아웃</button>
 									</div>
 								</form>
-
+								
 								<div id="function">
 									<button type="button" class="btn btn-outline-primary"
 										onclick="location.href='memberUpdateView'">회원 정보 수정</button>
-									<button type="button" class="btn btn-outline-primary"
-										onclick="location.href='logout'">로그아웃</button>
+									
 								</div>
 							</div>
 						</div>
