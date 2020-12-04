@@ -133,7 +133,7 @@
 						<div class="col-md-7"></div>
 						<div class="col-md-5 order-md-last">
 							<div class="login-wrap p-4 p-md-5">
-								<div class="bg-color-box"></div>
+								<div class="bg-color-box" style="background-image:url('${profileImage}')"></div>
 								<!--                        추가                           -->
 								<h3 class="form-group">Welcome to <span>Alpaca!</span></h3>
 								<!--  ------------------------------------------- -->
