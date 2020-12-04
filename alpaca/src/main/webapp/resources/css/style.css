@@ -12766,6 +12766,8 @@ max-width
 	background: #FFA648 !important
 }
 /*회원가입창*/
+#loginbox_before .my-4{margin-top:2.5rem !important}
+#login, .kakao{border-radius:7px!important}
 #signUp_footer{position:unset}
 /*일반로그인 후 화면*/
 #loginbox_after .bg-color-box{position:absolute;top:0;left:0;width:100%;height:350px;
@@ -12784,6 +12786,25 @@ border:2px solid #4986fc;color:#4986fc;padding:8px 16px;font-weight:500;;font-si
 #loginbox_after .login-wrap:after{display:none}
 #loginbox_after .point{position:absolute;bottom:30px;left:1.2rem;font-size:20px;font-weight:400;color:#444;font-family: 'Noto Sans KR', sans-serif}
 #loginbox_after .point span{color:#4986fc}
+
+/*카카오 로그인*/
+#loginbox_kakao .bg-color-box{position:absolute;top:0;left:0;width:100%;height:398px;
+	background: url('http://k.kakaocdn.net/dn/dauX9b/btqMeGih0Xd/t3zpBfXOCdsppAHa3vJ6qK/img_640x640.jpg');background-position:center}
+#loginbox_kakao	h3{position:absolute;left:1.5rem;padding:0;text-align:left;font-size:16px;bottom:96px;opacity:.7;color:#111}
+#loginbox_kakao .l_imgbox{padding:0 0 30px}
+#loginbox_kakao .member-id{position:absolute;bottom:42px;padding:13px 0 18px;margin:10px 0 -2px 0;text-align:left!important;font-size:23px;font-weight:400;color:#333;font-family: 'Noto Sans KR', sans-serif}
+#loginbox_kakao .member-id span{font-size:26px;font-weight:600}
+#loginbox_kakao .login-wrap{padding:16rem 1.3rem !important}
+#loginbox_kakao .signup-form>div{float:left}
+#loginbox_kakao .logout_btn{position:absolute;right:1.2rem;bottom:65px;background:#fff;
+border:2px solid #4986fc;color:#4986fc;padding:8px 16px;font-weight:500;;font-size:18px;font-family: 'Noto Sans KR', sans-serif;transition:all 1s}
+#loginbox_kakao .logout_btn:hover{color:#fff;background:#4986fc}
+#loginbox_kakao .gray_p{position:absolute;left:1.2rem;bottom:13px;padding:0;border:none;background:none;color:#bbb;font-family: 'Noto Sans KR', sans-serif;font-size:17px;}
+#loginbox_kakao .gray_p2{position:absolute;left:7.5rem;bottom:13px;border:none;background:none;color:#bbb;font-family: 'Noto Sans KR', sans-serif;font-size:17px;}
+#loginbox_kakao .login-wrap:after{display:none}
+#loginbox_kakao .point{position:absolute;bottom:10px;left:1.2rem;font-size:20px;font-weight:400;color:#444;font-family: 'Noto Sans KR', sans-serif}
+#loginbox_kakao .point span{color:#4986fc}
+
 /*책거래게시판 상세보기 viewAricle*/
 .viewArticle{width:55%!important}
 .viewArticle .nav_title{color:#4986fc}
