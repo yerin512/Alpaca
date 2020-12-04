@@ -29,7 +29,7 @@ public class AroundController {
 
 		int articleNO[] = new int[mapList.size()];
 		String title[] = new String[mapList.size()];
-		int price[] = new int[mapList.size()];
+		String price[] = new String[mapList.size()];
 		String imageFile1[] = new String[mapList.size()];
 		double locX[] = new double[mapList.size()];
 		double locY[] = new double[mapList.size()];
@@ -39,7 +39,7 @@ public class AroundController {
 		for (int i = 0; i < mapList.size(); i++) {
 			articleNO[i] = mapList.get(i).getArticleNO();
 			title[i] = mapList.get(i).getTitle();
-			price[i] = mapList.get(i).getPrice();
+			price[i] = mapList.get(i).getComPrice();
 			imageFile1[i] = mapList.get(i).getImageFile1();
 			locX[i] = mapList.get(i).getLoc_x();
 			locY[i] = mapList.get(i).getLoc_y();

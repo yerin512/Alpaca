@@ -105,7 +105,7 @@
 										</h3>
 										<span class="position mb-2">${item.writeDate }</span>
 										<div class="faded">
-											<p>${item.price}원</p>
+											<p>${item.comPrice}원</p>
 										</div>
 									</div>
 								</div>
