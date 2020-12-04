@@ -14,51 +14,47 @@ import org.springframework.web.servlet.ModelAndView;
 import com.myteam.alpaca.board.service.BoardService;
 import com.myteam.alpaca.board.vo.ArticleVO;
 
-
-
-
 @Controller
 public class AroundController {
 	@Autowired
 	private BoardService boardService;
 	@Autowired
 	private ArticleVO articleVO;
-	
-	
+
 	@RequestMapping(value = "/around/aroundMap.do", method = { RequestMethod.GET, RequestMethod.POST })
 	private ModelAndView main(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String) request.getAttribute("viewName");
 		List<ArticleVO> mapList = boardService.listArticles();
 		ModelAndView mav = new ModelAndView(viewName);
-		
-		
+
+		int articleNO[] = new int[mapList.size()];
+		String title[] = new String[mapList.size()];
+		int price[] = new int[mapList.size()];
+		String imageFile1[] = new String[mapList.size()];
 		double locX[] = new double[mapList.size()];
 		double locY[] = new double[mapList.size()];
-		int price[] = new int[mapList.size()];
-		String title[] = new String[mapList.size()];
-		String imageFile1[]  = new String [mapList.size()];
-		int articleNO[] = new int[mapList.size()];
+		String condition[] = new String[mapList.size()];
 		
-		for(int i=0; i<mapList.size(); i++) {
+
+		for (int i = 0; i < mapList.size(); i++) {
+			articleNO[i] = mapList.get(i).getArticleNO();
+			title[i] = mapList.get(i).getTitle();
+			price[i] = mapList.get(i).getPrice();
+			imageFile1[i] = mapList.get(i).getImageFile1();
 			locX[i] = mapList.get(i).getLoc_x();
 			locY[i] = mapList.get(i).getLoc_y();
-			price[i] = mapList.get(i).getPrice();
-			title[i] = mapList.get(i).getTitle();
-			imageFile1[i] = mapList.get(i).getImageFile1();
-			articleNO[i] = mapList.get(i).getArticleNO();
+			condition[i] = mapList.get(i).getCondition();
 		}
-		
-		
-		mav.addObject("locX",locX);
-		mav.addObject("locY",locY);
-		mav.addObject("price",price);
-		mav.addObject("title",title);
-		mav.addObject("imageFile1",imageFile1);
-		mav.addObject("articleNO",articleNO);
-		
-	
+
+		mav.addObject("articleNO", articleNO);
+		mav.addObject("title", title);
+		mav.addObject("price", price);
+		mav.addObject("imageFile1", imageFile1);
+		mav.addObject("locX", locX);
+		mav.addObject("locY", locY);
+		mav.addObject("condition", condition);
+
 		return mav;
 	}
-	
 
 }

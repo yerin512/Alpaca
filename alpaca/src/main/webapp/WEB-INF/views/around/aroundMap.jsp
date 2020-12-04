@@ -38,7 +38,8 @@
 		#aroundMap .gm-style-iw-d>div{width:100%;margin-top:-10px;}
 		#aroundMap .gm-style-iw-d{overflow:unset!important}
 		#aroundMap .gm-ui-hover-effect{background:#fff!important;right:0!important;top:0!important}
-		#aroundMap .price{padding-bottom:10px;font-size:20px;font-weight:600;letter-spacing:-.3px;color:#555;font-family: 'Noto Sans KR', sans-serif;}
+		#aroundMap .price{padding-bottom:10px;font-size:18px;font-weight:600;letter-spacing:-.3px;color:#555;font-family: 'Noto Sans KR', sans-serif;}
+		#aroundMap .condition{padding-bottom:10px;font-size:18px;font-weight:600;letter-spacing:-.3px;color:#555;font-family: 'Noto Sans KR', sans-serif;}
 	</style>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -54,6 +55,26 @@
 				zoom : 16
 			});
 
+			var articleNO = [];
+			<c:forEach var = "loc" items="${articleNO}" varStatus="status">
+			articleNO[<c:out value='${status.index}'/>] = "<c:out value='${loc}'/>";
+			</c:forEach>
+			
+			var title = [];
+			<c:forEach var = "loc" items="${title}" varStatus="status">
+			title[<c:out value='${status.index}'/>] = "<c:out value='${loc}'/>";
+			</c:forEach>
+			
+			var price = [];
+			<c:forEach var = "loc" items="${price}" varStatus="status">
+			price[<c:out value='${status.index}'/>] = "<c:out value='${loc}'/>";
+			</c:forEach>
+
+			var imageFileName = [];
+			<c:forEach var = "loc" items="${imageFile1}" varStatus="status">
+			imageFileName[<c:out value='${status.index}'/>] = "<c:out value='${loc}'/>";
+			</c:forEach>
+			
 			var locX = [];
 			<c:forEach var = "loc" items="${locX}" varStatus="status">
 			locX[<c:out value='${status.index}'/>] = "<c:out value='${loc}'/>";
@@ -63,25 +84,10 @@
 			<c:forEach var = "loc" items="${locY}" varStatus="status">
 			locY[<c:out value='${status.index}'/>] = "<c:out value='${loc}'/>";
 			</c:forEach>
-
-			var price = [];
-			<c:forEach var = "loc" items="${price}" varStatus="status">
-			price[<c:out value='${status.index}'/>] = "<c:out value='${loc}'/>";
-			</c:forEach>
-
-			var title = [];
-			<c:forEach var = "loc" items="${title}" varStatus="status">
-			title[<c:out value='${status.index}'/>] = "<c:out value='${loc}'/>";
-			</c:forEach>
-
-			var imageFileName = [];
-			<c:forEach var = "loc" items="${imageFile1}" varStatus="status">
-			imageFileName[<c:out value='${status.index}'/>] = "<c:out value='${loc}'/>";
-			</c:forEach>
-
-			var articleNO = [];
-			<c:forEach var = "loc" items="${articleNO}" varStatus="status">
-			articleNO[<c:out value='${status.index}'/>] = "<c:out value='${loc}'/>";
+			
+			var condition = [];
+			<c:forEach var = "loc" items="${condition}" varStatus="status">
+			condition[<c:out value='${status.index}'/>] = "<c:out value='${loc}'/>";
 			</c:forEach>
 
 			var customicon = "${contextPath}/resources/images/around/icon.png";  // 알파카 이미지 마커
@@ -100,8 +106,10 @@
 						infowindow.setContent('<div class="img-box">'
 							+ '<a href="${contextPath}/board/viewArticle.do?articleNO='+articleNO[i]+'" class="link">'
 							+ '<img src="${contextPath}/board/download.do?articleNO='+articleNO[i]+'&imageFileName='+imageFileName[i]+'"></a></div>'
-							+ '<div class="wrap"><a href="${contextPath}/board/viewArticle.do?articleNO='+articleNO[i]+'" class="link"><div class="text-box"><h3>'+title[i]+'</h3>'
-							+ '<div class="price">'+price[i]+'원</a></div>'); 
+							+ '<div class="wrap"><a href="${contextPath}/board/viewArticle.do?articleNO='+articleNO[i]+'" class="link">'
+							+ '<div class="text-box"><h3>'+title[i]+'</h3>'
+							+ '<div class="price">가격: '+price[i]+'원'
+							+ '<div class="condition">상태: '+condition[i]+'</a></div></div>'); 
 						infowindow.open(map, marker);
 					}
 				})(marker, i));
