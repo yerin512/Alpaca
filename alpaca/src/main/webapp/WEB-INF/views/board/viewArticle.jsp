@@ -144,9 +144,9 @@
                         <div class="text_box">
                         	<p class="box_title"><span>판매&nbsp; </span>${article.title}</p>
                         	<p class="box_price">${article.price} 원</p>
-                        	<p class="box_p">거래방법 : 어쩌구</p>
-                        	<p class="box_p">물품상태: s급</p>
-                        	<p class="box_p">거래지역: 서울시 서초구</p>
+                        	<p class="box_p">거래방법 : ${article.way}</p>
+                        	<p class="box_p">물품상태: ${article.condition}</p>
+                        	<p class="box_p">거래지역: ${article.location}</p>
                         	 <input type=button value="구매 문의 채팅"
                   onClick="location.href='${contextPath}/chat/login.do'"
                   class="chatbt write_btn btn btn-outline btn-primary" /> 

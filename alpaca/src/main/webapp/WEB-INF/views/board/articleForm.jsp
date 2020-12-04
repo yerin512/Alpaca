@@ -69,7 +69,7 @@
 				class="row no-gutters slider-text align-items-end justify-content-center">
 				<div class="col-md-9 ftco-animate pb-5 text-center">
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i
+						<span class="mr-2"><a href="${contextPath}/index.do">Home <i
 								class="fa fa-chevron-right"></i></a></span> <span>책거래 <i
 							class="fa fa-chevron-right"></i></span>
 					</p>
@@ -167,46 +167,22 @@
 					</tr>
 					<tr>
 						<td class="td_title" align="left">책 상태</td>
-						<td>
+						<td id="thecondition">
 							<input type="button" value="최상" class="div1 btnGray write_btn btn btn-outline btn-primary" />
 							<input type="button" value="상" class="div1 btnGray write_btn btn btn-outline btn-primary" />
 							<input type="button" value="중" class="div1 btnGray write_btn btn btn-outline btn-primary" />
 							<input type="button" value="하" class="div1 btnGray write_btn btn btn-outline btn-primary" />
-							
+							<div id="bcondition"><input type="hidden" value="중" name="condition"></div>
 						</td>
 					</tr>
 					<tr>
 						<td class="td_title" align="left">거래 방법</td>
-						<td>
+						<td id="theway">
 							<input type="button" value="직거래"  class="div2 btnGray write_btn btn btn-outline btn-primary" />
 							<input type="button"  value="택배거래" class="div2 btnGray write_btn btn btn-outline btn-primary" />
+							<div id="tway"><input type="hidden" value="직거래" name="way"></div>
 						</td>
 					</tr>
-					<!--  버튼 안 되면 옵션-->
-					<!-- 
-					<tr>
-						<td class="td_title" align="left">책 상태</td>
-						<td>
-							<select id="condition-select">
-							    <option value="">책 상태</option>
-							    <option value="최상">최상</option>
-							    <option value="상">상</option>
-							    <option value="중">중</option>
-							    <option value="하">하</option>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td class="td_title" align="left">거래 방법</td>
-						<td>
-							<select id="transaction-select">
-							    <option value="">거래 방법</option>
-							    <option value="직거래">직거래</option>
-							    <option value="택배거래">상</option>
-							</select>
-						</td>
-					</tr> -->
-					
 					<tr>
 						<td align="left" class="td_title">판매 위치</td>
 						<td><div id="map"></div>
@@ -216,7 +192,7 @@
 						<td align="left" class="td_title">상세 위치</td>
 						<td>
 							<input type="text" size="67" maxlength="500"
-							name="title" placeholder="상세 위치를 입력해주세요" class="title_input" />
+							name="location" placeholder="상세 위치를 입력해주세요" class="title_input" />
 						</td>
 					</tr>
 
@@ -261,7 +237,32 @@
 	<script src="${contextPath}/resources/js/scrollax.min.js"></script>
 	<script src="${contextPath}/resources/js/main.js"></script>
 
+<script>
+$("#theway").children().on("click", function() {
+	var qway = $(this).val();
+	
+	var wayvalue = '<input type="hidden" name="way" value="'+qway+'">';
+	var wayresult = document.getElementById('tway');
+	wayresult.innerHTML = wayvalue;
+})
+
+$("#thecondition").children().on("click", function() {
+	var qcondition = $(this).val();
+	
+	var conditionvalue = '<input type="hidden" name="condition" value="'+qcondition+'">';
+	var conditionresult = document.getElementById('bcondition');
+	conditionresult.innerHTML = conditionvalue;
+})
+
+
+
+</script>
+
+
+
 	<script type="text/javascript">
+	
+
 		function readURL1(input) {
 			if (input.files && input.files[0]) {
 				var reader = new FileReader();
