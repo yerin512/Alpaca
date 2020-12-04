@@ -39,11 +39,7 @@ public class AroundController {
 		for (int i = 0; i < mapList.size(); i++) {
 			articleNO[i] = mapList.get(i).getArticleNO();
 			title[i] = mapList.get(i).getTitle();
-<<<<<<< HEAD
-			price[i] = mapList.get(i).getPrice();
-=======
 			price[i] = mapList.get(i).getComPrice();
->>>>>>> origin/isaac
 			imageFile1[i] = mapList.get(i).getImageFile1();
 			locX[i] = mapList.get(i).getLoc_x();
 			locY[i] = mapList.get(i).getLoc_y();

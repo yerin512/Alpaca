@@ -160,9 +160,8 @@
 		</c:when>
 
 		<c:when test="${member.id ne null}">
-				<!-- 일반 로그인 -->
-		
-			<section id="loginbox_" class="ftco-section ftco-no-pb ftco-no-pt">
+		<!-- 일반 로그인 -->
+			<section id="loginbox_after" class="ftco-section ftco-no-pb ftco-no-pt">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-7"></div>
@@ -172,23 +171,24 @@
 								<h3 class="form-group">
 									Welcome to <span>Alpaca!</span>
 								</h3>
-								<div class="form-group">
+								<div class="form-group l_imgbox">
 									<img src="resources/images/profile_alpaca.png" /><br>
 								</div>
 								<form class="signup-form">
 									<div class="form-group member-id">
-										<span>${member.name}</span>님
+										<span>${member.name} </span> 님
 									</div>
+									<p class="point">일반 회원<span> 0p</span></p>
 									<div id="logout">
-									<button type="button" class="btn btn-outline-primary"
+									<button type="button" class="logout_btn btn btn-outline-primary"
 										onclick="location.href='logout'">로그아웃</button>
 									</div>
 								</form>
-								
 								<div id="function">
-									<button type="button" class="btn btn-outline-primary"
+									<button type="button" class="gray_p"
 										onclick="location.href='memberUpdateView'">회원 정보 수정</button>
-									
+									<button type="button" class="gray_p gray_p2"
+										onclick="location.href='${contextPath}/around/aroundMap.do'">&nbsp; | &nbsp;주변 거래</button>	
 								</div>
 							</div>
 						</div>
@@ -199,7 +199,8 @@
 
 
 		<c:otherwise>
-			<section class="ftco-section ftco-no-pb ftco-no-pt">
+			<!-- 로그인 전 -->
+			<section id="loginbox_before" class="ftco-section ftco-no-pb ftco-no-pt">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-7"></div>

@@ -10656,7 +10656,8 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 		background: transparent;
 		padding-left: 0;
 		padding-right: 0;
-		background-size:cover
+		background-size:100%;
+		background-repeat:no-repeat
 	}
 }
 
@@ -12766,25 +12767,23 @@ max-width
 }
 /*회원가입창*/
 #signUp_footer{position:unset}
-/*로그인 화면*/
-.bg-color-box{position:absolute;top:0;left:0;width:100%;height:215px;
-	background: #00c6ff;
-	background: #0072ff;
-	background: -moz-linear-gradient(-45deg, #00c6ff 0%, #0072ff 100%);
-	background: -webkit-gradient(left top, right bottom, color-stop(0%, #00c6ff),
-		color-stop(100%, #0072ff));
-	background: -webkit-linear-gradient(-45deg, #00c6ff 0%, #0072ff 100%);
-	background: -o-linear-gradient(-45deg, #00c6ff 0%, #0072ff 100%);
-	background: -ms-linear-gradient(-45deg, #00c6ff 0%, #0072ff 100%);
-	background: -webkit-linear-gradient(315deg, #00c6ff 0%, #0072ff 100%);
-	background: -o-linear-gradient(315deg, #00c6ff 0%, #0072ff 100%);
-	background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c6ff',
-		endColorstr='#0072ff', GradientType=1);}
-
-
-#articleForm .btnGray{background:#fff;border:1px solid #ddd!important;color:#666!important}
-
+/*일반로그인 후 화면*/
+#loginbox_after .bg-color-box{position:absolute;top:0;left:0;width:100%;height:350px;
+	background: #ddd;}
+#loginbox_after	h3{position:absolute;left:1.5rem;padding:0;text-align:left;font-size:16px;bottom:110px;opacity:.7;color:#111}
+#loginbox_after .l_imgbox{margin-top:-17px}
+#loginbox_after .member-id{padding:13px 0 18px;margin:0 0 12px 0;text-align:left!important;font-size:23px;font-weight:400;color:#333;font-family: 'Noto Sans KR', sans-serif}
+#loginbox_after .member-id span{font-size:26px;font-weight:600}
+#loginbox_after .login-wrap{padding:3rem 1.3rem !important}
+#loginbox_after .signup-form>div{float:left}
+#loginbox_after .logout_btn{position:absolute;right:1.2rem;bottom:65px;background:#fff;
+border:2px solid #4986fc;color:#4986fc;padding:8px 16px;font-weight:500;;font-size:18px;font-family: 'Noto Sans KR', sans-serif;transition:all 1s}
+#loginbox_after .logout_btn:hover{color:#fff;background:#4986fc}
+#loginbox_after .gray_p{position:absolute;left:1.2rem;bottom:13px;padding:0;border:none;background:none;color:#bbb;font-family: 'Noto Sans KR', sans-serif;font-size:17px;}
+#loginbox_after .gray_p2{position:absolute;left:7.5rem;bottom:13px;border:none;background:none;color:#bbb;font-family: 'Noto Sans KR', sans-serif;font-size:17px;}
+#loginbox_after .login-wrap:after{display:none}
+#loginbox_after .point{position:absolute;bottom:30px;left:1.2rem;font-size:20px;font-weight:400;color:#444;font-family: 'Noto Sans KR', sans-serif}
+#loginbox_after .point span{color:#4986fc}
 /*책거래게시판 상세보기 viewAricle*/
 .viewArticle{width:55%!important}
 .viewArticle .nav_title{color:#4986fc}
@@ -12840,6 +12839,8 @@ max-width
 #articleForm .td_title{font-size:16px;color:#666;font-weight:bold}
 #articleForm #tr_btn{width:250px}
 #articleForm #tr_btn>input{margin-right:10px}
+#articleForm .btnGray{background:#fff;border:1px solid #ddd!important;color:#666!important}
+.clicked {color:#fff!important; background: #ddd!important;}
 /*articleList*/
 #listArticle_btn{margin-top:10px;padding:3px;color:#fff!important}
 #listArticle_btn a{color:#fff}
@@ -13635,7 +13636,3 @@ stroke-dashoffset
 
 
 
-      .clicked {
-      color:#fff!important;
-        background: #ddd!important;
-      }
