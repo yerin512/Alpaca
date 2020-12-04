@@ -2,6 +2,7 @@ package com.myteam.alpaca.board.controller;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -40,6 +41,8 @@ public class BoardControllerImpl implements BoardController {
 	private BoardService boardService;
 	@Autowired
 	private ArticleVO articleVO;
+	
+	private DecimalFormat formater = new DecimalFormat("###,###");
 
 	@RequestMapping(value = "/board/listArticles.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView listArticles(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -89,6 +92,11 @@ public class BoardControllerImpl implements BoardController {
 			String name = (String) enu.nextElement();
 			String value = multipartRequest.getParameter(name);
 			articleMap.put(name, value);
+			if(name.equals("price")) {
+				int price = Integer.parseInt(value);
+				String comPrice=formater.format(price);
+				articleMap.put("comPrice", comPrice);
+			}
 		}
 		
 		String originalFile1 = (String) articleMap.get("originalFile1");
@@ -218,6 +226,11 @@ public class BoardControllerImpl implements BoardController {
 			String name = (String) enu.nextElement();
 			String value = multipartRequest.getParameter(name);
 			articleMap.put(name, value);
+			if(name.equals("price")) {
+				int price = Integer.parseInt(value);
+				String comPrice=formater.format(price);
+				articleMap.put("comPrice", comPrice);
+			}
 		}
 		
 		List<String> imageFileName = upload(multipartRequest, response);

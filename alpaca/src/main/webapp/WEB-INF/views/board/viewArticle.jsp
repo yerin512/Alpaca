@@ -143,7 +143,7 @@
                         </div>
                         <div class="text_box">
                         	<p class="box_title"><span>판매&nbsp; </span>${article.title}</p>
-                        	<p class="box_price">${article.price} 원</p>
+                        	<p class="box_price">${article.comPrice} 원</p>
                         	<p class="box_p">거래 방법 : ${article.way}</p>
                         	<p class="box_p">상태 : ${article.condition}</p>
                         	<p class="box_p">거래 지역 : ${article.location}</p>

@@ -12782,14 +12782,9 @@ max-width
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c6ff',
 		endColorstr='#0072ff', GradientType=1);}
 
-<<<<<<< HEAD
-#articleForm .btn-gray{background:#fff;border:1px solid #ddd!important;color:#666!important}
-=======
+
 #articleForm .btnGray{background:#fff;border:1px solid #ddd!important;color:#666!important}
-.clicked {
-        color: gold!important;
-      }
->>>>>>> origin/newYERIN
+
 /*책거래게시판 상세보기 viewAricle*/
 .viewArticle{width:55%!important}
 .viewArticle .nav_title{color:#4986fc}
