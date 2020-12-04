@@ -25,8 +25,8 @@
 							<a class="homebtn" href="${contextPath}/index.do"></a>
 							<div class="portlet-title">
 								<h4><i class="fa fa-circle text-green"></i>알파카 실시간 채팅방</h4>
-								<button type="button" onclick="openSocket();">대화방 참여</button>
-       	    					<button type="button" onclick="closeSocket();">대회방 나가기</button>
+								<button type="button" onclick="openSocket();">채팅 시작</button>
+       	    					<button type="button" onclick="closeSocket();">채팅 종료</button>
 							</div>
 							<div class="clearfix"></div>
 						</div>
