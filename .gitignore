@@ -5,7 +5,7 @@
 /.project/
 /.settings/
 *.class
-trip/target/
-trip/.springBeans
+alpaca/target/
+alpaca/.springBeans
 
 
